@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.Rider2019.1/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.1/system/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_MessageBox.Avalonia.2091708441.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="MessageBox.Avalonia.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+    <e p="$PROJECT_DIR$/../complab2/CompLab2/AvaloniaMsg" t="IncludeRecursive">
+      <e p="AvaloniaMsg.csproj" t="IncludeRecursive" />
+      <e p="MessageBox.cs" t="Include" />
+      <e p="avalonia-logo.ico" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.0" t="Include">
+            <e p="AvaloniaMsg.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+    </e>
+  </component>
+</project>
