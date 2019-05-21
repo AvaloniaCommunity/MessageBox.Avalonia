@@ -7,6 +7,7 @@ To start you shold install MessageBox.Avalonia Nuget package
 
 [nuget.org](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
+
 Class MessageBox has 3 static metods to show msgBox (like wpf).
 Dialog show, show to result and just show
 
