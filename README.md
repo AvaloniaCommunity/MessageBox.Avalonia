@@ -4,7 +4,11 @@ Messagebox for AvaloniaUI
 
 To start you shold install MessageBox.Avalonia Nuget package or download this repo.
 Class MessageBox has 3 static metods to show msgBox (like wpf).
-Dilog show, show to result and just show
-Easyeat method to show is :
+Dialog show, show to result and just show
+
+Easyest method to show is :
 ` MessageBox.Show("test","MyTest");`
+
 Just set title and content.
+
+
