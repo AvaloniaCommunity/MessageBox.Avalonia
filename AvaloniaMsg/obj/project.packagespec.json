@@ -1,0 +1,100 @@
+﻿{
+  "version": "0.8.0.1",
+  "restore": {
+    "projectUniqueName": "/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/AvaloniaMsg.csproj",
+    "projectName": "MessageBox.Avalonia",
+    "projectPath": "/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/AvaloniaMsg.csproj",
+    "outputPath": "/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/obj/",
+    "projectStyle": "PackageReference",
+    "crossTargeting": true,
+    "originalTargetFrameworks": [
+      "netcoreapp2.1",
+      "netcoreapp2.2",
+      "netcoreapp3.0"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {},
+      "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
+      "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
+      "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
+      "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
+      "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
+      "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp2.1": {
+        "projectReferences": {}
+      },
+      "netcoreapp2.2": {
+        "projectReferences": {}
+      },
+      "netcoreapp3.0": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp2.1": {
+      "dependencies": {
+        "Avalonia": {
+          "target": "Package",
+          "version": "[0.8.0, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.1.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    },
+    "netcoreapp2.2": {
+      "dependencies": {
+        "Avalonia": {
+          "target": "Package",
+          "version": "[0.8.0, )"
+        },
+        "Microsoft.NETCore.App": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.2.0, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    },
+    "netcoreapp3.0": {
+      "dependencies": {
+        "Avalonia": {
+          "target": "Package",
+          "version": "[0.8.0, )"
+        },
+        "Microsoft.NETCore.Platforms": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[3.0.0-preview4.19212.13, )",
+          "autoReferenced": true
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

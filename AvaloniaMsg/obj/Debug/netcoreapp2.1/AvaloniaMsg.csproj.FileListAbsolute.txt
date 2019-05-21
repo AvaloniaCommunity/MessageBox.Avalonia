@@ -1,0 +1,9 @@
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/bin/Debug/netcoreapp2.1/AvaloniaMsg.deps.json
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/bin/Debug/netcoreapp2.1/AvaloniaMsg.dll
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/bin/Debug/netcoreapp2.1/AvaloniaMsg.pdb
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/obj/Debug/netcoreapp2.1/AvaloniaMsg.csprojAssemblyReference.cache
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/obj/Debug/netcoreapp2.1/AvaloniaMsg.csproj.CoreCompileInputs.cache
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/obj/Debug/netcoreapp2.1/AvaloniaMsg.AssemblyInfoInputs.cache
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/obj/Debug/netcoreapp2.1/AvaloniaMsg.AssemblyInfo.cs
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/obj/Debug/netcoreapp2.1/AvaloniaMsg.dll
+/home/roman/RiderProjects/complab2/CompLab2/AvaloniaMsg/obj/Debug/netcoreapp2.1/AvaloniaMsg.pdb

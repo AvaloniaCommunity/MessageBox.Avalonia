@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MessageBox.Avalonia</id>
+    <version>0.8.0.1</version>
+    <authors>Larymar</authors>
+    <owners>Larymar</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://gitlab.com/maindlab/messagebox.avalonia</projectUrl>
+    <description>MessageBox for Avalonia UI</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp2.1">
+        <dependency id="Avalonia" version="0.8.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp2.2">
+        <dependency id="Avalonia" version="0.8.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETCoreApp3.0">
+        <dependency id="Avalonia" version="0.8.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework=".NETCoreApp3.0">
+        <frameworkReference name="Microsoft.NETCore.App" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/bin/Release/netcoreapp2.1/AvaloniaMsg.dll" target="lib/netcoreapp2.1/AvaloniaMsg.dll" />
+    <file src="/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/bin/Release/netcoreapp2.2/AvaloniaMsg.dll" target="lib/netcoreapp2.2/AvaloniaMsg.dll" />
+    <file src="/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/bin/Release/netcoreapp3.0/AvaloniaMsg.dll" target="lib/netcoreapp3.0/AvaloniaMsg.dll" />
+    <file src="/home/roman/RiderProjects/MessageBox.Avalonia/AvaloniaMsg/avalonia-logo.ico" target="/avalonia-logo.ico" />
+  </files>
+</package>
