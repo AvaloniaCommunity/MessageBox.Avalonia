@@ -5,7 +5,7 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 
-namespace MessageBox.Avalonia
+namespace Messagebox.Avalonia
 {
     public class MessageBox : Window
     {
