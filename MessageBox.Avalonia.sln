@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaMsg", "..\complab2\CompLab2\AvaloniaMsg\AvaloniaMsg.csproj", "{7BFD0A15-9D48-4BF4-B91D-C71A5F4E81F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaMsg", "AvaloniaMsg\AvaloniaMsg.csproj", "{FCDEC051-5B8F-493E-B286-EBA271246C9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7BFD0A15-9D48-4BF4-B91D-C71A5F4E81F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BFD0A15-9D48-4BF4-B91D-C71A5F4E81F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BFD0A15-9D48-4BF4-B91D-C71A5F4E81F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BFD0A15-9D48-4BF4-B91D-C71A5F4E81F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCDEC051-5B8F-493E-B286-EBA271246C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCDEC051-5B8F-493E-B286-EBA271246C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCDEC051-5B8F-493E-B286-EBA271246C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCDEC051-5B8F-493E-B286-EBA271246C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
