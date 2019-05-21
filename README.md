@@ -16,3 +16,4 @@ Easyest method to show is :
 Just set title and content, but you can choose what buttons you wanna show and what Icon (only BitMap)
 
 
+![](Images/Screenshot_from_2019-05-21_16-17-16.png)
