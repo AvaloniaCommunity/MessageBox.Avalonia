@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -41,7 +42,7 @@ namespace Messagebox.Avalonia
             var messageBox = new MessageBox();
             if (windowSize == null)
             {
-                messageBox.Height = 200;
+                messageBox.Height = 100;
                 messageBox.Width = 300;
             }
             else
@@ -50,17 +51,19 @@ namespace Messagebox.Avalonia
                 messageBox.Width = windowSize.Width;
             }
             messageBox.Content = CreateBaseMsgBox(text, buttons, messageBox);
-            if (bitmap == null)
+            if (bitmap != null)
             {
-                var assembly = Assembly.GetExecutingAssembly();
-                var stream = assembly.GetManifestResourceStream("AvaloniaMsg.avalonia-logo.ico");
-                messageBox.Icon = new WindowIcon(stream);
-            }
-            else
-            {
-                messageBox.Icon = new WindowIcon(bitmap);
+                try
+                {
+                    messageBox.Icon = new WindowIcon(bitmap);
+                }
+                catch
+                {
+                    throw new ArgumentException("Invalid bitmap for icon");
+                }
             }
 
+            messageBox.CanResize = false;
             return messageBox;
         }
         public static Task<MessageBoxResult> ShowForResult(string title, string text,MessageBoxButtons buttons=MessageBoxButtons.Ok,WindowSize windowSize=null,Bitmap bitmap = null)
@@ -112,14 +115,15 @@ namespace Messagebox.Avalonia
         {
             var grid = new Grid();
             List<ColumnDefinition> definitions = new List<ColumnDefinition>();
+            definitions.Add(new ColumnDefinition{Width = new GridLength(1,GridUnitType.Star)});
             for (int i = 0; i < buttons.Length; i++)
             {
                 definitions.Add(new ColumnDefinition{Width = new GridLength(5)});
-                definitions.Add(new ColumnDefinition{Width = new GridLength(1,GridUnitType.Star)});
+                definitions.Add(new ColumnDefinition{Width = new GridLength(1,GridUnitType.Auto)});
             }
             definitions.Add(new ColumnDefinition{Width = new GridLength(5)});
             grid.ColumnDefinitions.AddRange(definitions);
-             var j = 1;
+             var j = 2;
             foreach (var btn in buttons)
             {
                 Grid.SetColumn(btn,j);
@@ -136,21 +140,30 @@ namespace Messagebox.Avalonia
             var grid = new Grid();
             var row1 = new RowDefinition();
             var row2 = new RowDefinition();
+            var row3 = new RowDefinition();
+            var row4 = new RowDefinition();
+            var row5 = new RowDefinition();
             var textBlock = new TextBlock();
             textBlock.Text = text;
             textBlock.TextAlignment = TextAlignment.Center;
             textBlock.TextWrapping = TextWrapping.Wrap;
+            textBlock.FontSize = 14;
+            textBlock.FontWeight = FontWeight.Bold;
             row1.Height = new GridLength(1, GridUnitType.Star);
             row2.Height = new GridLength(1, GridUnitType.Auto);
-            grid.RowDefinitions.AddRange(new[] {row1, row2});
-            Grid.SetRow(textBlock,0);
+            row3.Height = new GridLength(1, GridUnitType.Star);
+            row4.Height = new GridLength(1, GridUnitType.Auto);
+            row5.Height = new GridLength(5);
+            
+            grid.RowDefinitions.AddRange(new[] {row1, row2,row3,row4,row5});
+            Grid.SetRow(textBlock,1);
             grid.Children.Add(textBlock);
             switch (buttons)
             {
                 case MessageBoxButtons.Ok:
                 {
                     var btnGrid = GetButtonGrid(GetButton(window, MessageBoxResult.Ok));
-                    Grid.SetRow(btnGrid,1);
+                    Grid.SetRow(btnGrid,3);
                     grid.Children.Add(btnGrid);
                 }
                     break;
@@ -158,7 +171,7 @@ namespace Messagebox.Avalonia
                 {
                     var btnGrid = GetButtonGrid(GetButton(window, MessageBoxResult.Ok),
                         GetButton(window,MessageBoxResult.Cancel));
-                    Grid.SetRow(btnGrid,1);
+                    Grid.SetRow(btnGrid,3);
                     grid.Children.Add(btnGrid);
                 }
                     break;
@@ -166,7 +179,7 @@ namespace Messagebox.Avalonia
                 {
                     var btnGrid = GetButtonGrid(GetButton(window, MessageBoxResult.Yes),
                         GetButton(window,MessageBoxResult.No));
-                    Grid.SetRow(btnGrid,1);
+                    Grid.SetRow(btnGrid,3);
                     grid.Children.Add(btnGrid);
                 }
                     break;
@@ -175,7 +188,7 @@ namespace Messagebox.Avalonia
                     var btnGrid = GetButtonGrid(GetButton(window, MessageBoxResult.Yes),
                         GetButton(window,MessageBoxResult.No),
                         GetButton(window,MessageBoxResult.Cancel));
-                    Grid.SetRow(btnGrid,1);
+                    Grid.SetRow(btnGrid,3);
                     grid.Children.Add(btnGrid);
                 }
                     break;
