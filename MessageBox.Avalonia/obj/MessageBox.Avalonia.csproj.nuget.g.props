@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">/home/roman/RiderProjects/messagebox.avalonia/MessageBox.Avalonia/obj/project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/roman/.nuget/packages/</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/roman/.nuget/packages/</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.9.1</NuGetToolVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.netcore.app/2.1.0/build/netcoreapp2.1/Microsoft.NETCore.App.props" Condition="Exists('$(NuGetPackageRoot)microsoft.netcore.app/2.1.0/build/netcoreapp2.1/Microsoft.NETCore.App.props')" />
+    <Import Project="$(NuGetPackageRoot)avalonia/0.8.0/build/Avalonia.props" Condition="Exists('$(NuGetPackageRoot)avalonia/0.8.0/build/Avalonia.props')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.netcore.app/2.2.0/build/netcoreapp2.2/Microsoft.NETCore.App.props" Condition="Exists('$(NuGetPackageRoot)microsoft.netcore.app/2.2.0/build/netcoreapp2.2/Microsoft.NETCore.App.props')" />
+    <Import Project="$(NuGetPackageRoot)avalonia/0.8.0/build/Avalonia.props" Condition="Exists('$(NuGetPackageRoot)avalonia/0.8.0/build/Avalonia.props')" />
+  </ImportGroup>
+  <ImportGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)avalonia/0.8.0/build/Avalonia.props" Condition="Exists('$(NuGetPackageRoot)avalonia/0.8.0/build/Avalonia.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgAvalonia Condition=" '$(PkgAvalonia)' == '' ">/home/roman/.nuget/packages/avalonia/0.8.0</PkgAvalonia>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.2' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgAvalonia Condition=" '$(PkgAvalonia)' == '' ">/home/roman/.nuget/packages/avalonia/0.8.0</PkgAvalonia>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' AND '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgAvalonia Condition=" '$(PkgAvalonia)' == '' ">/home/roman/.nuget/packages/avalonia/0.8.0</PkgAvalonia>
+  </PropertyGroup>
+</Project>

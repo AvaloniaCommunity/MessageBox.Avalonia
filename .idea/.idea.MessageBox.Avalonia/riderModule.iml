@@ -2,7 +2,6 @@
 <module type="RIDER_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../.." />
-    <content url="file://$MODULE_DIR$/../../../complab2/CompLab2/AvaloniaMsg" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
