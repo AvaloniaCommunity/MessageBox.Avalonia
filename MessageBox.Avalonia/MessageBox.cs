@@ -138,7 +138,7 @@ namespace Messagebox.Avalonia
         private static Button GetButton(MessageBox window, MessageBoxResult result)
         {
             var btn = new Button();
-            btn.Content = result.ToString();
+            btn.Content =" "+ result+" ";
             btn.Click += (_, __) =>
             {
                 window.Res = result;
