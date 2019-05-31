@@ -18,4 +18,4 @@ Easyest method to show is :
 Just set title and content, but you can choose what buttons you wanna show and what Icon (only BitMap)
 
 
-![](Images/Images/messagebox.jpg)
+![](Images/messagebox.jpg)
