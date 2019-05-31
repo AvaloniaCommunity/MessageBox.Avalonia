@@ -1,3 +1,0 @@
-added new function 
-ShowNative wich try to show native messagebox (with calling api of current os)
-now works only on windows, on other systems will call show for result 

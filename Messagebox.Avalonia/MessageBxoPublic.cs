@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 
-namespace Messagebox.Avalonia
+namespace ClassLibrary1
 {
     public partial class MessageBox : Window
     {
@@ -136,4 +140,5 @@ namespace Messagebox.Avalonia
             return ShowForResult(title, text, buttons);
         }
     }
+
 }

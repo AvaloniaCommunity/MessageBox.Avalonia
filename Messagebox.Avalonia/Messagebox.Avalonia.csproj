@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp3.0;netcoreapp2.2;netcoreapp2.1</TargetFrameworks>
+        <AssemblyName>Messagebox.Avalonia</AssemblyName>
+        <RootNamespace>Messagebox.Avalonia</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="0.8.0" />
+    </ItemGroup>
+
+</Project>
