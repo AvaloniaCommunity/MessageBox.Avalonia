@@ -19,7 +19,6 @@ Just set title and content, but you can choose what buttons you wanna show and w
 
 
 ![](Images/messagebox.jpg)![](Images/Screenshot_from_2019-05-31_23-05-44.png)
-[create an anchor](#api)
 <h1>API:</h1>
 
 <h2>Enums:</h2>
