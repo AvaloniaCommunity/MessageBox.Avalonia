@@ -20,7 +20,10 @@ Just set title and content, but you can choose what buttons you wanna show and w
 
 ![](Images/messagebox.jpg)![](Images/Screenshot_from_2019-05-31_23-05-44.png)
 
-<h2>API:</h2>
+<h1>API:</h1>
+
+<h2>Enums:</h2>
+
 <h3>MessageBoxButtons:</h3>
 
 ```
@@ -46,6 +49,7 @@ enum MessageBoxResult
 }
 ```
 
+<h2>Public methods:</h2>
 
 <h3>ShowForResult:</h3>
 
