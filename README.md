@@ -78,7 +78,7 @@ public static Task<MessageBoxResult> ShowForResult(string title, string text,
 <b>bitmap</b> - set icon of window.
 
 <h4>Returns:</h4>
-One of the **MessageBoxResult** values.
+One of the <b>MessageBoxResult</b> values.
 
 <h3>ShowDialog:</h3>
 
@@ -109,7 +109,7 @@ Displays a message box as dialog window .
 <b>bitmap</b> - set icon of window.
 
 <h4>Returns:</h4>
-One of the **MessageBoxResult** enum values.
+One of the <b>MessageBoxResult</b> enum values.
 
 <h3>Show:</h3>
 
