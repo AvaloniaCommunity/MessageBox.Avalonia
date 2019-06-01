@@ -13,7 +13,7 @@ Dialog show, show to result, native show and just show
 
 Easyest method to show is :
 
-` MessageBox.Show("test","MyTest");`
+` MessageBox.ShowForResult("test","Wanna test smth?",MessageBox.MessageBoxButtons.OkCancel);`
 
 Just set title and content, but you can choose what buttons you wanna show and what Icon (only BitMap)
 
