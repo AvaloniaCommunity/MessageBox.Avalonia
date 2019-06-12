@@ -8,6 +8,8 @@ To start you shold install MessageBox.Avalonia Nuget package
 [nuget.org](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
 
+![wiki](https://gitlab.com/maindlab/messagebox.avalonia/wikis/home)
+
 ( feature Cntr+C bind to copy ContentMessage to clipboard)
 
 Easyest method to show is :
