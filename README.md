@@ -105,6 +105,7 @@ public class MessageBoxParams
 
 ```
 <h3>Style:</h3>
+
 ```cs
  public enum Style
     {
@@ -114,6 +115,8 @@ public class MessageBoxParams
         UbuntuLinux
     }
 ```
+
+
 <h2>Public methods:</h2>
 
 <h3>Show:</h3>
