@@ -3,5 +3,5 @@
        xmlns:sys="clr-namespace:System;assembly=netstandard"
        Selector="Button">
     <Setter Property="BorderThickness" Value="1"/>
-    <Setter Property="Background" Value="#FF4B4B4C"/>
+    <Setter Property="Background" Value="#334B4B4C"/>
 </Style>

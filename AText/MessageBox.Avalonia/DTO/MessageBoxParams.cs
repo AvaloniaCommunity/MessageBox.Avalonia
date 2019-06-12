@@ -11,7 +11,7 @@ namespace MessageBox.Avalonia.DTO
     {
         public bool CanResize { get; set; } = false;
         public string ContentTitle { get;  set; } = string.Empty;
-        public string ContentHeader { get;  set; } = string.Empty;
+        public string ContentHeader { get;  set; } = null;
         public string ContentMessage { get;  set; } =string.Empty;
         public int? MaxWidth { get; set; } = null;
         public Button Button { get; set; } = Button.Ok;
