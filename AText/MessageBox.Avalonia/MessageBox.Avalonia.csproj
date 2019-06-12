@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AvaloniaResource Include="**\*.xaml">
+            <SubType>Designer</SubType>
+        </AvaloniaResource>
+        <AvaloniaResource Include="Assets\*" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="0.8.0" />
+      <PackageReference Include="Avalonia.ReactiveUI" Version="0.8.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="xamlPictures\add.xaml" />
+      <UpToDateCheckInput Remove="xamlPictures\cancel.xaml" />
+      <UpToDateCheckInput Remove="xamlPictures\checked.xaml" />
+      <UpToDateCheckInput Remove="xamlPictures\information.xaml" />
+      <UpToDateCheckInput Remove="xamlPictures\power.xaml" />
+      <UpToDateCheckInput Remove="xamlPictures\shield.xaml" />
+    </ItemGroup>
+
+</Project>
