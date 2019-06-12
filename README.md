@@ -160,7 +160,9 @@ Displays a message box as dialog window .
 
 
 <h4>Parameters:</h4>
-<b>parenWindow</b> - the window, which is parent for this massagebox.
+
+
+<b>parentWindow</b> - the window, which is parent for this massagebox.
 
 
 
