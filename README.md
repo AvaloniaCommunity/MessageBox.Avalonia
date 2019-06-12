@@ -8,56 +8,117 @@ To start you shold install MessageBox.Avalonia Nuget package
 [nuget.org](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
 
-Class MessageBox has 4 static metods to show msgBox (like wpf).
-Dialog show, show to result, native show and just show
+( feature Cntr+C bind to copy ContentMessage to clipboard)
 
 Easyest method to show is :
 
-` MessageBox.ShowForResult("test","Wanna test smth?",MessageBox.MessageBoxButtons.OkCancel);`
-
-Just set title and content, but you can choose what buttons you wanna show and what Icon (only BitMap)
+MessageBoxManager.Manager.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");`
 
 
-![](Images/messagebox.jpg)![](Images/Screenshot_from_2019-05-31_23-05-44.png)
+![](Images/nostyle.0.8.2.png)
+
+But you can create more powerfull widows, like this:
+
+![](Images/ubuntu0.8.2.png)
+
 <h1>API:</h1>
+
+<h2>DTO:</h2>
+(Data Transfer Object)
+
+<h3>MessageBoxParams:</h3>
+
+```cs
+public class MessageBoxParams
+    {
+        public bool CanResize { get; set; } = false;
+        public string ContentTitle { get;  set; } = string.Empty;
+        public string ContentHeader { get;  set; } = null;
+        public string ContentMessage { get;  set; } =string.Empty;
+        public int? MaxWidth { get; set; } = null;
+        public Button Button { get; set; } = Button.Ok;
+        public Icon Icon { get; set; } = Icon.Avalonia;
+        public Window ParentWindow { get; set; } = null;
+        public Bitmap WindowIcon { get; set; } = null;
+        public Style Style { get; set; } = Style.None;
+    }
+```
 
 <h2>Enums:</h2>
 
-<h3>MessageBoxButtons:</h3>
+<h3>Button:</h3>
 
-```
-enum MessageBoxButtons
-{
-    Ok,
-    OkCancel,
-    YesNo,
-    YesNoCancel
-}
+```cs
+ public enum Button
+    {
+        Ok,
+        YesNo,
+        OkCancel,
+        OkAbort,
+        YesNoCancel,
+        YesNoAbort
+    }
 ```
 
 
 <h3>MessageBoxResult:</h3>
 
-```
-enum MessageBoxResult
-{
-    Ok,
-    Cancel,
-    Yes,
-    No
-}
+```cs
+  public enum MessageBoxResult
+    {
+        None,
+        Ok,
+        Yes,
+        No,
+        Cancel,
+        Abort
+    }
+
 ```
 
+<h3>Icon:</h3>
+
+```cs
+ public enum Icon
+    {
+        None,
+        Success,
+        Error,
+        Info,
+        Warning,
+        Avalonia,
+        Battery,
+        Bluetooth,
+        Database,
+        Forbidden,
+        Lock,
+        Plus,
+        Setting,
+        Speaker,
+        Stop,
+        Stopwatch,
+        Wifi
+    }
+
+```
+```cs
+ public enum Style
+    {
+        None,
+        Window,
+        MacOs,
+        UbuntuLinux
+    }
+```
 <h2>Public methods:</h2>
 
-<h3>ShowForResult:</h3>
+<h3>Show:</h3>
 
-Displays a message box with the specified title, text, buttons.
+Displays a message box with the specified title, text, buttons and icon
 
-```
-public static Task<MessageBoxResult> ShowForResult(string title, string text, 
-                                                MessageBoxButtons buttons = MessageBoxButtons.Ok, 
-                                                WindowSize windowSize = null, Bitmap bitmap = null)
+```cs
+ public Task<MessageBoxResult> Show(string title, string text, Button button = Button.Ok,
+            Icon icons = Icon.None, Style style = Style.None)
 ```
 
 
@@ -69,12 +130,11 @@ public static Task<MessageBoxResult> ShowForResult(string title, string text,
 
 <b>text</b> - the text to display in the message box.
 
-<b>buttons</b> - one of the **MessageBoxButtons** enum values that specifies which buttons to display in the message box.
-                 Default value is MessageBoxButtons.Ok.
-
-<b>windowSize</b> - set window size, if it's null (that's default value), set as 300x200.
-
-<b>bitmap</b> - set icon of window.
+<b>buttons</b> - one of the **Button** enum values that specifies which buttons to display in the message box.
+                 Default value is Button.Ok
+                 
+<b>Icon</b> - one of the **Button** enum values that specifies which icon to display in the message box.
+                Default value is Icon.None
 
 <h4>Returns:</h4>
 One of the <b>MessageBoxResult</b> values.
