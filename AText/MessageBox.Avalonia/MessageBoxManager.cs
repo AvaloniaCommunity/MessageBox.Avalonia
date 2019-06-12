@@ -16,16 +16,16 @@ using Button = MessageBox.Avalonia.Enums.Button;
 
 namespace MessageBox.Avalonia
 {
-    public class MessageBox
+    public class MessageBoxManager
     {
-        private static MessageBox _manager;
+        private static MessageBoxManager _manager;
 
-        public static MessageBox Manager
+        public static MessageBoxManager Manager
         {
-            get { return _manager ??= new MessageBox(); }
+            get { return _manager ??= new MessageBoxManager(); }
         }
 
-        private MessageBox()
+        private MessageBoxManager()
         {
         }
 
