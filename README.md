@@ -10,6 +10,9 @@ or download this repo.
 
 ![wiki](https://gitlab.com/maindlab/messagebox.avalonia/wikis/home)
 
+
+![trello progress](https://trello.com/b/oPRDrlaR/tasks)
+
 ( feature Cntr+C bind to copy ContentMessage to clipboard)
 
 Easyest method to show is :
