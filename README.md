@@ -11,8 +11,9 @@ or download this repo.
 ( feature Cntr+C bind to copy ContentMessage to clipboard)
 
 Easyest method to show is :
-
-MessageBoxManager.Manager.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");`
+```cs
+MessageBoxManager.Manager.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
+```
 
 
 ![](Images/nostyle.0.8.2.png)
@@ -101,6 +102,7 @@ public class MessageBoxParams
     }
 
 ```
+<h3>Style:</h3>
 ```cs
  public enum Style
     {
@@ -114,7 +116,7 @@ public class MessageBoxParams
 
 <h3>Show:</h3>
 
-Displays a message box with the specified title, text, buttons and icon
+Displays a message box 
 
 ```cs
  public Task<MessageBoxResult> Show(string title, string text, Button button = Button.Ok,
@@ -135,6 +137,9 @@ Displays a message box with the specified title, text, buttons and icon
                  
 <b>Icon</b> - one of the **Button** enum values that specifies which icon to display in the message box.
                 Default value is Icon.None
+                
+<b>Style</b> - one of the **Button** enum values that specifies which style to display.
+                Default value is Style.None
 
 <h4>Returns:</h4>
 One of the <b>MessageBoxResult</b> values.
@@ -143,53 +148,55 @@ One of the <b>MessageBoxResult</b> values.
 
 Displays a message box as dialog window .
 
-```
- public static Task<MessageBoxResult> ShowDialog(string title, string text, Window parent,
-            MessageBoxButtons buttons = MessageBoxButtons.Ok, WindowSize windowSize = null, Bitmap bitmap = null)
+```cs
+  public Task<MessageBoxResult> ShowDialog(Window parentWindow, string title, string text,
+            Button button = Button.Ok,
+            Icon icons = Icon.None, Style style = Style.None)
 
 ```
 
 
 
 <h4>Parameters:</h4>
+<b>parenWindow</b> - the window, which is parent for this massagebox.
+
+
+
 <b>title</b> - window's title.
-
-
 
 <b>text</b> - the text to display in the message box.
 
-<b>parent</b> - the window, which is parent for this massagebox.
-
-<b>buttons</b> - one of the **MessageBoxButtons** enum values that specifies which buttons to display in the message box.
-                 Default value is MessageBoxButtons.Ok.
+<b>buttons</b> - one of the **Button** enum values that specifies which buttons to display in the message box.
+                 Default value is Button.Ok
                  
-<b>windowSize</b> - set window size, if it's null (that's default value), set as 300x200.
-
-<b>bitmap</b> - set icon of window.
+<b>Icon</b> - one of the **Button** enum values that specifies which icon to display in the message box.
+                Default value is Icon.None
+                
+<b>Style</b> - one of the **Button** enum values that specifies which style to display.
+                Default value is Style.None
 
 <h4>Returns:</h4>
 One of the <b>MessageBoxResult</b> enum values.
 
-<h3>Show:</h3>
+<h3>Show(DTO):</h3>
 
-Displays a message box with ok button, wich doesn't return result of click.
+Displays a message box , which u can castomise with all  MessageBoxParams field (ignore parent window)
 
+```cs
+ public Task<MessageBoxResult> Show(MessageBoxParams @params)
 ```
- public static void Show(string title, string text, WindowSize windowSize = null, Bitmap bitmap = null)
+
+<h4>Returns:</h4>
+One of the <b>MessageBoxResult</b> enum values.
+
+
+<h3>ShowDialog(DTO):</h3>
+
+Displays a message box as dialog window , which u can castomise with all  MessageBoxParams field
+
+```cs
+ public Task<MessageBoxResult> Show(MessageBoxParams @params)
 ```
 
-
-
-<h4>Parameters:</h4>
-<b>title</b> - window's title.
-
-
-
-<b>text</b> - the text to display in the message box.
-
-
-
-<b>windowSize</b> - set window size, if it's null (that's default value), set as 300x200.
-
-<b>bitmap</b> - set icon of window.
-
+<h4>Returns:</h4>
+One of the <b>MessageBoxResult</b> enum values.
