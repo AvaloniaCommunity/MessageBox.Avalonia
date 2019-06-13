@@ -23,9 +23,16 @@ MessageBoxManager.Manager.Show("title","orem ipsum dolor sit amet, consectetur a
 
 ![](Images/nostyle.0.8.2.png)
 
+
+
 But you can create more powerfull widows, like this:
 
 ![](Images/ubuntu0.8.2.png)
+
+or this:
+
+![](Images/fb3s0i1-_zb8pqa9sjakdsaoxyi.jpeg)
+
 
 <h1>API:</h1>
 
