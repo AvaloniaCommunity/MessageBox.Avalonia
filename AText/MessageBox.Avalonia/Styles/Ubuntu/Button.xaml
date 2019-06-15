@@ -4,4 +4,5 @@
        Selector="Button">
     <Setter Property="BorderThickness" Value="1"/>
     <Setter Property="Background" Value="#334B4B4C"/>
+    <Setter Property="Foreground" Value="#FFFFFFFF"/>
 </Style>

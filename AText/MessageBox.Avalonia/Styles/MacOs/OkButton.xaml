@@ -4,4 +4,5 @@
        Selector="Button.Ok">
     <Setter Property="BorderThickness" Value="0"/>
     <Setter Property="Background" Value="#FF007AFF"/>
+    <Setter Property="Foreground" Value="#FFFFFFFF"/>
 </Style>

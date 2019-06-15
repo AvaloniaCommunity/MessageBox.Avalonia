@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>8</LangVersion>
-        <PackageVersion>0.8.2.0</PackageVersion>
+        <PackageVersion>0.8.2.1</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>lary&lt;f98f96@gmail.com&gt;</Authors>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
