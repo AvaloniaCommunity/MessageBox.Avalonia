@@ -119,10 +119,12 @@ public class MessageBoxParams
 ```cs
  public enum Style
     {
-        None,
-        Window,
+         None,
+        Windows,
         MacOs,
-        UbuntuLinux
+        UbuntuLinux,
+        MintLinux,
+        DarkMode
     }
 ```
 
