@@ -3,6 +3,5 @@
        xmlns:sys="clr-namespace:System;assembly=netstandard"
        Selector="Button.Ok">
     <Setter Property="BorderThickness" Value="0"/>
-    <Setter Property="Background" Value="#FFDD4812"/>
-    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+    <Setter Property="Background" Value="#FFC7F994"/>
 </Style>

@@ -12,7 +12,7 @@ namespace MessageBox.Avalonia.Views
         {
             switch (style)
             {
-                case Style.Window:
+                case Style.Windows:
                 {
                     Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Window/Button.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Window/Button.xaml")});
@@ -56,6 +56,34 @@ namespace MessageBox.Avalonia.Views
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/ButtonPointerOver.xaml")});
                     Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/OkButtonPointerOver.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/OkButtonPointerOver.xaml")});
+                    break;
+                }
+                case Style.MintLinux:
+                {
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/MultyStyle/CornerRadius.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/MultyStyle/CornerRadius.xaml")});
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Mint/Button.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/Button.xaml")});
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Mint/Window/OkButton.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/OkButton.xaml")});
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Mint/ButtonPointerOver.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/ButtonPointerOver.xaml")});
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Mint/OkButtonPointerOver.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/OkButtonPointerOver.xaml")});
+                    break;
+                }
+                case Style.DarkMode:
+                {
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/Button.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/Button.xaml")});
+                
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/ButtonPointerOver.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/ButtonPointerOver.xaml")});
+                
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/Window.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/Window.xaml")});
+                    Styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/TextBox.xaml"))
+                        {Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/TextBox.xaml")});
                     break;
                 }
             }

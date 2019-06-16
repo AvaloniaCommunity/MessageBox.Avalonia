@@ -3,8 +3,10 @@ namespace MessageBox.Avalonia.Enums
     public enum Style
     {
         None,
-        Window,
+        Windows,
         MacOs,
-        UbuntuLinux
+        UbuntuLinux,
+        MintLinux,
+        DarkMode
     }
 }
