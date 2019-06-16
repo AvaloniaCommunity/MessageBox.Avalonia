@@ -18,11 +18,11 @@ namespace MessageBox.Avalonia
 {
     public class MessageBoxManager
     {
-        private static MessageBoxManager _inctance;
+        private static MessageBoxManager _inctanse;
 
-        public static MessageBoxManager Inctance
+        public static MessageBoxManager Inctanse
         {
-            get { return _inctance ??= new MessageBoxManager(); }
+            get { return _inctanse ??= new MessageBoxManager(); }
         }
 
         private MessageBoxManager()
