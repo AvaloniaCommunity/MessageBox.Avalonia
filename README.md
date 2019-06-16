@@ -119,7 +119,7 @@ public class MessageBoxParams
 ```cs
  public enum Style
     {
-         None,
+        None,
         Windows,
         MacOs,
         UbuntuLinux,
