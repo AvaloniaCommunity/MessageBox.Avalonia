@@ -17,7 +17,7 @@ or download this repo.
 
 Easyest method to show is :
 ```cs
-MessageBoxManager.Manager.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
+MessageBoxManager.Instance.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
 ```
 
 
