@@ -199,7 +199,7 @@ One of the <b>MessageBoxResult</b> enum values.
 
 <h3>Show(DTO):</h3>
 
-Displays a message box , which u can castomise with all  MessageBoxParams field (ignore parent window)
+Displays a message box , which u can castomise with all  MessageBoxParams fields (ignore parent window)
 
 ```cs
  public Task<MessageBoxResult> Show(MessageBoxParams @params)
@@ -211,7 +211,7 @@ One of the <b>MessageBoxResult</b> enum values.
 
 <h3>ShowDialog(DTO):</h3>
 
-Displays a message box as dialog window , which u can castomise with all  MessageBoxParams field
+Displays a message box as dialog window , which u can castomise with all  MessageBoxParams fields
 
 ```cs
  public Task<MessageBoxResult> Show(MessageBoxParams @params)
