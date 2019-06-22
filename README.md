@@ -17,7 +17,7 @@ or download this repo.
 
 Easyest method to show is :
 ```cs
-MessageBoxManager.Manager.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
+MessageBoxManager.Instance.Show("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
 ```
 
 
@@ -150,13 +150,13 @@ Displays a message box
 <b>text</b> - the text to display in the message box.
 
 <b>buttons</b> - one of the **Button** enum values that specifies which buttons to display in the message box.
-                 Default value is Button.Ok
+                 Default value is **Button.Ok**
                  
-<b>Icon</b> - one of the **Button** enum values that specifies which icon to display in the message box.
-                Default value is Icon.None
+<b>Icon</b> - one of the **Icon** enum values that specifies which icon to display in the message box.
+                Default value is **Icon.None**
                 
-<b>Style</b> - one of the **Button** enum values that specifies which style to display.
-                Default value is Style.None
+<b>Style</b> - one of the **Style** enum values that specifies which style to display.
+                Default value is **Style.None**
 
 <h4>Returns:</h4>
 One of the <b>MessageBoxResult</b> values.
@@ -186,20 +186,20 @@ Displays a message box as dialog window .
 <b>text</b> - the text to display in the message box.
 
 <b>buttons</b> - one of the **Button** enum values that specifies which buttons to display in the message box.
-                 Default value is Button.Ok
+                 Default value is **Button.Ok**
                  
-<b>Icon</b> - one of the **Button** enum values that specifies which icon to display in the message box.
-                Default value is Icon.None
+<b>Icon</b> - one of the **Icon** enum values that specifies which icon to display in the message box.
+                Default value is **Icon.None**
                 
-<b>Style</b> - one of the **Button** enum values that specifies which style to display.
-                Default value is Style.None
+<b>Style</b> - one of the **Style** enum values that specifies which style to display.
+                Default value is **Style.None**
 
 <h4>Returns:</h4>
 One of the <b>MessageBoxResult</b> enum values.
 
 <h3>Show(DTO):</h3>
 
-Displays a message box , which u can castomise with all  MessageBoxParams field (ignore parent window)
+Displays a message box , which u can castomise with all  MessageBoxParams fields (ignore parent window)
 
 ```cs
  public Task<MessageBoxResult> Show(MessageBoxParams @params)
@@ -211,7 +211,7 @@ One of the <b>MessageBoxResult</b> enum values.
 
 <h3>ShowDialog(DTO):</h3>
 
-Displays a message box as dialog window , which u can castomise with all  MessageBoxParams field
+Displays a message box as dialog window , which u can castomise with all  MessageBoxParams fields
 
 ```cs
  public Task<MessageBoxResult> Show(MessageBoxParams @params)
