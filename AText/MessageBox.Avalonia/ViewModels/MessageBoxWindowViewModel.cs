@@ -30,7 +30,8 @@ namespace MessageBox.Avalonia.ViewModels
         public bool HasCancelButton { get; private set; }
 
         public bool HasAbortButton { get; private set; }
-
+        public bool HasHeader { get; private set; } = true;
+        public bool HasIcon { get; private set; } = true;
         public string ContentTitle { get; private set; }
         public string ContentHeader { get; private set; }
         public string ContentMessage { get; private set; }
@@ -47,6 +48,8 @@ namespace MessageBox.Avalonia.ViewModels
                 ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
                     .Open(new Uri($" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLower()}.ico")));
             }
+            else
+                HasIcon = false;
             MaxWidth = @params.MaxWidth;
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;
@@ -55,6 +58,9 @@ namespace MessageBox.Avalonia.ViewModels
             _window = @params.Window;
             ButtonClickCommand = ReactiveCommand.Create<string>(ButtonClick);
             SetButtons(@params.Button);
+            if (string.IsNullOrEmpty(ContentHeader))
+                HasHeader = false;
+            
         }
 
         private void SetButtons(Button buttons)

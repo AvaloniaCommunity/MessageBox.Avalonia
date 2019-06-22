@@ -8,6 +8,7 @@
         SizeToContent="WidthAndHeight"
         MinWidth="200"
         MaxWidth="{Binding  MaxWidth}"
+       
         MinHeight="100"
         CanResize="{Binding CanResize}"
         Title="{Binding ContentTitle}">
@@ -50,6 +51,7 @@
         </Grid.RowDefinitions>
         <!--Icon-->
         <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+               IsVisible="{Binding Icon}"
                Source="{Binding ImagePath}" />
         <Grid Grid.Row="1" Grid.Column="3">
             <Grid.RowDefinitions>
@@ -58,7 +60,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" />
+            <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}"/>
             <!--Content text-->
             <TextBox Grid.Row="2" Text="{Binding ContentMessage}" />
         </Grid> 
