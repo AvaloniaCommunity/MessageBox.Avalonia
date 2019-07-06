@@ -15,7 +15,7 @@ or download this repo.
 
 ( feature Cntr+C bind to copy ContentMessage to clipboard)
 
-If you don't use **MVVM template** (app project or custom temlate), make sure that you use Avalonia.ReactiveUI
+If you don't use **MVVM template** (app project or custom template), make sure that you use Avalonia.ReactiveUI
 For example in App template you should add Avalonia.ReactiveUI package and update BuildAvaloniaApp to
 
 ```cs
