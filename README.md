@@ -1,6 +1,6 @@
 # MessageBox.Avalonia
 
-Messagebox for AvaloniaUI
+Messagebox for AvaloniaUI(MVVM template)
 
 To start you shold install MessageBox.Avalonia Nuget package 
 >   dotnet add package MessageBox.Avalonia 
