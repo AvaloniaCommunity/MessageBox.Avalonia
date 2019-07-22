@@ -1,0 +1,8 @@
+<Style xmlns="https://github.com/avaloniaui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:sys="clr-namespace:System;assembly=netstandard"
+       Selector="Button[Tag=Colored]">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Background" Value="#FFDD4812"/>
+    <Setter Property="Foreground" Value="#FFFFFFFF"/>
+</Style>
