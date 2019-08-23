@@ -8,17 +8,7 @@ To start you shold install MessageBox.Avalonia Nuget package
 [nuget.org](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
 
-![wiki](https://gitlab.com/maindlab/messagebox.avalonia/wikis/home)
-
-
-![trello progress](https://trello.com/b/oPRDrlaR/tasks)
-
-( feature Cntr+C bind to copy ContentMessage to clipboard)
-
-
-
-
-![](https://gitlab.com/maindlab/messagebox.avalonia/blob/master/Images/Screenshot_from_2019-08-23_16-05-14.png)
+![wiki](https://gitlab.com/maindlab/messagebox.avalonia/wikis/home) - here you can find all Api.
 
 
 
