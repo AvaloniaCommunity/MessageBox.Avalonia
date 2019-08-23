@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <PackageVersion>0.8.3</PackageVersion>
+        <Title>MessageBox.Avalonia</Title>
+        <Authors>Lary&lt;f98f96.gmail.com&gt;</Authors>
+        <Description>Messagebox for AvaloniaUI</Description>
+        <PackageProjectUrl>https://gitlab.com/maindlab/messagebox.avalonia</PackageProjectUrl>
+        <PackageLicenseUrl>https://gitlab.com/maindlab/messagebox.avalonia/blob/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>messagebox.avalonia</RepositoryUrl>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
