@@ -12,7 +12,7 @@ or download this repo.
 
 
 
-But you can create more powerfull widows, like this:
+The easiest way is:
 
 ![](Images/Screenshot_from_2019-08-23_16-05-14.png)
 
