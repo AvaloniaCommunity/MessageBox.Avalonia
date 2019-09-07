@@ -8,6 +8,11 @@ namespace MessageBox.Avalonia.Views
     {
         public string ButtonResult { get; set; } = null;
 
+        public MBoxWindow()
+        {
+           
+            InitializeComponent();
+        }
         public MBoxWindow(Style style)
         {
             SetStyle(style);

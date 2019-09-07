@@ -13,10 +13,11 @@ using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
+using ReactiveUI;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MessageBoxWindowViewModel : ViewModelBase
+    public class MessageBoxWindowViewModel : ReactiveObject
     {
         public bool CanResize { get; private set; }
         public bool HasHeader { get; private set; } = true;
