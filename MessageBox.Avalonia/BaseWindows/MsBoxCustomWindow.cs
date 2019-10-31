@@ -6,7 +6,7 @@ using MsWindow = MessageBox.Avalonia.Views.MsBoxCustomWindow;
 
 namespace MessageBox.Avalonia.BaseWindows
 {
-    public class MsBoxCustomWindow
+    public class MsBoxCustomWindow:AbstractBaseWindow
     {
 
         private MsWindow _window;
