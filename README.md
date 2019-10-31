@@ -1,7 +1,7 @@
 # MessageBox.Avalonia
 
 Messagebox for AvaloniaUI
-
+for 0.9 preview
 To start you shold install MessageBox.Avalonia Nuget package 
 >   dotnet add package MessageBox.Avalonia 
 
@@ -14,40 +14,38 @@ or download this repo.
 
 The easiest way is:
 
-![](Images/Screenshot_from_2019-08-23_16-05-14.png)
+![](Images/baseWind.png)
 
-```cs
-var mbx  = new MessageBox.Avalonia.MessageBoxWindow("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
-    mbx.Show();
+```cs 
+var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow("title","orem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
+messageBoxStandardWindow.Show();
 ```
 
 or this with defautlt buttons from enum:
 
-![](Images/Screenshot_from_2019-08-23_16-39-27.png)
+![](Images/Base2.png)
 
 ```cs
-  var msgbox = new MessageBox.Avalonia.MessageBoxWindow(new MessageBoxParams
-            {
-                Button = ButtonEnum.OkAbort,
-                ContentTitle = "title",
+            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams{
+                ButtonDefinitions = ButtonEnum.OkAbort,
+                ContentTitle = "Title",
                 ContentMessage = "Message",
                 Icon = Icon.Plus,
                 Style = Style.UbuntuLinux
             });
-            msgbox.Show();
+            msBoxStandardWindow.Show();
 ```
 
 or like this, with custom buttons:
 
-![](Images/Screenshot_from_2019-08-23_16-23-57.png)
+![](Images/Custom.png)
 
 ```cs
-   var m1 = MessageBox.Avalonia.MessageBoxWindow.CreateCustomWindow(new MessageBoxCustomParams
-            {
+            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxCustomWindow(new MessageBoxCustomParams {
                 Style = Style.UbuntuLinux,
                 ContentMessage = "Message",
                 ButtonDefinitions = new []{new ButtonDefinition{Name = "My"},new ButtonDefinition{Name = "Buttons",Type = ButtonType.Colored} }
             });
-            m1.Show();
+            messageBoxCustomWindow.Show();
 ```
 
