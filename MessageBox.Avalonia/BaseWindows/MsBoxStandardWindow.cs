@@ -5,11 +5,11 @@ using MsWindow = MessageBox.Avalonia.Views.MsBoxStandardWindow;
 
 namespace MessageBox.Avalonia.BaseWindows
 {
-    public class MsBoxSimpleWindow
+    public class MsBoxStandardWindow
     {
         private MsWindow _window;
 
-        public MsBoxSimpleWindow(MsWindow window)
+        public MsBoxStandardWindow(MsWindow window)
         {
             _window = window;
         } 

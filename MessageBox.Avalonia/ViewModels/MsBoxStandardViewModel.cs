@@ -23,7 +23,7 @@ namespace MessageBox.Avalonia.ViewModels
         public int? MaxWidth { get; private set; }
         private MsBoxStandardWindow _window;
 
-        public bool IsOkShowed { get; private set; }
+        public bool IsOkShowed { get; private set; } 
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
@@ -48,10 +48,45 @@ namespace MessageBox.Avalonia.ViewModels
             ContentHeader = @params.ContentHeader;
             ContentMessage = @params.ContentMessage;
             _window = @params.Window;
+            SetButtons(@params.ButtonDefinitions);
             if (string.IsNullOrEmpty(ContentHeader))
                 HasHeader = false;
             if (@params.ShowInCenter)
                 LocationOfMyWindow = WindowStartupLocation.CenterScreen;
+        }
+
+        private void SetButtons(ButtonEnum paramsButtonDefinitions)
+        {
+            switch (paramsButtonDefinitions)
+            {
+                case ButtonEnum.Ok:
+                    IsOkShowed = true;
+                    break;
+                case ButtonEnum.YesNo:
+                    IsYesShowed = true;
+                    IsNoShowed = true;
+                    break;
+                case ButtonEnum.OkCancel:
+                    IsOkShowed = true;
+                    IsCancelShowed = true;
+                    break;
+                case ButtonEnum.OkAbort:
+                    IsOkShowed = true;
+                    IsAbortShowed = true;
+                    break;
+                case ButtonEnum.YesNoCancel:
+                    IsYesShowed = true;
+                    IsNoShowed = true;
+                    IsCancelShowed = true;
+                    break;
+                case ButtonEnum.YesNoAbort:
+                    IsYesShowed = true;
+                    IsNoShowed = true;
+                    IsAbortShowed = true;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(paramsButtonDefinitions), paramsButtonDefinitions, null);
+            }
         }
 
         public void ButtonClick(string parameter)
