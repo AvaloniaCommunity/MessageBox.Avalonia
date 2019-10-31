@@ -1,11 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Reactive;
-using System.Text;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Diagnostics.ViewModels;
 using Avalonia.Input.Platform;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
@@ -13,11 +10,10 @@ using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
-using ReactiveUI;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MessageBoxWindowViewModel : ReactiveObject
+    public class MsBoxCustomViewModel : ViewModelBase
     {
         public bool CanResize { get; private set; }
         public bool HasHeader { get; private set; } = true;
@@ -28,11 +24,12 @@ namespace MessageBox.Avalonia.ViewModels
         public Bitmap ImagePath { get; private set; }
         public int? MaxWidth { get; private set; }
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; private set; }
-        private MBoxWindow _window;
+        private MsBoxCustomWindow _window;
+
         public WindowStartupLocation LocationOfMyWindow { get; private set; } = WindowStartupLocation.Manual;
-       // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
-       
-        public MessageBoxWindowViewModel(MessageBoxViewModelParams @params)
+        // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
+
+        public MsBoxCustomViewModel(MessageBoxCustomParams @params)
         {
             if (@params.Icon != Icon.None)
             {
@@ -41,6 +38,7 @@ namespace MessageBox.Avalonia.ViewModels
             }
             else
                 HasIcon = false;
+
             MaxWidth = @params.MaxWidth;
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;
@@ -53,6 +51,7 @@ namespace MessageBox.Avalonia.ViewModels
             if (@params.ShowInCenter)
                 LocationOfMyWindow = WindowStartupLocation.CenterScreen;
         }
+
         public void ButtonClick(string parameter)
         {
             foreach (var bd in ButtonDefinitions)
@@ -63,14 +62,14 @@ namespace MessageBox.Avalonia.ViewModels
                     break;
                 }
             }
-           _window.Close();
+
+            _window.Close();
             // Code for executing the command here.
         }
+
         public async Task Copy()
         {
             await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
-        } 
-
-
+        }
     }
 }
