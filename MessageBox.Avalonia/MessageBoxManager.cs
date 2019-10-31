@@ -9,12 +9,21 @@ namespace MessageBox.Avalonia
 {
     public static class MessageBoxManager
     {
-        public static MsBoxCustomWindow GetMessageBoxCustomWindow(MessageBoxCustomParams @params) =>
-            new MsBoxCustomWindow(new CustomWindow(@params.Style) {DataContext = new MsBoxCustomViewModel(@params)});
+        public static MsBoxCustomWindow GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
+        {
+            var window = new CustomWindow(@params.Style);
+            @params.Window = window;
+            window.DataContext = new MsBoxCustomViewModel(@params);
+            return new MsBoxCustomWindow(window);
+        }
 
-        public static MsBoxStandardWindow GetMessageBoxStandardWindow(MessageBoxStandardParams @params) =>
-            new MsBoxStandardWindow(new StandardWindow(@params.Style)
-                {DataContext = new MsBoxStandardViewModel(@params)});
+        public static MsBoxStandardWindow GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
+        {
+            var window = new StandardWindow(@params.Style);
+            @params.Window = window;
+            window.DataContext = new MsBoxStandardViewModel(@params);
+            return new MsBoxStandardWindow(window);
+        }
 
         public static MsBoxStandardWindow GetMessageBoxStandardWindow(string title, string text,
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.Avalonia,

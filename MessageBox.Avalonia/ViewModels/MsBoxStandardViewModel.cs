@@ -91,7 +91,7 @@ namespace MessageBox.Avalonia.ViewModels
 
         public void ButtonClick(string parameter)
         {
-            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter);
+            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(),false);
             _window.Close();
         }
 
