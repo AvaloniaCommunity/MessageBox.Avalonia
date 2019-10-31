@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
+using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.DTO
 {
@@ -17,5 +18,6 @@ namespace MessageBox.Avalonia.DTO
         public Icon Icon { get; set; } = Icon.Avalonia;
         public Bitmap WindowIcon { get; set; } = null;
         public Style Style { get; set; } = Style.None;
+        public MsBoxCustomWindow Window { get; set; }
     }
 }
