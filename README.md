@@ -53,5 +53,7 @@ or like this, with custom buttons:
             });
             messageBoxCustomWindow.Show();
 ```
-Usages
+
+**Usages:**
+
 [Lacmus](https://github.com/lizaalert/lacmus)
