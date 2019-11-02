@@ -2,7 +2,11 @@
 
 Messagebox for AvaloniaUI
 for 0.9 preview
+
+
 ![](Images/Capture.PNG)
+
+
 To start you shold install MessageBox.Avalonia Nuget package 
 >   dotnet add package MessageBox.Avalonia 
 
