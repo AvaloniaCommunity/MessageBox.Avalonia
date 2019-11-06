@@ -7,7 +7,7 @@ for 0.9 preview
 ![](Images/Capture.PNG)
 
 
-To start you shold install MessageBox.Avalonia Nuget package 
+To start you should install MessageBox.Avalonia Nuget package 
 >   dotnet add package MessageBox.Avalonia 
 
 [![nuget](https://img.shields.io/badge/nuget-v0.9--preview-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.9.0-preview#)
