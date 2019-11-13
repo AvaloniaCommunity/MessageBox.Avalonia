@@ -13,7 +13,7 @@ To start you should install MessageBox.Avalonia Nuget package
 [![nuget](https://img.shields.io/badge/nuget-v0.9--preview-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.9.0-preview#)
 or download this repo.
 
-[![wiki](https://img.shields.io/badge/wiki-v%200.9-brightgreen)](https://gitlab.com/maindlab/messagebox.avalonia/wikis/home) - here you can find all Api.
+[![wiki](https://img.shields.io/badge/wiki-v%200.9-brightgreen)](https://github.com/CreateLab/MessageBox.Avalonia/wiki) - here you can find all Api.
 
 
 
