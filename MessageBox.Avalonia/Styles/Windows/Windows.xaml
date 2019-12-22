@@ -1,0 +1,18 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <Style Selector="Button">
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="Button:pointerover">
+                <Setter Property="BorderBrush" Value="#00000000"/>
+                <Setter Property="Background" Value="#880078D7"/>
+        </Style>
+        <Style Selector="Button[Tag=Colored]">
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="Background" Value="#FF0078D7"/>
+        </Style>
+        <Style Selector="Button:pointerover[Tag=Colored]">
+                <Setter Property="Background" Value="#880078D7"/>
+        </Style>
+</Styles>

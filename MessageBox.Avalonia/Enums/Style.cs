@@ -7,6 +7,7 @@ namespace MessageBox.Avalonia.Enums
         MacOs,
         UbuntuLinux,
         MintLinux,
-        DarkMode
+        DarkMode,
+        RoundButtons
     }
 }

@@ -1,8 +1,0 @@
-<Style xmlns="https://github.com/avaloniaui"
-       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-       xmlns:sys="clr-namespace:System;assembly=netstandard"
-       Selector="Button">
-    <Setter Property="BorderThickness" Value="1"/>
-    <Setter Property="Background" Value="#77ecedf0"/>
-    <Setter Property="BorderBrush" Value="#FF7d7d7d"/>
-</Style>
