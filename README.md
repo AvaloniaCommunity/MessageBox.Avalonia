@@ -1,7 +1,7 @@
 # MessageBox.Avalonia
 
 Messagebox for AvaloniaUI
-for 0.9 preview
+for 0.9
 
 
 ![](Images/Capture.PNG)
