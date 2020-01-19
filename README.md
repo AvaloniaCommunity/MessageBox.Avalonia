@@ -10,7 +10,7 @@ for 0.9
 To start you should install MessageBox.Avalonia Nuget package 
 >   dotnet add package MessageBox.Avalonia 
 
-[![nuget](https://img.shields.io/badge/nuget-9-lightblue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.9.0-preview#)
+[![nuget](https://img.shields.io/badge/nuget-9-lightblue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.9.0)
 or download this repo.
 
 [![wiki](https://img.shields.io/badge/wiki-v%200.9-brightgreen)](https://github.com/CreateLab/MessageBox.Avalonia/wiki) - here you can find all Api.
