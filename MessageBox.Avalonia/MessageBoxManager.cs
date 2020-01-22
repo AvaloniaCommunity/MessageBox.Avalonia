@@ -9,7 +9,7 @@ namespace MessageBox.Avalonia
 {
     public static class MessageBoxManager
     {
-        public static MsBoxCustomWindow GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
+        public static IMsBoxWindow<string> GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
         {
             var window = new CustomWindow(@params.Style);
             @params.Window = window;
@@ -17,7 +17,7 @@ namespace MessageBox.Avalonia
             return new MsBoxCustomWindow(window);
         }
 
-        public static MsBoxStandardWindow GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
+        public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
         {
             var window = new StandardWindow(@params.Style);
             @params.Window = window;
@@ -25,7 +25,7 @@ namespace MessageBox.Avalonia
             return new MsBoxStandardWindow(window);
         }
 
-        public static MsBoxStandardWindow GetMessageBoxStandardWindow(string title, string text,
+        public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.Avalonia,
             Style style = Style.None) => GetMessageBoxStandardWindow(new MessageBoxStandardParams
             {ContentTitle = title, ContentMessage = text, ButtonDefinitions = @enum, Icon = icon, Style = style});

@@ -11,16 +11,16 @@ using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxStandardViewModel
+    public class MsBoxStandardViewModel:ViewModelBase
     {
-        public bool CanResize { get; private set; }
-        public bool HasHeader { get; private set; } = true;
-        public bool HasIcon { get; private set; } = true;
-        public string ContentTitle { get; private set; }
-        public string ContentHeader { get; private set; }
-        public string ContentMessage { get; private set; }
-        public Bitmap ImagePath { get; private set; }
-        public int? MaxWidth { get; private set; }
+        public bool CanResize { get;}
+        public bool HasHeader { get; } = true;
+        public bool HasIcon { get;  } = true;
+        public string ContentTitle { get; }
+        public string ContentHeader { get;  }
+        public string ContentMessage { get;  }
+        public Bitmap ImagePath { get;}
+        public int? MaxWidth { get; }
         private MsBoxStandardWindow _window;
 
         public bool IsOkShowed { get; private set; } 

@@ -7,7 +7,7 @@ namespace MessageBox.Avalonia.Extentions
 {
     public static class SetStyleExtension
     {
-        public static void SetStyle(this Window window, Style style)
+        internal static void SetStyle(this Window window, Style style)
         {
             var styles = window.Styles;
             switch (style)
