@@ -13,43 +13,19 @@ using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxCustomViewModel : ViewModelBase
+    public class MsBoxCustomViewModel : AbstractMsBoxViewModel
     {
-        public bool CanResize { get;  }
-        public bool HasHeader { get;  } = true;
-        public bool HasIcon { get;  } = true;
-        public string ContentTitle { get;  }
-        public string ContentHeader { get; }
-        public string ContentMessage { get; }
-        public Bitmap ImagePath { get; }
-        public int? MaxWidth { get;}
-        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; private set; }
+   
+        public IEnumerable<ButtonDefinition> ButtonDefinitions { get;  }
         private MsBoxCustomWindow _window;
-
-        public WindowStartupLocation LocationOfMyWindow { get; private set; } = WindowStartupLocation.Manual;
+        
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
 
-        public MsBoxCustomViewModel(MessageBoxCustomParams @params)
+        public MsBoxCustomViewModel(MessageBoxCustomParams @params):base(@params)
         {
-            if (@params.Icon != Icon.None)
-            {
-                ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
-                    .Open(new Uri($" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLower()}.ico")));
-            }
-            else
-                HasIcon = false;
-
-            MaxWidth = @params.MaxWidth;
-            CanResize = @params.CanResize;
-            ContentTitle = @params.ContentTitle;
-            ContentHeader = @params.ContentHeader;
-            ContentMessage = @params.ContentMessage;
+         
             _window = @params.Window;
             ButtonDefinitions = @params.ButtonDefinitions;
-            if (string.IsNullOrEmpty(ContentHeader))
-                HasHeader = false;
-            if (@params.ShowInCenter)
-                LocationOfMyWindow = WindowStartupLocation.CenterScreen;
         }
 
         public void ButtonClick(string parameter)
@@ -67,9 +43,6 @@ namespace MessageBox.Avalonia.ViewModels
             // Code for executing the command here.
         }
 
-        public async Task Copy()
-        {
-            await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
-        }
+      
     }
 }

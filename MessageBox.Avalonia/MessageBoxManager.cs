@@ -26,7 +26,7 @@ namespace MessageBox.Avalonia
         }
 
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
-            ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.Avalonia,
+            ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
             Style style = Style.None) => GetMessageBoxStandardWindow(new MessageBoxStandardParams
             {ContentTitle = title, ContentMessage = text, ButtonDefinitions = @enum, Icon = icon, Style = style});
     }

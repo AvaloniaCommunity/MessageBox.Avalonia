@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.Enums;
-using MessageBox.Avalonia.Extentions;
+using MessageBox.Avalonia.Extensions;
 
 namespace MessageBox.Avalonia.Views
 {

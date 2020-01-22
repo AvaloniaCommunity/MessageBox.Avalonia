@@ -3,9 +3,9 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Styling;
 using MessageBox.Avalonia.Enums;
 
-namespace MessageBox.Avalonia.Extentions
+namespace MessageBox.Avalonia.Extensions
 {
-    public static class SetStyleExtension
+    internal static class SetStyleExtension
     {
         internal static void SetStyle(this Window window, Style style)
         {
