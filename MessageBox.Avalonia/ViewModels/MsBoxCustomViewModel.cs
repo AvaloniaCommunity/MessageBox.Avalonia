@@ -48,8 +48,8 @@ namespace MessageBox.Avalonia.ViewModels
             ButtonDefinitions = @params.ButtonDefinitions;
             if (string.IsNullOrEmpty(ContentHeader))
                 HasHeader = false;
-            if (@params.ShowInCenter)
-                LocationOfMyWindow = WindowStartupLocation.CenterScreen;
+
+            LocationOfMyWindow = @params.WindowStartupLocation;
         }
 
         public void ButtonClick(string parameter)
