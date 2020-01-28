@@ -7,7 +7,6 @@ namespace MessageBox.Avalonia.Enums
         Error,
         Info,
         Warning,
-        Avalonia,
         Battery,
         Bluetooth,
         Database,

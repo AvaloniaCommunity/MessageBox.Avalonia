@@ -11,48 +11,23 @@ using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxStandardViewModel
+    public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     {
-        public bool CanResize { get; private set; }
-        public bool HasHeader { get; private set; } = true;
-        public bool HasIcon { get; private set; } = true;
-        public string ContentTitle { get; private set; }
-        public string ContentHeader { get; private set; }
-        public string ContentMessage { get; private set; }
-        public Bitmap ImagePath { get; private set; }
-        public int? MaxWidth { get; private set; }
         private MsBoxStandardWindow _window;
 
-        public bool IsOkShowed { get; private set; } 
+        public bool IsOkShowed { get; private set; }
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-      
-        public WindowStartupLocation LocationOfMyWindow { get; private set; } = WindowStartupLocation.Manual;
+
+        public WindowStartupLocation LocationOfMyWindow { get; } = WindowStartupLocation.Manual;
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
 
-        public MsBoxStandardViewModel(MessageBoxStandardParams @params)
+        public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
         {
-            if (@params.Icon != Icon.None)
-            {
-                ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
-                    .Open(new Uri($" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLower()}.ico")));
-            }
-            else
-                HasIcon = false;
-
-            MaxWidth = @params.MaxWidth;
-            CanResize = @params.CanResize;
-            ContentTitle = @params.ContentTitle;
-            ContentHeader = @params.ContentHeader;
-            ContentMessage = @params.ContentMessage;
             _window = @params.Window;
             SetButtons(@params.ButtonDefinitions);
-            if (string.IsNullOrEmpty(ContentHeader))
-                HasHeader = false;
-
-            LocationOfMyWindow = @params.WindowStartupLocation;
         }
 
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
@@ -85,20 +60,15 @@ namespace MessageBox.Avalonia.ViewModels
                     IsAbortShowed = true;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(paramsButtonDefinitions), paramsButtonDefinitions, null);
+                    throw new ArgumentOutOfRangeException(nameof(paramsButtonDefinitions), paramsButtonDefinitions,
+                        null);
             }
         }
 
         public void ButtonClick(string parameter)
         {
-            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(),false);
+            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
             _window.Close();
-        }
-
-        
-        public async Task Copy()
-        {
-            await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
         }
     }
 }

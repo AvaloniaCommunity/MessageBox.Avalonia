@@ -3,18 +3,17 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml.Styling;
 using MessageBox.Avalonia.Enums;
 
-namespace MessageBox.Avalonia.Extentions
+namespace MessageBox.Avalonia.Extensions
 {
-    public static class SetStyleExtension
+    internal static class SetStyleExtension
     {
-        public static void SetStyle(this Window window, Style style)
+        internal static void SetStyle(this Window window, Style style)
         {
             var styles = window.Styles;
             switch (style)
             {
                 case Style.Windows:
                 {
-                   
                     styles.Add(new StyleInclude(
                             new Uri("avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml")});
@@ -30,7 +29,6 @@ namespace MessageBox.Avalonia.Extentions
 
                 case Style.UbuntuLinux:
                 {
-                   
                     styles.Add(new StyleInclude(
                             new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml")});
@@ -38,21 +36,20 @@ namespace MessageBox.Avalonia.Extentions
                 }
                 case Style.MintLinux:
                 {
-                    
                     styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml")});
                     break;
                 }
                 case Style.DarkMode:
                 {
-                    
                     styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml")});
                     break;
                 }
                 case Style.RoundButtons:
                 {
-                    styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml"))
+                    styles.Add(new StyleInclude(
+                            new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml")});
                     break;
                 }

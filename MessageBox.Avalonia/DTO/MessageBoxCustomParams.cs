@@ -7,25 +7,9 @@ using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.DTO
 {
-    public class MessageBoxCustomParams
+    public class MessageBoxCustomParams : AbstractMessageBoxParams
     {
-        public bool CanResize { get; set; } = false;
-
-        private bool showInCenter = true;
-        public bool ShowInCenter
-        {
-            get => showInCenter; set { showInCenter = value; this.WindowStartupLocation = (value ? WindowStartupLocation.CenterScreen : WindowStartupLocation.Manual); }
-        }
-        public string ContentTitle { get; set; } = string.Empty;
-        public string ContentHeader { get; set; } = null;
-        public string ContentMessage { get; set; } = string.Empty;
-        public int? MaxWidth { get; set; } = null;
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; set; }
-        public Icon Icon { get; set; } = Icon.Avalonia;
-        public Bitmap WindowIcon { get; set; } = null;
-        public Style Style { get; set; } = Style.None;
         public MsBoxCustomWindow Window { get; set; }
-
-        public WindowStartupLocation WindowStartupLocation { get; set; } = WindowStartupLocation.Manual;
     }
 }

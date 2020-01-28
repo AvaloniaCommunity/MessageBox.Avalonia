@@ -5,15 +5,15 @@ using MsWindow = MessageBox.Avalonia.Views.MsBoxStandardWindow;
 
 namespace MessageBox.Avalonia.BaseWindows
 {
-    public class MsBoxStandardWindow:AbstractBaseWindow
+    public class MsBoxStandardWindow : IMsBoxWindow<ButtonResult>
     {
         private MsWindow _window;
 
         public MsBoxStandardWindow(MsWindow window)
         {
             _window = window;
-        } 
-        
+        }
+
         public Task<ButtonResult> Show()
         {
             var tcs = new TaskCompletionSource<ButtonResult>();
@@ -29,7 +29,5 @@ namespace MessageBox.Avalonia.BaseWindows
             _window.ShowDialog(ownerWindow);
             return tcs.Task;
         }
-
-
     }
 }
