@@ -14,7 +14,6 @@ namespace MessageBox.Avalonia.Extensions
             {
                 case Style.Windows:
                 {
-                   
                     styles.Add(new StyleInclude(
                             new Uri("avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml")});
@@ -30,7 +29,6 @@ namespace MessageBox.Avalonia.Extensions
 
                 case Style.UbuntuLinux:
                 {
-                   
                     styles.Add(new StyleInclude(
                             new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml")});
@@ -38,21 +36,20 @@ namespace MessageBox.Avalonia.Extensions
                 }
                 case Style.MintLinux:
                 {
-                    
                     styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml")});
                     break;
                 }
                 case Style.DarkMode:
                 {
-                    
                     styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml")});
                     break;
                 }
                 case Style.RoundButtons:
                 {
-                    styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml"))
+                    styles.Add(new StyleInclude(
+                            new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml"))
                         {Source = new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml")});
                     break;
                 }

@@ -58,5 +58,7 @@ or like this, with custom buttons:
 
 [Lacmus](https://github.com/lizaalert/lacmus)
 
+[SQRLDotNetClient](https://github.com/sqrldev/SQRLDotNetClient)
+
 [OpenTabletDriver](https://github.com/InfinityGhost/OpenTabletDriver/tree/c4d823a11824abec3fb0f6d4f7182610aba5c9d8)
 

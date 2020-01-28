@@ -11,27 +11,23 @@ using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxStandardViewModel: AbstractMsBoxViewModel
+    public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     {
-    
-        
         private MsBoxStandardWindow _window;
 
-        public bool IsOkShowed { get; private set; } 
+        public bool IsOkShowed { get; private set; }
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-      
-        public WindowStartupLocation LocationOfMyWindow { get;  } = WindowStartupLocation.Manual;
+
+        public WindowStartupLocation LocationOfMyWindow { get; } = WindowStartupLocation.Manual;
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
 
         public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
         {
-           
             _window = @params.Window;
             SetButtons(@params.ButtonDefinitions);
-        
         }
 
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
@@ -64,17 +60,15 @@ namespace MessageBox.Avalonia.ViewModels
                     IsAbortShowed = true;
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(paramsButtonDefinitions), paramsButtonDefinitions, null);
+                    throw new ArgumentOutOfRangeException(nameof(paramsButtonDefinitions), paramsButtonDefinitions,
+                        null);
             }
         }
 
         public void ButtonClick(string parameter)
         {
-            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(),false);
+            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
             _window.Close();
         }
-
-        
-    
     }
 }
