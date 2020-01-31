@@ -11,6 +11,7 @@
         MinHeight="100"
         CanResize="{Binding CanResize}"
         Title="{Binding ContentTitle}">
+        
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </Window.KeyBindings>
