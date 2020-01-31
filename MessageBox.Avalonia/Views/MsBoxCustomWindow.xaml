@@ -10,8 +10,8 @@
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
         CanResize="{Binding CanResize}"
-        Icon="/Assets/avalonia.ico"
         Title="{Binding ContentTitle}">
+        
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </Window.KeyBindings>
