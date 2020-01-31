@@ -20,8 +20,7 @@ namespace MessageBox.Avalonia.ViewModels
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-
-        public WindowStartupLocation LocationOfMyWindow { get; } = WindowStartupLocation.Manual;
+        
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
 
         public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
