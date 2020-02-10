@@ -53,6 +53,10 @@ or like this, with custom buttons:
             });
             messageBoxCustomWindow.Show();
 ```
+**Powered by**
+
+
+<img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png">
 
 **Usages:**
 
