@@ -2,7 +2,7 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 
-namespace MessageBoxTest
+namespace MessageBox.Avalonia.Example
 {
     public class App : Application
     {
