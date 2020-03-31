@@ -3,20 +3,19 @@ namespace MessageBox.Avalonia.Enums
     public enum Icon
     {
         None,
-        Success,
-        Error,
-        Info,
-        Warning,
-        Battery,
-        Bluetooth,
+        Buttery,
         Database,
+        Error,
+        Folder,
         Forbidden,
-        Lock,
+        Info,
         Plus,
         Setting,
-        Speaker,
+        SpeakerLess,
+        SpeakerMore,
         Stop,
         Stopwatch,
-        Wifi
+        Warning,
+        Wifi,
     }
 }

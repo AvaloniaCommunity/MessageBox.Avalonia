@@ -21,19 +21,14 @@ namespace MessageBox.Avalonia.Example
 
         private async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            var messageBoxStandardWindow = MessageBoxManager.GetMessageBoxStandardWindow(
-                new MessageBoxStandardParams
-                {
-                    ShowInCenter = false,
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    ContentTitle = "Sup",
-                    ContentMessage = "Bro",
-                    Icon = MessageBoxAvaloniaEnums.Icon.Plus,
-                    Style = MessageBoxAvaloniaEnums.Style.None,
-                    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.YesNo,
-                    CanResize = false,
-                });
-            await messageBoxStandardWindow.ShowDialog(this);
+            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams{
+                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.OkAbort,
+                ContentTitle = "Title",
+                ContentMessage = "Message",
+                Icon = MessageBoxAvaloniaEnums.Icon.Plus,
+                Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux
+            });
+            await msBoxStandardWindow.ShowDialog(this);
         }
 
         private void InitializeComponent()
