@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <PackageVersion>0.9.6-prev</PackageVersion>
+        <PackageVersion>0.9.6</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary&lt;f98f96.gmail.com&gt;</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
