@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <PackageVersion>0.9.1-prev</PackageVersion>
+        <PackageVersion>0.9.6-prev</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary&lt;f98f96.gmail.com&gt;</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
@@ -22,8 +22,8 @@
         <AvaloniaUseExternalMSBuild>true</AvaloniaUseExternalMSBuild>
     </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.9.1" />
-      <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.1" />
+      <PackageReference Include="Avalonia" Version="0.9.6" />
+      <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.6" />
     </ItemGroup>
 
 </Project>
