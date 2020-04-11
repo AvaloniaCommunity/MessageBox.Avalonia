@@ -70,3 +70,4 @@ or like this, with custom buttons:
 
 [OpenTabletDriver](https://github.com/InfinityGhost/OpenTabletDriver/tree/c4d823a11824abec3fb0f6d4f7182610aba5c9d8)
 
+[Comquiz](https://github.com/VFansss/comquiz)
