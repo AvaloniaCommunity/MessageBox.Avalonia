@@ -65,7 +65,7 @@
             <Grid Grid.Row="2" ColumnDefinitions="Auto 5 *" >
                 <TextBox Text="{Binding ContentMessage}" Grid.Column="0"/>
                 <!--Input field-->
-                <TextBox BorderThickness="1" Text="{Binding InputText}" PasswordChar="{Binding PassChar}"
+                <TextBox BorderThickness="1" Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
                          IsReadOnly="False"  Grid.Column="2"/>
             </Grid>
 

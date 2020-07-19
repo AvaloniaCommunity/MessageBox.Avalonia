@@ -9,7 +9,7 @@ namespace MessageBox.Avalonia.ViewModels
     public class MsBoxInputViewModel : AbstractMsBoxViewModel
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-        private string _inputText ="kek";
+        private string _inputText;
 
         public string InputText
         {
@@ -17,6 +17,7 @@ namespace MessageBox.Avalonia.ViewModels
             set => this.RaiseAndSetIfChanged(ref _inputText, value);
         }
 
+        public string WatermarkText { get; }
         public char? PassChar { get; }
 
         private MsBoxInputWindow _window;
@@ -28,6 +29,7 @@ namespace MessageBox.Avalonia.ViewModels
             _window = @params.Window;
             ButtonDefinitions = @params.ButtonDefinitions;
             PassChar = @params.IsPassword ? '*' : (char?) null;
+            WatermarkText = @params.WatermarkText;
         }
 
         public void ButtonClick(string parameter)

@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -26,9 +27,10 @@ namespace MessageBox.Avalonia.Example
                     new ButtonDefinition{Name = "My"},new ButtonDefinition{Name = "Buttons",Type = MessageBoxAvaloniaEnums.ButtonType.Colored},
                     
                 },
-                CanResize = true
+               
             });
-            await messageBoxCustomWindow.Show();
+            var r =await messageBoxCustomWindow.Show();
+            Console.WriteLine(r.Button);
         }
 
         private void InitializeComponent()

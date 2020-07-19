@@ -16,7 +16,7 @@ namespace MessageBox.Avalonia.BaseWindows
         public Task<MessageWindowResultDTO> Show()
         {
             var tcs = new TaskCompletionSource<MessageWindowResultDTO>();
-            _window.Closed += delegate { tcs.TrySetResult(new MessageWindowResultDTO(_window.ButtonResult,_window.MessageResult)); };
+            _window.Closed += delegate { tcs.TrySetResult(new MessageWindowResultDTO(_window.MessageResult,_window.ButtonResult)); };
             _window.Show();
             return tcs.Task;
         }
