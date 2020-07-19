@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Avalonia.Controls;
-using MessageBox.Avalonia.Enums;
 using MsWindow = MessageBox.Avalonia.Views.MsBoxCustomWindow;
 
 namespace MessageBox.Avalonia.BaseWindows

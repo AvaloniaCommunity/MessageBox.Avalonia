@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <PackageVersion>0.9.6.1</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary&lt;f98f96.gmail.com&gt;</Authors>
@@ -11,19 +10,20 @@
         <RepositoryUrl>messagebox.avalonia</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageTags>Avalonia</PackageTags>
+        <TargetFrameworks>netstandard2.0;netcoreapp3.1</TargetFrameworks>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
             <SubType>Designer</SubType>
         </AvaloniaResource>
         <AvaloniaResource Include="Assets\*" />
+        <AvaloniaResource Update="Views\MsBoxInputWindow.xaml">
+          <SubType>Designer</SubType>
+        </AvaloniaResource>
     </ItemGroup>
-    <PropertyGroup>
-        <AvaloniaUseExternalMSBuild>true</AvaloniaUseExternalMSBuild>
-    </PropertyGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.9.6" />
-      <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.6" />
+      <PackageReference Include="Avalonia" Version="0.10.0-preview1" />
+      <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview1" />
     </ItemGroup>
 
 </Project>
