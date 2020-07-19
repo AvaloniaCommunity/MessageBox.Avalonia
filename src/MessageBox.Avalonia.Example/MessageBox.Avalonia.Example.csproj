@@ -13,8 +13,8 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.10.0-preview1" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.10.0-preview1" />
+    <PackageReference Include="Avalonia" Version="0.9.999-cibuild0008974-beta" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.9.999-cibuild0008974-beta" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MessageBox.Avalonia\MessageBox.Avalonia.csproj" />

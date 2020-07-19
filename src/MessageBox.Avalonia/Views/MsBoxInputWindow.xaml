@@ -58,16 +58,16 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="15" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="15" />
-                <RowDefinition Height="Auto" MinHeight="15" />
             </Grid.RowDefinitions>
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="2" Text="{Binding ContentMessage}" />
-            <!--Input field-->
-
-            <TextBox Grid.Row="4" BorderThickness="1" Text="{Binding InputText}" PasswordChar="{Binding PassChar}" IsReadOnly="False" />
+            <Grid Grid.Row="2" ColumnDefinitions="Auto 5 *" >
+                <TextBox Text="{Binding ContentMessage}" Grid.Column="0"/>
+                <!--Input field-->
+                <TextBox BorderThickness="1" Text="{Binding InputText}" PasswordChar="{Binding PassChar}"
+                         IsReadOnly="False"  Grid.Column="2"/>
+            </Grid>
 
 
         </Grid>

@@ -21,7 +21,12 @@ namespace MessageBox.Avalonia.Example
         {
             var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxInputWindow(new MessageBoxInputParams {
                 ContentMessage = "Message",
-                ButtonDefinitions = new []{new ButtonDefinition{Name = "My"},new ButtonDefinition{Name = "Buttons",Type = MessageBoxAvaloniaEnums.ButtonType.Colored} }
+                ButtonDefinitions = new []
+                {
+                    new ButtonDefinition{Name = "My"},new ButtonDefinition{Name = "Buttons",Type = MessageBoxAvaloniaEnums.ButtonType.Colored},
+                    
+                },
+                CanResize = true
             });
             await messageBoxCustomWindow.Show();
         }
