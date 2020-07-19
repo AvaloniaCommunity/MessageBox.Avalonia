@@ -36,7 +36,7 @@ namespace MessageBox.Avalonia.ViewModels
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
-            ContentMessage = @params.ContentMessage;
+            ContentMessage = @params.ContentMessage + " ";
 
             LocationOfMyWindow = @params.WindowStartupLocation;
         }

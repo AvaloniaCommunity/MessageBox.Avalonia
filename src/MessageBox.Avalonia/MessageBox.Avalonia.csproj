@@ -22,8 +22,8 @@
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.9.999-cibuild0008974-beta" />
-      <PackageReference Include="Avalonia.ReactiveUI" Version="0.9.999-cibuild0008974-beta" />
+      <PackageReference Include="Avalonia" Version="0.10.0-preview1" />
+      <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-preview1" />
     </ItemGroup>
 
 </Project>
