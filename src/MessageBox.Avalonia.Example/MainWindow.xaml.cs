@@ -20,17 +20,14 @@ namespace MessageBox.Avalonia.Example
 
         private async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxInputWindow(new MessageBoxInputParams {
+            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxInputWindow(new MessageBoxInputParams() {
                 ContentMessage = "Message",
-                ButtonDefinitions = new []
-                {
-                    new ButtonDefinition{Name = "My"},new ButtonDefinition{Name = "Buttons",Type = MessageBoxAvaloniaEnums.ButtonType.Colored},
-                    
-                },
+                ButtonDefinitions = new []{new ButtonDefinition{Name = "My"},new ButtonDefinition{Name = "Buttons",Type = MessageBoxAvaloniaEnums.ButtonType.Colored} },
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
                
             });
-            var r =await messageBoxCustomWindow.Show();
-            Console.WriteLine(r.Button);
+            var r = await messageBoxCustomWindow.Show();
+            int i = 5;
         }
 
         private void InitializeComponent()
