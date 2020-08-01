@@ -16,9 +16,8 @@ namespace MessageBox.Avalonia.ViewModels
     public class MsBoxCustomViewModel : AbstractMsBoxViewModel
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-        private MsBoxCustomWindow _window;
-
-        // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
+        private readonly MsBoxCustomWindow _window;
+        
 
         public MsBoxCustomViewModel(MessageBoxCustomParams @params) : base(@params)
         {
@@ -30,15 +29,13 @@ namespace MessageBox.Avalonia.ViewModels
         {
             foreach (var bd in ButtonDefinitions)
             {
-                if (parameter.Equals(bd.Name))
-                {
-                    _window.ButtonResult = bd.Name;
-                    break;
-                }
+                if (!parameter.Equals(bd.Name)) continue;
+                _window.ButtonResult = bd.Name;
+                break;
             }
 
             _window.Close();
-            // Code for executing the command here.
+
         }
     }
 }

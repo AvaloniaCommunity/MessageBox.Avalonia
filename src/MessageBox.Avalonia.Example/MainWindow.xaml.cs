@@ -27,7 +27,7 @@ namespace MessageBox.Avalonia.Example
                
             });
             var r = await messageBoxCustomWindow.Show();
-            int i = 5;
+            
         }
 
         private void InitializeComponent()

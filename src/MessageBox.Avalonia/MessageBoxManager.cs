@@ -1,3 +1,4 @@
+using Avalonia.Controls;
 using MessageBox.Avalonia.BaseWindows;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
@@ -31,8 +32,12 @@ namespace MessageBox.Avalonia
 
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
+            WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen,
             Style style = Style.None) => GetMessageBoxStandardWindow(new MessageBoxStandardParams
-            {ContentTitle = title, ContentMessage = text, ButtonDefinitions = @enum, Icon = icon, Style = style});
+        {
+            ContentTitle = title, ContentMessage = text, ButtonDefinitions = @enum, Icon = icon, Style = style,
+            WindowStartupLocation = windowStartupLocation
+        });
 
         public static IMsBoxWindow<MessageWindowResultDTO> GetMessageBoxInputWindow(MessageBoxInputParams @params)
         {

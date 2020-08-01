@@ -27,6 +27,15 @@
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
+        <Style Selector="TextBox:focus /template/ Border#border">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="TextBox.inputbox">
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="TextBox.inputbox:focus /template/ Border#border">
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
         <Style Selector="Button">
             <Setter Property="Margin" Value="15 0 0 0" />
             <Setter Property="MinHeight" Value="24" />
@@ -65,7 +74,7 @@
             <Grid Grid.Row="2" ColumnDefinitions="Auto 5 *" >
                 <TextBox Text="{Binding ContentMessage}" Grid.Column="0"/>
                 <!--Input field-->
-                <TextBox BorderThickness="1" Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
+                <TextBox Classes="inputbox"  Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
                          IsReadOnly="False"  Grid.Column="2"/>
             </Grid>
 

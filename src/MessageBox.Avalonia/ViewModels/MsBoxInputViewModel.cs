@@ -20,7 +20,7 @@ namespace MessageBox.Avalonia.ViewModels
         public string WatermarkText { get; }
         public char? PassChar { get; }
 
-        private MsBoxInputWindow _window;
+        private readonly MsBoxInputWindow _window;
 
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
 

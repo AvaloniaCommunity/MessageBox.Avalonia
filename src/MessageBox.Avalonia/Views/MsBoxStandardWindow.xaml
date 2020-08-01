@@ -27,6 +27,9 @@
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
+        <Style Selector="TextBox:focus /template/ Border#border">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
         </Style>
