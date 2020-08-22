@@ -8,8 +8,18 @@ namespace MessageBox.Avalonia.ViewModels
 {
     public class MsBoxInputViewModel : AbstractMsBoxViewModel
     {
-        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+        private readonly MsBoxInputWindow _window;
         private string _inputText;
+        public MsBoxInputViewModel(MessageBoxInputParams @params) : base(@params)
+        {
+            _window = (MsBoxInputWindow)@params.Window;
+            ButtonDefinitions = @params.ButtonDefinitions;
+            PassChar = @params.IsPassword ? '*' : (char?)null;
+            WatermarkText = @params.WatermarkText;
+        }
+
+        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+        public string ContentMessage { get; }
 
         public string InputText
         {
@@ -17,21 +27,9 @@ namespace MessageBox.Avalonia.ViewModels
             set => this.RaiseAndSetIfChanged(ref _inputText, value);
         }
 
-        public string WatermarkText { get; }
         public char? PassChar { get; }
-
-        private readonly MsBoxInputWindow _window;
-
+        public string WatermarkText { get; }
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
-
-        public MsBoxInputViewModel(MessageBoxInputParams @params) : base(@params)
-        {
-            _window = @params.Window;
-            ButtonDefinitions = @params.ButtonDefinitions;
-            PassChar = @params.IsPassword ? '*' : (char?) null;
-            WatermarkText = @params.WatermarkText;
-        }
-
         public void ButtonClick(string parameter)
         {
             foreach (var bd in ButtonDefinitions)

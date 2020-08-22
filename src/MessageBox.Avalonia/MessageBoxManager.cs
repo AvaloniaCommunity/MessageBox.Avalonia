@@ -9,6 +9,12 @@ using InputWindow = MessageBox.Avalonia.Views.MsBoxInputWindow;
 using MsBoxCustomWindow = MessageBox.Avalonia.BaseWindows.MsBoxCustomWindow;
 using MsBoxStandardWindow = MessageBox.Avalonia.BaseWindows.MsBoxStandardWindow;
 using MsBoxInputWindow = MessageBox.Avalonia.BaseWindows.MsBoxInputWindow;
+using MessageBox.Avalonia.Views;
+using HyperlinkWindow = MessageBox.Avalonia.Views.MsBoxHyperlinkWindow;
+using MsBoxHyperlinkWindow = MessageBox.Avalonia.BaseWindows.MsBoxHyperlinkWindow;
+using Avalonia.VisualTree;
+using Avalonia.Markup.Xaml.Templates;
+using MessageBox.Avalonia.Controls;
 
 namespace MessageBox.Avalonia
 {
@@ -29,7 +35,12 @@ namespace MessageBox.Avalonia
             window.DataContext = new MsBoxStandardViewModel(@params);
             return new MsBoxStandardWindow(window);
         }
-
+        public static IMsBoxWindow<ButtonResult> GetMessageBoxHyperlinkWindow(MessageBoxHyperlinkParams @params)
+        {
+            var window = new HyperlinkWindow(@params.Style) { DataContext= new MsBoxHyperlinkViewModel(@params)};
+            @params.Window = window;
+            return new MsBoxHyperlinkWindow(window);
+        }
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
             WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen,

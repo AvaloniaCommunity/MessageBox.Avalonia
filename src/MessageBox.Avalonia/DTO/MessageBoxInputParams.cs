@@ -6,6 +6,5 @@ namespace MessageBox.Avalonia.DTO
     {
         public bool IsPassword { get; set; } = false;
         public string WatermarkText { get; set; } = null;
-        public new MsBoxInputWindow Window { get; set; }
     }
 }

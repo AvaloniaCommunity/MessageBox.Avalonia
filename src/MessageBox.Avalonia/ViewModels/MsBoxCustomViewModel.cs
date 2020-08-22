@@ -17,11 +17,11 @@ namespace MessageBox.Avalonia.ViewModels
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
         private readonly MsBoxCustomWindow _window;
-        
+        public string ContentMessage { get; }
 
         public MsBoxCustomViewModel(MessageBoxCustomParams @params) : base(@params)
         {
-            _window = @params.Window;
+            _window = (MsBoxCustomWindow)@params.Window;
             ButtonDefinitions = @params.ButtonDefinitions;
         }
 

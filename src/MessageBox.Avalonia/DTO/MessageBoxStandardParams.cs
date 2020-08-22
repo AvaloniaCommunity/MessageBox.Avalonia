@@ -11,7 +11,6 @@ namespace MessageBox.Avalonia.DTO
     public class MessageBoxStandardParams : AbstractMessageBoxParams
     {
         public ButtonEnum ButtonDefinitions { get; set; } = ButtonEnum.Ok;
-
-        public MsBoxStandardWindow Window { get; set; }
+        public string ContentMessage { get; set; }
     }
 }
