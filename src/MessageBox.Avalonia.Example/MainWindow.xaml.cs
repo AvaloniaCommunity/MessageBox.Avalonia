@@ -30,16 +30,16 @@ namespace MessageBox.Avalonia.Example
 
         private async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxHyperlinkWindow(new MessageBoxHyperlinkParams()
+            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams()
             {
                 CanResize = true,
-                HyperlinkContentProvider = new[]{
-                    new HyperlinkContent { Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles" },
-                    new HyperlinkContent { Alias="edvyydebbvydebvyed         "},
-                    new HyperlinkContent { Url= "https://avaloniaui.net/docs/styles/styles" }
-                },
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok
+            });
+            var messageBoxCustomWindow2 = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxInputWindow(new MessageBoxInputParams()
+            {
+                CanResize = true,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
             });
             //var messageBoxCustomWindow2 = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams()
             //{
@@ -47,7 +47,7 @@ namespace MessageBox.Avalonia.Example
             //    WindowStartupLocation = WindowStartupLocation.CenterScreen,
             //    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok
             //});
-            //await messageBoxCustomWindow2.Show();
+            await messageBoxCustomWindow2.Show();
             var r = await messageBoxCustomWindow.Show();
 
         }
