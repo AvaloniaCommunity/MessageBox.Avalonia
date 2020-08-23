@@ -1,10 +1,10 @@
-using System.Threading.Tasks;
 using Avalonia.Controls;
 using MessageBox.Avalonia.DTO;
+using System.Threading.Tasks;
 using MsWindow = MessageBox.Avalonia.Views.MsBoxInputWindow;
 namespace MessageBox.Avalonia.BaseWindows
 {
-    public class MsBoxInputWindow:IMsBoxWindow<MessageWindowResultDTO>
+    public class MsBoxInputWindow : IMsBoxWindow<MessageWindowResultDTO>
     {
         private MsWindow _window;
 
@@ -16,7 +16,7 @@ namespace MessageBox.Avalonia.BaseWindows
         public Task<MessageWindowResultDTO> Show()
         {
             var tcs = new TaskCompletionSource<MessageWindowResultDTO>();
-            _window.Closed += delegate { tcs.TrySetResult(new MessageWindowResultDTO(_window.MessageResult,_window.ButtonResult)); };
+            _window.Closed += delegate { tcs.TrySetResult(new MessageWindowResultDTO(_window.MessageResult, _window.ButtonResult)); };
             _window.Show();
             return tcs.Task;
         }
@@ -24,7 +24,7 @@ namespace MessageBox.Avalonia.BaseWindows
         public Task<MessageWindowResultDTO> ShowDialog(Window ownerWindow)
         {
             var tcs = new TaskCompletionSource<MessageWindowResultDTO>();
-            _window.Closed += delegate { tcs.TrySetResult(new MessageWindowResultDTO(_window.ButtonResult,_window.MessageResult)); };
+            _window.Closed += delegate { tcs.TrySetResult(new MessageWindowResultDTO(_window.ButtonResult, _window.MessageResult)); };
             _window.ShowDialog(ownerWindow);
             return tcs.Task;
         }

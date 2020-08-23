@@ -2,8 +2,6 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using MessageBox.Avalonia.Extensions;
-using ReactiveUI;
-using System.Reactive.Linq;
 
 namespace MessageBox.Avalonia.Controls
 {

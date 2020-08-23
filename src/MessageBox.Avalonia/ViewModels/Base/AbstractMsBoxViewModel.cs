@@ -1,12 +1,10 @@
-using System;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Input.Platform;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using System;
 
 namespace MessageBox.Avalonia.ViewModels
 {

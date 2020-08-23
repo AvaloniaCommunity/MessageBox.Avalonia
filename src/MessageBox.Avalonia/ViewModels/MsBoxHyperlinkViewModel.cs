@@ -4,7 +4,6 @@ using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MessageBox.Avalonia.ViewModels
 {

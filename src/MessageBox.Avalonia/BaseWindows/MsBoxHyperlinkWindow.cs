@@ -1,7 +1,7 @@
 ﻿using Avalonia.Controls;
 using MessageBox.Avalonia.Enums;
-using MsWindow = MessageBox.Avalonia.Views.MsBoxHyperlinkWindow;
 using System.Threading.Tasks;
+using MsWindow = MessageBox.Avalonia.Views.MsBoxHyperlinkWindow;
 
 namespace MessageBox.Avalonia.BaseWindows
 {

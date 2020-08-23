@@ -1,5 +1,5 @@
-using System.Threading.Tasks;
 using Avalonia.Controls;
+using System.Threading.Tasks;
 using MsWindow = MessageBox.Avalonia.Views.MsBoxCustomWindow;
 
 namespace MessageBox.Avalonia.BaseWindows

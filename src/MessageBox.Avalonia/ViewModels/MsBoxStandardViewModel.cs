@@ -1,13 +1,7 @@
-using System;
-using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Input.Platform;
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Views;
+using System;
 
 namespace MessageBox.Avalonia.ViewModels
 {
@@ -20,7 +14,7 @@ namespace MessageBox.Avalonia.ViewModels
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-        
+
         public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
         {
             _window = (MsBoxStandardWindow)@params.Window;
@@ -64,7 +58,7 @@ namespace MessageBox.Avalonia.ViewModels
 
         public void ButtonClick(string parameter)
         {
-            _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
+            _window.ButtonResult = (ButtonResult)Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
             _window.Close();
         }
     }

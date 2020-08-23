@@ -4,17 +4,13 @@ using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.ViewModels;
 using CustomWindow = MessageBox.Avalonia.Views.MsBoxCustomWindow;
-using StandardWindow = MessageBox.Avalonia.Views.MsBoxStandardWindow;
+using HyperlinkWindow = MessageBox.Avalonia.Views.MsBoxHyperlinkWindow;
 using InputWindow = MessageBox.Avalonia.Views.MsBoxInputWindow;
 using MsBoxCustomWindow = MessageBox.Avalonia.BaseWindows.MsBoxCustomWindow;
-using MsBoxStandardWindow = MessageBox.Avalonia.BaseWindows.MsBoxStandardWindow;
-using MsBoxInputWindow = MessageBox.Avalonia.BaseWindows.MsBoxInputWindow;
-using MessageBox.Avalonia.Views;
-using HyperlinkWindow = MessageBox.Avalonia.Views.MsBoxHyperlinkWindow;
 using MsBoxHyperlinkWindow = MessageBox.Avalonia.BaseWindows.MsBoxHyperlinkWindow;
-using Avalonia.VisualTree;
-using Avalonia.Markup.Xaml.Templates;
-using MessageBox.Avalonia.Controls;
+using MsBoxInputWindow = MessageBox.Avalonia.BaseWindows.MsBoxInputWindow;
+using MsBoxStandardWindow = MessageBox.Avalonia.BaseWindows.MsBoxStandardWindow;
+using StandardWindow = MessageBox.Avalonia.Views.MsBoxStandardWindow;
 
 namespace MessageBox.Avalonia
 {
@@ -37,7 +33,7 @@ namespace MessageBox.Avalonia
         }
         public static IMsBoxWindow<ButtonResult> GetMessageBoxHyperlinkWindow(MessageBoxHyperlinkParams @params)
         {
-            var window = new HyperlinkWindow(@params.Style) { DataContext= new MsBoxHyperlinkViewModel(@params)};
+            var window = new HyperlinkWindow(@params.Style) { DataContext = new MsBoxHyperlinkViewModel(@params) };
             @params.Window = window;
             return new MsBoxHyperlinkWindow(window);
         }
@@ -45,10 +41,14 @@ namespace MessageBox.Avalonia
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
             WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen,
             Style style = Style.None) => GetMessageBoxStandardWindow(new MessageBoxStandardParams
-        {
-            ContentTitle = title, ContentMessage = text, ButtonDefinitions = @enum, Icon = icon, Style = style,
-            WindowStartupLocation = windowStartupLocation
-        });
+            {
+                ContentTitle = title,
+                ContentMessage = text,
+                ButtonDefinitions = @enum,
+                Icon = icon,
+                Style = style,
+                WindowStartupLocation = windowStartupLocation
+            });
 
         public static IMsBoxWindow<MessageWindowResultDTO> GetMessageBoxInputWindow(MessageBoxInputParams @params)
         {

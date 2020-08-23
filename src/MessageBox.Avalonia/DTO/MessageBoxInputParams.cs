@@ -1,5 +1,3 @@
-using MessageBox.Avalonia.Views;
-
 namespace MessageBox.Avalonia.DTO
 {
     public class MessageBoxInputParams : MessageBoxCustomParams

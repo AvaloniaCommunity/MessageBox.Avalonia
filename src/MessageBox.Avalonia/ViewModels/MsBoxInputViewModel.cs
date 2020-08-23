@@ -1,8 +1,8 @@
-using System.Collections.Generic;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
 using ReactiveUI;
+using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
