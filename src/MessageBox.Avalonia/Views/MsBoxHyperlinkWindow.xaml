@@ -72,7 +72,7 @@
       <!--Bold text-->
       <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
       <!--Content text-->
-      <ItemsControl  Items="{Binding HyperlinkContentProvider}">
+      <ItemsControl x:Name="myItems"  Items="{Binding HyperlinkContentProvider}">
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
             <StackPanel Orientation="Horizontal"/>

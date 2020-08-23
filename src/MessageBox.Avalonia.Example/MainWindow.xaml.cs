@@ -18,6 +18,7 @@ namespace MessageBox.Avalonia.Example
             var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxHyperlinkWindow(new MessageBoxHyperlinkParams()
             {
                 CanResize = true,
+                 Style= MessageBoxAvaloniaEnums.Style.MacOs,
                 HyperlinkContentProvider = new[]{
                     new HyperlinkContent { Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles" },
                     new HyperlinkContent { Alias="edvyydebbvydebvyed         "},
