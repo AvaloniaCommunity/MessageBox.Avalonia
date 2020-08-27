@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace MessageBox.Avalonia.BaseWindows.Base
 {
-    public class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window
+    internal class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window
     {
         private U _window;
         private T _whatToSet;
