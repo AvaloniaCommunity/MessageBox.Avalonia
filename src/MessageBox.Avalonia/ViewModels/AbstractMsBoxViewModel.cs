@@ -18,6 +18,7 @@ namespace MessageBox.Avalonia.ViewModels
         public string ContentTitle { get; }
         public string ContentHeader { get; }
         public string ContentMessage { get; }
+        public WindowIcon WindowIconPath { get; } = null;
         public Bitmap ImagePath { get; } = null;
         public int? MaxWidth { get; }
 
@@ -32,6 +33,7 @@ namespace MessageBox.Avalonia.ViewModels
                         $" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLowerInvariant()}.ico")));
             }
 
+            WindowIconPath = @params.WindowIcon;
             MaxWidth = @params.MaxWidth;
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;
