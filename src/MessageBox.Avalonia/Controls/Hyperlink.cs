@@ -10,10 +10,6 @@ namespace MessageBox.Avalonia.Controls
         private string _url;
         public static readonly DirectProperty<Hyperlink, string> UrlProperty
             = AvaloniaProperty.RegisterDirect<Hyperlink, string>(nameof(Url), o => o.Url, (o, v) => o.Url = v);
-        public Hyperlink()
-        {
-
-        }
         public string Url
         {
             get => _url;
