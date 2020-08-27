@@ -17,6 +17,7 @@ namespace MessageBox.Avalonia.ViewModels
 
         public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
         {
+            ContentMessage = @params.ContentMessage;
             _window = (MsBoxStandardWindow)@params.Window;
             SetButtons(@params.ButtonDefinitions);
         }
