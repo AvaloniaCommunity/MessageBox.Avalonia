@@ -5,5 +5,5 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MessageBox.Avalonia.Example.MainWindow"
         Title="MessageBox.Avalonia.Example">
-  <Button Name="btnClick" >Click</Button>
+  <Button Name="btnClick" Click="MainWindow_Click">Click</Button>
 </Window>

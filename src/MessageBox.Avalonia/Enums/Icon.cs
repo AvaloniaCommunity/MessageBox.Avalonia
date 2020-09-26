@@ -3,7 +3,7 @@ namespace MessageBox.Avalonia.Enums
     public enum Icon
     {
         None,
-        Buttery,
+        Battery,
         Database,
         Error,
         Folder,

@@ -1,9 +1,8 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.DTO;
-
+using MessageBox.Avalonia.Models;
 using MessageBoxAvaloniaEnums = MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.Example
@@ -13,22 +12,26 @@ namespace MessageBox.Avalonia.Example
         public MainWindow()
         {
             InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
-            this.FindControl<Button>("btnClick").Click += MainWindow_Click;
+            
         }
 
         private async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(new MessageBoxStandardParams{
-                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.OkAbort,
-                ContentTitle = "Title",
-                ContentMessage = "Message",
-                Icon = MessageBoxAvaloniaEnums.Icon.Plus,
-                Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux
+            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxHyperlinkWindow(new MessageBoxHyperlinkParams()
+            {
+                CanResize = true,
+                Style = MessageBoxAvaloniaEnums.Style.MacOs,
+                HyperlinkContentProvider = new[]{
+                    new HyperlinkContent { Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles" },
+                    new HyperlinkContent { Alias="edvyydebbvydebvyed         "},
+                    new HyperlinkContent { Url= "https://avaloniaui.net/docs/styles/styles" }
+                },
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok
             });
-            await msBoxStandardWindow.ShowDialog(this);
+            
+            var r = await messageBoxCustomWindow.Show();
+
         }
 
         private void InitializeComponent()

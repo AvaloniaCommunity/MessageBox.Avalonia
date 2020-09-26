@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.Models

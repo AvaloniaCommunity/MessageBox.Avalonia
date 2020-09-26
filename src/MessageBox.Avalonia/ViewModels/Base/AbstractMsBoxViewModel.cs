@@ -33,7 +33,6 @@ namespace MessageBox.Avalonia.ViewModels
                         $" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLowerInvariant()}.ico")));
             }
 
-            WindowIconPath = @params.WindowIcon;
             MaxWidth = @params.MaxWidth;
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;

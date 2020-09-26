@@ -12,27 +12,30 @@
         MinHeight="100"
         CanResize="{Binding CanResize}"
         Title="{Binding ContentTitle}">
-
-  <Window.KeyBindings>
-    <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
-  </Window.KeyBindings>
-  <Window.Styles>
-    <Style Selector="TextBox">
-      <Setter Property="BorderThickness" Value="0" />
-      <Setter Property="TextWrapping" Value="Wrap" />
-      <Setter Property="AcceptsReturn" Value="True" />
-      <Setter Property="IsReadOnly" Value="True" />
-      <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-      <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-    </Style>
-    <Style Selector="TextBox.header">
-      <Setter Property="FontWeight" Value="Bold" />
-    </Style>
-    <Style Selector="Button">
-      <Setter Property="Margin" Value="15 0 0 0" />
-      <Setter Property="MinHeight" Value="24" />
-      <Setter Property="MinWidth" Value="75" />
-    </Style>
+        
+    <Window.KeyBindings>
+        <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
+    </Window.KeyBindings>
+    <Window.Styles>
+        <Style Selector="TextBox">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        <Style Selector="TextBox:focus /template/ Border#border">
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="TextBox.header">
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Margin" Value="15 0 0 0" />
+            <Setter Property="MinHeight" Value="24" />
+            <Setter Property="MinWidth" Value="75" />
+        </Style>
 
   </Window.Styles>
   <Grid>
