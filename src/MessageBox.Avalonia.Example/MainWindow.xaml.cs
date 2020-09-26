@@ -29,9 +29,7 @@ namespace MessageBox.Avalonia.Example
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok
             });
-            
-            var r = await messageBoxCustomWindow.Show();
-
+           await messageBoxCustomWindow.Show();
         }
 
         private void InitializeComponent()

@@ -15,10 +15,10 @@ namespace MessageBox.Avalonia.ViewModels
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
 
-        public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
+        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) : base(@params)
         {
             ContentMessage = @params.ContentMessage;
-            _window = (MsBoxStandardWindow)@params.Window;
+            _window = msBoxStandardWindow;
             SetButtons(@params.ButtonDefinitions);
         }
 

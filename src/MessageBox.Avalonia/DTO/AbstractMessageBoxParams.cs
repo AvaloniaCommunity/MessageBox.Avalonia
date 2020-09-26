@@ -9,8 +9,6 @@ namespace MessageBox.Avalonia.DTO
     {
         public Icon Icon { get; set; } = Icon.None;
         public WindowIcon WindowIcon { get; set; } = null;
-        [Obsolete("You should not use this property, it's system.", false)]
-        public Window Window { get; set; }
         public Style Style { get; set; } = Style.None;
         public bool CanResize { get; set; } = false;
         public bool ShowInCenter { get; set; } = true;

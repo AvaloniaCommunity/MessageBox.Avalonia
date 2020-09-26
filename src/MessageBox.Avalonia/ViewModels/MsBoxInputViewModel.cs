@@ -10,9 +10,9 @@ namespace MessageBox.Avalonia.ViewModels
     {
         private readonly MsBoxInputWindow _window;
         private string _inputText;
-        public MsBoxInputViewModel(MessageBoxInputParams @params) : base(@params)
+        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params)
         {
-            _window = (MsBoxInputWindow)@params.Window;
+            _window = msBoxInputWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
             PassChar = @params.IsPassword ? '*' : (char?)null;
             WatermarkText = @params.WatermarkText;
