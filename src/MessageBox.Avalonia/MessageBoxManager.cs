@@ -16,22 +16,20 @@ namespace MessageBox.Avalonia
         public static IMsBoxWindow<string> GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
         {
             var window = new CustomWindow(@params.Style);
-            @params.Window = window;
-            window.DataContext = new MsBoxCustomViewModel(@params);
+            window.DataContext = new MsBoxCustomViewModel(@params, window);
             return new MsBoxWindowBase<CustomWindow, string>(window, window.ButtonResult);
         }
 
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
         {
             var window = new StandardWindow(@params.Style);
-            @params.Window = window;
-            window.DataContext = new MsBoxStandardViewModel(@params);
+            window.DataContext = new MsBoxStandardViewModel(@params, window);
             return new MsBoxWindowBase<StandardWindow,ButtonResult>(window, window.ButtonResult);
         }
         public static IMsBoxWindow<ButtonResult> GetMessageBoxHyperlinkWindow(MessageBoxHyperlinkParams @params)
         {
-            var window = new HyperlinkWindow(@params.Style) { DataContext = new MsBoxHyperlinkViewModel(@params) };
-            @params.Window = window;
+            var window = new HyperlinkWindow(@params.Style);
+            window.DataContext = new MsBoxHyperlinkViewModel(@params, window);
             return new  MsBoxWindowBase<HyperlinkWindow, ButtonResult>(window, window.ButtonResult);
         }
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
@@ -50,8 +48,7 @@ namespace MessageBox.Avalonia
         public static IMsBoxWindow<MessageWindowResultDTO> GetMessageBoxInputWindow(MessageBoxInputParams @params)
         {
             var window = new InputWindow(@params.Style);
-            @params.Window = window;
-            window.DataContext = new MsBoxInputViewModel(@params);
+            window.DataContext = new MsBoxInputViewModel(@params,window);
             return new MsBoxWindowBase<InputWindow, MessageWindowResultDTO>(window, new MessageWindowResultDTO(window.MessageResult, window.ButtonResult));
         }
     }
