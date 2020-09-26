@@ -1,10 +1,12 @@
+using System;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input.Platform;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
-using System;
 
 namespace MessageBox.Avalonia.ViewModels
 {
@@ -15,6 +17,8 @@ namespace MessageBox.Avalonia.ViewModels
         public bool HasIcon => !(ImagePath is null);
         public string ContentTitle { get; }
         public string ContentHeader { get; }
+        public string ContentMessage { get; }
+        public WindowIcon WindowIconPath { get; } = null;
         public Bitmap ImagePath { get; } = null;
         public int? MaxWidth { get; }
 
@@ -33,12 +37,14 @@ namespace MessageBox.Avalonia.ViewModels
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
+            ContentMessage = @params.ContentMessage;
+
             LocationOfMyWindow = @params.WindowStartupLocation;
         }
 
-        //public async Task Copy()
-        //{
-        //    await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
-        //}
+        public async Task Copy()
+        {
+            await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
+        }
     }
 }
