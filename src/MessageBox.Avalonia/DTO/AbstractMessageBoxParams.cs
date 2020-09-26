@@ -7,7 +7,7 @@ namespace MessageBox.Avalonia.DTO
     public abstract class AbstractMessageBoxParams
     {
         public Icon Icon { get; set; } = Icon.None;
-        public Bitmap WindowIcon { get; set; } = null;
+        public WindowIcon WindowIcon { get; set; } = null;
         public Style Style { get; set; } = Style.None;
         public bool CanResize { get; set; } = false;
         public bool ShowInCenter { get; set; } = true;
