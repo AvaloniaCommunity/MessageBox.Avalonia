@@ -1,23 +1,23 @@
 # MessageBox.Avalonia
 
 Messagebox for AvaloniaUI
-for 0.9
+for 0.10
 
 
-![](Images/Capture.PNG)
+![](Images/snandard_icon.png)
 
 
 To start you should install MessageBox.Avalonia NuGet package 
 >   dotnet add package MessageBox.Avalonia 
 
-[![nuget](https://img.shields.io/badge/nuget-9-lightblue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.9.0)
+[![nuget](https://img.shields.io/badge/10-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.10.0)
 or download this repo.
 
 [![wiki](https://img.shields.io/badge/wiki-v%200.9-brightgreen)](https://github.com/CreateLab/MessageBox.Avalonia/wiki) - here you can find the API.
 
 The easiest way to get started is this:
 
-![](Images/baseWind.png)
+![](Images/standard.png)
 
 ```cs 
 var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
@@ -43,7 +43,7 @@ msBoxStandardWindow.Show();
 
 Or like this, with custom buttons:
 
-![](Images/Custom.png)
+![](Images/custom.png)
 
 ```cs
 var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
@@ -55,6 +55,26 @@ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
             new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
         }
     });
+messageBoxCustomWindow.Show();
+```
+Also you may use hyperlink boxes.
+
+![](Images/hyperlink.png)
+
+
+```cs
+ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxHyperlinkWindow(new MessageBoxHyperlinkParams()
+            {
+                CanResize = true,
+                Style = MessageBoxAvaloniaEnums.Style.MacOs,
+                HyperlinkContentProvider = new[]{
+                    new HyperlinkContent { Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles" },
+                    new HyperlinkContent { Alias="edvyydebbvydebvyed         "},
+                    new HyperlinkContent { Url= "https://avaloniaui.net/docs/styles/styles" }
+                },
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok
+            });
 messageBoxCustomWindow.Show();
 ```
 
