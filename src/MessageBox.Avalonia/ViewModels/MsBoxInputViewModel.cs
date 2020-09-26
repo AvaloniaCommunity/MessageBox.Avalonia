@@ -19,7 +19,6 @@ namespace MessageBox.Avalonia.ViewModels
         }
 
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-        public string ContentMessage { get; }
 
         public string InputText
         {

@@ -17,19 +17,16 @@ namespace MessageBox.Avalonia.Example
 
         private async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxHyperlinkWindow(new MessageBoxHyperlinkParams()
-            {
-                CanResize = true,
-                Style = MessageBoxAvaloniaEnums.Style.MacOs,
-                HyperlinkContentProvider = new[]{
-                    new HyperlinkContent { Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles" },
-                    new HyperlinkContent { Alias="edvyydebbvydebvyed         "},
-                    new HyperlinkContent { Url= "https://avaloniaui.net/docs/styles/styles" }
-                },
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok
-            });
-           await messageBoxCustomWindow.Show();
+            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxStandardWindow(new MessageBoxStandardParams{
+                    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.OkAbort,
+                    ContentTitle = "Title",
+                    ContentMessage = "Message",
+                    Icon = MessageBoxAvaloniaEnums.Icon.Plus,
+                    Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux
+                });
+            msBoxStandardWindow.Show();
+
         }
 
         private void InitializeComponent()
