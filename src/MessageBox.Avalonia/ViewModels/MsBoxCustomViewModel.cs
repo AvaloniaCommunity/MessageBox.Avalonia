@@ -1,15 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Input.Platform;
-using Avalonia.Media.Imaging;
-using Avalonia.Platform;
 using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
+using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
@@ -17,11 +9,12 @@ namespace MessageBox.Avalonia.ViewModels
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
         private readonly MsBoxCustomWindow _window;
-        
+        public string ContentMessage { get; }
 
         public MsBoxCustomViewModel(MessageBoxCustomParams @params) : base(@params)
         {
-            _window = @params.Window;
+            ContentMessage = @params.ContentMessage;
+            _window = (MsBoxCustomWindow)@params.Window;
             ButtonDefinitions = @params.ButtonDefinitions;
         }
 

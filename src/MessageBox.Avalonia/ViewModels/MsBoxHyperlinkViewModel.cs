@@ -1,27 +1,26 @@
-using MessageBox.Avalonia.DTO;
+﻿using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
 using System;
+using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxStandardViewModel : AbstractMsBoxViewModel
+    public class MsBoxHyperlinkViewModel : AbstractMsBoxViewModel
     {
-        private MsBoxStandardWindow _window;
-        public string ContentMessage { get; }
+        private readonly MsBoxHyperlinkWindow _window;
         public bool IsOkShowed { get; private set; }
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-
-        public MsBoxStandardViewModel(MessageBoxStandardParams @params) : base(@params)
+        public MsBoxHyperlinkViewModel(MessageBoxHyperlinkParams @params) : base(@params)
         {
-            ContentMessage = @params.ContentMessage;
-            _window = (MsBoxStandardWindow)@params.Window;
+            _window = (MsBoxHyperlinkWindow)@params.Window;
+            HyperlinkContentProvider = @params.HyperlinkContentProvider;
             SetButtons(@params.ButtonDefinitions);
         }
-
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
         {
             switch (paramsButtonDefinitions)
@@ -56,7 +55,7 @@ namespace MessageBox.Avalonia.ViewModels
                         null);
             }
         }
-
+        public IEnumerable<HyperlinkContent> HyperlinkContentProvider { get; set; }
         public void ButtonClick(string parameter)
         {
             _window.ButtonResult = (ButtonResult)Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);

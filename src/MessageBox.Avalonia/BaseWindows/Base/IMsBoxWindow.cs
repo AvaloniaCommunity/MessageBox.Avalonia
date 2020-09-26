@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using Avalonia.Controls;
+using System.Threading.Tasks;
 
-namespace MessageBox.Avalonia.BaseWindows
+namespace MessageBox.Avalonia.BaseWindows.Base
 {
     public interface IMsBoxWindow<T>
     {
