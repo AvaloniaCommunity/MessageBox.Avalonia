@@ -7,7 +7,7 @@ namespace MessageBox.Avalonia.BaseWindows.Base
     {
         private U _window;
         private T _whatToSet;
-        public MsBoxWindowBase(U window,T whatToSet)
+        public MsBoxWindowBase(U window,ref T whatToSet)
         {
             _whatToSet = whatToSet;
             _window = window;

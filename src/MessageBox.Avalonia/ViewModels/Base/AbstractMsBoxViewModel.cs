@@ -10,8 +10,9 @@ using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public abstract class AbstractMsBoxViewModel : ViewModelBase
+    public abstract class AbstractMsBoxViewModel<T> : ViewModelBase where T:Window
     {
+        internal  T _window;
         public bool CanResize { get; }
         public bool HasHeader => !(string.IsNullOrEmpty(ContentHeader));
         public bool HasIcon => !(ImagePath is null);

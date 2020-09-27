@@ -5,10 +5,9 @@ using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxCustomViewModel : AbstractMsBoxViewModel
+    public class MsBoxCustomViewModel : AbstractMsBoxViewModel<MsBoxCustomWindow>
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-        private readonly MsBoxCustomWindow _window;
         public string ContentMessage { get; }
 
         public MsBoxCustomViewModel(MessageBoxCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params)

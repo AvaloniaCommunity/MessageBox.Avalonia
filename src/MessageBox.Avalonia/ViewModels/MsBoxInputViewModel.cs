@@ -6,9 +6,8 @@ using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxInputViewModel : AbstractMsBoxViewModel
+    public class MsBoxInputViewModel : AbstractMsBoxViewModel<MsBoxInputWindow>
     {
-        private readonly MsBoxInputWindow _window;
         private string _inputText;
         public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params)
         {

@@ -25,7 +25,7 @@ namespace MessageBox.Avalonia.Example
                     Icon = MessageBoxAvaloniaEnums.Icon.Plus,
                     Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux
                 });
-            msBoxStandardWindow.Show();
+          var res=  await msBoxStandardWindow.Show();
 
         }
 

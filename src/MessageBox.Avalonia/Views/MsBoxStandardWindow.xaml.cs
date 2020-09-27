@@ -2,13 +2,12 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Extensions;
+using MessageBox.Avalonia.Views.Abstractions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxStandardWindow : Window
+    public class MsBoxStandardWindow : ButtonResultWindow
     {
-        public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
-
         public MsBoxStandardWindow()
         {
             InitializeComponent();

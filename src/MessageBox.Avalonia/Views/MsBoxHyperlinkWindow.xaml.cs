@@ -10,12 +10,12 @@ using MessageBox.Avalonia.Extensions;
 using System;
 using MessageBox.Avalonia.DTO;
 using Style = MessageBox.Avalonia.Enums.Style;
+using MessageBox.Avalonia.Views.Abstractions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxHyperlinkWindow : Window
+    public class MsBoxHyperlinkWindow : ButtonResultWindow
     {
-        public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
         public MsBoxHyperlinkWindow()
         {
             this.InitializeComponent();
