@@ -17,20 +17,20 @@ namespace MessageBox.Avalonia
         {
             var window = new CustomWindow(@params.Style);
             window.DataContext = new MsBoxCustomViewModel(@params, window);
-            return new MsBoxWindowBase<CustomWindow, string>(window, window.ButtonResult);
+            return new MsBoxWindowBase<CustomWindow, string>(window);
         }
 
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
         {
             var window = new StandardWindow(@params.Style);
             window.DataContext = new MsBoxStandardViewModel(@params, window);
-            return new MsBoxWindowBase<StandardWindow,ButtonResult>(window, window.ButtonResult);
+            return new MsBoxWindowBase<StandardWindow,ButtonResult>(window);
         }
         public static IMsBoxWindow<ButtonResult> GetMessageBoxHyperlinkWindow(MessageBoxHyperlinkParams @params)
         {
             var window = new HyperlinkWindow(@params.Style);
             window.DataContext = new MsBoxHyperlinkViewModel(@params, window);
-            return new  MsBoxWindowBase<HyperlinkWindow, ButtonResult>(window, window.ButtonResult);
+            return new  MsBoxWindowBase<HyperlinkWindow, ButtonResult>(window);
         }
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
@@ -49,7 +49,7 @@ namespace MessageBox.Avalonia
         {
             var window = new InputWindow(@params.Style);
             window.DataContext = new MsBoxInputViewModel(@params,window);
-            return new MsBoxWindowBase<InputWindow, MessageWindowResultDTO>(window, new MessageWindowResultDTO(window.MessageResult, window.ButtonResult));
+            return new MsBoxWindowBase<InputWindow, MessageWindowResultDTO>(window);
         }
     }
 }

@@ -1,11 +1,12 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using MessageBox.Avalonia.BaseWindows.Base;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Extensions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxStandardWindow : Window
+    public class MsBoxStandardWindow : Window, IWindowGetResult<ButtonResult>
     {
         public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
 
@@ -24,5 +25,7 @@ namespace MessageBox.Avalonia.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
+
+        public ButtonResult GetResult() => ButtonResult;
     }
 }

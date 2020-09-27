@@ -8,12 +8,13 @@ using MessageBox.Avalonia.Controls;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Extensions;
 using System;
+using MessageBox.Avalonia.BaseWindows.Base;
 using MessageBox.Avalonia.DTO;
 using Style = MessageBox.Avalonia.Enums.Style;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxHyperlinkWindow : Window
+    public class MsBoxHyperlinkWindow : Window, IWindowGetResult<ButtonResult>
     {
         public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
         public MsBoxHyperlinkWindow()
@@ -61,5 +62,7 @@ namespace MessageBox.Avalonia.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
+
+        public ButtonResult GetResult() => ButtonResult;
     }
 }

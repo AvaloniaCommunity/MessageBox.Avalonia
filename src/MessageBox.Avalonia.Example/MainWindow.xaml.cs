@@ -17,16 +17,9 @@ namespace MessageBox.Avalonia.Example
 
         private async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
-            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxStandardWindow(new MessageBoxStandardParams{
-                    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.OkAbort,
-                    ContentTitle = "Title",
-                    ContentMessage = "Message",
-                    Icon = MessageBoxAvaloniaEnums.Icon.Plus,
-                    Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux
-                });
-            msBoxStandardWindow.Show();
-
+            var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxStandardWindow("title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
+            var r =await messageBoxStandardWindow.Show();
         }
 
         private void InitializeComponent()
