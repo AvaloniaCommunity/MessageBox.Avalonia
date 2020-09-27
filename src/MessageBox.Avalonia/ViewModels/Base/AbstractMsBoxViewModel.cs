@@ -38,7 +38,7 @@ namespace MessageBox.Avalonia.ViewModels
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
             ContentMessage = @params.ContentMessage;
-
+            WindowIconPath = @params.WindowIcon;
             LocationOfMyWindow = @params.WindowStartupLocation;
         }
 
