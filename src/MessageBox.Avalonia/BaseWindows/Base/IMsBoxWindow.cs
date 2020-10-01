@@ -7,5 +7,6 @@ namespace MessageBox.Avalonia.BaseWindows.Base
     {
         Task<T> ShowDialog(Window ownerWindow);
         Task<T> Show();
+        Task<T> Show(Window window);
     }
 }

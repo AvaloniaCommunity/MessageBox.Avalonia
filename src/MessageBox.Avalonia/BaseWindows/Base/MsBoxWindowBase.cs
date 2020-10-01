@@ -18,6 +18,14 @@ namespace MessageBox.Avalonia.BaseWindows.Base
             return tcs.Task;
         }
 
+        public Task<T> Show(Window window)
+        {
+            var tcs = new TaskCompletionSource<T>();
+            _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
+            _window.Show(window);
+            return tcs.Task;
+        }
+
         public Task<T> ShowDialog(Window ownerWindow)
         {
             var tcs = new TaskCompletionSource<T>();
