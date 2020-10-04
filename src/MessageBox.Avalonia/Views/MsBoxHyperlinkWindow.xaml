@@ -19,7 +19,6 @@
     <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
   </Window.KeyBindings>
   <Design.DataContext>
-
   </Design.DataContext>
 
   <Window.Styles>
@@ -42,7 +41,6 @@
       <Setter Property="MinHeight" Value="24" />
       <Setter Property="MinWidth" Value="75" />
     </Style>
-
   </Window.Styles>
   <Grid>
     <Grid.ColumnDefinitions>
@@ -75,7 +73,7 @@
       <ItemsControl x:Name="myItems"  Items="{Binding HyperlinkContentProvider}">
         <ItemsControl.ItemsPanel>
           <ItemsPanelTemplate>
-            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal" />
           </ItemsPanelTemplate>
         </ItemsControl.ItemsPanel>
         <ItemsControl.ItemTemplate>
@@ -83,7 +81,6 @@
               <c:Hyperlink Text="{Binding Alias}"  Url="{Binding Url}"></c:Hyperlink>
           </DataTemplate>
         </ItemsControl.ItemTemplate>
-        
       </ItemsControl>
     </Grid>
     <!--Buttons-->

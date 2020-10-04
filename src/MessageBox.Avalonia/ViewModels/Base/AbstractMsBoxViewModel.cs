@@ -5,6 +5,7 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using MessageBox.Avalonia.Extensions;
 using System;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace MessageBox.Avalonia.ViewModels
 
         public WindowStartupLocation LocationOfMyWindow { get; }
 
-        public AbstractMsBoxViewModel(AbstractMessageBoxParams @params)
+        public AbstractMsBoxViewModel(AbstractMessageBoxParams @params, T window)
         {
             if (@params.Icon != Icon.None)
             {
@@ -33,14 +34,14 @@ namespace MessageBox.Avalonia.ViewModels
                     .Open(new Uri(
                         $" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLowerInvariant()}.ico")));
             }
-
             MaxWidth = @params.MaxWidth;
             CanResize = @params.CanResize;
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
             ContentMessage = @params.ContentMessage;
-
             LocationOfMyWindow = @params.WindowStartupLocation;
+            _window = window;
+            _window.SetStyle(@params.Style);
         }
 
         public Task Copy()

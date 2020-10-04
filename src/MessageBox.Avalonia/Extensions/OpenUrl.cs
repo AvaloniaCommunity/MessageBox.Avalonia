@@ -13,6 +13,7 @@ namespace MessageBox.Avalonia.Extensions
             if (!Uri.TryCreate(url, UriKind.Absolute, out var tmp)) return false;
             return tmp.Scheme == Uri.UriSchemeHttp || tmp.Scheme == Uri.UriSchemeHttps;
         }
+
         public static void OpenUrl(this string url)
         {
             if (IsValidUrl(url))

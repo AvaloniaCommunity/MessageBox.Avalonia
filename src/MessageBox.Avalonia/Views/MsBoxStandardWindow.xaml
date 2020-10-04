@@ -16,7 +16,6 @@
     <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
   </Window.KeyBindings>
   <Design.DataContext>
-
   </Design.DataContext>
 
     <Window.Styles>
@@ -39,7 +38,6 @@
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
-
   </Window.Styles>
   <Grid>
     <Grid.ColumnDefinitions>

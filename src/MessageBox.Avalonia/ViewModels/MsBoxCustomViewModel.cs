@@ -6,11 +6,13 @@ using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxCustomViewModel : AbstractMsBoxViewModel<MsBoxCustomWindow>,IResult<string>
+    public class MsBoxCustomViewModel : AbstractMsBoxViewModel<MsBoxCustomWindow>, IResult<string>
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
         public string ButtonResult { get; set; }
-        public MsBoxCustomViewModel(MessageBoxCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params)
+
+        public MsBoxCustomViewModel(MessageBoxCustomParams @params, MsBoxCustomWindow msBoxCustomWindow)
+            : base(@params, msBoxCustomWindow)
         {
             ContentMessage = @params.ContentMessage;
             _window = msBoxCustomWindow;
@@ -27,7 +29,6 @@ namespace MessageBox.Avalonia.ViewModels
             }
 
             _window.Close();
-
         }
 
         public string GetResult()

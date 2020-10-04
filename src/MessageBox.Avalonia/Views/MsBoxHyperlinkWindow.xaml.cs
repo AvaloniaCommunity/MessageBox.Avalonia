@@ -5,9 +5,7 @@ using Avalonia.LogicalTree;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using MessageBox.Avalonia.Controls;
-using MessageBox.Avalonia.Extensions;
 using System;
-using Style = MessageBox.Avalonia.Enums.Style;
 
 namespace MessageBox.Avalonia.Views
 {
@@ -17,13 +15,6 @@ namespace MessageBox.Avalonia.Views
         {
             this.InitializeComponent();
         }
-        public MsBoxHyperlinkWindow(Style style)
-        {
-
-            this.SetStyle(style);
-            InitializeComponent();
-        }
-
 
         //More like a workaround because i dont know how to set it only with styles in .xaml file
         protected override void OnOpened(EventArgs e)
@@ -54,6 +45,7 @@ namespace MessageBox.Avalonia.Views
             }
             base.OnOpened(e);
         }
+
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);

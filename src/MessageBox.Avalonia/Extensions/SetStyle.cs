@@ -10,47 +10,47 @@ namespace MessageBox.Avalonia.Extensions
         internal static void SetStyle(this Window window, Style style)
         {
             var styles = window.Styles;
+            string stylePath;
             switch (style)
             {
                 case Style.Windows:
                     {
-                        styles.Add(new StyleInclude(
-                                new Uri("avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml"))
-                        { Source = new Uri("avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml") });
+                        stylePath = "avares://MessageBox.Avalonia/Styles/Windows/Windows.xaml";
+                        styles.Add(new StyleInclude(new Uri(stylePath))
+                        { Source = new Uri(stylePath) });
                         break;
                     }
 
                 case Style.MacOs:
                     {
-                        styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/MacOs/MacOs.xaml"))
-                        { Source = new Uri("avares://MessageBox.Avalonia/Styles/MacOs/MacOs.xaml") });
+                        stylePath = "avares://MessageBox.Avalonia/Styles/MacOs/MacOs.xaml";
+                        styles.Add(new StyleInclude(new Uri(stylePath))
+                        { Source = new Uri(stylePath) });
                         break;
                     }
 
                 case Style.UbuntuLinux:
                     {
-                        styles.Add(new StyleInclude(
-                                new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml"))
-                        { Source = new Uri("avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml") });
+                        stylePath = "avares://MessageBox.Avalonia/Styles/Ubuntu/Ubuntu.xaml";
+                        styles.Add(new StyleInclude(new Uri(stylePath)) { Source = new Uri(stylePath) });
                         break;
                     }
                 case Style.MintLinux:
                     {
-                        styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml"))
-                        { Source = new Uri("avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml") });
+                        stylePath = "avares://MessageBox.Avalonia/Styles/Mint/Mint.xaml";
+                        styles.Add(new StyleInclude(new Uri(stylePath)) { Source = new Uri(stylePath) });
                         break;
                     }
                 case Style.DarkMode:
                     {
-                        styles.Add(new StyleInclude(new Uri("avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml"))
-                        { Source = new Uri("avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml") });
+                        stylePath = "avares://MessageBox.Avalonia/Styles/Dark/Dark.xaml";
+                        styles.Add(new StyleInclude(new Uri(stylePath)) { Source = new Uri(stylePath) });
                         break;
                     }
                 case Style.RoundButtons:
                     {
-                        styles.Add(new StyleInclude(
-                                new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml"))
-                        { Source = new Uri("avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml") });
+                        stylePath = "avares://MessageBox.Avalonia/Styles/RoundButtons/RoundButtons.xaml";
+                        styles.Add(new StyleInclude(new Uri(stylePath)) { Source = new Uri(stylePath) });
                         break;
                     }
             }

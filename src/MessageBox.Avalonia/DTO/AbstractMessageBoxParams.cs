@@ -1,6 +1,4 @@
-using System;
 using Avalonia.Controls;
-using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.DTO

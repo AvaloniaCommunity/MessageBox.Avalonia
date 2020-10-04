@@ -12,7 +12,7 @@
         MinHeight="100"
         CanResize="{Binding CanResize}"
         Title="{Binding ContentTitle}">
-        
+
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </Window.KeyBindings>
@@ -36,7 +36,6 @@
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
-
   </Window.Styles>
   <Grid>
     <Grid.ColumnDefinitions>

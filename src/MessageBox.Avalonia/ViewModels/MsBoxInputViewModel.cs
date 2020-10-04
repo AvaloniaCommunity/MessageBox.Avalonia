@@ -7,10 +7,12 @@ using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxInputViewModel : AbstractMsBoxViewModel<MsBoxInputWindow>,IResult<MessageWindowResultDTO>
+    public class MsBoxInputViewModel : AbstractMsBoxViewModel<MsBoxInputWindow>, IResult<MessageWindowResultDTO>
     {
         private string _inputText;
-        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params)
+
+        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow)
+            : base(@params, msBoxInputWindow)
         {
             _window = msBoxInputWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
@@ -25,10 +27,12 @@ namespace MessageBox.Avalonia.ViewModels
             get => _inputText;
             set => this.RaiseAndSetIfChanged(ref _inputText, value);
         }
+
         public string ButtonResult { get; internal set; }
         public string MessageResult { get; internal set; }
         public char? PassChar { get; }
         public string WatermarkText { get; }
+
         public void ButtonClick(string parameter)
         {
             foreach (var bd in ButtonDefinitions)

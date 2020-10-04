@@ -1,7 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using MessageBox.Avalonia.Enums;
-using MessageBox.Avalonia.Extensions;
 
 namespace MessageBox.Avalonia.Views
 {
@@ -12,16 +10,9 @@ namespace MessageBox.Avalonia.Views
             InitializeComponent();
         }
 
-        public MsBoxInputWindow(Style style)
-        {
-            this.SetStyle(style);
-            InitializeComponent();
-        }
-
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }
-
     }
 }

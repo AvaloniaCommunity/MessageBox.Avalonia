@@ -9,16 +9,16 @@ using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxHyperlinkViewModel : MsBoxButtonViewModel<MsBoxHyperlinkWindow>,IResult<ButtonResult>
+    public class MsBoxHyperlinkViewModel : MsBoxButtonViewModel<MsBoxHyperlinkWindow>, IResult<ButtonResult>
     {
-
-        public MsBoxHyperlinkViewModel(MessageBoxHyperlinkParams @params, MsBoxHyperlinkWindow msBoxHyperlinkWindow) : base(@params)
+        public MsBoxHyperlinkViewModel(MessageBoxHyperlinkParams @params, MsBoxHyperlinkWindow msBoxHyperlinkWindow)
+            : base(@params, msBoxHyperlinkWindow)
         {
             _window = msBoxHyperlinkWindow;
             HyperlinkContentProvider = @params.HyperlinkContentProvider;
             SetButtons(@params.ButtonDefinitions);
         }
-      
+
         public IEnumerable<HyperlinkContent> HyperlinkContentProvider { get; set; }
         public ButtonResult ButtonResult { get; private set; }
 

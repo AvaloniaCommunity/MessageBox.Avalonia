@@ -7,11 +7,13 @@ namespace MessageBox.Avalonia.BaseWindows.Base
     {
         private U _window;
         private readonly R _result;
-        public MsBoxWindowBase(U window,R result)
+
+        public MsBoxWindowBase(U window, R result)
         {
             _window = window;
             this._result = result;
         }
+
         public Task<T> Show()
         {
             var tcs = new TaskCompletionSource<T>();

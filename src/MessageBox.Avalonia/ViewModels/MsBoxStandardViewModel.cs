@@ -7,9 +7,10 @@ using System;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxStandardViewModel : MsBoxButtonViewModel<MsBoxStandardWindow>,IResult<ButtonResult>
+    public class MsBoxStandardViewModel : MsBoxButtonViewModel<MsBoxStandardWindow>, IResult<ButtonResult>
     {
-        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) : base(@params)
+        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow)
+            : base(@params, msBoxStandardWindow)
         {
             ContentMessage = @params.ContentMessage;
             _window = msBoxStandardWindow;

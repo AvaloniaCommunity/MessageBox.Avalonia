@@ -8,8 +8,10 @@ namespace MessageBox.Avalonia.Controls
     public class Hyperlink : TextBlock
     {
         private string _url;
+
         public static readonly DirectProperty<Hyperlink, string> UrlProperty
             = AvaloniaProperty.RegisterDirect<Hyperlink, string>(nameof(Url), o => o.Url, (o, v) => o.Url = v);
+
         public string Url
         {
             get => _url;
@@ -22,6 +24,5 @@ namespace MessageBox.Avalonia.Controls
             if (!string.IsNullOrEmpty(Url))
                 Url.OpenUrl();
         }
-
     }
 }
