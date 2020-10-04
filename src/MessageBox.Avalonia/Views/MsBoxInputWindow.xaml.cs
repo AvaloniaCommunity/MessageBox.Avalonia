@@ -7,9 +7,6 @@ namespace MessageBox.Avalonia.Views
 {
     public class MsBoxInputWindow : Window
     {
-        public string ButtonResult { get; set; } = null;
-        public string MessageResult { get; set; } = null;
-
         public MsBoxInputWindow()
         {
             InitializeComponent();
@@ -25,5 +22,6 @@ namespace MessageBox.Avalonia.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
+
     }
 }

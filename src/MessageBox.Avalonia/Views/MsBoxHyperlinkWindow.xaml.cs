@@ -5,16 +5,13 @@ using Avalonia.LogicalTree;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using MessageBox.Avalonia.Controls;
-using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Extensions;
 using System;
-using MessageBox.Avalonia.DTO;
 using Style = MessageBox.Avalonia.Enums.Style;
-using MessageBox.Avalonia.Views.Abstractions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxHyperlinkWindow : ButtonResultWindow
+    public class MsBoxHyperlinkWindow : Window
     {
         public MsBoxHyperlinkWindow()
         {
@@ -26,7 +23,7 @@ namespace MessageBox.Avalonia.Views
             this.SetStyle(style);
             InitializeComponent();
         }
-        
+
 
         //More like a workaround because i dont know how to set it only with styles in .xaml file
         protected override void OnOpened(EventArgs e)
@@ -37,7 +34,7 @@ namespace MessageBox.Avalonia.Views
             {
                 foreach (var logical in temp)
                 {
-                    var item = (ContentPresenter) logical;
+                    var item = (ContentPresenter)logical;
                     if (item.Content is Models.HyperlinkContent content && item.Child is Hyperlink hyperlink)
                     {
                         var isAliasEmpty = string.IsNullOrEmpty(content.Alias);

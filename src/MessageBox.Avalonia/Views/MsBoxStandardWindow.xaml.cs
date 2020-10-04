@@ -2,11 +2,10 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Extensions;
-using MessageBox.Avalonia.Views.Abstractions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxStandardWindow : ButtonResultWindow
+    public class MsBoxStandardWindow : Window
     {
         public MsBoxStandardWindow()
         {

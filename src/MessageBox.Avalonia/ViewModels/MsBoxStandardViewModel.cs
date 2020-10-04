@@ -1,3 +1,4 @@
+using MessageBox.Avalonia.BaseWindows.Base;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.ViewModels.Base;
@@ -6,9 +7,8 @@ using System;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public class MsBoxStandardViewModel : MsBoxButtonViewModel<MsBoxStandardWindow>
+    public class MsBoxStandardViewModel : MsBoxButtonViewModel<MsBoxStandardWindow>,IResult<ButtonResult>
     {
-        public string ContentMessage { get; }
         public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) : base(@params)
         {
             ContentMessage = @params.ContentMessage;
@@ -16,5 +16,17 @@ namespace MessageBox.Avalonia.ViewModels
             SetButtons(@params.ButtonDefinitions);
         }
 
+        public ButtonResult ButtonResult { get; private set; }
+
+        public void ButtonClick(string parameter)
+        {
+            ButtonResult = (ButtonResult)Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
+            _window.Close();
+        }
+
+        public ButtonResult GetResult()
+        {
+            return ButtonResult;
+        }
     }
 }

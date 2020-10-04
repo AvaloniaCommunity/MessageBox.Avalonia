@@ -1,14 +1,11 @@
 ﻿using Avalonia.Controls;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
-using MessageBox.Avalonia.Views.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MessageBox.Avalonia.ViewModels.Base
 {
-    public class MsBoxButtonViewModel<T> : AbstractMsBoxViewModel<T> where T:ButtonResultWindow
+    public class MsBoxButtonViewModel<T> : AbstractMsBoxViewModel<T> where T : Window
     {
         public MsBoxButtonViewModel(AbstractMessageBoxParams @params) : base(@params)
         {
@@ -18,7 +15,6 @@ namespace MessageBox.Avalonia.ViewModels.Base
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-        public ButtonResult buttonResult = ButtonResult.None;
         internal void SetButtons(ButtonEnum paramsButtonDefinitions)
         {
             switch (paramsButtonDefinitions)
@@ -52,11 +48,6 @@ namespace MessageBox.Avalonia.ViewModels.Base
                     throw new ArgumentOutOfRangeException(nameof(paramsButtonDefinitions), paramsButtonDefinitions,
                         null);
             }
-        }
-        public void ButtonClick(string parameter)
-        {
-            buttonResult = (ButtonResult)Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
-            _window.Close();
         }
     }
 }

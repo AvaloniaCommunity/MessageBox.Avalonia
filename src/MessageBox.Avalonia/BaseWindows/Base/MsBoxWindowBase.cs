@@ -3,19 +3,19 @@ using System.Threading.Tasks;
 
 namespace MessageBox.Avalonia.BaseWindows.Base
 {
-    internal class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window
+    internal class MsBoxWindowBase<U, T, R> : IMsBoxWindow<T> where U : Window where R : IResult<T>
     {
         private U _window;
-        private T _whatToSet;
-        public MsBoxWindowBase(U window,ref T whatToSet)
+        private readonly R _result;
+        public MsBoxWindowBase(U window,R result)
         {
-            _whatToSet = whatToSet;
             _window = window;
+            this._result = result;
         }
         public Task<T> Show()
         {
             var tcs = new TaskCompletionSource<T>();
-            _window.Closed += delegate { tcs.TrySetResult(_whatToSet); };
+            _window.Closed += delegate { tcs.TrySetResult(_result.GetResult()); };
             _window.Show();
             return tcs.Task;
         }
@@ -23,7 +23,7 @@ namespace MessageBox.Avalonia.BaseWindows.Base
         public Task<T> ShowDialog(Window ownerWindow)
         {
             var tcs = new TaskCompletionSource<T>();
-            _window.Closed += delegate { tcs.TrySetResult(_whatToSet); };
+            _window.Closed += delegate { tcs.TrySetResult(_result.GetResult()); };
             _window.ShowDialog(ownerWindow);
             return tcs.Task;
         }
