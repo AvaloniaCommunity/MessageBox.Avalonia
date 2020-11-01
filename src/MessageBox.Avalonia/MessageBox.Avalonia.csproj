@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageVersion>0.10.03-night</PackageVersion>
+        <PackageVersion>0.10.04-night</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary&lt;f98f96.gmail.com&gt;</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
