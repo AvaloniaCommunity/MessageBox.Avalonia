@@ -18,9 +18,6 @@
   <Window.KeyBindings>
     <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
   </Window.KeyBindings>
-  <Design.DataContext>
-
-  </Design.DataContext>
 
   <Window.Styles>
     <Style Selector="TextBox">
