@@ -17,6 +17,12 @@ or download this repo.
 
 The easiest way to get started is this:
 
+---
+# Update
+We remove dependancy from ReactiveUI, that mean, that you may use this lib with mvc or no reactiveui projects
+
+---
+
 ![](Images/standard.png)
 
 ```cs 
