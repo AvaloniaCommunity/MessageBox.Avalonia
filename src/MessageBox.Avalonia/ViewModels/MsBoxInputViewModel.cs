@@ -1,7 +1,6 @@
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
-using ReactiveUI;
 using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
@@ -23,7 +22,11 @@ namespace MessageBox.Avalonia.ViewModels
         public string InputText
         {
             get => _inputText;
-            set => this.RaiseAndSetIfChanged(ref _inputText, value);
+            set
+            {
+                _inputText = value;
+                OnPropertyChanged();
+            }
         }
 
         public char? PassChar { get; }
