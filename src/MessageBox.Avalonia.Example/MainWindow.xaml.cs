@@ -1,4 +1,5 @@
-﻿using Avalonia.Controls;
+﻿using System.Threading.Tasks;
+using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.DTO;
@@ -15,11 +16,11 @@ namespace MessageBox.Avalonia.Example
             
         }
 
-        private async void MainWindow_Click(object sender, RoutedEventArgs e)
+        public async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxStandardWindow("title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
-            var r =await messageBoxStandardWindow.Show();
+            var r = await messageBoxStandardWindow.ShowDialog(this);
         }
 
         private void InitializeComponent()

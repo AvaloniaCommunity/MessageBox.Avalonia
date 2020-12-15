@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageVersion>0.10.04-night</PackageVersion>
+        <PackageVersion>0.10.5-rc1</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary&lt;f98f96.gmail.com&gt;</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
@@ -22,8 +22,8 @@
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.999-cibuild0011450-beta" />
-      <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.999-cibuild0011450-beta" />
+      <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
+      <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-rc1" />
     </ItemGroup>
 
 </Project>
