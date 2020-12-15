@@ -1,5 +1,4 @@
 ﻿using Avalonia;
-using Avalonia.ReactiveUI;
 
 
 namespace MessageBox.Avalonia.Example
@@ -16,7 +15,6 @@ namespace MessageBox.Avalonia.Example
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .UseReactiveUI()
                 .LogToDebug();
     }
 }

@@ -18,6 +18,7 @@ namespace MessageBox.Avalonia.Example
 
         public async void MainWindow_Click(object sender, RoutedEventArgs e)
         {
+           
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxStandardWindow("title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
             var r = await messageBoxStandardWindow.ShowDialog(this);

@@ -11,6 +11,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageTags>Avalonia</PackageTags>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
@@ -23,7 +24,6 @@
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="0.10.0-rc1" />
-      <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.0-rc1" />
     </ItemGroup>
 
 </Project>

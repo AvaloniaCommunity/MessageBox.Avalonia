@@ -2,8 +2,8 @@ using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Views;
 using System;
-using System.Reactive;
-using ReactiveUI;
+using Avalonia.Threading;
+using MessageBox.Avalonia.ViewModels.Commands;
 
 namespace MessageBox.Avalonia.ViewModels
 {
@@ -16,21 +16,20 @@ namespace MessageBox.Avalonia.ViewModels
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-        public ReactiveCommand<string, Unit> ButtonClickCommand { get; }
-        public ReactiveCommand<Unit, Unit> EnterClickCommand { get; }
-        public ReactiveCommand<Unit, Unit> EscClickCommand { get; }
+        public  RelayCommand ButtonClickCommand { get; }
+        public RelayCommand EnterClickCommand { get; }
+        public RelayCommand EscClickCommand { get; }
 
-        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) : base(@params)
+        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
+            base(@params)
         {
             ContentMessage = @params.ContentMessage;
             _window = msBoxStandardWindow;
             SetButtons(@params.ButtonDefinitions);
-            ButtonClickCommand = ReactiveCommand.Create<string>(ButtonClick);
-            EnterClickCommand = ReactiveCommand.Create(EnterClick);
-            EscClickCommand = ReactiveCommand.Create(EscClick);
-            
+            ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
+            EnterClickCommand = new RelayCommand(o => EnterClick());
+            EscClickCommand = new RelayCommand(o => EnterClick());
         }
-
 
 
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
@@ -80,14 +79,20 @@ namespace MessageBox.Avalonia.ViewModels
                 ButtonClick("Yes");
             }
         }
-        private void EscClick()
+
+        private async void EscClick()
         {
-            _window.Close();
+            await Dispatcher.UIThread.InvokeAsync(() => _window.Close());
+
         }
-        public void ButtonClick(string parameter)
+
+        public async void ButtonClick(string parameter)
         {
-            _window.ButtonResult = (ButtonResult)Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
-            _window.Close();
+            await Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
+                _window.Close();
+            });
         }
     }
 }
