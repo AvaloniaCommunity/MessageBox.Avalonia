@@ -19,7 +19,7 @@ The easiest way to get started is this:
 
 ---
 # Update
-We remove dependancy from ReactiveUI, that mean, that you may use this lib with mvc or no reactiveui projects
+We remove dependency from ReactiveUI, that mean, that you may use this lib with mvc or no reactiveui projects
 
 ---
 
