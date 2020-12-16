@@ -28,7 +28,7 @@ namespace MessageBox.Avalonia.ViewModels
             SetButtons(@params.ButtonDefinitions);
             ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
             EnterClickCommand = new RelayCommand(o => EnterClick());
-            EscClickCommand = new RelayCommand(o => EnterClick());
+            EscClickCommand = new RelayCommand(o => EscClick());
         }
 
 
