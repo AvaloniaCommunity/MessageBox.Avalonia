@@ -14,7 +14,7 @@ using Style = MessageBox.Avalonia.Enums.Style;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxHyperlinkWindow : Window, IWindowGetResult<ButtonResult>
+    public class MsBoxHyperlinkWindow : BaseWindow, IWindowGetResult<ButtonResult>
     {
         public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
         public MsBoxHyperlinkWindow()

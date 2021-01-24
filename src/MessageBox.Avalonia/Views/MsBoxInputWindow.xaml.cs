@@ -7,17 +7,17 @@ using MessageBox.Avalonia.Extensions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxInputWindow : Window ,IWindowGetResult<MessageWindowResultDTO>
+    public class MsBoxInputWindow : BaseWindow ,IWindowGetResult<MessageWindowResultDTO>
     {
         public string ButtonResult { get; set; } = null;
         public string MessageResult { get; set; } = null;
 
-        public MsBoxInputWindow()
+        public MsBoxInputWindow():base()
         {
             InitializeComponent();
         }
 
-        public MsBoxInputWindow(Style style)
+        public MsBoxInputWindow(Style style):base()
         {
             this.SetStyle(style);
             InitializeComponent();

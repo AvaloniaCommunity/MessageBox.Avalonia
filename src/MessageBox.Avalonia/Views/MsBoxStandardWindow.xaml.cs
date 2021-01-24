@@ -6,17 +6,18 @@ using MessageBox.Avalonia.Extensions;
 
 namespace MessageBox.Avalonia.Views
 {
-    public class MsBoxStandardWindow : Window, IWindowGetResult<ButtonResult>
+    public class MsBoxStandardWindow : BaseWindow, IWindowGetResult<ButtonResult>
     {
         public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
 
-        public MsBoxStandardWindow()
+        public MsBoxStandardWindow():base()
         {
             InitializeComponent();
         }
 
-        public MsBoxStandardWindow(Style style)
+        public MsBoxStandardWindow(Style style):base()
         {
+            
             this.SetStyle(style);
             InitializeComponent();
         }
