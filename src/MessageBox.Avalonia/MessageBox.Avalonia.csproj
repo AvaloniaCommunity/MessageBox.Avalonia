@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageVersion>1.0.0</PackageVersion>
+        <PackageVersion>1.0.1</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary Tako</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
         <PackageProjectUrl>https://github.com/CreateLab/MessageBox.Avalonia</PackageProjectUrl>
-        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>messagebox.avalonia</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageTags>Avalonia</PackageTags>
@@ -23,7 +23,7 @@
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.999-cibuild0012650-beta" />
+      <PackageReference Include="Avalonia" Version="0.10.0" />
     </ItemGroup>
 
 </Project>
