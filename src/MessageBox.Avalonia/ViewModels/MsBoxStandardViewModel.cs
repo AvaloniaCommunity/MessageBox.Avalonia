@@ -71,12 +71,12 @@ namespace MessageBox.Avalonia.ViewModels
         {
             if (IsOkShowed)
             {
-                ButtonClick("Ok");
+                ButtonClick("OK");
             }
 
             if (IsYesShowed)
             {
-                ButtonClick("Yes");
+                ButtonClick("YES");
             }
         }
 
@@ -90,7 +90,7 @@ namespace MessageBox.Avalonia.ViewModels
         {
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), false);
+                _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), true);
                 _window.Close();
             });
         }

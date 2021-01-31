@@ -59,7 +59,7 @@
         <!--Icon-->
         <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
                IsVisible="{Binding Icon}"
-               Source="{Binding ImagePath}" />
+               Source="{Binding ImagePath}" Margin="5" />
         <Grid Grid.Row="1" Grid.Column="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -74,15 +74,15 @@
         <!--Buttons-->
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
                     HorizontalAlignment="Right">
-            <Button Content="Ok" Tag="Colored" Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}" IsVisible="{Binding IsOkShowed}" />
-            <Button Content="Yes" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Content="OK" Tag="Colored" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}" IsVisible="{Binding IsOkShowed}"/>
+            <Button Content="YES" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsYesShowed}" />
-            <Button Content="No" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Content="NO" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsNoShowed}" />
-            <Button Content="Abort" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Content="ABORT" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsAbortShowed}" />
-            <Button Content="Cancel" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Content="CANSEL" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsCancelShowed}" />
         </StackPanel>
     </Grid>
