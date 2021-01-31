@@ -82,7 +82,7 @@
                     IsVisible="{Binding IsNoShowed}" />
             <Button Content="ABORT" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsAbortShowed}" />
-            <Button Content="CANSEL" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Content="CANСEL" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsCancelShowed}" />
         </StackPanel>
     </Grid>
