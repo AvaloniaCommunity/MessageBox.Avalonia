@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input.Platform;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using JetBrains.Annotations;
@@ -19,6 +20,7 @@ namespace MessageBox.Avalonia.ViewModels
     public bool CanResize { get; }
     public bool HasHeader => !(string.IsNullOrEmpty(ContentHeader));
     public bool HasIcon => !(ImagePath is null);
+    public FontFamily FontFamily { get; }
     public string ContentTitle { get; }
     public string ContentHeader { get; }
     public string ContentMessage { get; }
@@ -39,6 +41,7 @@ namespace MessageBox.Avalonia.ViewModels
 
         MaxWidth = @params.MaxWidth;
         CanResize = @params.CanResize;
+        FontFamily = @params.FontFamily;
         ContentTitle = @params.ContentTitle;
         ContentHeader = @params.ContentHeader;
         ContentMessage = @params.ContentMessage;

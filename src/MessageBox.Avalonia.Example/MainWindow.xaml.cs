@@ -32,7 +32,8 @@ namespace MessageBox.Avalonia.Example
                 .GetMessageBoxCustomWindow(new MessageBoxCustomParams
                 {
                     Style = Style.UbuntuLinux,
-                    ContentMessage = "Message",
+                    ContentMessage = "支持FontFamily",
+                    FontFamily = "Microsoft YaHei,Simsun",
                     ButtonDefinitions = new[] {
                         new ButtonDefinition {Name = "My"},
                         new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}

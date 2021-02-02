@@ -10,6 +10,7 @@
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
         CanResize="{Binding CanResize}"
+        FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}">
 
     <Window.KeyBindings>
@@ -75,12 +76,12 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
+            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
             <!--Content text-->
             <Grid Grid.Row="2" ColumnDefinitions="Auto 5 *" >
-                <TextBox Text="{Binding ContentMessage}" Grid.Column="0"/>
+                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" Grid.Column="0"/>
                 <!--Input field-->
-                <TextBox Classes="inputbox"  Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
+                <TextBox Classes="inputbox" FontFamily="{Binding FontFamily}" Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
                          IsReadOnly="False"  Grid.Column="2"/>
             </Grid>
 
