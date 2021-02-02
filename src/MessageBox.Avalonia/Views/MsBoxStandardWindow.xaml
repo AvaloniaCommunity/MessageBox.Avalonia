@@ -31,6 +31,9 @@
         <Style Selector="TextBox:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+          <Setter Property="BorderThickness" Value="0" />
+        </Style>
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
         </Style>

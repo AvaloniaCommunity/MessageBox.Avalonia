@@ -4,6 +4,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="MessageBox.Avalonia.Example.MainWindow"
-        Title="MessageBox.Avalonia.Example">
-  <Button Name="btnClick" Click="MainWindow_Click">Click</Button>
+        Title="MessageBox.Avalonia.Example"
+        WindowStartupLocation="CenterScreen">
+
+  <Window.Styles>
+    <Style Selector="Button">
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Height" Value="100" />
+    </Style>
+  </Window.Styles>
+  <StackPanel>
+    <Button Name="btnClick" Click="MsBoxStandard_Click" Content="Standard"/>
+    <Button Name="btnClick2" Click="MsBoxCustom_Click" Content="Custom"/>
+    <Button Name="btnClick3" Click="MsBoxHyperlink_Click" Content="Hyperlink"/>
+    <Button Name="btnClick4" Click="MsBoxInput_Click" Content="Input"/>
+  </StackPanel>
 </Window>

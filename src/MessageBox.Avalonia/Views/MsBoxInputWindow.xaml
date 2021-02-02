@@ -30,11 +30,17 @@
         <Style Selector="TextBox:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+          <Setter Property="BorderThickness" Value="0" />
+        </Style>
         <Style Selector="TextBox.inputbox">
             <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="TextBox.inputbox:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style Selector="TextBox.inputbox:focus /template/ Border#PART_BorderElement">
+          <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="Button">
             <Setter Property="Margin" Value="15 0 0 0" />
