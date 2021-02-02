@@ -11,6 +11,7 @@
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
         CanResize="{Binding CanResize}"
+        FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}">
         
     <Window.KeyBindings>
@@ -27,6 +28,9 @@
         </Style>
         <Style Selector="TextBox:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+          <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
@@ -64,9 +68,9 @@
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
       <!--Bold text-->
-      <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
+      <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
       <!--Content text-->
-      <TextBox Grid.Row="2" Text="{Binding ContentMessage}" />
+      <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
     </Grid>
     <!--Buttons-->
     <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"

@@ -10,6 +10,7 @@
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
         CanResize="{Binding CanResize}"
+        FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}"
         xmlns:c="clr-namespace:MessageBox.Avalonia.Controls;assembly=MessageBox.Avalonia">
   <Window.Styles>
@@ -29,6 +30,9 @@
       <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
     </Style>
     <Style Selector="TextBox:focus /template/ Border#border">
+      <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
       <Setter Property="BorderThickness" Value="0" />
     </Style>
     <Style Selector="TextBox.header">
@@ -67,7 +71,7 @@
         <RowDefinition Height="*" />
       </Grid.RowDefinitions>
       <!--Bold text-->
-      <TextBox Grid.Row="0" Classes="header" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
+      <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
       <!--Content text-->
       <ItemsControl x:Name="myItems"  Items="{Binding HyperlinkContentProvider}">
         <ItemsControl.ItemsPanel>
