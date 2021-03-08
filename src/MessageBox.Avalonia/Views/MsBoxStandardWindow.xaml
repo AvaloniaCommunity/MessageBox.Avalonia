@@ -45,7 +45,7 @@
         </Style>
 
     </Window.Styles>
-    <Grid>
+    <Grid Classes="MsBoxStandardContainer">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15" />
             <ColumnDefinition Width="Auto" />
