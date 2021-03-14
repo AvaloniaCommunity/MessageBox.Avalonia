@@ -30,13 +30,17 @@ namespace MessageBox.Avalonia.ViewModels
 
     public WindowStartupLocation LocationOfMyWindow { get; }
 
-    public AbstractMsBoxViewModel(AbstractMessageBoxParams @params)
+    public AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
     {
-        if (@params.Icon != Icon.None)
+        if (bitmap != null)
+        {
+            ImagePath = bitmap;
+        } 
+        else if (icon != Icon.None)
         {
             ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
                 .Open(new Uri(
-                    $" avares://MessageBox.Avalonia/Assets/{@params.Icon.ToString().ToLowerInvariant()}.ico")));
+                    $" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.ico")));
         }
 
         MaxWidth = @params.MaxWidth;

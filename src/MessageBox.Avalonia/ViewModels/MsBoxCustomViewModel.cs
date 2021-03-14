@@ -11,7 +11,7 @@ namespace MessageBox.Avalonia.ViewModels
         private readonly MsBoxCustomWindow _window;
         public string ContentMessage { get; }
 
-        public MsBoxCustomViewModel(MessageBoxCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params)
+        public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,@params.Icon,@params.BitmapIcon)
         {
             ContentMessage = @params.ContentMessage;
             _window = msBoxCustomWindow;
