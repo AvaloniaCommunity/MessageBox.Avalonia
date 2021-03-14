@@ -12,10 +12,9 @@ To start you should install MessageBox.Avalonia NuGet package
 [![nuget](https://img.shields.io/badge/1.1-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/1.1.0)
 or download this repo.
 
+---
 
 The easiest way to get started is this:
-
----
 
 ![](Images/stadard.png)
 
