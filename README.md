@@ -16,10 +16,6 @@ or download this repo.
 The easiest way to get started is this:
 
 ---
-# Update
-We remove dependency from ReactiveUI, that mean, that you may use this lib with mvc or no reactiveui projects
-
----
 
 ![](Images/stadard.png)
 
@@ -28,6 +24,8 @@ var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
   .GetMessageBoxStandardWindow("title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
 messageBoxStandardWindow.Show();
 ```
+
+---
 
 Or this, with default buttons from the default `ButtonEnum`:
 
@@ -45,6 +43,8 @@ var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
 msBoxStandardWindow.Show();
 ```
 
+---
+
 Or like this, with custom buttons:
 
 ![](Images/custom.png)
@@ -61,6 +61,9 @@ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
     });
 messageBoxCustomWindow.Show();
 ```
+
+---
+
 And you may use your own images:
 
 ![](Images/customImage.png)
@@ -80,6 +83,7 @@ And you may use your own images:
                 });
  messageBoxCustomWindow.Show();
 ```
+---
 
 Also you may use hyperlink boxes:
 
@@ -102,18 +106,10 @@ Also you may use hyperlink boxes:
 messageBoxCustomWindow.Show();
 ```
 
+---
+
 **Powered by**
 
 <a href="https://www.jetbrains.com/?from=ABC">
 <img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png" />
 </a>
-
-**Usages:**
-
-[Lacmus](https://github.com/lizaalert/lacmus)
-
-[SQRLDotNetClient](https://github.com/sqrldev/SQRLDotNetClient)
-
-[OpenTabletDriver](https://github.com/InfinityGhost/OpenTabletDriver/tree/c4d823a11824abec3fb0f6d4f7182610aba5c9d8)
-
-[Comquiz](https://github.com/VFansss/comquiz)
