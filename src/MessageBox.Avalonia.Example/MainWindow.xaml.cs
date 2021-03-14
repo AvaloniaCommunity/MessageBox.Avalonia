@@ -21,9 +21,15 @@ namespace MessageBox.Avalonia.Example
         public async void MsBoxStandard_Click(object sender, RoutedEventArgs e)
         {
            
-            var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxStandardWindow("title", "Are you sure you want clear all the 1 profiles?", MessageBoxAvaloniaEnums.ButtonEnum.Ok, MessageBoxAvaloniaEnums.Icon.Stopwatch);
-            var r = await messageBoxStandardWindow.ShowDialog(this);
+            var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxStandardWindow(new MessageBoxStandardParams{
+                    ButtonDefinitions = ButtonEnum.OkAbort,
+                    ContentTitle = "Title",
+                    ContentMessage = "Message",
+                    Icon = MessageBoxAvaloniaEnums.Icon.Battery,
+                    Style = Style.UbuntuLinux
+                });
+            msBoxStandardWindow.Show();
         }
 
         public async void MsBoxCustom_Click(object sender, RoutedEventArgs e)

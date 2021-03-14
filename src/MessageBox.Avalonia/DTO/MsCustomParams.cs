@@ -15,22 +15,18 @@ namespace MessageBox.Avalonia.DTO
         {
             Icon = @params.Icon;
             ButtonDefinitions = @params.ButtonDefinitions;
-            WindowIcon = @params.WindowIcon;
-            Style = @params.Style;
-            CanResize = @params.CanResize;
-            ShowInCenter = @params.ShowInCenter;
-            FontFamily = @params.FontFamily;
-            ContentTitle = @params.ContentTitle;
-            ContentHeader = @params.ContentHeader;
-            ContentMessage = @params.ContentMessage;
-            MaxWidth = @params.MaxWidth;
-            WindowStartupLocation = @params.WindowStartupLocation;
+            UpdateLocal(@params);
         }
 
         public MsCustomParams(MessageBoxCustomParamsWithImage @params)
         {
             BitmapIcon = @params.Icon;
             ButtonDefinitions = @params.ButtonDefinitions;
+            UpdateLocal(@params);
+        }
+
+        private void UpdateLocal(AbstractMessageBoxParams @params)
+        {
             WindowIcon = @params.WindowIcon;
             Style = @params.Style;
             CanResize = @params.CanResize;
