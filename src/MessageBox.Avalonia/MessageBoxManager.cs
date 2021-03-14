@@ -16,7 +16,13 @@ namespace MessageBox.Avalonia
         public static IMsBoxWindow<string> GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
         {
             var window = new CustomWindow(@params.Style);
-            window.DataContext = new MsBoxCustomViewModel(@params, window);
+            window.DataContext = new MsBoxCustomViewModel(new MsCustomParams(@params), window);
+            return new MsBoxWindowBase<CustomWindow, string>(window);
+        }
+        public static IMsBoxWindow<string> GetMessageBoxCustomWindow(MessageBoxCustomParamsWithImage @params)
+        {
+            var window = new CustomWindow(@params.Style);
+            window.DataContext = new MsBoxCustomViewModel(new MsCustomParams(@params), window);
             return new MsBoxWindowBase<CustomWindow, string>(window);
         }
 

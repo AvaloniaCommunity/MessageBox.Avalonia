@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
@@ -79,10 +80,28 @@ namespace MessageBox.Avalonia.Example
                 });
             var r = await messageBoxInputWindow.ShowDialog(this);
         }
+        private async void MsBoxCustomImage_Click(object sender, RoutedEventArgs e)
+        {
+            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxCustomWindow(new MessageBoxCustomParamsWithImage
+                {
+                    Style = Style.UbuntuLinux,
+                    ContentMessage = "Message",
+                    Icon = new Bitmap("./icon-rider.png"),
+                    ButtonDefinitions = new[] {
+                        new ButtonDefinition {Name = "My"},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                    },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                });
+            var r = await messageBoxCustomWindow.ShowDialog(this);
+        }
 
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }
+
+       
     }
 }

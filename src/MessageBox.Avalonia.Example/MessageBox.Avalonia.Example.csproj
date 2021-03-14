@@ -19,4 +19,9 @@
   <ItemGroup>
     <ProjectReference Include="..\MessageBox.Avalonia\MessageBox.Avalonia.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="icon-rider.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

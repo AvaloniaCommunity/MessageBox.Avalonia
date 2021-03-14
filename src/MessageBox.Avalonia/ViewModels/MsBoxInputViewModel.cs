@@ -9,7 +9,7 @@ namespace MessageBox.Avalonia.ViewModels
     {
         private readonly MsBoxInputWindow _window;
         private string _inputText;
-        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params)
+        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params,@params.Icon)
         {
             _window = msBoxInputWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
