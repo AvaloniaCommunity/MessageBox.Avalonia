@@ -1,19 +1,17 @@
 # MessageBox.Avalonia
 
 Messagebox for AvaloniaUI
-for 0.10
 
 
-![](Images/snandard_icon.png)
+![](Images/Untitled1.jpg)
 
 
 To start you should install MessageBox.Avalonia NuGet package 
 >   dotnet add package MessageBox.Avalonia 
 
-[![nuget](https://img.shields.io/badge/10-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.10.0)
+[![nuget](https://img.shields.io/badge/1.1-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/1.1.0)
 or download this repo.
 
-[![wiki](https://img.shields.io/badge/wiki-v%200.9-brightgreen)](https://github.com/CreateLab/MessageBox.Avalonia/wiki) - here you can find the API.
 
 The easiest way to get started is this:
 
@@ -23,7 +21,7 @@ We remove dependency from ReactiveUI, that mean, that you may use this lib with 
 
 ---
 
-![](Images/standard.png)
+![](Images/stadard.png)
 
 ```cs 
 var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
@@ -63,9 +61,29 @@ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
     });
 messageBoxCustomWindow.Show();
 ```
-Also you may use hyperlink boxes.
+And you may use your own images:
 
-![](Images/hyperlink.png)
+![](Images/customImage.png)
+
+```cs
+ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxCustomWindow(new MessageBoxCustomParamsWithImage
+                {
+                    Style = Style.UbuntuLinux,
+                    ContentMessage = "Message",
+                    Icon = new Bitmap("./icon-rider.png"),
+                    ButtonDefinitions = new[] {
+                        new ButtonDefinition {Name = "My"},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                    },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                });
+ messageBoxCustomWindow.Show();
+```
+
+Also you may use hyperlink boxes:
+
+![](Images/link.png)
 
 
 ```cs
