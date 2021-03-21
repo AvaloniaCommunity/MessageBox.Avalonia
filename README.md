@@ -49,15 +49,18 @@ Or like this, with custom buttons:
 ![](Images/custom.png)
 
 ```cs
-var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
-    .GetMessageBoxCustomWindow(new MessageBoxCustomParams {
-        Style = Style.UbuntuLinux,
-        ContentMessage = "Message",
-        ButtonDefinitions = new [] {
-            new ButtonDefinition {Name = "My"},
-            new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
-        }
-    });
+ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxCustomWindow(new MessageBoxCustomParams
+                {
+                    Style = Style.UbuntuLinux,
+                    ContentMessage = "支持FontFamily",
+                    FontFamily = "Microsoft YaHei,Simsun",
+                    ButtonDefinitions = new[] {
+                        new ButtonDefinition {Name = "My"},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                    },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                });
 messageBoxCustomWindow.Show();
 ```
 
