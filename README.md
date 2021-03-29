@@ -10,6 +10,7 @@ To start you should install MessageBox.Avalonia NuGet package
 >   dotnet add package MessageBox.Avalonia 
 
 [![nuget](https://img.shields.io/badge/1.1-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/)
+[![nuget](https://img.shields.io/nuget/dt/MessageBox.Avalonia?color=blue&label=downloads)
 or download this repo.
 
 ---
