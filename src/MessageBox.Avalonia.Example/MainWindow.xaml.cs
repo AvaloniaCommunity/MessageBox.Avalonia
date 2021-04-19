@@ -21,7 +21,7 @@ namespace MessageBox.Avalonia.Example
         {
            
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxStandardWindow("title", "Are you sure you want clear all the 1 profiles?", MessageBoxAvaloniaEnums.ButtonEnum.Ok, MessageBoxAvaloniaEnums.Icon.Stopwatch);
+                .GetMessageBoxStandardWindow("title", " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.", MessageBoxAvaloniaEnums.ButtonEnum.Ok, MessageBoxAvaloniaEnums.Icon.Stopwatch);
             var r = await messageBoxStandardWindow.ShowDialog(this);
         }
 
@@ -34,6 +34,7 @@ namespace MessageBox.Avalonia.Example
                     Style = Style.UbuntuLinux,
                     ContentMessage = "支持FontFamily",
                     FontFamily = "Microsoft YaHei,Simsun",
+                    Icon = MessageBoxAvaloniaEnums.Icon.Success,
                     ButtonDefinitions = new[] {
                         new ButtonDefinition {Name = "My"},
                         new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}

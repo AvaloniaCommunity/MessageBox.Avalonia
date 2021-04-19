@@ -15,6 +15,7 @@ namespace MessageBox.Avalonia.Enums
         SpeakerMore,
         Stop,
         Stopwatch,
+        Success,
         Warning,
         Wifi,
     }
