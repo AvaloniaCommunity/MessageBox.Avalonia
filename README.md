@@ -1,35 +1,32 @@
 # MessageBox.Avalonia
 
 Messagebox for AvaloniaUI
-for 0.10
 
 
-![](Images/snandard_icon.png)
+![](Images/Untitled1.jpg)
 
 
 To start you should install MessageBox.Avalonia NuGet package 
 >   dotnet add package MessageBox.Avalonia 
 
-[![nuget](https://img.shields.io/badge/10-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/0.10.0)
+[![nuget](https://img.shields.io/badge/1.1-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
 
-[![wiki](https://img.shields.io/badge/wiki-v%200.9-brightgreen)](https://github.com/CreateLab/MessageBox.Avalonia/wiki) - here you can find the API.
+![nuget](https://img.shields.io/nuget/dt/MessageBox.Avalonia?color=blue&label=downloads)
+
+---
 
 The easiest way to get started is this:
 
----
-# Update
-We remove dependency from ReactiveUI, that mean, that you may use this lib with mvc or no reactiveui projects
-
----
-
-![](Images/standard.png)
+![](Images/stadard.png)
 
 ```cs 
 var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
   .GetMessageBoxStandardWindow("title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
 messageBoxStandardWindow.Show();
 ```
+
+---
 
 Or this, with default buttons from the default `ButtonEnum`:
 
@@ -47,25 +44,54 @@ var msBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
 msBoxStandardWindow.Show();
 ```
 
+---
+
 Or like this, with custom buttons:
 
 ![](Images/custom.png)
 
 ```cs
-var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
-    .GetMessageBoxCustomWindow(new MessageBoxCustomParams {
-        Style = Style.UbuntuLinux,
-        ContentMessage = "Message",
-        ButtonDefinitions = new [] {
-            new ButtonDefinition {Name = "My"},
-            new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
-        }
-    });
+ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxCustomWindow(new MessageBoxCustomParams
+                {
+                    Style = Style.UbuntuLinux,
+                    ContentMessage = "支持FontFamily",
+                    FontFamily = "Microsoft YaHei,Simsun",
+                    ButtonDefinitions = new[] {
+                        new ButtonDefinition {Name = "My"},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                    },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                });
 messageBoxCustomWindow.Show();
 ```
-Also you may use hyperlink boxes.
 
-![](Images/hyperlink.png)
+---
+
+And you may use your own images:
+
+![](Images/customImage.png)
+
+```cs
+ var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxCustomWindow(new MessageBoxCustomParamsWithImage
+                {
+                    Style = Style.UbuntuLinux,
+                    ContentMessage = "Message",
+                    Icon = new Bitmap("./icon-rider.png"),
+                    ButtonDefinitions = new[] {
+                        new ButtonDefinition {Name = "My"},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                    },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                });
+ messageBoxCustomWindow.Show();
+```
+---
+
+Also you may use hyperlink boxes:
+
+![](Images/link.png)
 
 
 ```cs
@@ -84,18 +110,10 @@ Also you may use hyperlink boxes.
 messageBoxCustomWindow.Show();
 ```
 
+---
+
 **Powered by**
 
 <a href="https://www.jetbrains.com/?from=ABC">
 <img width="400" alt="portfolio_view" src="https://github.com/CreateLab/MessageBox.Avalonia/blob/master/Images/jetbrains-variant-4.png" />
 </a>
-
-**Usages:**
-
-[Lacmus](https://github.com/lizaalert/lacmus)
-
-[SQRLDotNetClient](https://github.com/sqrldev/SQRLDotNetClient)
-
-[OpenTabletDriver](https://github.com/InfinityGhost/OpenTabletDriver/tree/c4d823a11824abec3fb0f6d4f7182610aba5c9d8)
-
-[Comquiz](https://github.com/VFansss/comquiz)

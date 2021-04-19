@@ -21,7 +21,7 @@ namespace MessageBox.Avalonia.ViewModels
         public RelayCommand EscClickCommand { get; }
 
         public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
-            base(@params)
+            base(@params,@params.Icon)
         {
             ContentMessage = @params.ContentMessage;
             _window = msBoxStandardWindow;

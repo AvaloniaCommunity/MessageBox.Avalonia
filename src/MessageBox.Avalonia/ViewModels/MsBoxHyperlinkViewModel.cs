@@ -15,7 +15,7 @@ namespace MessageBox.Avalonia.ViewModels
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-        public MsBoxHyperlinkViewModel(MessageBoxHyperlinkParams @params, MsBoxHyperlinkWindow msBoxHyperlinkWindow) : base(@params)
+        public MsBoxHyperlinkViewModel(MessageBoxHyperlinkParams @params, MsBoxHyperlinkWindow msBoxHyperlinkWindow) : base(@params,@params.Icon)
         {
             _window = msBoxHyperlinkWindow;
             HyperlinkContentProvider = @params.HyperlinkContentProvider;
