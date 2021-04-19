@@ -4,9 +4,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxStandardWindow"
-        SizeToContent="WidthAndHeight"
+        SizeToContent="Height"
         MinWidth="200"
-        MaxWidth="{Binding  MaxWidth}"
+        MaxWidth="400"
         Icon="{Binding WindowIconPath}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
@@ -68,12 +68,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="15" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+            <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" TextWrapping="WrapWithOverflow" Text="{Binding ContentMessage}" />
         </Grid>
         <!--Buttons-->
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
