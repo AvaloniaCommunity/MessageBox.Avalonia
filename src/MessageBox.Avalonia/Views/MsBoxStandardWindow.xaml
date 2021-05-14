@@ -4,15 +4,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxStandardWindow"
-        SizeToContent="Height"
-        MinWidth="200"
-        MaxWidth="400"
+        SizeToContent="{Binding SizeToContent}"
+        MinWidth="{Binding MinWidth}"
+        MaxWidth="{Binding MaxWidth}"
+        MinHeight="{Binding MinHeight}"
+        MaxHeight="{Binding MaxHeight}"
         Icon="{Binding WindowIconPath}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
-        MinHeight="100"
         CanResize="{Binding CanResize}"
         FontFamily="{Binding FontFamily}"
-        Title="{Binding ContentTitle}">
+        Title="{Binding ContentTitle}"
+        Padding="15">
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
         <KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
@@ -21,6 +23,12 @@
 
 
     <Window.Styles>
+        <Style Selector="Image">
+            <Setter Property="Margin" Value="0,0,15,0" />
+            <Setter Property="MaxHeight" Value="50" />
+            <Setter Property="MaxWidth" Value="50" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
         <Style Selector="TextBox">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="TextWrapping" Value="Wrap" />
@@ -37,6 +45,7 @@
         </Style>
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
         <Style Selector="Button">
             <Setter Property="Margin" Value="15 0 0 0" />
@@ -47,37 +56,31 @@
     </Window.Styles>
     <Grid Classes="MsBoxStandardContainer">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="15" />
         </Grid.RowDefinitions>
         <!--Icon-->
-        <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+        <Image Grid.Row="0" Grid.Column="0" 
                IsVisible="{Binding Icon}"
-               Source="{Binding ImagePath}" Margin="5" />
-        <Grid Grid.Row="1" Grid.Column="3">
+               Source="{Binding ImagePath}" />
+        <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="15" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" TextWrapping="Wrap" Text="{Binding ContentMessage}" />
+            <TextBox Grid.Row="1" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+            
         </Grid>
         <!--Buttons-->
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                     HorizontalAlignment="Right">
             <Button Content="OK" Tag="Colored" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}" IsVisible="{Binding IsOkShowed}"/>

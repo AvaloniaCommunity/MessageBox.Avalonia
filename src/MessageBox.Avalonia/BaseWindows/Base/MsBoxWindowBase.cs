@@ -5,7 +5,7 @@ namespace MessageBox.Avalonia.BaseWindows.Base
 {
     internal class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window, IWindowGetResult<T>
     {
-        private U _window;
+        private readonly U _window;
         public MsBoxWindowBase(U window)
         {
             _window = window;

@@ -9,8 +9,7 @@ namespace MessageBox.Avalonia.ViewModels
 {
     public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     {
-        private MsBoxStandardWindow _window;
-        public string ContentMessage { get; }
+        private readonly MsBoxStandardWindow _window;
         public bool IsOkShowed { get; private set; }
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
@@ -23,7 +22,6 @@ namespace MessageBox.Avalonia.ViewModels
         public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
             base(@params,@params.Icon)
         {
-            ContentMessage = @params.ContentMessage;
             _window = msBoxStandardWindow;
             SetButtons(@params.ButtonDefinitions);
             ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));

@@ -19,10 +19,8 @@ namespace MessageBox.Avalonia.Extensions
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
                     //https://stackoverflow.com/a/2796367/241446
-                    using (Process proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } })
-                    {
-                        proc.Start();
-                    }
+                    using Process proc = new() { StartInfo = { UseShellExecute = true, FileName = url } };
+                    proc.Start();
                     return;
                 }
                 else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))

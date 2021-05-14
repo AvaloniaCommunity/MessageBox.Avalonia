@@ -16,7 +16,14 @@ namespace MessageBox.Avalonia.DTO
         public string ContentTitle { get; set; } = string.Empty;
         public string ContentHeader { get; set; } = null;
         public string ContentMessage { get; set; } = string.Empty;
+        public int MinWidth { get; set; } = 200;
         public int? MaxWidth { get; set; } = null;
+
+        public int MinHeight { get; set; } = 100;
+        public int? MaxHeight { get; set; } = null;
+
+        public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
+
         public WindowStartupLocation WindowStartupLocation { get; set; } = WindowStartupLocation.Manual;
     }
 }

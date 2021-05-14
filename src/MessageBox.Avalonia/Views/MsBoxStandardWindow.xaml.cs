@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.BaseWindows.Base;
@@ -28,5 +29,16 @@ namespace MessageBox.Avalonia.Views
         }
 
         public ButtonResult GetResult() => ButtonResult;
+
+        protected override void OnOpened(EventArgs e)
+        {
+            base.OnOpened(e);
+            
+            // Hack to fix scroll bar and limits
+            SizeToContent = SizeToContent.Manual;
+            Width--;
+            Height--;
+            
+        }
     }
 }

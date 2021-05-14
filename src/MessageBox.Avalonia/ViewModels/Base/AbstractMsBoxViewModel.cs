@@ -18,17 +18,23 @@ namespace MessageBox.Avalonia.ViewModels
 
     {
     public bool CanResize { get; }
-    public bool HasHeader => !(string.IsNullOrEmpty(ContentHeader));
-    public bool HasIcon => !(ImagePath is null);
+    public bool HasHeader => !string.IsNullOrEmpty(ContentHeader);
+    public bool HasIcon => ImagePath is not null;
     public FontFamily FontFamily { get; }
     public string ContentTitle { get; }
     public string ContentHeader { get; }
-    public string ContentMessage { get; }
-    public WindowIcon WindowIconPath { get; } = null;
-    public Bitmap ImagePath { get; } = null;
-    public int? MaxWidth { get; }
+    public string ContentMessage { get; set; }
+    public WindowIcon WindowIconPath { get; }
+    public Bitmap ImagePath { get; }
+    public int MinWidth { get; set; }
+    public int? MaxWidth { get; set; }
 
-    public WindowStartupLocation LocationOfMyWindow { get; }
+    public int MinHeight { get; set; }
+    public int? MaxHeight { get; set; }
+
+    public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
+
+        public WindowStartupLocation LocationOfMyWindow { get; }
 
     public AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
     {
@@ -43,13 +49,17 @@ namespace MessageBox.Avalonia.ViewModels
                     $" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.png")));
         }
 
+        MinWidth = @params.MinWidth;
         MaxWidth = @params.MaxWidth;
+        MinHeight = @params.MinHeight;
+        MaxHeight = @params.MaxHeight;
         CanResize = @params.CanResize;
         FontFamily = @params.FontFamily;
         ContentTitle = @params.ContentTitle;
         ContentHeader = @params.ContentHeader;
         ContentMessage = @params.ContentMessage;
         WindowIconPath = @params.WindowIcon;
+        SizeToContent = @params.SizeToContent;
         LocationOfMyWindow = @params.WindowStartupLocation;
     }
 
