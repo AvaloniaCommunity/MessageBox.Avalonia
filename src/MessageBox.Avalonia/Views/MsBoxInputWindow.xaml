@@ -50,6 +50,55 @@
             <Setter Property="MinWidth" Value="75" />
         </Style>
 
+        <!-- I have no idea why Avalonia doesnt add reveal mask button. There I add an style for add reveal mask button to input field. -->
+        <Style Selector="TextBox.revealPasswordButton[IsReadOnly=False]">
+            <Setter Property="InnerRightContent">
+                <Template>
+                    <Panel Margin="4,0">
+                        <Panel.Styles>
+                            <Style Selector="ToggleButton[IsChecked=True]">
+                                <Setter Property="(ToolTip.Tip)" Value="Hide Password" />
+                            </Style>
+                            <Style Selector="ToggleButton[IsChecked=False]">
+                                <Setter Property="(ToolTip.Tip)" Value="Show Password" />
+                            </Style>
+                        </Panel.Styles>
+                        <ToggleButton Classes="passwordBoxRevealButton" Background="Transparent" Cursor="Arrow" IsChecked="{Binding $parent[TextBox].RevealPassword, Mode=TwoWay}" />
+                    </Panel>
+                </Template>
+            </Setter>
+        </Style>
+  
+        <Style Selector="ToggleButton.passwordBoxRevealButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="PART_ButtonLayoutBorder"
+                                Background="Transparent"
+                                Width="12">
+                            <Panel>
+                                <Path x:Name="PART_GlyphElement_Reveal"
+                                      Fill="{DynamicResource ThemeForegroundColor}"
+                                      Data="{DynamicResource PasswordBoxRevealButtonData}"
+                                      Height="8"
+                                      Width="12"
+                                      Stretch="Uniform"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center" />
+                                <Path x:Name="PART_GlyphElement_Hide"
+                                      Fill="{DynamicResource ThemeForegroundColor}"
+                                      Data="{DynamicResource PasswordBoxHideButtonData}"
+                                      Height="12"
+                                      Width="12"
+                                      Stretch="Uniform"
+                                      VerticalAlignment="Center"
+                                      HorizontalAlignment="Center" />
+                            </Panel>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Styles>
     <Grid Classes="MsBoxInputContainer">
         <Grid.ColumnDefinitions>
