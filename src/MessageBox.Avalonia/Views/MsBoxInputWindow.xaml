@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:MessageBox.Avalonia.Models"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxInputWindow"
         SizeToContent="WidthAndHeight"
@@ -32,7 +33,7 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
-          <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox.inputbox">
             <Setter Property="BorderThickness" Value="1" />
@@ -41,7 +42,7 @@
             <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="TextBox.inputbox:focus /template/ Border#PART_BorderElement">
-          <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="Button">
             <Setter Property="Margin" Value="15 0 0 0" />
@@ -76,16 +77,41 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
-            <!--Content text-->
-            <Grid Grid.Row="2" ColumnDefinitions="Auto 5 *" >
-                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" Grid.Column="0"/>
-                <!--Input field-->
-                <TextBox Classes="inputbox" FontFamily="{Binding FontFamily}" Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
-                         IsReadOnly="False"  Grid.Column="2"/>
-            </Grid>
-
-
+            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+                     IsVisible="{Binding HasHeader}" />
+            
+            <StackPanel Grid.Row="2">
+                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+                
+                <ItemsControl Items="{Binding Inputs}">
+                    <ItemsControl.DataTemplates>
+                        <DataTemplate DataType="models:PasswordInputViewModel">
+                            <!--Content-->
+                            <Grid ColumnDefinitions="Auto 5 *">
+                                <!--Header-->
+                                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding Header}" Grid.Column="0" />
+                            
+                                <!--Input field-->
+                                <TextBox Classes="inputbox revealPasswordButton" FontFamily="{Binding FontFamily}" Text="{Binding InputText}"
+                                         Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
+                                         IsReadOnly="False" NewLine="{Binding AllowMultiline}" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                        
+                        <DataTemplate DataType="models:InputViewModel">
+                            <!--Content-->
+                            <Grid ColumnDefinitions="Auto 5 *">
+                                <!--Header-->
+                                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding Header}" Grid.Column="0" />
+                            
+                                <!--Input field-->
+                                <TextBox Classes="inputbox" FontFamily="{Binding FontFamily}" Text="{Binding InputText}"
+                                         Watermark="{Binding WatermarkText}" IsReadOnly="False" NewLine="{Binding AllowMultiline}" Grid.Column="2" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.DataTemplates>
+                </ItemsControl>
+            </StackPanel>
         </Grid>
         <!--Buttons-->
         <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
