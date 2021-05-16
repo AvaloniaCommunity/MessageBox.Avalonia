@@ -8,29 +8,28 @@ namespace MessageBox.Avalonia.ViewModels
     public class MsBoxInputViewModel : AbstractMsBoxViewModel
     {
         private readonly MsBoxInputWindow _window;
-        private string _inputText;
+        
         public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params,@params.Icon)
         {
             _window = msBoxInputWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
-            PassChar = @params.IsPassword ? '*' : (char?)null;
-            WatermarkText = @params.WatermarkText;
+
+            Inputs = new List<object>();
+
+            if (@params.IsPassword)
+            {
+                Inputs.Add(new PasswordInputViewModel(@params));
+            }
+            else
+            {
+                Inputs.Add(new InputViewModel(@params));
+            }
         }
 
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
 
-        public string InputText
-        {
-            get => _inputText;
-            set
-            {
-                _inputText = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public char? PassChar { get; }
-        public string WatermarkText { get; }
+        public List<object> Inputs { get; }
+        
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
         public void ButtonClick(string parameter)
         {
@@ -39,7 +38,7 @@ namespace MessageBox.Avalonia.ViewModels
                 if (parameter.Equals(bd.Name))
                 {
                     _window.ButtonResult = bd.Name;
-                    _window.MessageResult = InputText;
+                    _window.MessageResult = ((InputViewModel)Inputs[0]).InputText;
                     break;
                 }
             }
