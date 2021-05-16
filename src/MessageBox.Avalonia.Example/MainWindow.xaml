@@ -18,8 +18,9 @@
   <StackPanel>
     <Button Name="btnClick" Click="MsBoxStandard_Click" Content="Standard"/>
     <Button Name="btnClick2" Click="MsBoxCustom_Click" Content="Custom"/>
-    <Button Name="btnClick5" Click="MsBoxCustomImage_Click" Content="Custom With Image"/>
-    <Button Name="btnClick3" Click="MsBoxHyperlink_Click" Content="Hyperlink"/>
-    <Button Name="btnClick4" Click="MsBoxInput_Click" Content="Input"/>
+    <Button Name="btnClick3" Click="MsBoxCustomImage_Click" Content="Custom With Image"/>
+    <Button Name="btnClick4" Click="MsBoxHyperlink_Click" Content="Hyperlink"/>
+    <Button Name="btnClick5" Click="MsBoxInput_Click" Content="Input"/>
+    <Button Name="btnClick6" Click="MsBoxInputPass_Click" Content="Masked Input"/>
   </StackPanel>
 </Window>

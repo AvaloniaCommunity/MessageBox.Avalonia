@@ -71,8 +71,8 @@ namespace MessageBox.Avalonia.Example
                 .GetMessageBoxInputWindow(new MessageBoxInputParams
                 {
                     Style = Style.UbuntuLinux,
-                    ContentMessage = "Password",
-                    IsPassword = true,
+                    ContentMessage = "This is input window! Type something in this field!",
+                    InputHeader = "Field",
                     ButtonDefinitions = new[] {
                         new ButtonDefinition {Name = "Cancel"},
                         new ButtonDefinition {Name = "Confirm", Type = ButtonType.Colored}
@@ -103,6 +103,23 @@ namespace MessageBox.Avalonia.Example
             AvaloniaXamlLoader.Load(this);
         }
 
-       
+
+        private async void MsBoxInputPass_Click(object? sender, RoutedEventArgs e)
+        {
+            var messageBoxInputWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxInputWindow(new MessageBoxInputParams
+                {
+                    Style = Style.UbuntuLinux,
+                    ContentMessage = "Please type your password",
+                    InputHeader = "Password",
+                    IsPassword = true,
+                    ButtonDefinitions = new[] {
+                        new ButtonDefinition {Name = "Cancel"},
+                        new ButtonDefinition {Name = "Confirm", Type = ButtonType.Colored}
+                    },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                });
+            await messageBoxInputWindow.ShowDialog(this);
+        }
     }
 }
