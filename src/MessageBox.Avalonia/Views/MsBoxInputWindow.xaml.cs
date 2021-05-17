@@ -28,6 +28,6 @@ namespace MessageBox.Avalonia.Views
             AvaloniaXamlLoader.Load(this);
         }
 
-        public MessageWindowResultDTO GetResult() => new(MessageResult, ButtonResult);
+        public MessageWindowResultDTO GetResult() => new MessageWindowResultDTO(MessageResult, ButtonResult);
     }
 }

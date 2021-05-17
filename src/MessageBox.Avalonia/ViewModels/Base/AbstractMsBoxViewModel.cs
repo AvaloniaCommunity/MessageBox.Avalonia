@@ -19,7 +19,7 @@ namespace MessageBox.Avalonia.ViewModels
     {
     public bool CanResize { get; }
     public bool HasHeader => !string.IsNullOrEmpty(ContentHeader);
-    public bool HasIcon => ImagePath is not null;
+    public bool HasIcon => !(ImagePath is null);
     public FontFamily FontFamily { get; }
     public string ContentTitle { get; }
     public string ContentHeader { get; }
