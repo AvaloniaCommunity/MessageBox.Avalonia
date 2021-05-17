@@ -30,7 +30,7 @@ namespace MessageBox.Avalonia.Example
 
             // If you want to auto strict the max sizes
             /*var screen = Screens?.ScreenFromVisual(this);
-            if (screen is not null)
+            if (!(screen is null))
             {
                 maxWidth = (int) (screen.WorkingArea.Width / screen.PixelDensity - 100);
                 maxHeight = (int) (screen.WorkingArea.Height / screen.PixelDensity - 50);
