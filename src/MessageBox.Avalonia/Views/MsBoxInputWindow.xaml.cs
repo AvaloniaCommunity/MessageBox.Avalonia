@@ -1,4 +1,3 @@
-using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.BaseWindows.Base;
 using MessageBox.Avalonia.DTO;
@@ -12,6 +11,8 @@ namespace MessageBox.Avalonia.Views
         public string ButtonResult { get; set; } = null;
         public string MessageResult { get; set; } = null;
 
+        public MessageWindowResultDTO GetResult() => new MessageWindowResultDTO(MessageResult, ButtonResult);
+
         public MsBoxInputWindow():base()
         {
             InitializeComponent();
@@ -21,13 +22,12 @@ namespace MessageBox.Avalonia.Views
         {
             this.SetStyle(style);
             InitializeComponent();
+            
         }
 
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }
-
-        public MessageWindowResultDTO GetResult() => new MessageWindowResultDTO(MessageResult, ButtonResult);
     }
 }

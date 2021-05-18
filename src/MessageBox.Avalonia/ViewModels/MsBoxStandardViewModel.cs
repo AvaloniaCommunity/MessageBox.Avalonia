@@ -9,28 +9,25 @@ namespace MessageBox.Avalonia.ViewModels
 {
     public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     {
-        private MsBoxStandardWindow _window;
-        public string ContentMessage { get; }
+        private readonly MsBoxStandardWindow _window;
         public bool IsOkShowed { get; private set; }
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
         public bool IsAbortShowed { get; private set; }
         public bool IsCancelShowed { get; private set; }
-        public  RelayCommand ButtonClickCommand { get; }
+        public RelayCommand ButtonClickCommand { get; }
         public RelayCommand EnterClickCommand { get; }
         public RelayCommand EscClickCommand { get; }
 
         public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
             base(@params,@params.Icon)
         {
-            ContentMessage = @params.ContentMessage;
             _window = msBoxStandardWindow;
             SetButtons(@params.ButtonDefinitions);
             ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
             EnterClickCommand = new RelayCommand(o => EnterClick());
             EscClickCommand = new RelayCommand(o => EscClick());
         }
-
 
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
         {
@@ -67,32 +64,61 @@ namespace MessageBox.Avalonia.ViewModels
             }
         }
 
+        private void EscClick()
+        {
+            if (IsCancelShowed)
+            {
+                ButtonClick(ButtonResult.Cancel);
+                return;
+            }
+
+            if (IsAbortShowed)
+            {
+                ButtonClick(ButtonResult.Abort);
+                return;
+            }
+
+            if (IsNoShowed)
+            {
+                ButtonClick(ButtonResult.No);
+                return;
+            }
+
+            ButtonClick(ButtonResult.None);
+        }
+
         private void EnterClick()
         {
             if (IsOkShowed)
             {
-                ButtonClick("OK");
+                ButtonClick(ButtonResult.Ok);
+                return;
             }
-
+            
             if (IsYesShowed)
             {
-                ButtonClick("YES");
+                ButtonClick(ButtonResult.Yes);
+                return;
             }
-        }
-
-        private async void EscClick()
-        {
-            await Dispatcher.UIThread.InvokeAsync(() => _window.Close());
-
         }
 
         public async void ButtonClick(string parameter)
         {
             await Dispatcher.UIThread.InvokeAsync(() =>
             {
-                _window.ButtonResult = (ButtonResult) Enum.Parse(typeof(ButtonResult), parameter.Trim(), true);
+                _window.ButtonResult = (ButtonResult)Enum.Parse(typeof(ButtonResult), parameter.Trim(), true);
                 _window.Close();
             });
         }
+
+        public async void ButtonClick(ButtonResult buttonResult)
+        {
+            await Dispatcher.UIThread.InvokeAsync(() =>
+            {
+                _window.ButtonResult = buttonResult;
+                _window.Close();
+            });
+        }
+
     }
 }

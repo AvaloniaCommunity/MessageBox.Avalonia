@@ -7,5 +7,7 @@ namespace MessageBox.Avalonia.DTO
         public Icon Icon { get; set; } = Icon.None;
         public bool IsPassword { get; set; } = false;
         public string WatermarkText { get; set; } = null;
+
+        public bool Multiline { get; set; }
     }
 }

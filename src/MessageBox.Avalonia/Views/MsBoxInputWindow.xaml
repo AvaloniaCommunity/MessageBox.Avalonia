@@ -4,14 +4,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxInputWindow"
-        SizeToContent="WidthAndHeight"
-        MinWidth="200"
-        MaxWidth="{Binding  MaxWidth}"
+        SizeToContent="{Binding SizeToContent}"
+        MinWidth="{Binding MinWidth}"
+        MaxWidth="{Binding MaxWidth}"
+        Width="{Binding Width}"
+        MinHeight="{Binding MinHeight}"
+        MaxHeight="{Binding MaxHeight}"
+        Height="{Binding Height}"
+        Icon="{Binding WindowIconPath}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
-        MinHeight="100"
         CanResize="{Binding CanResize}"
         FontFamily="{Binding FontFamily}"
-        Title="{Binding ContentTitle}">
+        Title="{Binding ContentTitle}"
+        Padding="15">
 
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
@@ -36,6 +41,10 @@
         </Style>
         <Style Selector="TextBox.inputbox">
             <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="IsReadOnly" Value="False" />
+            <Setter Property="TextWrapping" Value="NoWrap" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         </Style>
         <Style Selector="TextBox.inputbox:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="1" />
@@ -52,24 +61,20 @@
     </Window.Styles>
     <Grid Classes="MsBoxInputContainer">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="15" />
         </Grid.RowDefinitions>
         <!--Icon-->
-        <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+        <Image Grid.Row="0" Grid.Column="0" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
                IsVisible="{Binding Icon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="1" Grid.Column="3">
+        <Grid Grid.Row="0" Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="15" />
@@ -78,17 +83,23 @@
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <Grid Grid.Row="2" ColumnDefinitions="Auto 5 *" >
+            <Grid Name="ContentGrid" Grid.Row="2" RowDefinitions="Auto" ColumnDefinitions="Auto,5,*">
                 <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" Grid.Column="0"/>
                 <!--Input field-->
-                <TextBox Classes="inputbox" FontFamily="{Binding FontFamily}" Text="{Binding InputText}"  Watermark="{Binding WatermarkText}" PasswordChar="{Binding PassChar}"
-                         IsReadOnly="False"  Grid.Column="2"/>
+                <TextBox Name="InputBox" Classes="inputbox" 
+                         Grid.Row="0"
+                         Grid.Column="2"
+                         FontFamily="{Binding FontFamily}" 
+                         Text="{Binding InputText}"  
+                         Watermark="{Binding WatermarkText}" 
+                         PasswordChar="{Binding PassChar}"
+                         AcceptsReturn="{Binding Multiline}"/>
             </Grid>
 
 
         </Grid>
         <!--Buttons-->
-        <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+        <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"
                         HorizontalAlignment="Right">
             <ItemsPresenter.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -104,7 +115,10 @@
                             Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"
                             Content="{Binding Name}"
-                            Margin="0 0 5 0" />
+                            Margin="0 0 5 0"
+                            IsDefault="{Binding IsDefault}"
+                            IsCancel="{Binding IsCancel}"
+                            />
                 </DataTemplate>
             </ItemsPresenter.ItemTemplate>
         </ItemsPresenter>

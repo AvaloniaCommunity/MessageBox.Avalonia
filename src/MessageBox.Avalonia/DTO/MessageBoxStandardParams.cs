@@ -6,6 +6,5 @@ namespace MessageBox.Avalonia.DTO
     {
         public Icon Icon { get; set; } = Icon.None;
         public ButtonEnum ButtonDefinitions { get; set; } = ButtonEnum.Ok;
-        public string ContentMessage { get; set; }
     }
 }
