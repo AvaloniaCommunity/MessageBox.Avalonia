@@ -89,7 +89,9 @@
                   Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
                   CommandParameter="{Binding #Btn.Content}"
                   Content="{Binding Name}"
-                  Margin="0 0 5 0">
+                  Margin="0 0 5 0"
+                  IsDefault="{Binding IsDefault}"
+                  IsCancel="{Binding IsCancel}">
           </Button>
         </DataTemplate>
       </ItemsPresenter.ItemTemplate>

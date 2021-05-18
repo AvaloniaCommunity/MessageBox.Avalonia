@@ -7,8 +7,10 @@
         SizeToContent="{Binding SizeToContent}"
         MinWidth="{Binding MinWidth}"
         MaxWidth="{Binding MaxWidth}"
+        Width="{Binding Width}"
         MinHeight="{Binding MinHeight}"
         MaxHeight="{Binding MaxHeight}"
+        Height="{Binding Height}"
         Icon="{Binding WindowIconPath}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         CanResize="{Binding CanResize}"
@@ -82,8 +84,8 @@
         <!--Buttons-->
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                     HorizontalAlignment="Right">
-            <Button Content="OK" Tag="Colored" Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}" IsVisible="{Binding IsOkShowed}"/>
+            <Button Content="OK" Tag="Colored" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}" 
+                    IsVisible="{Binding IsOkShowed}"/>
             <Button Content="Yes" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsYesShowed}" />
             <Button Content="No" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"

@@ -1,7 +1,6 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Media;
-using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.DTO
@@ -16,11 +15,13 @@ namespace MessageBox.Avalonia.DTO
         public string ContentTitle { get; set; } = string.Empty;
         public string ContentHeader { get; set; } = null;
         public string ContentMessage { get; set; } = string.Empty;
-        public int MinWidth { get; set; } = 200;
-        public int? MaxWidth { get; set; } = null;
+        public double MinWidth { get; set; } = 200;
+        public double MaxWidth { get; set; } = double.PositiveInfinity;
+        public double Width { get; set; } = double.NaN;
 
-        public int MinHeight { get; set; } = 100;
-        public int? MaxHeight { get; set; } = null;
+        public double MinHeight { get; set; } = 100;
+        public double MaxHeight { get; set; } = double.PositiveInfinity;
+        public double Height { get; set; } = double.NaN;
 
         public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
 

@@ -18,7 +18,6 @@ namespace MessageBox.Avalonia.Views
 
         public MsBoxStandardWindow(Style style):base()
         {
-            
             this.SetStyle(style);
             InitializeComponent();
         }

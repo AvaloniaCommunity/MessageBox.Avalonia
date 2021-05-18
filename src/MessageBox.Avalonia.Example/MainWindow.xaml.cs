@@ -40,7 +40,7 @@ namespace MessageBox.Avalonia.Example
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                 new MessageBoxStandardParams
                 {
-                    ButtonDefinitions = ButtonEnum.Ok,
+                    ButtonDefinitions = ButtonEnum.YesNoCancel,
                     ContentTitle = "title",
                     ContentHeader = "Testing long header for debug purpose, this should never be that long, still it may allow it! " +
                                     "Testing long header for debug purpose, this should never be that long, still it may allow it!" +
@@ -77,8 +77,8 @@ namespace MessageBox.Avalonia.Example
                     FontFamily = "Microsoft YaHei,Simsun",
                     Icon = MessageBoxAvaloniaEnums.Icon.Success,
                     ButtonDefinitions = new[] {
-                        new ButtonDefinition {Name = "My"},
-                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                        new ButtonDefinition {Name = "My", IsCancel = true},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored, IsDefault = true}
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner
                 });
@@ -98,7 +98,7 @@ namespace MessageBox.Avalonia.Example
                         new HyperlinkContent { Url= "https://avaloniaui.net/docs/styles/styles" }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok,
+                    ButtonDefinitions = ButtonEnum.Ok,
                     });
             await messageBoxHyperlinkWindow.ShowDialog(this);
         }
@@ -109,13 +109,20 @@ namespace MessageBox.Avalonia.Example
                 .GetMessageBoxInputWindow(new MessageBoxInputParams
                 {
                     Style = Style.UbuntuLinux,
-                    ContentMessage = "Password",
+                    ContentHeader = "Input your admin password below",
+                    ContentMessage = "Password:",
                     IsPassword = true,
                     ButtonDefinitions = new[] {
-                        new ButtonDefinition {Name = "Cancel"},
-                        new ButtonDefinition {Name = "Confirm", Type = ButtonType.Colored}
+                        new ButtonDefinition {Name = "Cancel", IsCancel = true},
+                        new ButtonDefinition {Name = "Confirm", Type = ButtonType.Colored, IsDefault = true}
                     },
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    Width = 500,
+
+                    // The following code is required for multi line to ensure the best view experience:
+                    //Multiline = true,
+                    //Height = 500,
+                    //SizeToContent = SizeToContent.Manual
                 });
             await messageBoxInputWindow.ShowDialog(this);
         }
@@ -128,8 +135,8 @@ namespace MessageBox.Avalonia.Example
                     ContentMessage = "Message",
                     Icon = new Bitmap("./icon-rider.png"),
                     ButtonDefinitions = new[] {
-                        new ButtonDefinition {Name = "My"},
-                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored}
+                        new ButtonDefinition {Name = "My", IsCancel = true},
+                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored, IsDefault = true}
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner
                 });

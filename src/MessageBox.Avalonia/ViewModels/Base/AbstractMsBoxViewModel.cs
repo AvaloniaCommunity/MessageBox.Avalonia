@@ -26,11 +26,13 @@ namespace MessageBox.Avalonia.ViewModels
     public string ContentMessage { get; set; }
     public WindowIcon WindowIconPath { get; }
     public Bitmap ImagePath { get; }
-    public int MinWidth { get; set; }
-    public int? MaxWidth { get; set; }
+    public double MinWidth { get; set; }
+    public double MaxWidth { get; set; }
+    public double Width { get; set; }
 
-    public int MinHeight { get; set; }
-    public int? MaxHeight { get; set; }
+    public double MinHeight { get; set; }
+    public double MaxHeight { get; set; }
+    public double Height { get; set; }
 
     public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
 
@@ -51,8 +53,10 @@ namespace MessageBox.Avalonia.ViewModels
 
         MinWidth = @params.MinWidth;
         MaxWidth = @params.MaxWidth;
+        Width = @params.Width;
         MinHeight = @params.MinHeight;
         MaxHeight = @params.MaxHeight;
+        Height = @params.Height;
         CanResize = @params.CanResize;
         FontFamily = @params.FontFamily;
         ContentTitle = @params.ContentTitle;
