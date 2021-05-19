@@ -17,7 +17,7 @@ namespace MessageBox.Avalonia.DTO
             Toggle,
 
             /// <summary>
-            /// Left click and hold to temporary reveal the password
+            /// Left or right click and hold to temporary reveal the password
             /// </summary>
             Hold,
 

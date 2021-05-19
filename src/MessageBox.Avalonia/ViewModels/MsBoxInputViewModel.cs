@@ -7,6 +7,7 @@ using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.ViewModels
@@ -77,38 +78,35 @@ namespace MessageBox.Avalonia.ViewModels
             
             _passwordRevealBtn = _window.FindControl<ToggleButton>("PasswordRevealBtn");
 
-            _passwordRevealBtn.PointerMoved += (sender, e) =>
-            { // Due avalonia, we cant capture PointerPressed with left mouse click.. So i'm using PointerMoved instead
-              // https://github.com/AvaloniaUI/Avalonia/issues/5952
-                if (!IsPasswordRevealButtonVisible) return;
+            //PointerPressedEvent
+            _passwordRevealBtn.AddHandler(InputElement.PointerPressedEvent, (sender, e) =>
+            {
+                if (!IsPasswordRevealButtonVisible || _passChar is null) return;
 
                 var pointer = e.GetCurrentPoint(_passwordRevealBtn);
 
-                if (pointer.Properties.IsLeftButtonPressed && PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Hold ||
-                    pointer.Properties.IsRightButtonPressed && PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both)
+                if ((pointer.Properties.IsLeftButtonPressed || pointer.Properties.IsRightButtonPressed) && PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Hold 
+                    || pointer.Properties.IsRightButtonPressed && PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both)
                 {
                     PassChar = null;
                     _passwordRevealBtn.IsChecked = true;
                     e.Handled = true;
                 }
-            };
-            _passwordRevealBtn.PointerLeave += (sender, e) =>
+            }, RoutingStrategies.Tunnel);
+
+            // PointerReleasedEvent
+            _passwordRevealBtn.AddHandler(InputElement.PointerReleasedEvent, (sender, e) =>
             {
-                if (!IsPasswordRevealButtonVisible || PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Hold) return;
+                if (_passChar == '*' || 
+                    !IsPasswordRevealButtonVisible ||
+                    (PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Hold &&
+                     PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Both)) return;
+                if (PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both && e.InitialPressMouseButton != MouseButton.Right) return;
 
                 PassChar = InitialPassChar;
                 _passwordRevealBtn.IsChecked = false;
                 e.Handled = true;
-            };
-            _passwordRevealBtn.PointerReleased += (sender, e) =>
-            {
-                if (!IsPasswordRevealButtonVisible || PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Both) return;
-                if (e.InitialPressMouseButton != MouseButton.Right) return;
-
-                PassChar = InitialPassChar;
-                _passwordRevealBtn.IsChecked = false;
-                e.Handled = true;
-            };
+            }, RoutingStrategies.Tunnel);
         }
         
         public void ButtonClick(string parameter)
