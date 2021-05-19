@@ -83,17 +83,21 @@
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <Grid Name="ContentGrid" Grid.Row="2" RowDefinitions="Auto" ColumnDefinitions="Auto,5,*">
+            <Grid Name="ContentGrid" Grid.Row="2" RowDefinitions="Auto" ColumnDefinitions="Auto,5,*,Auto">
                 <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" Grid.Column="0"/>
                 <!--Input field-->
-                <TextBox Name="InputBox" Classes="inputbox" 
-                         Grid.Row="0"
-                         Grid.Column="2"
-                         FontFamily="{Binding FontFamily}" 
-                         Text="{Binding InputText}"  
-                         Watermark="{Binding WatermarkText}" 
-                         PasswordChar="{Binding PassChar}"
-                         AcceptsReturn="{Binding Multiline}"/>
+                    <TextBox Name="InputBox" Classes="inputbox"
+                             Grid.Row="0" Grid.Column="2"
+                             FontFamily="{Binding FontFamily}"
+                             Text="{Binding InputText}"
+                             Watermark="{Binding WatermarkText}"
+                             PasswordChar="{Binding PassChar}"
+                             AcceptsReturn="{Binding Multiline}"/>
+                <ToggleButton Grid.Row="0" Grid.Column="3"
+                              Classes="passwordrevealbtn"
+                              Command="{Binding PasswordRevealClick}"
+                              Name="PasswordRevealBtn" Content="👁"
+                              IsVisible="{Binding IsPasswordRevealButtonVisible}"/>
             </Grid>
 
 

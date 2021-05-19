@@ -34,10 +34,12 @@ namespace MessageBox.Avalonia.Views
             base.OnOpened(e);
             
             // Hack to fix scroll bar and limits
-            SizeToContent = SizeToContent.Manual;
-            Width--;
-            Height--;
-            
+            if (SizeToContent != SizeToContent.Manual)
+            {
+                SizeToContent = SizeToContent.Manual;
+                Width--;
+                Height--;
+            }
         }
     }
 }
