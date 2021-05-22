@@ -23,7 +23,7 @@ namespace MessageBox.Avalonia.DTO
         public double MaxHeight { get; set; } = double.PositiveInfinity;
         public double Height { get; set; } = double.NaN;
 
-        public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
+        public SizeToContent SizeToContent { get; set; } = SizeToContent.WidthAndHeight;
 
         public WindowStartupLocation WindowStartupLocation { get; set; } = WindowStartupLocation.Manual;
     }

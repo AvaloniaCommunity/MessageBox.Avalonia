@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -108,7 +109,7 @@ namespace MessageBox.Avalonia.Example
             var messageBoxInputWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxInputWindow(new MessageBoxInputParams
                 {
-                    Style = Style.UbuntuLinux,
+                    Style = Style.MacOs,
                     ContentHeader = "Input your admin password below",
                     ContentMessage = "Password:",
                     IsPassword = true,
