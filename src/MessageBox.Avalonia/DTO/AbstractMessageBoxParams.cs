@@ -26,5 +26,6 @@ namespace MessageBox.Avalonia.DTO
         public SizeToContent SizeToContent { get; set; } = SizeToContent.WidthAndHeight;
 
         public WindowStartupLocation WindowStartupLocation { get; set; } = WindowStartupLocation.Manual;
+        public bool Topmost { get; set; } = false;
     }
 }

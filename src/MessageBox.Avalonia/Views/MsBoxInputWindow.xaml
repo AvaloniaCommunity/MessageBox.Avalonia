@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxInputWindow"
         SizeToContent="{Binding SizeToContent}"
@@ -12,12 +13,15 @@
         MaxHeight="{Binding MaxHeight}"
         Height="{Binding Height}"
         Icon="{Binding WindowIconPath}"
+        Topmost="{Binding Topmost}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         CanResize="{Binding CanResize}"
         FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}"
         Padding="15">
-
+    <Design.DataContext>
+        <viewModels:MsBoxInputViewModel />
+    </Design.DataContext>
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </Window.KeyBindings>
@@ -37,7 +41,7 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
-          <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox.inputbox">
             <Setter Property="BorderThickness" Value="1" />
@@ -50,7 +54,7 @@
             <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="TextBox.inputbox:focus /template/ Border#PART_BorderElement">
-          <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderThickness" Value="1" />
         </Style>
         <Style Selector="Button">
             <Setter Property="Margin" Value="15 0 0 0" />
@@ -81,23 +85,24 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
+            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+                     IsVisible="{Binding HasHeader}" />
             <!--Content text-->
             <Grid Name="ContentGrid" Grid.Row="2" RowDefinitions="Auto" ColumnDefinitions="Auto,5,*,Auto">
-                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" Grid.Column="0"/>
+                <TextBox FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" Grid.Column="0" />
                 <!--Input field-->
-                    <TextBox Name="InputBox" Classes="inputbox"
-                             Grid.Row="0" Grid.Column="2"
-                             FontFamily="{Binding FontFamily}"
-                             Text="{Binding InputText}"
-                             Watermark="{Binding WatermarkText}"
-                             PasswordChar="{Binding PassChar}"
-                             AcceptsReturn="{Binding Multiline}"/>
+                <TextBox Name="InputBox" Classes="inputbox"
+                         Grid.Row="0" Grid.Column="2"
+                         FontFamily="{Binding FontFamily}"
+                         Text="{Binding InputText}"
+                         Watermark="{Binding WatermarkText}"
+                         PasswordChar="{Binding PassChar}"
+                         AcceptsReturn="{Binding Multiline}" />
                 <ToggleButton Grid.Row="0" Grid.Column="3"
                               Classes="passwordrevealbtn"
                               Command="{Binding PasswordRevealClick}"
                               Name="PasswordRevealBtn" Content="👁"
-                              IsVisible="{Binding IsPasswordRevealButtonVisible}"/>
+                              IsVisible="{Binding IsPasswordRevealButtonVisible}" />
             </Grid>
 
 
@@ -121,8 +126,7 @@
                             Content="{Binding Name}"
                             Margin="0 0 5 0"
                             IsDefault="{Binding IsDefault}"
-                            IsCancel="{Binding IsCancel}"
-                            />
+                            IsCancel="{Binding IsCancel}" />
                 </DataTemplate>
             </ItemsPresenter.ItemTemplate>
         </ItemsPresenter>

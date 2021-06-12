@@ -5,10 +5,10 @@ using MessageBox.Avalonia.Models;
 
 namespace MessageBox.Avalonia.DTO
 {
-    public class MsCustomParams:AbstractMessageBoxParams
+    public class MsCustomParams : AbstractMessageBoxParams
     {
         public Icon Icon { get; set; } = Icon.None;
-        public Bitmap BitmapIcon { get; set; } 
+        public Bitmap BitmapIcon { get; set; }
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; set; }
 
         public MsCustomParams(MessageBoxCustomParams @params)

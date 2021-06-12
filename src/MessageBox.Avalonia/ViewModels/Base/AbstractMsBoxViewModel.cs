@@ -33,6 +33,8 @@ namespace MessageBox.Avalonia.ViewModels
     public double MinHeight { get; set; }
     public double MaxHeight { get; set; }
     public double Height { get; set; }
+    
+    public bool Topmost { get; set; }
 
     public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
 
@@ -65,6 +67,7 @@ namespace MessageBox.Avalonia.ViewModels
         WindowIconPath = @params.WindowIcon;
         SizeToContent = @params.SizeToContent;
         LocationOfMyWindow = @params.WindowStartupLocation;
+        Topmost = @params.Topmost;
     }
 
     public async Task Copy()

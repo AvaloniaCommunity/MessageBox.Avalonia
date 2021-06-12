@@ -62,7 +62,8 @@ namespace MessageBox.Avalonia.Example
                     MaxWidth = maxWidth,
                     MaxHeight = maxHeight,
                     ShowInCenter = true,
-                    Icon =  MessageBoxAvaloniaEnums.Icon.Info
+                    Icon =  MessageBoxAvaloniaEnums.Icon.Info,
+                    Topmost = true
                 });
 
             await messageBoxStandardWindow.ShowDialog(this);

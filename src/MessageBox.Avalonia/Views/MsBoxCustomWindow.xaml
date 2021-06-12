@@ -2,6 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxCustomWindow"
         SizeToContent="WidthAndHeight"
@@ -10,10 +11,13 @@
         Icon="{Binding WindowIconPath}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
+        Topmost="{Binding Topmost}"
         CanResize="{Binding CanResize}"
         FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}">
-        
+    <Design.DataContext>
+        <viewModels:MsBoxCustomViewModel />
+    </Design.DataContext>
     <Window.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </Window.KeyBindings>
@@ -30,7 +34,7 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
-          <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
@@ -41,60 +45,60 @@
             <Setter Property="MinWidth" Value="75" />
         </Style>
 
-  </Window.Styles>
-  <Grid Classes="MsBoxCustomContainer">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="15" />
-      <ColumnDefinition Width="Auto" />
-      <ColumnDefinition Width="15" />
-      <ColumnDefinition Width="*" />
-      <ColumnDefinition Width="15" />
-    </Grid.ColumnDefinitions>
-    <Grid.RowDefinitions>
-      <RowDefinition Height="15" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="15" />
-      <RowDefinition Height="Auto" />
-      <RowDefinition Height="15" />
-    </Grid.RowDefinitions>
-    <!--Icon-->
-    <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
-           IsVisible="{Binding Icon}"
-           Source="{Binding ImagePath}" />
-    <Grid Grid.Row="1" Grid.Column="3">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto" />
-        <RowDefinition Height="15" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <!--Bold text-->
-      <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" IsVisible="{Binding HasHeader}" />
-      <!--Content text-->
-      <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+    </Window.Styles>
+    <Grid Classes="MsBoxCustomContainer">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="15" />
+        </Grid.RowDefinitions>
+        <!--Icon-->
+        <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+               IsVisible="{Binding Icon}"
+               Source="{Binding ImagePath}" />
+        <Grid Grid.Row="1" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--Bold text-->
+            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+                     IsVisible="{Binding HasHeader}" />
+            <!--Content text-->
+            <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+        </Grid>
+        <!--Buttons-->
+        <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+                        HorizontalAlignment="Right">
+            <ItemsPresenter.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ItemsPresenter.ItemsPanel>
+            <ItemsPresenter.ItemTemplate>
+                <DataTemplate>
+                    <Button Name="Btn"
+                            Tag="{Binding TypeName}"
+                            Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
+                            CommandParameter="{Binding #Btn.Content}"
+                            Content="{Binding Name}"
+                            Margin="0 0 5 0"
+                            IsDefault="{Binding IsDefault}"
+                            IsCancel="{Binding IsCancel}" />
+                </DataTemplate>
+            </ItemsPresenter.ItemTemplate>
+        </ItemsPresenter>
     </Grid>
-    <!--Buttons-->
-    <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
-                    HorizontalAlignment="Right">
-      <ItemsPresenter.ItemsPanel>
-        <ItemsPanelTemplate>
-          <StackPanel Orientation="Horizontal"
-                      VerticalAlignment="Center"
-                      HorizontalAlignment="Center" />
-        </ItemsPanelTemplate>
-      </ItemsPresenter.ItemsPanel>
-      <ItemsPresenter.ItemTemplate>
-        <DataTemplate>
-          <Button Name="Btn"
-                  Tag="{Binding TypeName}"
-                  Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
-                  CommandParameter="{Binding #Btn.Content}"
-                  Content="{Binding Name}"
-                  Margin="0 0 5 0"
-                  IsDefault="{Binding IsDefault}"
-                  IsCancel="{Binding IsCancel}">
-          </Button>
-        </DataTemplate>
-      </ItemsPresenter.ItemTemplate>
-    </ItemsPresenter>
-  </Grid>
 </Window>
