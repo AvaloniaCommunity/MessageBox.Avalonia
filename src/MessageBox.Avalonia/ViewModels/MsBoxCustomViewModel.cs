@@ -8,10 +8,13 @@ namespace MessageBox.Avalonia.ViewModels
     public class MsBoxCustomViewModel : AbstractMsBoxViewModel
     {
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+        
         private readonly MsBoxCustomWindow _window;
         public string ContentMessage { get; }
 
-        public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,@params.Icon,@params.BitmapIcon)
+
+        public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,
+            @params.Icon, @params.BitmapIcon)
         {
             ContentMessage = @params.ContentMessage;
             _window = msBoxCustomWindow;
@@ -28,7 +31,6 @@ namespace MessageBox.Avalonia.ViewModels
             }
 
             _window.Close();
-
         }
     }
 }
