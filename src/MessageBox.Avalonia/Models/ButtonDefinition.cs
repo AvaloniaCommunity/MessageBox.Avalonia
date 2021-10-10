@@ -4,8 +4,10 @@ namespace MessageBox.Avalonia.Models
 {
     public class ButtonDefinition
     {
-        public string Name { get; set; } = "OK";
         private ButtonType _type = ButtonType.Default;
+        public string Name { get; set; } = "OK";
+        
+       
 
         public ButtonType Type
         {

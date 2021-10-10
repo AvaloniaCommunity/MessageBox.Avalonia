@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
@@ -62,7 +60,7 @@ namespace MessageBox.Avalonia.Example
                     MaxWidth = maxWidth,
                     MaxHeight = maxHeight,
                     ShowInCenter = true,
-                    Icon = MessageBoxAvaloniaEnums.Icon.Info,
+                    Icon = MessageBoxAvaloniaEnums.Icon.Error,
                     Topmost = true
                 });
 
@@ -151,7 +149,8 @@ namespace MessageBox.Avalonia.Example
                         new ButtonDefinition {Name = "My", IsCancel = true},
                         new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored, IsDefault = true}
                     },
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    WindowIcon = new WindowIcon("./icon-rider.png"),
                 });
             await messageBoxCustomWindow.ShowDialog(this);
         }
