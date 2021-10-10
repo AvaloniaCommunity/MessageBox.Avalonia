@@ -31,5 +31,7 @@ namespace MessageBox.Avalonia.DTO
         public PasswordRevealModes PasswordRevealMode { get; set; } = PasswordRevealModes.Hold;
         public string WatermarkText { get; set; } = null;
         public bool Multiline { get; set; }
+        
+        public string InputDefaultValue { get; set; }
     }
 }

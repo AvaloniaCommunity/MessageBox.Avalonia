@@ -69,20 +69,14 @@ namespace MessageBox.Avalonia.Example
 
         public async void MsBoxCustom_Click(object sender, RoutedEventArgs e)
         {
-            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxCustomWindow(new MessageBoxCustomParams
+            var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxCustomWindow(
+                new MessageBoxCustomParams
                 {
-                    Style = Style.UbuntuLinux,
-                    Topmost = true,
-                    ContentMessage = "支持FontFamily",
-                    FontFamily = "Microsoft YaHei,Simsun",
-                    Icon = MessageBoxAvaloniaEnums.Icon.Success,
-                    ButtonDefinitions = new[]
-                    {
-                        new ButtonDefinition {Name = "My", IsCancel = true},
-                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored, IsDefault = true}
-                    },
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
+                    ContentTitle = "title", ContentMessage = "message", FontFamily = "Microsoft YaHei,Simsun",
+                    Icon = MessageBoxAvaloniaEnums.Icon.Error, WindowIcon = null,
+                    ButtonDefinitions = new[] { new ButtonDefinition { Name = "确定", Type = ButtonType.Colored }, },
+                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    Style = Style.Windows
                 });
             await messageBoxCustomWindow.ShowDialog(this);
         }
@@ -98,9 +92,9 @@ namespace MessageBox.Avalonia.Example
                     HyperlinkContentProvider = new[]
                     {
                         new HyperlinkContent
-                            {Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles"},
-                        new HyperlinkContent {Alias = "edvyydebbvydebvyed         "},
-                        new HyperlinkContent {Url = "https://avaloniaui.net/docs/styles/styles"}
+                            { Alias = "dedede         ", Url = "https://avaloniaui.net/docs/styles/styles" },
+                        new HyperlinkContent { Alias = "edvyydebbvydebvyed         " },
+                        new HyperlinkContent { Url = "https://avaloniaui.net/docs/styles/styles" }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     ButtonDefinitions = ButtonEnum.Ok,
@@ -121,8 +115,8 @@ namespace MessageBox.Avalonia.Example
                     PasswordRevealMode = MessageBoxInputParams.PasswordRevealModes.Hold,
                     ButtonDefinitions = new[]
                     {
-                        new ButtonDefinition {Name = "Cancel", IsCancel = true},
-                        new ButtonDefinition {Name = "Confirm", Type = ButtonType.Colored, IsDefault = true}
+                        new ButtonDefinition { Name = "Cancel", IsCancel = true },
+                        new ButtonDefinition { Name = "Confirm", Type = ButtonType.Colored, IsDefault = true }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     Width = 500,
@@ -146,8 +140,8 @@ namespace MessageBox.Avalonia.Example
                     Icon = new Bitmap("./icon-rider.png"),
                     ButtonDefinitions = new[]
                     {
-                        new ButtonDefinition {Name = "My", IsCancel = true},
-                        new ButtonDefinition {Name = "Buttons", Type = ButtonType.Colored, IsDefault = true}
+                        new ButtonDefinition { Name = "My", IsCancel = true },
+                        new ButtonDefinition { Name = "Buttons", Type = ButtonType.Colored, IsDefault = true }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     WindowIcon = new WindowIcon("./icon-rider.png"),

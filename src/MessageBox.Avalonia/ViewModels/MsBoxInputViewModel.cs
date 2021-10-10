@@ -32,7 +32,9 @@ namespace MessageBox.Avalonia.ViewModels
 
         public MessageBoxInputParams.PasswordRevealModes PasswordRevealMode { get; }
 
-        public bool IsPasswordRevealButtonVisible => InitialPassChar == '*' && PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.None;
+        public bool IsPasswordRevealButtonVisible => InitialPassChar == '*' &&
+                                                     PasswordRevealMode !=
+                                                     MessageBoxInputParams.PasswordRevealModes.None;
 
         public string WatermarkText { get; }
 
@@ -51,7 +53,8 @@ namespace MessageBox.Avalonia.ViewModels
             }
         }
 
-        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params,@params.Icon)
+        public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params,
+            @params.Icon)
         {
             _window = msBoxInputWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
@@ -59,14 +62,15 @@ namespace MessageBox.Avalonia.ViewModels
             PasswordRevealMode = @params.PasswordRevealMode;
             WatermarkText = @params.WatermarkText;
             Multiline = @params.Multiline;
+            InputText = @params.InputDefaultValue;
 
             // Make sure there are default buttons on dialog
             if (ButtonDefinitions is null)
             {
                 ButtonDefinitions = new[]
                 {
-                    new ButtonDefinition {Name = "Confirm", IsDefault = true, Type = ButtonType.Colored},
-                    new ButtonDefinition {Name = "Cancel", IsCancel = true}
+                    new ButtonDefinition { Name = "Confirm", IsDefault = true, Type = ButtonType.Colored },
+                    new ButtonDefinition { Name = "Cancel", IsCancel = true }
                 };
             }
 
@@ -75,7 +79,7 @@ namespace MessageBox.Avalonia.ViewModels
                 var grid = _window.FindControl<Grid>("ContentGrid");
                 grid.RowDefinitions[0].Height = GridLength.Parse("*");
             }
-            
+
             _passwordRevealBtn = _window.FindControl<ToggleButton>("PasswordRevealBtn");
 
             //PointerPressedEvent
@@ -85,8 +89,10 @@ namespace MessageBox.Avalonia.ViewModels
 
                 var pointer = e.GetCurrentPoint(_passwordRevealBtn);
 
-                if ((pointer.Properties.IsLeftButtonPressed || pointer.Properties.IsRightButtonPressed) && PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Hold 
-                    || pointer.Properties.IsRightButtonPressed && PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both)
+                if ((pointer.Properties.IsLeftButtonPressed || pointer.Properties.IsRightButtonPressed) &&
+                    PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Hold
+                    || pointer.Properties.IsRightButtonPressed &&
+                    PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both)
                 {
                     PassChar = null;
                     _passwordRevealBtn.IsChecked = true;
@@ -97,18 +103,19 @@ namespace MessageBox.Avalonia.ViewModels
             // PointerReleasedEvent
             _passwordRevealBtn.AddHandler(InputElement.PointerReleasedEvent, (sender, e) =>
             {
-                if (_passChar == '*' || 
+                if (_passChar == '*' ||
                     !IsPasswordRevealButtonVisible ||
                     (PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Hold &&
                      PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Both)) return;
-                if (PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both && e.InitialPressMouseButton != MouseButton.Right) return;
+                if (PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both &&
+                    e.InitialPressMouseButton != MouseButton.Right) return;
 
                 PassChar = InitialPassChar;
                 _passwordRevealBtn.IsChecked = false;
                 e.Handled = true;
             }, RoutingStrategies.Tunnel);
         }
-        
+
         public void ButtonClick(string parameter)
         {
             foreach (var bd in ButtonDefinitions)
@@ -141,7 +148,6 @@ namespace MessageBox.Avalonia.ViewModels
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
         }
     }
 }
