@@ -1,15 +1,26 @@
-using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Enums;
-using MessageBox.Avalonia.Views;
 using System;
 using Avalonia.Threading;
+using MessageBox.Avalonia.DTO;
+using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.ViewModels.Commands;
+using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
 {
     public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     {
         private readonly MsBoxStandardWindow _window;
+
+        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
+            base(@params, @params.Icon)
+        {
+            _window = msBoxStandardWindow;
+            SetButtons(@params.ButtonDefinitions);
+            ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
+            EnterClickCommand = new RelayCommand(o => EnterClick());
+            EscClickCommand = new RelayCommand(o => EscClick());
+        }
+
         public bool IsOkShowed { get; private set; }
         public bool IsYesShowed { get; private set; }
         public bool IsNoShowed { get; private set; }
@@ -18,16 +29,6 @@ namespace MessageBox.Avalonia.ViewModels
         public RelayCommand ButtonClickCommand { get; }
         public RelayCommand EnterClickCommand { get; }
         public RelayCommand EscClickCommand { get; }
-
-        public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
-            base(@params,@params.Icon)
-        {
-            _window = msBoxStandardWindow;
-            SetButtons(@params.ButtonDefinitions);
-            ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
-            EnterClickCommand = new RelayCommand(o => EnterClick());
-            EscClickCommand = new RelayCommand(o => EscClick());
-        }
 
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
         {
@@ -94,7 +95,7 @@ namespace MessageBox.Avalonia.ViewModels
                 ButtonClick(ButtonResult.Ok);
                 return;
             }
-            
+
             if (IsYesShowed)
             {
                 ButtonClick(ButtonResult.Yes);
@@ -119,6 +120,5 @@ namespace MessageBox.Avalonia.ViewModels
                 _window.Close();
             });
         }
-
     }
 }

@@ -1,6 +1,6 @@
-﻿using MessageBox.Avalonia.Enums;
+﻿using System.Collections.Generic;
+using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
-using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.DTO
 {
@@ -10,11 +10,12 @@ namespace MessageBox.Avalonia.DTO
         /// Icon of window
         /// </summary>
         public Icon Icon { get; set; } = Icon.None;
-        
+
         /// <summary>
         /// Buttons
         /// </summary>
         public ButtonEnum ButtonDefinitions { get; set; } = ButtonEnum.Ok;
+
         public IEnumerable<HyperlinkContent> HyperlinkContentProvider { get; set; } = new List<HyperlinkContent>();
     }
 }

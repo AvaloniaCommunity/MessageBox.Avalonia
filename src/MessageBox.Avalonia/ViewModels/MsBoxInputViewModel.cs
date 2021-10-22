@@ -1,14 +1,13 @@
 using System;
-using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Models;
-using MessageBox.Avalonia.Views;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using MessageBox.Avalonia.Models;
+using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
 {
@@ -18,40 +17,6 @@ namespace MessageBox.Avalonia.ViewModels
         private readonly MsBoxInputWindow _window;
         private string _inputText;
         private char? _passChar;
-        public char? InitialPassChar { get; }
-
-        public char? PassChar
-        {
-            get => _passChar;
-            private set
-            {
-                _passChar = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public PasswordRevealModes PasswordRevealMode { get; }
-
-        public bool IsPasswordRevealButtonVisible => InitialPassChar == '*' &&
-                                                     PasswordRevealMode !=
-                                                     PasswordRevealModes.None;
-
-        public string WatermarkText { get; }
-
-        public bool Multiline { get; }
-        // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
-
-        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-
-        public string InputText
-        {
-            get => _inputText;
-            set
-            {
-                _inputText = value;
-                OnPropertyChanged();
-            }
-        }
 
         public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params,
             @params.Icon)
@@ -106,7 +71,7 @@ namespace MessageBox.Avalonia.ViewModels
                 if (_passChar == '*' ||
                     !IsPasswordRevealButtonVisible ||
                     (PasswordRevealMode != PasswordRevealModes.Hold &&
-                     PasswordRevealMode !=PasswordRevealModes.Both)) return;
+                     PasswordRevealMode != PasswordRevealModes.Both)) return;
                 if (PasswordRevealMode == PasswordRevealModes.Both &&
                     e.InitialPressMouseButton != MouseButton.Right) return;
 
@@ -114,6 +79,41 @@ namespace MessageBox.Avalonia.ViewModels
                 _passwordRevealBtn.IsChecked = false;
                 e.Handled = true;
             }, RoutingStrategies.Tunnel);
+        }
+
+        public char? InitialPassChar { get; }
+
+        public char? PassChar
+        {
+            get => _passChar;
+            private set
+            {
+                _passChar = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public PasswordRevealModes PasswordRevealMode { get; }
+
+        public bool IsPasswordRevealButtonVisible => InitialPassChar == '*' &&
+                                                     PasswordRevealMode !=
+                                                     PasswordRevealModes.None;
+
+        public string WatermarkText { get; }
+
+        public bool Multiline { get; }
+        // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
+
+        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+
+        public string InputText
+        {
+            get => _inputText;
+            set
+            {
+                _inputText = value;
+                OnPropertyChanged();
+            }
         }
 
         public void ButtonClick(string parameter)

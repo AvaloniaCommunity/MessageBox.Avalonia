@@ -1,5 +1,5 @@
-using Avalonia.Controls;
 using System.Threading.Tasks;
+using Avalonia.Controls;
 
 namespace MessageBox.Avalonia.BaseWindows.Base
 {
@@ -11,11 +11,13 @@ namespace MessageBox.Avalonia.BaseWindows.Base
         /// <param name="ownerWindow"></param>
         /// <returns></returns>
         Task<T> ShowDialog(Window ownerWindow);
+
         /// <summary>
         /// Open message box window
         /// </summary>
         /// <returns></returns>
         Task<T> Show();
+
         /// <summary>
         /// Open message box window under owner window
         /// </summary>

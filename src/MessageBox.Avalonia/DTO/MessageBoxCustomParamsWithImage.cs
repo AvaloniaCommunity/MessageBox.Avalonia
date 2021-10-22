@@ -10,6 +10,7 @@ namespace MessageBox.Avalonia.DTO
         /// Image of window
         /// </summary>
         public Bitmap Icon { get; set; }
+
         /// <summary>
         /// Buttons
         /// </summary>

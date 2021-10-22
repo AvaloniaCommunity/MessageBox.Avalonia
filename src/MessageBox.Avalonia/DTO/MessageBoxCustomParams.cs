@@ -1,6 +1,6 @@
-using MessageBox.Avalonia.Models;
 using System.Collections.Generic;
 using MessageBox.Avalonia.Enums;
+using MessageBox.Avalonia.Models;
 
 namespace MessageBox.Avalonia.DTO
 {
@@ -10,6 +10,7 @@ namespace MessageBox.Avalonia.DTO
         /// Icon of window
         /// </summary>
         public Icon Icon { get; set; } = Icon.None;
+
         /// <summary>
         /// Buttons of message box
         /// </summary>

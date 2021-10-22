@@ -7,19 +7,6 @@ namespace MessageBox.Avalonia.DTO
 {
     public class MsCustomParams : AbstractMessageBoxParams
     {
-        /// <summary>
-        /// Messagebox icon
-        /// </summary>
-        public Icon Icon { get; set; } = Icon.None;
-        /// <summary>
-        /// Messagebox image
-        /// </summary>
-        public Bitmap BitmapIcon { get; set; }
-        /// <summary>
-        /// Buttons
-        /// </summary>
-        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; set; }
-
         public MsCustomParams(MessageBoxCustomParams @params)
         {
             Icon = @params.Icon;
@@ -33,6 +20,21 @@ namespace MessageBox.Avalonia.DTO
             ButtonDefinitions = @params.ButtonDefinitions;
             UpdateLocal(@params);
         }
+
+        /// <summary>
+        /// Messagebox icon
+        /// </summary>
+        public Icon Icon { get; set; } = Icon.None;
+
+        /// <summary>
+        /// Messagebox image
+        /// </summary>
+        public Bitmap BitmapIcon { get; set; }
+
+        /// <summary>
+        /// Buttons
+        /// </summary>
+        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; set; }
 
         private void UpdateLocal(AbstractMessageBoxParams @params)
         {

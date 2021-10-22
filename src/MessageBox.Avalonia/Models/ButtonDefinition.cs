@@ -8,12 +8,12 @@ namespace MessageBox.Avalonia.Models
         /// Button type
         /// </summary>
         private ButtonType _type = ButtonType.Default;
+
         /// <summary>
         /// Text in button
         /// </summary>
         public string Name { get; set; } = "OK";
-        
-       
+
 
         public ButtonType Type
         {

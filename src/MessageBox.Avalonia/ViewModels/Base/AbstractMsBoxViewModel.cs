@@ -14,73 +14,73 @@ using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.ViewModels
 {
-    public abstract class AbstractMsBoxViewModel:INotifyPropertyChanged
+    public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
 
     {
-    public bool CanResize { get; }
-    public bool HasHeader => !string.IsNullOrEmpty(ContentHeader);
-    public bool HasIcon => !(ImagePath is null);
-    public FontFamily FontFamily { get; }
-    public string ContentTitle { get; }
-    public string ContentHeader { get; }
-    public string ContentMessage { get; set; }
-    public WindowIcon WindowIconPath { get; }
-    public Bitmap ImagePath { get; }
-    public double MinWidth { get; set; }
-    public double MaxWidth { get; set; }
-    public double Width { get; set; }
+        public AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
+        {
+            if (bitmap != null)
+            {
+                ImagePath = bitmap;
+            }
+            else if (icon != Icon.None)
+            {
+                ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
+                    .Open(new Uri(
+                        $" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.png")));
+            }
 
-    public double MinHeight { get; set; }
-    public double MaxHeight { get; set; }
-    public double Height { get; set; }
-    
-    public bool Topmost { get; set; }
+            MinWidth = @params.MinWidth;
+            MaxWidth = @params.MaxWidth;
+            Width = @params.Width;
+            MinHeight = @params.MinHeight;
+            MaxHeight = @params.MaxHeight;
+            Height = @params.Height;
+            CanResize = @params.CanResize;
+            FontFamily = @params.FontFamily;
+            ContentTitle = @params.ContentTitle;
+            ContentHeader = @params.ContentHeader;
+            ContentMessage = @params.ContentMessage;
+            WindowIconPath = @params.WindowIcon;
+            SizeToContent = @params.SizeToContent;
+            LocationOfMyWindow = @params.WindowStartupLocation;
+            Topmost = @params.Topmost;
+        }
 
-    public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
+        public bool CanResize { get; }
+        public bool HasHeader => !string.IsNullOrEmpty(ContentHeader);
+        public bool HasIcon => !(ImagePath is null);
+        public FontFamily FontFamily { get; }
+        public string ContentTitle { get; }
+        public string ContentHeader { get; }
+        public string ContentMessage { get; set; }
+        public WindowIcon WindowIconPath { get; }
+        public Bitmap ImagePath { get; }
+        public double MinWidth { get; set; }
+        public double MaxWidth { get; set; }
+        public double Width { get; set; }
+
+        public double MinHeight { get; set; }
+        public double MaxHeight { get; set; }
+        public double Height { get; set; }
+
+        public bool Topmost { get; set; }
+
+        public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
 
         public WindowStartupLocation LocationOfMyWindow { get; }
 
-    public AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
-    {
-        if (bitmap != null)
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public async Task Copy()
         {
-            ImagePath = bitmap;
-        } 
-        else if (icon != Icon.None)
-        {
-            ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
-                .Open(new Uri(
-                    $" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.png")));
+            await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
         }
 
-        MinWidth = @params.MinWidth;
-        MaxWidth = @params.MaxWidth;
-        Width = @params.Width;
-        MinHeight = @params.MinHeight;
-        MaxHeight = @params.MaxHeight;
-        Height = @params.Height;
-        CanResize = @params.CanResize;
-        FontFamily = @params.FontFamily;
-        ContentTitle = @params.ContentTitle;
-        ContentHeader = @params.ContentHeader;
-        ContentMessage = @params.ContentMessage;
-        WindowIconPath = @params.WindowIcon;
-        SizeToContent = @params.SizeToContent;
-        LocationOfMyWindow = @params.WindowStartupLocation;
-        Topmost = @params.Topmost;
-    }
-
-    public async Task Copy()
-    {
-        await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
-    }
-
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    [NotifyPropertyChangedInvocator]
-    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

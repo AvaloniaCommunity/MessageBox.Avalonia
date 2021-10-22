@@ -1,16 +1,13 @@
+using System.Collections.Generic;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Models;
 using MessageBox.Avalonia.Views;
-using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.ViewModels
 {
     public class MsBoxCustomViewModel : AbstractMsBoxViewModel
     {
-        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-        
         private readonly MsBoxCustomWindow _window;
-        public string ContentMessage { get; }
 
 
         public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,
@@ -20,6 +17,9 @@ namespace MessageBox.Avalonia.ViewModels
             _window = msBoxCustomWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
         }
+
+        public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+        public string ContentMessage { get; }
 
         public void ButtonClick(string parameter)
         {

@@ -8,6 +8,7 @@ namespace MessageBox.Avalonia.DTO
         /// Icon of window
         /// </summary>
         public Icon Icon { get; set; } = Icon.None;
+
         /// <summary>
         /// Default buttons
         /// </summary>

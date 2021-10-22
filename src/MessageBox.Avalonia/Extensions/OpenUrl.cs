@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using MessageBox.Avalonia.Exceptions;
 
 namespace MessageBox.Avalonia.Extensions
 {
@@ -13,16 +14,15 @@ namespace MessageBox.Avalonia.Extensions
             if (!Uri.TryCreate(url, UriKind.Absolute, out var tmp)) return false;
             return tmp.Scheme == Uri.UriSchemeHttp || tmp.Scheme == Uri.UriSchemeHttps;
         }
+
         public static void OpenUrl(this string url)
         {
             if (IsValidUrl(url))
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
                     //https://stackoverflow.com/a/2796367/241446
-                    using (Process proc = new Process {StartInfo = {UseShellExecute = true, FileName = url}})
-                    {
-                        proc.Start();
-                    }
+                    using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
+                    proc.Start();
 
                     return;
                 }
@@ -36,7 +36,8 @@ namespace MessageBox.Avalonia.Extensions
                     Process.Start("open", url);
                     return;
                 }
-            throw new Exception();
+
+            throw new InvalidUrlException("invalid url: " + url);
         }
     }
 }
