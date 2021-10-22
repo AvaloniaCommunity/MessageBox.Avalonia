@@ -112,7 +112,7 @@ namespace MessageBox.Avalonia.Example
                     ContentHeader = "Input your admin password below",
                     ContentMessage = "Password:",
                     IsPassword = true,
-                    PasswordRevealMode = MessageBoxInputParams.PasswordRevealModes.Hold,
+                    PasswordRevealMode = PasswordRevealModes.Hold,
                     ButtonDefinitions = new[]
                     {
                         new ButtonDefinition { Name = "Cancel", IsCancel = true },

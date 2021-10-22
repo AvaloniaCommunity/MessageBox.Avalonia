@@ -30,11 +30,11 @@ namespace MessageBox.Avalonia.ViewModels
             }
         }
 
-        public MessageBoxInputParams.PasswordRevealModes PasswordRevealMode { get; }
+        public PasswordRevealModes PasswordRevealMode { get; }
 
         public bool IsPasswordRevealButtonVisible => InitialPassChar == '*' &&
                                                      PasswordRevealMode !=
-                                                     MessageBoxInputParams.PasswordRevealModes.None;
+                                                     PasswordRevealModes.None;
 
         public string WatermarkText { get; }
 
@@ -90,9 +90,9 @@ namespace MessageBox.Avalonia.ViewModels
                 var pointer = e.GetCurrentPoint(_passwordRevealBtn);
 
                 if ((pointer.Properties.IsLeftButtonPressed || pointer.Properties.IsRightButtonPressed) &&
-                    PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Hold
+                    PasswordRevealMode == PasswordRevealModes.Hold
                     || pointer.Properties.IsRightButtonPressed &&
-                    PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both)
+                    PasswordRevealMode == PasswordRevealModes.Both)
                 {
                     PassChar = null;
                     _passwordRevealBtn.IsChecked = true;
@@ -105,9 +105,9 @@ namespace MessageBox.Avalonia.ViewModels
             {
                 if (_passChar == '*' ||
                     !IsPasswordRevealButtonVisible ||
-                    (PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Hold &&
-                     PasswordRevealMode != MessageBoxInputParams.PasswordRevealModes.Both)) return;
-                if (PasswordRevealMode == MessageBoxInputParams.PasswordRevealModes.Both &&
+                    (PasswordRevealMode != PasswordRevealModes.Hold &&
+                     PasswordRevealMode !=PasswordRevealModes.Both)) return;
+                if (PasswordRevealMode == PasswordRevealModes.Both &&
                     e.InitialPressMouseButton != MouseButton.Right) return;
 
                 PassChar = InitialPassChar;
@@ -137,11 +137,11 @@ namespace MessageBox.Avalonia.ViewModels
             if (!IsPasswordRevealButtonVisible) return;
             switch (PasswordRevealMode)
             {
-                case MessageBoxInputParams.PasswordRevealModes.Toggle:
-                case MessageBoxInputParams.PasswordRevealModes.Both:
+                case PasswordRevealModes.Toggle:
+                case PasswordRevealModes.Both:
                     PassChar = _passwordRevealBtn.IsChecked.Value ? null : InitialPassChar;
                     break;
-                case MessageBoxInputParams.PasswordRevealModes.Hold:
+                case PasswordRevealModes.Hold:
                     _passwordRevealBtn.IsChecked = false;
                     PassChar = InitialPassChar;
                     break;

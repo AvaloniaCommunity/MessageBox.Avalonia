@@ -4,34 +4,26 @@ namespace MessageBox.Avalonia.DTO
 {
     public class MessageBoxInputParams : MessageBoxCustomParams
     {
-        public enum PasswordRevealModes : byte
-        {
-            /// <summary>
-            /// Don't show the reveal button
-            /// </summary>
-            None,
-
-            /// <summary>
-            /// Left click to toggle the reveal password
-            /// </summary>
-            Toggle,
-
-            /// <summary>
-            /// Left or right click and hold to temporary reveal the password
-            /// </summary>
-            Hold,
-
-            /// <summary>
-            /// Left click to toggle the reveal password | Right click and hold will temporary reveal password
-            /// </summary>
-            Both,
-        }
+        /// <summary>
+        /// Icon of window
+        /// </summary>
         public Icon Icon { get; set; } = Icon.None;
+        /// <summary>
+        /// Hide input letters
+        /// </summary>
         public bool IsPassword { get; set; } = false;
         public PasswordRevealModes PasswordRevealMode { get; set; } = PasswordRevealModes.Hold;
+        /// <summary>
+        /// Watermark text
+        /// </summary>
         public string WatermarkText { get; set; } = null;
+        /// <summary>
+        /// Multiline in input
+        /// </summary>
         public bool Multiline { get; set; }
-        
+        /// <summary>
+        /// Default result of input
+        /// </summary>
         public string InputDefaultValue { get; set; }
     }
 }

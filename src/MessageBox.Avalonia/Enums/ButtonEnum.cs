@@ -1,5 +1,8 @@
 namespace MessageBox.Avalonia.Enums
 {
+    /// <summary>
+    /// Buttons in message box window
+    /// </summary>
     public enum ButtonEnum
     {
         Ok,
