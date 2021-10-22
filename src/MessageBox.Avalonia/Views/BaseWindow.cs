@@ -9,6 +9,7 @@ namespace MessageBox.Avalonia.Views
     {
         public BaseWindow()
         {
+            ShowInTaskbar = false;
             CanResize = false;
         }
 
