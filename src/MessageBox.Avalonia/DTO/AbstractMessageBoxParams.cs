@@ -87,6 +87,11 @@ namespace MessageBox.Avalonia.DTO
         public WindowStartupLocation WindowStartupLocation { get; set; } = WindowStartupLocation.Manual;
 
         /// <summary>
+        /// Enables or disables system window decorations (title bar, buttons, etc)
+        /// </summary>
+        public bool HasSystemDecorations { get; set; } = true;
+
+        /// <summary>
         /// Window under all windows
         /// </summary>
         public bool Topmost { get; set; } = false;

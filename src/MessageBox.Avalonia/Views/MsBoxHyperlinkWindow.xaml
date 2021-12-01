@@ -10,6 +10,7 @@
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         MinHeight="100"
         CanResize="{Binding CanResize}"
+        HasSystemDecorations="{Binding HasSystemDecorations}"
         Topmost="{Binding Topmost}"
         FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}"
