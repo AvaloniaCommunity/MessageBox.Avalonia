@@ -48,6 +48,7 @@ namespace MessageBox.Avalonia.DTO
             ContentMessage = @params.ContentMessage;
             MaxWidth = @params.MaxWidth;
             WindowStartupLocation = @params.WindowStartupLocation;
+            HasSystemDecorations = @params.HasSystemDecorations;
             Topmost = @params.Topmost;
         }
     }

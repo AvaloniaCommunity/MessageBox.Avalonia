@@ -12,6 +12,7 @@
         MinHeight="{Binding MinHeight}"
         MaxHeight="{Binding MaxHeight}"
         Height="{Binding Height}"
+        HasSystemDecorations="{Binding HasSystemDecorations}"
         Icon="{Binding WindowIconPath}"
         Topmost="{Binding Topmost}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
