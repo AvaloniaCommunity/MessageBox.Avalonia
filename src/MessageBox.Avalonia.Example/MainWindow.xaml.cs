@@ -3,7 +3,6 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
 using MessageBoxAvaloniaEnums = MessageBox.Avalonia.Enums;
 
@@ -37,7 +36,7 @@ namespace MessageBox.Avalonia.Example
             var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
                 new MessageBoxStandardParams
                 {
-                    ButtonDefinitions = ButtonEnum.YesNoCancel,
+                    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.YesNoCancel,
                     ContentTitle = "title",
                     ContentHeader =
                         "Testing long header for debug purpose, this should never be that long, still it may allow it! " +
@@ -74,9 +73,10 @@ namespace MessageBox.Avalonia.Example
                 {
                     ContentTitle = "title", ContentMessage = "message", FontFamily = "Microsoft YaHei,Simsun",
                     Icon = MessageBoxAvaloniaEnums.Icon.Error, WindowIcon = null,
-                    ButtonDefinitions = new[] { new ButtonDefinition { Name = "确定", Type = ButtonType.Colored }, },
+                    ButtonDefinitions = new[]
+                        { new ButtonDefinition { Name = "确定", Type = MessageBoxAvaloniaEnums.ButtonType.Colored }, },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    Style = Style.Windows
+                    Style = MessageBoxAvaloniaEnums.Style.Windows
                 });
             await messageBoxCustomWindow.ShowDialog(this);
         }
@@ -97,7 +97,7 @@ namespace MessageBox.Avalonia.Example
                         new HyperlinkContent { Url = "https://avaloniaui.net/docs/styles/styles" }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    ButtonDefinitions = ButtonEnum.Ok,
+                    ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok,
                 });
             await messageBoxHyperlinkWindow.ShowDialog(this);
         }
@@ -107,16 +107,17 @@ namespace MessageBox.Avalonia.Example
             var messageBoxInputWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxInputWindow(new MessageBoxInputParams
                 {
-                    Style = Style.MacOs,
+                    Style = MessageBoxAvaloniaEnums.Style.MacOs,
                     Topmost = true,
                     ContentHeader = "Input your admin password below",
                     ContentMessage = "Password:",
                     IsPassword = true,
-                    PasswordRevealMode = PasswordRevealModes.Hold,
+                    PasswordRevealMode = MessageBoxAvaloniaEnums.PasswordRevealModes.Hold,
                     ButtonDefinitions = new[]
                     {
                         new ButtonDefinition { Name = "Cancel", IsCancel = true },
-                        new ButtonDefinition { Name = "Confirm", Type = ButtonType.Colored, IsDefault = true }
+                        new ButtonDefinition
+                            { Name = "Confirm", Type = MessageBoxAvaloniaEnums.ButtonType.Colored, IsDefault = true }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     Width = 500,
@@ -134,14 +135,15 @@ namespace MessageBox.Avalonia.Example
             var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxCustomWindow(new MessageBoxCustomParamsWithImage
                 {
-                    Style = Style.UbuntuLinux,
+                    Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux,
                     Topmost = true,
                     ContentMessage = "Message",
                     Icon = new Bitmap("./icon-rider.png"),
                     ButtonDefinitions = new[]
                     {
                         new ButtonDefinition { Name = "My", IsCancel = true },
-                        new ButtonDefinition { Name = "Buttons", Type = ButtonType.Colored, IsDefault = true }
+                        new ButtonDefinition
+                            { Name = "Buttons", Type = MessageBoxAvaloniaEnums.ButtonType.Colored, IsDefault = true }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     WindowIcon = new WindowIcon("./icon-rider.png"),

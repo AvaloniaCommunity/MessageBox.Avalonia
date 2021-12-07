@@ -13,5 +13,8 @@ namespace MessageBox.Avalonia.DTO
         /// Default buttons
         /// </summary>
         public ButtonEnum ButtonDefinitions { get; set; } = ButtonEnum.Ok;
+
+        public ClickEnum EnterDefaultButton { get; set; } = ClickEnum.Default;
+        public ClickEnum EscDefaultButton { get; set; } = ClickEnum.Default;
     }
 }

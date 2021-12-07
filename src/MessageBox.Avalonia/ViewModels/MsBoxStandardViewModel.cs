@@ -9,11 +9,15 @@ namespace MessageBox.Avalonia.ViewModels
 {
     public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     {
+        public readonly ClickEnum _enterDefaultButton;
+        public readonly ClickEnum _escDefaultButton;
         private readonly MsBoxStandardWindow _window;
 
         public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
             base(@params, @params.Icon)
         {
+            _enterDefaultButton = @params.EnterDefaultButton;
+            _escDefaultButton = @params.EscDefaultButton;
             _window = msBoxStandardWindow;
             SetButtons(@params.ButtonDefinitions);
             ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
@@ -67,39 +71,130 @@ namespace MessageBox.Avalonia.ViewModels
 
         private void EscClick()
         {
-            if (IsCancelShowed)
+            switch (_escDefaultButton)
             {
-                ButtonClick(ButtonResult.Cancel);
-                return;
+                case ClickEnum.Ok:
+                {
+                    ButtonClick(ButtonResult.Ok);
+                    return;
+                }
+                    break;
+                case ClickEnum.Yes:
+                {
+                    ButtonClick(ButtonResult.Yes);
+                    return;
+                }
+                    break;
+                case ClickEnum.No:
+                {
+                    ButtonClick(ButtonResult.No);
+                    return;
+                }
+                    break;
+                case ClickEnum.Abort:
+                {
+                    ButtonClick(ButtonResult.Abort);
+                    return;
+                }
+                    break;
+                case ClickEnum.Cancel:
+                {
+                    ButtonClick(ButtonResult.Cancel);
+                    return;
+                }
+                    break;
+                case ClickEnum.None:
+                {
+                    ButtonClick(ButtonResult.None);
+                    return;
+                }
+                    break;
+                case ClickEnum.Default:
+                {
+                    if (IsCancelShowed)
+                    {
+                        ButtonClick(ButtonResult.Cancel);
+                        return;
+                    }
+
+                    if (IsAbortShowed)
+                    {
+                        ButtonClick(ButtonResult.Abort);
+                        return;
+                    }
+
+                    if (IsNoShowed)
+                    {
+                        ButtonClick(ButtonResult.No);
+                        return;
+                    }
+                }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
-            if (IsAbortShowed)
-            {
-                ButtonClick(ButtonResult.Abort);
-                return;
-            }
-
-            if (IsNoShowed)
-            {
-                ButtonClick(ButtonResult.No);
-                return;
-            }
 
             ButtonClick(ButtonResult.None);
         }
 
         private void EnterClick()
         {
-            if (IsOkShowed)
+            switch (_enterDefaultButton)
             {
-                ButtonClick(ButtonResult.Ok);
-                return;
-            }
+                case ClickEnum.Ok:
+                {
+                    ButtonClick(ButtonResult.Ok);
+                    return;
+                }
+                    break;
+                case ClickEnum.Yes:
+                {
+                    ButtonClick(ButtonResult.Yes);
+                    return;
+                }
+                    break;
+                case ClickEnum.No:
+                {
+                    ButtonClick(ButtonResult.No);
+                    return;
+                }
+                    break;
+                case ClickEnum.Abort:
+                {
+                    ButtonClick(ButtonResult.Abort);
+                    return;
+                }
+                    break;
+                case ClickEnum.Cancel:
+                {
+                    ButtonClick(ButtonResult.Cancel);
+                    return;
+                }
+                    break;
+                case ClickEnum.None:
+                {
+                    ButtonClick(ButtonResult.None);
+                    return;
+                }
+                    break;
+                case ClickEnum.Default:
+                {
+                    if (IsOkShowed)
+                    {
+                        ButtonClick(ButtonResult.Ok);
+                        return;
+                    }
 
-            if (IsYesShowed)
-            {
-                ButtonClick(ButtonResult.Yes);
-                return;
+                    if (IsYesShowed)
+                    {
+                        ButtonClick(ButtonResult.Yes);
+                        return;
+                    }
+                }
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
