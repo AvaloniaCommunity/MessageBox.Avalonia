@@ -88,7 +88,9 @@
             <ItemsPresenter.ItemTemplate>
                 <DataTemplate>
                     <Button Name="Btn"
-                            Classes="button"
+                            Classes.buttons = "true"
+                            Classes.default = "{Binding IsDefault}"
+                            Classes.cancel = "{Binding IsCancel}"
                             Tag="{Binding TypeName}"
                             Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"

@@ -74,7 +74,7 @@ namespace MessageBox.Avalonia.Example
                     ContentTitle = "title", ContentMessage = "message", FontFamily = "Microsoft YaHei,Simsun",
                     Icon = MessageBoxAvaloniaEnums.Icon.Error, WindowIcon = null,
                     ButtonDefinitions = new[]
-                        { new ButtonDefinition { Name = "确定", Type = MessageBoxAvaloniaEnums.ButtonType.Colored }, },
+                        { new ButtonDefinition { Name = "确定", IsDefault = true }, },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 });
             await messageBoxCustomWindow.ShowDialog(this);
@@ -115,7 +115,7 @@ namespace MessageBox.Avalonia.Example
                     {
                         new ButtonDefinition { Name = "Cancel", IsCancel = true },
                         new ButtonDefinition
-                            { Name = "Confirm", Type = MessageBoxAvaloniaEnums.ButtonType.Colored, IsDefault = true }
+                            { Name = "Confirm", IsDefault = true }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     Width = 500,
@@ -140,7 +140,7 @@ namespace MessageBox.Avalonia.Example
                     {
                         new ButtonDefinition { Name = "My", IsCancel = true },
                         new ButtonDefinition
-                            { Name = "Buttons", Type = MessageBoxAvaloniaEnums.ButtonType.Colored, IsDefault = true }
+                            { Name = "Buttons", IsDefault = true }
                     },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     WindowIcon = new WindowIcon("./icon-rider.png"),

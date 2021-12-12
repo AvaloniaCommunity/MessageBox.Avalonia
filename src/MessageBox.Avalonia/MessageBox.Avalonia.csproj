@@ -20,13 +20,22 @@
         <AvaloniaResource Include="**\*.xaml">
             <SubType>Designer</SubType>
         </AvaloniaResource>
-        <AvaloniaResource Include="Assets\*" />
+        <AvaloniaResource Include="Assets\*"/>
         <AvaloniaResource Update="Views\MsBoxInputWindow.xaml">
-          <SubType>Designer</SubType>
+            <SubType>Designer</SubType>
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Avalonia" Version="0.10.8" />
+        <PackageReference Include="Avalonia" Version="0.10.8"/>
+    </ItemGroup>
+    <ItemGroup>
+        <UpToDateCheckInput Remove="Styles\Dark\Dark.xaml"/>
+        <UpToDateCheckInput Remove="Styles\MacOs\MacOs.xaml"/>
+        <UpToDateCheckInput Remove="Styles\Mint\Mint.xaml"/>
+        <UpToDateCheckInput Remove="Styles\RoundButtons\RoundButtons.xaml"/>
+        <UpToDateCheckInput Remove="Styles\Ubuntu\Ubuntu.xaml"/>
+        <UpToDateCheckInput Remove="Styles\Windows\Windows.xaml"/>
+        <UpToDateCheckInput Remove="Styles\HyperlinkStyle.axaml"/>
     </ItemGroup>
 
 </Project>

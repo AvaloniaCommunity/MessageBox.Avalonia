@@ -34,7 +34,7 @@ namespace MessageBox.Avalonia.ViewModels
             {
                 ButtonDefinitions = new[]
                 {
-                    new ButtonDefinition { Name = "Confirm", IsDefault = true, Type = ButtonType.Colored },
+                    new ButtonDefinition { Name = "Confirm", IsDefault = true },
                     new ButtonDefinition { Name = "Cancel", IsCancel = true }
                 };
             }
