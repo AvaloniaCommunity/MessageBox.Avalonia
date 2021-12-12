@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Media;
 using MessageBox.Avalonia.Enums;
@@ -11,7 +12,7 @@ namespace MessageBox.Avalonia.DTO
         /// </summary>
         public WindowIcon WindowIcon { get; set; } = null;
 
-        public Style Style { get; set; } = Style.None;
+        [Obsolete] public Style Style { get; set; } = Style.None;
 
         /// <summary>
         /// Ability of resizing window
