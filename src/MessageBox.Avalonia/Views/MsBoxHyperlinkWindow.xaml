@@ -51,31 +51,12 @@
         </Style>
 
     </Window.Styles>
-    <Grid Classes="MsBoxHyperlinkContainer">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="15" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="15" />
-        </Grid.RowDefinitions>
+    <Grid Classes="MsBoxHyperlinkContainer" RowDefinitions="15,*,15,Auto,15" ColumnDefinitions="15,Auto,15,*,15">
         <!--Icon-->
-        <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+        <Image Classes="image" Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
                IsVisible="{Binding Icon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="1" Grid.Column="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="15" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*">
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />

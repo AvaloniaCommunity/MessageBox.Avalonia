@@ -66,20 +66,17 @@
         <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
                IsVisible="{Binding Icon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="1" Grid.Column="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="15" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*">
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="2" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+            <TextBox Grid.Row="2" Classes="contentMessage" FontFamily="{Binding FontFamily}"
+                     Text="{Binding ContentMessage}" />
         </Grid>
         <!--Buttons-->
-        <ItemsPresenter Items="{Binding ButtonDefinitions}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+        <ItemsPresenter Classes="buttons-item-presenter" Items="{Binding ButtonDefinitions}" Grid.Row="3"
+                        Grid.Column="1" Grid.ColumnSpan="3"
                         HorizontalAlignment="Right">
             <ItemsPresenter.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -91,6 +88,7 @@
             <ItemsPresenter.ItemTemplate>
                 <DataTemplate>
                     <Button Name="Btn"
+                            Classes="button"
                             Tag="{Binding TypeName}"
                             Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"
