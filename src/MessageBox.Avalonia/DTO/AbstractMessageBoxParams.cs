@@ -1,7 +1,5 @@
-using System;
 using Avalonia.Controls;
 using Avalonia.Media;
-using MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.DTO
 {
@@ -11,8 +9,6 @@ namespace MessageBox.Avalonia.DTO
         /// Window icon of app in title bar
         /// </summary>
         public WindowIcon WindowIcon { get; set; } = null;
-
-        [Obsolete] public Style Style { get; set; } = Style.None;
 
         /// <summary>
         /// Ability of resizing window

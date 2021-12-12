@@ -19,7 +19,7 @@ namespace MessageBox.Avalonia
         /// <returns></returns>
         public static IMsBoxWindow<string> GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
         {
-            var window = new CustomWindow(@params.Style);
+            var window = new CustomWindow();
             window.DataContext = new MsBoxCustomViewModel(new MsCustomParams(@params), window);
             return new MsBoxWindowBase<CustomWindow, string>(window);
         }
@@ -31,7 +31,7 @@ namespace MessageBox.Avalonia
         /// <returns></returns>
         public static IMsBoxWindow<string> GetMessageBoxCustomWindow(MessageBoxCustomParamsWithImage @params)
         {
-            var window = new CustomWindow(@params.Style);
+            var window = new CustomWindow();
             window.DataContext = new MsBoxCustomViewModel(new MsCustomParams(@params), window);
             return new MsBoxWindowBase<CustomWindow, string>(window);
         }
@@ -43,7 +43,7 @@ namespace MessageBox.Avalonia
         /// <returns></returns>
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
         {
-            var window = new StandardWindow(@params.Style);
+            var window = new StandardWindow();
             window.DataContext = new MsBoxStandardViewModel(@params, window);
             return new MsBoxWindowBase<StandardWindow, ButtonResult>(window);
         }
@@ -55,7 +55,7 @@ namespace MessageBox.Avalonia
         /// <returns></returns>
         public static IMsBoxWindow<ButtonResult> GetMessageBoxHyperlinkWindow(MessageBoxHyperlinkParams @params)
         {
-            var window = new HyperlinkWindow(@params.Style);
+            var window = new HyperlinkWindow();
             window.DataContext = new MsBoxHyperlinkViewModel(@params, window);
             return new MsBoxWindowBase<HyperlinkWindow, ButtonResult>(window);
         }
@@ -75,16 +75,15 @@ namespace MessageBox.Avalonia
         /// </remarks>
         public static IMsBoxWindow<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
             ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
-            WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen,
-            Style style = Style.None) => GetMessageBoxStandardWindow(new MessageBoxStandardParams
-        {
-            ContentTitle = title,
-            ContentMessage = text,
-            ButtonDefinitions = @enum,
-            Icon = icon,
-            Style = style,
-            WindowStartupLocation = windowStartupLocation
-        });
+            WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen) =>
+            GetMessageBoxStandardWindow(new MessageBoxStandardParams
+            {
+                ContentTitle = title,
+                ContentMessage = text,
+                ButtonDefinitions = @enum,
+                Icon = icon,
+                WindowStartupLocation = windowStartupLocation
+            });
 
         /// <summary>
         /// Create instance of standard messagebox window
@@ -93,7 +92,7 @@ namespace MessageBox.Avalonia
         /// <returns></returns>
         public static IMsBoxWindow<MessageWindowResultDTO> GetMessageBoxInputWindow(MessageBoxInputParams @params)
         {
-            var window = new InputWindow(@params.Style);
+            var window = new InputWindow();
             window.DataContext = new MsBoxInputViewModel(@params, window);
             return new MsBoxWindowBase<InputWindow, MessageWindowResultDTO>(window);
         }

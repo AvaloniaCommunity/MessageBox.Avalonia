@@ -39,7 +39,6 @@ namespace MessageBox.Avalonia.DTO
         private void UpdateLocal(AbstractMessageBoxParams @params)
         {
             WindowIcon = @params.WindowIcon;
-            Style = @params.Style;
             CanResize = @params.CanResize;
             ShowInCenter = @params.ShowInCenter;
             FontFamily = @params.FontFamily;

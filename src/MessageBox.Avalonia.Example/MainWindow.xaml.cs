@@ -76,7 +76,6 @@ namespace MessageBox.Avalonia.Example
                     ButtonDefinitions = new[]
                         { new ButtonDefinition { Name = "确定", Type = MessageBoxAvaloniaEnums.ButtonType.Colored }, },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    Style = MessageBoxAvaloniaEnums.Style.Windows
                 });
             await messageBoxCustomWindow.ShowDialog(this);
         }
@@ -88,7 +87,7 @@ namespace MessageBox.Avalonia.Example
                 {
                     CanResize = true,
                     Topmost = true,
-                    Style = MessageBoxAvaloniaEnums.Style.MacOs,
+
                     HyperlinkContentProvider = new[]
                     {
                         new HyperlinkContent
@@ -107,7 +106,6 @@ namespace MessageBox.Avalonia.Example
             var messageBoxInputWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxInputWindow(new MessageBoxInputParams
                 {
-                    Style = MessageBoxAvaloniaEnums.Style.MacOs,
                     Topmost = true,
                     ContentHeader = "Input your admin password below",
                     ContentMessage = "Password:",
@@ -135,7 +133,6 @@ namespace MessageBox.Avalonia.Example
             var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxCustomWindow(new MessageBoxCustomParamsWithImage
                 {
-                    Style = MessageBoxAvaloniaEnums.Style.UbuntuLinux,
                     Topmost = true,
                     ContentMessage = "Message",
                     Icon = new Bitmap("./icon-rider.png"),

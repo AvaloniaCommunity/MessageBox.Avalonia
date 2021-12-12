@@ -3,36 +3,30 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.BaseWindows.Base;
 using MessageBox.Avalonia.Enums;
-using MessageBox.Avalonia.Extensions;
 
 namespace MessageBox.Avalonia.Views
 {
     public class MsBoxStandardWindow : BaseWindow, IWindowGetResult<ButtonResult>
     {
+        public MsBoxStandardWindow() : base()
+        {
+            InitializeComponent();
+        }
+
         public ButtonResult ButtonResult { get; set; } = ButtonResult.None;
 
-        public MsBoxStandardWindow():base()
-        {
-            InitializeComponent();
-        }
+        public ButtonResult GetResult() => ButtonResult;
 
-        public MsBoxStandardWindow(Style style):base()
-        {
-            this.SetStyle(style);
-            InitializeComponent();
-        }
 
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }
 
-        public ButtonResult GetResult() => ButtonResult;
-
         protected override void OnOpened(EventArgs e)
         {
             base.OnOpened(e);
-            
+
             // Hack to fix scroll bar and limits
             if (SizeToContent != SizeToContent.Manual)
             {
