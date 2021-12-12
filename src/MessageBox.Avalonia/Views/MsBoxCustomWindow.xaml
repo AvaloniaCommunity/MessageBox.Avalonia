@@ -75,7 +75,7 @@
                      Text="{Binding ContentMessage}" />
         </Grid>
         <!--Buttons-->
-        <ItemsPresenter Classes="buttons-item-presenter" Items="{Binding ButtonDefinitions}" Grid.Row="3"
+        <ItemsPresenter Name="ButtonItemsPresenter" Classes="buttons-item-presenter" Items="{Binding ButtonDefinitions}" Grid.Row="3"
                         Grid.Column="1" Grid.ColumnSpan="3"
                         HorizontalAlignment="Right">
             <ItemsPresenter.ItemsPanel>
@@ -88,6 +88,7 @@
             <ItemsPresenter.ItemTemplate>
                 <DataTemplate>
                     <Button Name="Btn"
+                            HorizontalContentAlignment="Center"
                             Classes.buttons = "true"
                             Classes.default = "{Binding IsDefault}"
                             Classes.cancel = "{Binding IsCancel}"

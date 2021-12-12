@@ -56,6 +56,7 @@
             <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
         <Style Selector="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="Margin" Value="15 0 0 0" />
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
@@ -85,22 +86,28 @@
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="1" Classes="contentMessage" FontFamily="{Binding FontFamily}" Text="{Binding ContentMessage}" />
+            <TextBox Grid.Row="1" Classes="contentMessage" FontFamily="{Binding FontFamily}"
+                     Text="{Binding ContentMessage}" />
 
         </Grid>
         <!--Buttons-->
         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
                     HorizontalAlignment="Right">
-            <Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored" Command="{Binding ButtonClickCommand}"
+            <Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored"
+                    Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsOkShowed}" />
-            <Button Classes="button yes" Name="YesButton" Content="Yes" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Classes="button yes" Name="YesButton" Content="Yes" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsYesShowed}" />
-            <Button Classes="button no" Content="No" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Classes="button no" Content="No" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsNoShowed}" />
-            <Button Classes="button abort" Content="Abort" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Classes="button abort" Content="Abort" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsAbortShowed}" />
-            <Button Classes="button cancel" Content="Cancel" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
+            <Button Classes="button cancel" Content="Cancel" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsCancelShowed}" />
         </StackPanel>
     </Grid>

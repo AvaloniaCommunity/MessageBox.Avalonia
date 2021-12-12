@@ -1,4 +1,5 @@
 using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.BaseWindows.Base;
@@ -17,6 +18,13 @@ namespace MessageBox.Avalonia.Views
 
         public ButtonResult GetResult() => ButtonResult;
 
+        /// <inheritdoc />
+        protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
+        {
+            base.OnAttachedToVisualTree(e);
+            var okButton = this.FindControl<Button>("OkButton");
+            okButton.Focus();
+        }
 
         private void InitializeComponent()
         {
