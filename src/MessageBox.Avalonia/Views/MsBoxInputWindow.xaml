@@ -102,8 +102,17 @@
                 <ToggleButton Grid.Row="0" Grid.Column="3"
                               Classes="passwordrevealbtn"
                               Command="{Binding PasswordRevealClick}"
-                              Name="PasswordRevealBtn" Content="👁"
-                              IsVisible="{Binding IsPasswordRevealButtonVisible}" />
+                              Name="PasswordRevealBtn" FontFamily="../Assets/eye.ttf#eye"
+                              IsVisible="{Binding IsPasswordRevealButtonVisible}">
+                    <ToggleButton.Styles>
+                        <Style Selector="ToggleButton">
+                            <Setter Property="Content" Value="&#xe9ce;"/>
+                        </Style>
+                        <Style Selector="ToggleButton:checked">
+                            <Setter Property="Content" Value="&#xe9d1;"/>
+                        </Style>
+                    </ToggleButton.Styles>
+                </ToggleButton>
             </Grid>
 
 
