@@ -75,7 +75,7 @@
         </Grid.RowDefinitions>
         <!--Icon-->
         <Image Grid.Row="0" Grid.Column="0"
-               IsVisible="{Binding Icon}"
+               IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
