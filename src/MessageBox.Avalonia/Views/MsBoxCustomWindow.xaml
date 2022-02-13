@@ -64,7 +64,7 @@
         </Grid.RowDefinitions>
         <!--Icon-->
         <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
-               IsVisible="{Binding Icon}"
+               IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
         <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*">
             <!--Bold text-->

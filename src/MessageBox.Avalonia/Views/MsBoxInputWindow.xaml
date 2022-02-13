@@ -77,7 +77,7 @@
         </Grid.RowDefinitions>
         <!--Icon-->
         <Image Grid.Row="0" Grid.Column="0" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
-               IsVisible="{Binding Icon}"
+               IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
         <Grid Grid.Row="0" Grid.Column="2">
             <Grid.RowDefinitions>
