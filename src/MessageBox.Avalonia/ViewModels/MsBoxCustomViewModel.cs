@@ -13,13 +13,11 @@ namespace MessageBox.Avalonia.ViewModels
         public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,
             @params.Icon, @params.BitmapIcon)
         {
-            ContentMessage = @params.ContentMessage;
             _window = msBoxCustomWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
         }
 
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
-        public string ContentMessage { get; }
 
         public void ButtonClick(string parameter)
         {

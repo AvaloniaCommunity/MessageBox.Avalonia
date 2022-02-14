@@ -5,11 +5,6 @@ namespace MessageBox.Avalonia.DTO
     public class MessageBoxInputParams : MessageBoxCustomParams
     {
         /// <summary>
-        /// Icon of window
-        /// </summary>
-        public Icon Icon { get; set; } = Icon.None;
-
-        /// <summary>
         /// Hide input letters
         /// </summary>
         public bool IsPassword { get; set; } = false;
