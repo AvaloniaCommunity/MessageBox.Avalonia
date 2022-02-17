@@ -17,7 +17,7 @@ namespace MessageBox.Avalonia.ViewModels
     public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
 
     {
-        public AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
+        protected AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
         {
             if (bitmap != null)
             {
@@ -50,7 +50,7 @@ namespace MessageBox.Avalonia.ViewModels
 
         public bool CanResize { get; }
         public bool HasHeader => !string.IsNullOrEmpty(ContentHeader);
-        public bool HasIcon => !(ImagePath is null);
+        public bool HasIcon => ImagePath is not null;
         public FontFamily FontFamily { get; }
         public string ContentTitle { get; }
         public string ContentHeader { get; }
