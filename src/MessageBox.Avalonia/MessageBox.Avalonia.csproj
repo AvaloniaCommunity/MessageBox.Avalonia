@@ -21,7 +21,6 @@
             <SubType>Designer</SubType>
         </AvaloniaResource>
         <AvaloniaResource Include="Assets\*" />
-        <None Remove="Assets\question.png" />
         <AvaloniaResource Update="Views\MsBoxInputWindow.xaml">
             <SubType>Designer</SubType>
         </AvaloniaResource>
