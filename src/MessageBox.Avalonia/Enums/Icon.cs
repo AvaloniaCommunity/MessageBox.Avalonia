@@ -10,6 +10,7 @@ namespace MessageBox.Avalonia.Enums
         Forbidden,
         Info,
         Plus,
+        Question,
         Setting,
         SpeakerLess,
         SpeakerMore,
