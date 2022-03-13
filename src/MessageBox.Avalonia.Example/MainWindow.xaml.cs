@@ -156,9 +156,6 @@ namespace MessageBox.Avalonia.Example
             var messageBoxMarkdownWindow = MessageBox.Avalonia.MessageBoxManager
                 .GetMessageBoxCustomWindow(new MessageBoxCustomParams()
                 {
-                    Topmost = true,
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                    HasSystemDecorations = true,
                     Icon = MessageBoxAvaloniaEnums.Icon.Info,
                     ContentHeader = "Update is available! (not really)",
                     ContentMessage = "## 🚀 Features\r\n\r\n" +
