@@ -1,7 +1,3 @@
-using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input.Platform;
@@ -11,6 +7,10 @@ using Avalonia.Platform;
 using JetBrains.Annotations;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using System;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace MessageBox.Avalonia.ViewModels
 {
@@ -55,6 +55,7 @@ namespace MessageBox.Avalonia.ViewModels
         public string ContentTitle { get; }
         public string ContentHeader { get; }
         public string ContentMessage { get; set; }
+        public bool Markdown { get; set; }
         public WindowIcon WindowIconPath { get; }
         public Bitmap ImagePath { get; }
         public double MinWidth { get; set; }

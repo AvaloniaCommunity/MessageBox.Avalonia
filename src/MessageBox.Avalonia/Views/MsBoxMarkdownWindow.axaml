@@ -1,0 +1,126 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
+        xmlns:c="clr-namespace:MessageBox.Avalonia.Controls;assembly=MessageBox.Avalonia"
+        xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
+        x:Class="MessageBox.Avalonia.Views.MsBoxMarkdownWindow"
+        SizeToContent="{Binding SizeToContent}"
+        MinWidth="{Binding MinWidth}"
+        MaxWidth="{Binding MaxWidth}"
+        Width="{Binding Width}"
+        MinHeight="{Binding MinHeight}"
+        MaxHeight="{Binding MaxHeight}"
+        Height="{Binding Height}"
+        HasSystemDecorations="{Binding HasSystemDecorations}"
+        Topmost="{Binding Topmost}"
+        Icon="{Binding WindowIconPath}"
+        WindowStartupLocation="{Binding LocationOfMyWindow}"
+        CanResize="{Binding CanResize}"
+        FontFamily="{Binding FontFamily}"
+        Title="{Binding ContentTitle}"
+        Padding="15">
+	<Design.DataContext>
+		<viewModels:MsBoxMarkdownViewModel />
+	</Design.DataContext>
+	<Window.KeyBindings>
+		<KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
+		<KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
+		<KeyBinding Gesture="Escape" Command="{Binding EscClickCommand}" />
+	</Window.KeyBindings>
+
+
+	<Window.Styles>
+		<Style Selector="Image">
+			<Setter Property="Margin" Value="0,0,15,0" />
+			<Setter Property="MaxHeight" Value="50" />
+			<Setter Property="MaxWidth" Value="50" />
+			<Setter Property="VerticalAlignment" Value="Top" />
+		</Style>
+		<Style Selector="TextBox">
+			<Setter Property="BorderThickness" Value="0" />
+			<Setter Property="Background" Value="Transparent" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="AcceptsReturn" Value="True" />
+			<Setter Property="IsReadOnly" Value="True" />
+			<Setter Property="CaretBrush" Value="Transparent" />
+			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+		</Style>
+		<Style Selector="TextBox:pointerover /template/ Border#border">
+			<Setter Property="Background" Value="Transparent" />
+		</Style>
+		<Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+			<Setter Property="Background" Value="Transparent" />
+		</Style>
+		<Style Selector="TextBox:focus /template/ Border#border">
+			<Setter Property="BorderThickness" Value="0" />
+			<Setter Property="Background" Value="Transparent" />
+		</Style>
+		<Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+			<Setter Property="BorderThickness" Value="0" />
+			<Setter Property="Background" Value="Transparent" />
+		</Style>
+		<Style Selector="TextBox.header">
+			<Setter Property="FontWeight" Value="Bold" />
+			<Setter Property="Margin" Value="0,0,0,10" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="HorizontalContentAlignment" Value="Center" />
+			<Setter Property="Margin" Value="15 0 0 0" />
+			<Setter Property="MinHeight" Value="24" />
+			<Setter Property="MinWidth" Value="75" />
+		</Style>
+
+	</Window.Styles>
+	<Grid Classes="MsBoxStandardContainer">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" MaxHeight="150" />
+			<RowDefinition Height="15" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<!--Icon-->
+		<Image Grid.Row="0" Grid.Column="0"
+               IsVisible="{Binding HasIcon}"
+               Source="{Binding ImagePath}" />
+		<Grid Grid.Row="0" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<!--Bold text-->
+			<TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+                     IsVisible="{Binding HasHeader}" />
+			<!--Content Markdown-->
+            <avalonia:MarkdownScrollViewer Grid.Row="1"
+                                           Markdown="{Binding ContentMessage}"/>
+
+		</Grid>
+		<!--Buttons-->
+		<StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                    HorizontalAlignment="Right">
+			<Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored"
+                    Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
+                    IsVisible="{Binding IsOkShowed}" />
+			<Button Classes="button yes" Name="YesButton" Content="Yes" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
+                    IsVisible="{Binding IsYesShowed}" />
+			<Button Classes="button no" Content="No" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
+                    IsVisible="{Binding IsNoShowed}" />
+			<Button Classes="button abort" Content="Abort" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
+                    IsVisible="{Binding IsAbortShowed}" />
+			<Button Classes="button cancel" Content="Cancel" Command="{Binding ButtonClickCommand}"
+                    CommandParameter="{Binding $self.Content}"
+                    IsVisible="{Binding IsCancelShowed}" />
+		</StackPanel>
+	</Grid>
+</Window>

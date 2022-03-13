@@ -1,0 +1,15 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:MessageBox.Avalonia.ViewModels.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:md="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MessageBox.Avalonia.Controls.MarkdownViewer">
+    <UserControl.DataContext>
+        <local:MarkdownViewerViewModel/>
+    </UserControl.DataContext>
+
+    <md:MarkdownScrollViewer
+        Markdown="{Binding MdText}"/>
+</UserControl>

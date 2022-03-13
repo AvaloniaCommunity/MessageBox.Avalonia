@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
+using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.DTO
 {
