@@ -154,11 +154,12 @@ namespace MessageBox.Avalonia.Example
         private async void MsBoxMarkdown_Click(object sender, RoutedEventArgs e)
         {
             var messageBoxMarkdownWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxStandardWindow(new MessageBoxStandardParams()
+                .GetMessageBoxMarkdownWindow(new MessageBoxStandardParams()
                 {
                     Topmost = true,
-                    ContentMessage = "## 🚀 Features\r\n\r\n- CK3 1.5.1 compatibility #660 by @IhateTrains\r\n\r\n## 📦 Dependencies\r\n\r\n- Bump commonItems.NET from `7f45e76` to `9945bf0` #656 by @dependabot[bot]\r\n- Bump actions/checkout from 2 to 3 #657 by @dependabot[bot]",
+                    ContentMessage = "## 🚀 Features\r\n\r\n- CK3 1.5.1 compatibility #660 by @IhateTrains\r\n\r\n## 📦 Dependencies\r\n\r\n- Bump commonItems.NET from `7f45e76` to `9945bf0` #656 by @dependabot[bot]\r\n- Bump actions/checkout from 2 to 3 by @dependabot[bot]",
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                    Height = 600
                 });
             await messageBoxMarkdownWindow.ShowDialog(this);
         }

@@ -3,7 +3,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
-        xmlns:c="clr-namespace:MessageBox.Avalonia.Controls;assembly=MessageBox.Avalonia"
         xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxMarkdownWindow"

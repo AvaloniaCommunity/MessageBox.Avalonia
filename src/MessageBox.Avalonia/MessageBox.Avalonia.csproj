@@ -38,10 +38,5 @@
         <UpToDateCheckInput Remove="Styles\Windows\Windows.xaml" />
         <UpToDateCheckInput Remove="Styles\HyperlinkStyle.axaml" />
     </ItemGroup>
-    <ItemGroup>
-      <Compile Update="Controls\MarkdownViewer.axaml.cs">
-        <DependentUpon>MarkdownViewer.axaml</DependentUpon>
-      </Compile>
-    </ItemGroup>
 
 </Project>
