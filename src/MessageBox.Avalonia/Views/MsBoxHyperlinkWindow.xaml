@@ -13,7 +13,7 @@
         Height="{Binding Height}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         CanResize="{Binding CanResize}"
-        HasSystemDecorations="{Binding HasSystemDecorations}"
+        SystemDecorations="{Binding SystemDecorations}"
         Topmost="{Binding Topmost}"
         FontFamily="{Binding FontFamily}"
         Title="{Binding ContentTitle}"

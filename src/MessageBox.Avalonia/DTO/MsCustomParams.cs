@@ -53,7 +53,7 @@ namespace MessageBox.Avalonia.DTO
             Height = @params.Height;
             SizeToContent = @params.SizeToContent;
             WindowStartupLocation = @params.WindowStartupLocation;
-            HasSystemDecorations = @params.HasSystemDecorations;
+            SystemDecorations = @params.SystemDecorations;
             Topmost = @params.Topmost;
         }
     }

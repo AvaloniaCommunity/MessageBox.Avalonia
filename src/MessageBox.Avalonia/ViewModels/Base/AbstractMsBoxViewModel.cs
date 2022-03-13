@@ -44,7 +44,7 @@ namespace MessageBox.Avalonia.ViewModels
             WindowIconPath = @params.WindowIcon;
             SizeToContent = @params.SizeToContent;
             LocationOfMyWindow = @params.WindowStartupLocation;
-            HasSystemDecorations = @params.HasSystemDecorations;
+            SystemDecorations = @params.SystemDecorations;
             Topmost = @params.Topmost;
         }
 
@@ -65,7 +65,7 @@ namespace MessageBox.Avalonia.ViewModels
         public double MaxHeight { get; set; }
         public double Height { get; set; }
 
-        public bool HasSystemDecorations { get; set; }
+        public SystemDecorations SystemDecorations { get; set; }
         public bool Topmost { get; set; }
 
         public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;
