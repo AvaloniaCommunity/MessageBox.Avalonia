@@ -6,7 +6,6 @@ using MessageBox.Avalonia.ViewModels;
 using CustomWindow = MessageBox.Avalonia.Views.MsBoxCustomWindow;
 using HyperlinkWindow = MessageBox.Avalonia.Views.MsBoxHyperlinkWindow;
 using InputWindow = MessageBox.Avalonia.Views.MsBoxInputWindow;
-using MarkdownWindow = MessageBox.Avalonia.Views.MsBoxMarkdownWindow;
 using StandardWindow = MessageBox.Avalonia.Views.MsBoxStandardWindow;
 
 namespace MessageBox.Avalonia
@@ -47,18 +46,6 @@ namespace MessageBox.Avalonia
             var window = new StandardWindow();
             window.DataContext = new MsBoxStandardViewModel(@params, window);
             return new MsBoxWindowBase<StandardWindow, ButtonResult>(window);
-        }
-
-        /// <summary>
-        /// Create instance of Markdown messagebox window
-        /// </summary>
-        /// <param name="params">Params for Markdown window</param>
-        /// <returns></returns>
-        public static IMsBoxWindow<ButtonResult> GetMessageBoxMarkdownWindow(MessageBoxStandardParams @params)
-        {
-            var window = new MarkdownWindow();
-            window.DataContext = new MsBoxMarkdownViewModel(@params, window);
-            return new MsBoxWindowBase<MarkdownWindow, ButtonResult>(window);
         }
 
         /// <summary>

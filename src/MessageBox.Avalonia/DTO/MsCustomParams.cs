@@ -45,6 +45,7 @@ namespace MessageBox.Avalonia.DTO
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
             ContentMessage = @params.ContentMessage;
+            Markdown = @params.Markdown;
             MinWidth = @params.MinWidth;
             MaxWidth = @params.MaxWidth;
             Width = @params.Width;
