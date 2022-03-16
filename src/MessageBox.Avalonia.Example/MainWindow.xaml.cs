@@ -60,7 +60,8 @@ namespace MessageBox.Avalonia.Example
                     MaxHeight = maxHeight,
                     ShowInCenter = true,
                     Icon = MessageBoxAvaloniaEnums.Icon.Error,
-                    Topmost = true
+                    Topmost = true,
+                    WindowIcon = new WindowIcon("path")
                 });
 
             await messageBoxStandardWindow.ShowDialog(this);
@@ -165,11 +166,10 @@ namespace MessageBox.Avalonia.Example
                                      "- Bump magic from 2 to 3 by @dependabot[bot]",
                     Markdown = true,
                     ButtonDefinitions = new[]
-                        {
-                            new ButtonDefinition { Name = "Update now", IsDefault = true },
-                            new ButtonDefinition { Name = "Maybe later", IsCancel = true }
-
-                        },
+                    {
+                        new ButtonDefinition { Name = "Update now", IsDefault = true },
+                        new ButtonDefinition { Name = "Maybe later", IsCancel = true }
+                    },
                 });
             await messageBoxMarkdownWindow.ShowDialog(this);
         }
