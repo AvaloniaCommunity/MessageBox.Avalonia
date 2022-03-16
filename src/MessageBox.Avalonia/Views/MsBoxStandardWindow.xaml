@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
+        xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
         x:Class="MessageBox.Avalonia.Views.MsBoxStandardWindow"
         SizeToContent="{Binding SizeToContent}"
@@ -97,7 +98,10 @@
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
             <TextBox Grid.Row="1" Classes="contentMessage" FontFamily="{Binding FontFamily}"
-                     Text="{Binding ContentMessage}" />
+                     Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
+            <avalonia:MarkdownScrollViewer Grid.Row="1"
+                                           Markdown="{Binding ContentMessage}"
+                                           IsVisible="{Binding Markdown}"/>
 
         </Grid>
         <!--Buttons-->

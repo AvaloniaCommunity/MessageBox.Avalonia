@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
+using System.Collections.Generic;
 
 namespace MessageBox.Avalonia.DTO
 {
@@ -45,6 +45,7 @@ namespace MessageBox.Avalonia.DTO
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
             ContentMessage = @params.ContentMessage;
+            Markdown = @params.Markdown;
             MinWidth = @params.MinWidth;
             MaxWidth = @params.MaxWidth;
             Width = @params.Width;

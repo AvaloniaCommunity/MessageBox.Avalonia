@@ -71,8 +71,11 @@ namespace MessageBox.Avalonia.Example
             var messageBoxCustomWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxCustomWindow(
                 new MessageBoxCustomParams
                 {
-                    ContentTitle = "title", ContentMessage = "message", FontFamily = "Microsoft YaHei,Simsun",
-                    Icon = MessageBoxAvaloniaEnums.Icon.Error, WindowIcon = null,
+                    ContentTitle = "title",
+                    ContentMessage = "message",
+                    FontFamily = "Microsoft YaHei,Simsun",
+                    Icon = MessageBoxAvaloniaEnums.Icon.Error,
+                    WindowIcon = null,
                     ButtonDefinitions = new[]
                         { new ButtonDefinition { Name = "确定", IsDefault = true }, },
                     WindowStartupLocation = WindowStartupLocation.CenterOwner,
@@ -146,6 +149,29 @@ namespace MessageBox.Avalonia.Example
                     WindowIcon = new WindowIcon("./icon-rider.png"),
                 });
             await messageBoxCustomWindow.ShowDialog(this);
+        }
+
+        private async void MsBoxMarkdown_Click(object sender, RoutedEventArgs e)
+        {
+            var messageBoxMarkdownWindow = MessageBox.Avalonia.MessageBoxManager
+                .GetMessageBoxCustomWindow(new MessageBoxCustomParams()
+                {
+                    Icon = MessageBoxAvaloniaEnums.Icon.Info,
+                    ContentHeader = "Update is available! (not really)",
+                    ContentMessage = "## 🚀 Features\r\n\r\n" +
+                                     "- A cool feature\r\n\r\n" +
+                                     "## 📦 Dependencies\r\n\r\n" +
+                                     "- Bump antigravity from 1 to 2 @dependabot[bot]\r\n" +
+                                     "- Bump magic from 2 to 3 by @dependabot[bot]",
+                    Markdown = true,
+                    ButtonDefinitions = new[]
+                        {
+                            new ButtonDefinition { Name = "Update now", IsDefault = true },
+                            new ButtonDefinition { Name = "Maybe later", IsCancel = true }
+
+                        },
+                });
+            await messageBoxMarkdownWindow.ShowDialog(this);
         }
 
         private void InitializeComponent()

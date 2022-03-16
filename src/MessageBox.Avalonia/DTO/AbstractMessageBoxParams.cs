@@ -41,6 +41,11 @@ namespace MessageBox.Avalonia.DTO
         public string ContentMessage { get; set; } = string.Empty;
 
         /// <summary>
+        /// Whether to render the main text of messagebox body as Markdown text
+        /// </summary>
+        public bool Markdown { get; set; } = false;
+
+        /// <summary>
         /// Minimal width of window (default 200)
         /// </summary>
         public double MinWidth { get; set; } = 200;

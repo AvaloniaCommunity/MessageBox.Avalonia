@@ -27,6 +27,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="0.10.12" />
+        <PackageReference Include="Markdown.Avalonia" Version="0.10.10" />
     </ItemGroup>
     <ItemGroup>
         <UpToDateCheckInput Remove="Styles\Dark\Dark.xaml" />

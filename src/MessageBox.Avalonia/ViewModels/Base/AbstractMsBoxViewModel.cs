@@ -41,6 +41,7 @@ namespace MessageBox.Avalonia.ViewModels
             ContentTitle = @params.ContentTitle;
             ContentHeader = @params.ContentHeader;
             ContentMessage = @params.ContentMessage;
+            Markdown = @params.Markdown;
             WindowIconPath = @params.WindowIcon;
             SizeToContent = @params.SizeToContent;
             LocationOfMyWindow = @params.WindowStartupLocation;
@@ -55,6 +56,7 @@ namespace MessageBox.Avalonia.ViewModels
         public string ContentTitle { get; }
         public string ContentHeader { get; }
         public string ContentMessage { get; set; }
+        public bool Markdown { get; set; }
         public WindowIcon WindowIconPath { get; }
         public Bitmap ImagePath { get; }
         public double MinWidth { get; set; }
