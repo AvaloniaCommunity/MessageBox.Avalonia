@@ -14,7 +14,7 @@
         Height="{Binding Height}"
         Icon="{Binding WindowIconPath}"
         WindowStartupLocation="{Binding LocationOfMyWindow}"
-        HasSystemDecorations="{Binding HasSystemDecorations}"
+        SystemDecorations="{Binding SystemDecorations}"
         Topmost="{Binding Topmost}"
         CanResize="{Binding CanResize}"
         FontFamily="{Binding FontFamily}"
