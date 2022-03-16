@@ -61,7 +61,7 @@ namespace MessageBox.Avalonia.Example
                     ShowInCenter = true,
                     Icon = MessageBoxAvaloniaEnums.Icon.Error,
                     Topmost = true,
-                    WindowIcon = new WindowIcon("path")
+                    WindowIcon = new WindowIcon("icon-rider.png")
                 });
 
             await messageBoxStandardWindow.ShowDialog(this);
