@@ -18,7 +18,7 @@ or download this repo.
 
 The easiest way to get started is this:
 
-![](Images/stadard.png)
+![](Images/standart-messagebox.png)
 
 ```cs 
 var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
