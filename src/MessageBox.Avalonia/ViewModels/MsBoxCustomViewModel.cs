@@ -9,7 +9,6 @@ namespace MessageBox.Avalonia.ViewModels
     {
         private readonly MsBoxCustomWindow _window;
 
-
         public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,
             @params.Icon, @params.BitmapIcon)
         {

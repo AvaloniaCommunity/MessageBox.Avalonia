@@ -7,7 +7,7 @@ namespace MessageBox.Avalonia.ViewModels.Commands
     {
         private readonly Func<object, bool> canExecute;
         private readonly Action<object> execute;
-        private EventHandler? _canExecuteChanged;
+        private EventHandler _canExecuteChanged;
 
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {

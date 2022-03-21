@@ -22,7 +22,6 @@ namespace MessageBox.Avalonia.Views
 
         public ButtonResult GetResult() => ButtonResult;
 
-
         //More like a workaround because i dont know how to set it only with styles in .xaml file
         protected override void OnOpened(EventArgs e)
         {

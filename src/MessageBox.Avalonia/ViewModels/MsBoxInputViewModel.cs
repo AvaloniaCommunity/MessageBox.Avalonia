@@ -54,10 +54,10 @@ namespace MessageBox.Avalonia.ViewModels
 
                 var pointer = e.GetCurrentPoint(_passwordRevealBtn);
 
-                if ((pointer.Properties.IsLeftButtonPressed || pointer.Properties.IsRightButtonPressed) &&
-                    PasswordRevealMode == PasswordRevealModes.Hold
-                    || pointer.Properties.IsRightButtonPressed &&
-                    PasswordRevealMode == PasswordRevealModes.Both)
+                if (((pointer.Properties.IsLeftButtonPressed || pointer.Properties.IsRightButtonPressed) &&
+                    PasswordRevealMode == PasswordRevealModes.Hold)
+                    || (pointer.Properties.IsRightButtonPressed &&
+                    PasswordRevealMode == PasswordRevealModes.Both))
                 {
                     PassChar = null;
                     _passwordRevealBtn.IsChecked = true;
@@ -71,9 +71,16 @@ namespace MessageBox.Avalonia.ViewModels
                 if (_passChar == '*' ||
                     !IsPasswordRevealButtonVisible ||
                     (PasswordRevealMode != PasswordRevealModes.Hold &&
-                     PasswordRevealMode != PasswordRevealModes.Both)) return;
+                     PasswordRevealMode != PasswordRevealModes.Both))
+                {
+                    return;
+                }
+
                 if (PasswordRevealMode == PasswordRevealModes.Both &&
-                    e.InitialPressMouseButton != MouseButton.Right) return;
+                    e.InitialPressMouseButton != MouseButton.Right)
+                {
+                    return;
+                }
 
                 PassChar = InitialPassChar;
                 _passwordRevealBtn.IsChecked = false;
