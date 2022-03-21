@@ -18,6 +18,7 @@ namespace MessageBox.Avalonia.Extensions
         public static void OpenUrl(this string url)
         {
             if (IsValidUrl(url))
+            {
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
                     //https://stackoverflow.com/a/2796367/241446
@@ -36,6 +37,7 @@ namespace MessageBox.Avalonia.Extensions
                     Process.Start("open", url);
                     return;
                 }
+            }
 
             throw new InvalidUrlException("invalid url: " + url);
         }

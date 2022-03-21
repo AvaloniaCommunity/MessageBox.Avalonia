@@ -14,7 +14,6 @@ namespace MessageBox.Avalonia.Views
 
         public string GetResult() => ButtonResult;
 
-
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);

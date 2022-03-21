@@ -16,7 +16,6 @@ namespace MessageBox.Avalonia.Views
 
         public MessageWindowResultDTO GetResult() => new MessageWindowResultDTO(MessageResult, ButtonResult);
 
-
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);

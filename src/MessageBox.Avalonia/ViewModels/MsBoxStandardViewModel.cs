@@ -21,8 +21,8 @@ namespace MessageBox.Avalonia.ViewModels
             _window = msBoxStandardWindow;
             SetButtons(@params.ButtonDefinitions);
             ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
-            EnterClickCommand = new RelayCommand(o => EnterClick());
-            EscClickCommand = new RelayCommand(o => EscClick());
+            EnterClickCommand = new RelayCommand(_ => EnterClick());
+            EscClickCommand = new RelayCommand(_ => EscClick());
         }
 
         public bool IsOkShowed { get; private set; }
@@ -74,41 +74,23 @@ namespace MessageBox.Avalonia.ViewModels
             switch (_escDefaultButton)
             {
                 case ClickEnum.Ok:
-                {
                     ButtonClick(ButtonResult.Ok);
                     return;
-                }
-                    break;
                 case ClickEnum.Yes:
-                {
                     ButtonClick(ButtonResult.Yes);
                     return;
-                }
-                    break;
                 case ClickEnum.No:
-                {
                     ButtonClick(ButtonResult.No);
                     return;
-                }
-                    break;
                 case ClickEnum.Abort:
-                {
                     ButtonClick(ButtonResult.Abort);
                     return;
-                }
-                    break;
                 case ClickEnum.Cancel:
-                {
                     ButtonClick(ButtonResult.Cancel);
                     return;
-                }
-                    break;
                 case ClickEnum.None:
-                {
                     ButtonClick(ButtonResult.None);
                     return;
-                }
-                    break;
                 case ClickEnum.Default:
                 {
                     if (IsCancelShowed)
@@ -134,7 +116,6 @@ namespace MessageBox.Avalonia.ViewModels
                     throw new ArgumentOutOfRangeException();
             }
 
-
             ButtonClick(ButtonResult.None);
         }
 
@@ -143,41 +124,23 @@ namespace MessageBox.Avalonia.ViewModels
             switch (_enterDefaultButton)
             {
                 case ClickEnum.Ok:
-                {
                     ButtonClick(ButtonResult.Ok);
                     return;
-                }
-                    break;
                 case ClickEnum.Yes:
-                {
                     ButtonClick(ButtonResult.Yes);
                     return;
-                }
-                    break;
                 case ClickEnum.No:
-                {
                     ButtonClick(ButtonResult.No);
                     return;
-                }
-                    break;
                 case ClickEnum.Abort:
-                {
                     ButtonClick(ButtonResult.Abort);
                     return;
-                }
-                    break;
                 case ClickEnum.Cancel:
-                {
                     ButtonClick(ButtonResult.Cancel);
                     return;
-                }
-                    break;
                 case ClickEnum.None:
-                {
                     ButtonClick(ButtonResult.None);
                     return;
-                }
-                    break;
                 case ClickEnum.Default:
                 {
                     if (IsOkShowed)
