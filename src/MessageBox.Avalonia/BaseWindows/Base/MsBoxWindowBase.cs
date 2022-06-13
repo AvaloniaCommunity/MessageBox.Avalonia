@@ -3,7 +3,7 @@ using Avalonia.Controls;
 
 namespace MessageBox.Avalonia.BaseWindows.Base
 {
-    internal class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window, IWindowGetResult<T>
+    public class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window, IWindowGetResult<T>
     {
         private readonly U _window;
 

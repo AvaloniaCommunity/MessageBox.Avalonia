@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageVersion>2.0</PackageVersion>
+        <PackageVersion>2.0.1</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
@@ -26,8 +26,8 @@
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.12" />
-        <PackageReference Include="Markdown.Avalonia" Version="0.10.10" />
+        <PackageReference Include="Avalonia" Version="0.10.15" />
+        <PackageReference Include="Markdown.Avalonia" Version="0.10.11" />
     </ItemGroup>
     <ItemGroup>
         <UpToDateCheckInput Remove="Styles\Dark\Dark.xaml" />
