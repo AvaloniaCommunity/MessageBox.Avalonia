@@ -72,9 +72,11 @@
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
-
+        <Style Selector="TextBox.contentMessage">
+            <Setter Property="Height" Value="50" />
+        </Style>
     </Window.Styles>
-    <Grid Classes="MsBoxStandardContainer">
+    <Grid Classes="MsBoxStandardContainer"   >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -94,7 +96,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}" 
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
             <TextBox Grid.Row="1" Classes="contentMessage" FontFamily="{Binding FontFamily}"
