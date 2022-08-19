@@ -17,6 +17,7 @@
   </Window.Styles>
   <StackPanel>
     <Button Name="btnClick" Click="MsBoxStandard_Click" Content="Standard"/>
+    <Button Name="btnClick7" Click="MsBoxStandardConstrained_Click" Content="Constrain to screen"/>
     <Button Name="btnClick2" Click="MsBoxCustom_Click" Content="Custom"/>
     <Button Name="btnClick5" Click="MsBoxCustomImage_Click" Content="Custom With Image"/>
     <Button Name="btnClick6" Click="MsBoxMarkdown_Click" Content="Markdown"/>
