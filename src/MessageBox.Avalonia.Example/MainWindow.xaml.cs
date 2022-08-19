@@ -42,9 +42,6 @@ namespace MessageBox.Avalonia.Example
 
         public async void MsBoxStandardConstrained_Click(object sender, RoutedEventArgs e)
         {
-
-
-
             int maxWidth = 500;
             int maxHeight = 800;
 
