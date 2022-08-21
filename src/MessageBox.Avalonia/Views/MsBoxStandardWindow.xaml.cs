@@ -30,18 +30,5 @@ namespace MessageBox.Avalonia.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
-
-        protected override void OnOpened(EventArgs e)
-        {
-            base.OnOpened(e);
-
-            // Hack to fix scroll bar and limits
-            if (SizeToContent != SizeToContent.Manual)
-            {
-                SizeToContent = SizeToContent.Manual;
-                Width--;
-                Height--;
-            }
-        }
     }
 }
