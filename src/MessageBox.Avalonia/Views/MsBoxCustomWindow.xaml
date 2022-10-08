@@ -113,7 +113,7 @@
                             Classes.default = "{Binding IsDefault}"
                             Classes.cancel = "{Binding IsCancel}"
                             Tag="{Binding TypeName}"
-                            Command="{Binding DataContext.ButtonClick, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
+                            Command="{Binding DataContext.ButtonClickCommand, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"
                             Content="{Binding Name}"
                             Margin="0 0 5 0"

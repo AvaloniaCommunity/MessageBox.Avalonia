@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
+using MessageBox.Avalonia.ViewModels.Commands;
 using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
@@ -17,6 +18,7 @@ namespace MessageBox.Avalonia.ViewModels
             _window = msBoxHyperlinkWindow;
             HyperlinkContentProvider = @params.HyperlinkContentProvider;
             SetButtons(@params.ButtonDefinitions);
+            ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
         }
 
         public bool IsOkShowed { get; private set; }
@@ -26,6 +28,7 @@ namespace MessageBox.Avalonia.ViewModels
         public bool IsCancelShowed { get; private set; }
 
         public IEnumerable<HyperlinkContent> HyperlinkContentProvider { get; set; }
+        public RelayCommand ButtonClickCommand { get; }
 
         private void SetButtons(ButtonEnum paramsButtonDefinitions)
         {

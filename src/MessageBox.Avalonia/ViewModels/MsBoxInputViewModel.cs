@@ -7,6 +7,7 @@ using Avalonia.Interactivity;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MessageBox.Avalonia.Models;
+using MessageBox.Avalonia.ViewModels.Commands;
 using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
@@ -28,6 +29,7 @@ namespace MessageBox.Avalonia.ViewModels
             WatermarkText = @params.WatermarkText;
             Multiline = @params.Multiline;
             InputText = @params.InputDefaultValue;
+            ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
 
             // Make sure there are default buttons on dialog
             if (ButtonDefinitions is null)
@@ -112,6 +114,7 @@ namespace MessageBox.Avalonia.ViewModels
         // public ReactiveCommand<string, Unit> ButtonClickCommand { get; private set; }
 
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+        public RelayCommand ButtonClickCommand { get; }
 
         public string InputText
         {
