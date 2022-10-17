@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Models;
+using MessageBox.Avalonia.ViewModels.Commands;
 using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels
@@ -14,9 +15,11 @@ namespace MessageBox.Avalonia.ViewModels
         {
             _window = msBoxCustomWindow;
             ButtonDefinitions = @params.ButtonDefinitions;
+            ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
         }
 
         public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+        public RelayCommand ButtonClickCommand { get; }
 
         public void ButtonClick(string parameter)
         {

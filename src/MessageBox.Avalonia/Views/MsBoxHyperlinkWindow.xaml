@@ -91,15 +91,15 @@
         <!--Buttons-->
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
                     HorizontalAlignment="Right">
-            <Button Content="Ok" Tag="Colored" Command="{Binding ButtonClick}"
+            <Button Content="Ok" Tag="Colored" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}" IsVisible="{Binding IsOkShowed}" />
-            <Button Content="Yes" Command="{Binding ButtonClick}" CommandParameter="{Binding $self.Content}"
+            <Button Content="Yes" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsYesShowed}" />
-            <Button Content="No" Command="{Binding ButtonClick}" CommandParameter="{Binding $self.Content}"
+            <Button Content="No" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsNoShowed}" />
-            <Button Content="Abort" Command="{Binding ButtonClick}" CommandParameter="{Binding $self.Content}"
+            <Button Content="Abort" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsAbortShowed}" />
-            <Button Content="Cancel" Command="{Binding ButtonClick}" CommandParameter="{Binding $self.Content}"
+            <Button Content="Cancel" Command="{Binding ButtonClickCommand}" CommandParameter="{Binding $self.Content}"
                     IsVisible="{Binding IsCancelShowed}" />
         </StackPanel>
     </Grid>
