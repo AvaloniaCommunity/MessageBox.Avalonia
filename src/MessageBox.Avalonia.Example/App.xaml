@@ -8,6 +8,6 @@
         <!--<StyleInclude Source="avares://Avalonia.Themes.Fluent/FluentLight.xaml" />
       <StyleInclude Source="avares://Avalonia.Themes.Fluent/Accents/FluentBaseLight.xaml" />-->
 
-        <FluentTheme Mode="Light"/>
+        <FluentTheme />
     </Application.Styles>
 </Application>
