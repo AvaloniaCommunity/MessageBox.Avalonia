@@ -8,7 +8,6 @@ using Avalonia.Input.Platform;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
-using JetBrains.Annotations;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 
@@ -81,7 +80,6 @@ namespace MessageBox.Avalonia.ViewModels
             await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
         }
 
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

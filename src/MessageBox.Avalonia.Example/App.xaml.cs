@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Avalonia.Styling;
 
 namespace MessageBox.Avalonia.Example
 {
@@ -19,6 +20,7 @@ namespace MessageBox.Avalonia.Example
             }
 
             base.OnFrameworkInitializationCompleted();
+            Application.Current!.RequestedThemeVariant = ThemeVariant.Light;
         }
     }
 }

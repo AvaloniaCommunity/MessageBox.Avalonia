@@ -26,8 +26,8 @@
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-preview2" />
-        <PackageReference Include="Markdown.Avalonia" Version="11.0.0-a3" />
+        <PackageReference Include="Avalonia" Version="11.0.0-preview5" />
+        <PackageReference Include="Markdown.Avalonia" Version="11.0.0-a9" />
     </ItemGroup>
     <ItemGroup>
         <UpToDateCheckInput Remove="Styles\Dark\Dark.xaml" />
