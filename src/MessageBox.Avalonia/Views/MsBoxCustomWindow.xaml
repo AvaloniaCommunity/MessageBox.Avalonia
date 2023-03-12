@@ -59,9 +59,6 @@
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
-        <Style Selector="TextBox.contentMessage">
-            <Setter Property="Height" Value="50" />
-        </Style>
     </Window.Styles>
     <Grid Classes="MsBoxCustomContainer">
         <Grid.ColumnDefinitions>
