@@ -1,20 +1,19 @@
-namespace MessageBox.Avalonia.Enums
+namespace MessageBox.Avalonia.Enums;
+
+/// <summary>
+/// Buttons in message box window
+/// </summary>
+public enum ButtonEnum
 {
-    /// <summary>
-    /// Buttons in message box window
-    /// </summary>
-    public enum ButtonEnum
-    {
-        Ok,
+    Ok,
 
-        YesNo,
+    YesNo,
 
-        OkCancel,
+    OkCancel,
 
-        OkAbort,
+    OkAbort,
 
-        YesNoCancel,
+    YesNoCancel,
 
-        YesNoAbort
-    }
+    YesNoAbort
 }

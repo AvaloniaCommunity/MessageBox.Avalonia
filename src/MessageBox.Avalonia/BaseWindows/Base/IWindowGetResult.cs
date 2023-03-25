@@ -1,7 +1,6 @@
-namespace MessageBox.Avalonia.BaseWindows.Base
+namespace MessageBox.Avalonia.BaseWindows.Base;
+
+public interface IWindowGetResult<T>
 {
-    public interface IWindowGetResult<T>
-    {
-        T GetResult();
-    }
+    T GetResult();
 }

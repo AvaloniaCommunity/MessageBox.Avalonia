@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace MessageBox.Avalonia.Exceptions
+namespace MessageBox.Avalonia.Exceptions;
+
+public class InvalidUrlException : Exception
 {
-    public class InvalidUrlException : Exception
+    public InvalidUrlException(string message) : base(message)
     {
-        public InvalidUrlException(string message) : base(message)
-        {
-        }
     }
 }
