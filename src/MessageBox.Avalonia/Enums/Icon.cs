@@ -1,23 +1,22 @@
-namespace MessageBox.Avalonia.Enums
+namespace MessageBox.Avalonia.Enums;
+
+public enum Icon
 {
-    public enum Icon
-    {
-        None,
-        Battery,
-        Database,
-        Error,
-        Folder,
-        Forbidden,
-        Info,
-        Plus,
-        Question,
-        Setting,
-        SpeakerLess,
-        SpeakerMore,
-        Stop,
-        Stopwatch,
-        Success,
-        Warning,
-        Wifi,
-    }
+    None,
+    Battery,
+    Database,
+    Error,
+    Folder,
+    Forbidden,
+    Info,
+    Plus,
+    Question,
+    Setting,
+    SpeakerLess,
+    SpeakerMore,
+    Stop,
+    Stopwatch,
+    Success,
+    Warning,
+    Wifi,
 }

@@ -1,22 +1,21 @@
 using Avalonia.Markup.Xaml;
 using MessageBox.Avalonia.BaseWindows.Base;
 
-namespace MessageBox.Avalonia.Views
+namespace MessageBox.Avalonia.Views;
+
+public class MsBoxCustomWindow : BaseWindow, IWindowGetResult<string>
 {
-    public class MsBoxCustomWindow : BaseWindow, IWindowGetResult<string>
+    public MsBoxCustomWindow() : base()
     {
-        public MsBoxCustomWindow() : base()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        public string ButtonResult { get; set; } = null;
+    public string ButtonResult { get; set; } = null;
 
-        public string GetResult() => ButtonResult;
+    public string GetResult() => ButtonResult;
 
-        private void InitializeComponent()
-        {
-            AvaloniaXamlLoader.Load(this);
-        }
+    private void InitializeComponent()
+    {
+        AvaloniaXamlLoader.Load(this);
     }
 }

@@ -1,42 +1,41 @@
 ﻿using System.Threading.Tasks;
 using Avalonia.Controls;
 
-namespace MessageBox.Avalonia.BaseWindows.Base
+namespace MessageBox.Avalonia.BaseWindows.Base;
+
+public class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window, IWindowGetResult<T>
 {
-    public class MsBoxWindowBase<U, T> : IMsBoxWindow<T> where U : Window, IWindowGetResult<T>
+    private readonly U _window;
+
+    public MsBoxWindowBase(U window)
     {
-        private readonly U _window;
+        _window = window;
+    }
 
-        public MsBoxWindowBase(U window)
-        {
-            _window = window;
-        }
+    /// <inheritdoc cref="IMsBoxWindow"/>
+    public Task<T> Show()
+    {
+        var tcs = new TaskCompletionSource<T>();
+        _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
+        _window.Show();
+        return tcs.Task;
+    }
 
-        /// <inheritdoc cref="IMsBoxWindow"/>
-        public Task<T> Show()
-        {
-            var tcs = new TaskCompletionSource<T>();
-            _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
-            _window.Show();
-            return tcs.Task;
-        }
+    /// <inheritdoc cref="IMsBoxWindow"/>
+    public Task<T> Show(Window ownerWindow)
+    {
+        var tcs = new TaskCompletionSource<T>();
+        _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
+        _window.Show(ownerWindow);
+        return tcs.Task;
+    }
 
-        /// <inheritdoc cref="IMsBoxWindow"/>
-        public Task<T> Show(Window ownerWindow)
-        {
-            var tcs = new TaskCompletionSource<T>();
-            _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
-            _window.Show(ownerWindow);
-            return tcs.Task;
-        }
-
-        /// <inheritdoc cref="IMsBoxWindow"/>
-        public Task<T> ShowDialog(Window ownerWindow)
-        {
-            var tcs = new TaskCompletionSource<T>();
-            _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
-            _window.ShowDialog(ownerWindow);
-            return tcs.Task;
-        }
+    /// <inheritdoc cref="IMsBoxWindow"/>
+    public Task<T> ShowDialog(Window ownerWindow)
+    {
+        var tcs = new TaskCompletionSource<T>();
+        _window.Closed += delegate { tcs.TrySetResult(_window.GetResult()); };
+        _window.ShowDialog(ownerWindow);
+        return tcs.Task;
     }
 }

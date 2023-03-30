@@ -1,14 +1,13 @@
-namespace MessageBox.Avalonia.Enums
+namespace MessageBox.Avalonia.Enums;
+
+public enum ButtonType
 {
-    public enum ButtonType
-    {
-        /// <summary>
-        /// Default button
-        /// </summary>
-        Default,
-        /// <summary>
-        /// Highlight button
-        /// </summary>
-        Colored
-    }
+    /// <summary>
+    /// Default button
+    /// </summary>
+    Default,
+    /// <summary>
+    /// Highlight button
+    /// </summary>
+    Colored
 }

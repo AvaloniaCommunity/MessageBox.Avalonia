@@ -1,13 +1,12 @@
-﻿namespace MessageBox.Avalonia.Enums
+﻿namespace MessageBox.Avalonia.Enums;
+
+public enum ClickEnum
 {
-    public enum ClickEnum
-    {
-        Ok,
-        Yes,
-        No,
-        Abort,
-        Cancel,
-        None,
-        Default
-    }
+    Ok,
+    Yes,
+    No,
+    Abort,
+    Cancel,
+    None,
+    Default
 }
