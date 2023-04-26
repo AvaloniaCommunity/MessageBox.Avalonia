@@ -13,9 +13,9 @@
     </AvaloniaResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.0-preview6" />
-	<PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview6" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview6" />
+    <PackageReference Include="Avalonia" Version="11.0.0-preview7" />
+	<PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-preview7" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.0-preview7" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MessageBox.Avalonia\MessageBox.Avalonia.csproj" />
