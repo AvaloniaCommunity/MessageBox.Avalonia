@@ -92,7 +92,7 @@
 
         </Grid>
         <!--Buttons-->
-        <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter" Items="{Binding ButtonDefinitions}" Grid.Row="3"
+        <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter" ItemsSource="{Binding ButtonDefinitions}" Grid.Row="3"
                         Grid.Column="1" Grid.ColumnSpan="3"
                         HorizontalAlignment="Right">
             <ItemsControl.ItemsPanel>
