@@ -5,6 +5,7 @@
         xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
         xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
+        x:DataType="viewModels:MsBoxStandardViewModel"
         x:Class="MessageBox.Avalonia.Views.MsBoxStandardWindow"
         SizeToContent="{Binding SizeToContent}"
         MinWidth="{Binding MinWidth}"
