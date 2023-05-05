@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
+        x:DataType="viewModels:MsBoxHyperlinkViewModel"
         x:Class="MessageBox.Avalonia.Views.MsBoxHyperlinkWindow"
         SizeToContent="WidthAndHeight"
         MinWidth="{Binding MinWidth}"

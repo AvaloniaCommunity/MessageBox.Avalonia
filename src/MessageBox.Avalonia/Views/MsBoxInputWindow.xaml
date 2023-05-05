@@ -5,6 +5,7 @@
         xmlns:viewModels="clr-namespace:MessageBox.Avalonia.ViewModels"
         xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
         mc:Ignorable="d" d:DesignWidth="150" d:DesignHeight="100"
+        x:DataType="viewModels:MsBoxInputViewModel"
         x:Class="MessageBox.Avalonia.Views.MsBoxInputWindow"
         SizeToContent="{Binding SizeToContent}"
         MinWidth="{Binding MinWidth}"
@@ -167,8 +168,7 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Name="Btn"
-                            Tag="{Binding TypeName}"
-                            Command="{Binding DataContext.ButtonClickCommand, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
+                            Command="{Binding ((viewModels:MsBoxInputViewModel)DataContext).ButtonClickCommand, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"
                             Content="{Binding Name}"
                             Margin="0 0 5 0"
