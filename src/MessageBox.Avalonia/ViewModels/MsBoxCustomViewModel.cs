@@ -11,7 +11,7 @@ public class MsBoxCustomViewModel : AbstractMsBoxViewModel
     private readonly MsBoxCustomWindow _window;
 
     public MsBoxCustomViewModel(MsCustomParams @params, MsBoxCustomWindow msBoxCustomWindow) : base(@params,
-        @params.Icon, @params.BitmapIcon)
+        msBoxCustomWindow, @params.Icon, @params.BitmapIcon)
     {
         _window = msBoxCustomWindow;
         ButtonDefinitions = @params.ButtonDefinitions;
