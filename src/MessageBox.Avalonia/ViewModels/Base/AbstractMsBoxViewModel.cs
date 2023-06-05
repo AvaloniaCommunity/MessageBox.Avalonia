@@ -25,9 +25,9 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
         }
         else if (icon != Icon.None)
         {
-            var uri = new Uri($" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.png");
-            var stream = AssetLoader.Open(uri);
-            ImagePath = new Bitmap(stream);
+            ImagePath = new Bitmap(AssetLoader
+                .Open(new Uri(
+                    $" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.png")));
         }
 
         MinWidth = @params.MinWidth;
