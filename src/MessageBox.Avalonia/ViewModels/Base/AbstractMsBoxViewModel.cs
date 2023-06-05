@@ -24,7 +24,7 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
         }
         else if (icon != Icon.None)
         {
-            ImagePath = new Bitmap(AvaloniaLocator.Current.GetService<IAssetLoader>()
+            ImagePath = new Bitmap(AssetLoader
                 .Open(new Uri(
                     $" avares://MessageBox.Avalonia/Assets/{icon.ToString().ToLowerInvariant()}.png")));
         }
@@ -77,7 +77,8 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
 
     public async Task Copy()
     {
-        await AvaloniaLocator.Current.GetService<IClipboard>().SetTextAsync(ContentMessage);
+        //TODO: Fix this
+        // await this.GetService<IClipboard>().SetTextAsync(ContentMessage);
     }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
