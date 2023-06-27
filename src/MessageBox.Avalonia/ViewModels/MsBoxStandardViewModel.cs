@@ -14,7 +14,7 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel
     private readonly MsBoxStandardWindow _window;
 
     public MsBoxStandardViewModel(MessageBoxStandardParams @params, MsBoxStandardWindow msBoxStandardWindow) :
-        base(@params, @params.Icon)
+        base(@params, msBoxStandardWindow, @params.Icon)
     {
         _enterDefaultButton = @params.EnterDefaultButton;
         _escDefaultButton = @params.EscDefaultButton;

@@ -2,22 +2,23 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Input.Platform;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
+using MessageBox.Avalonia.Views;
 
 namespace MessageBox.Avalonia.ViewModels;
 
 public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
-
 {
-    protected AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
+    private readonly BaseWindow _window;
+    protected AbstractMsBoxViewModel(AbstractMessageBoxParams @params, BaseWindow msBoxWindow, Icon icon = Icon.None, Bitmap bitmap = null)
     {
+        _window = msBoxWindow;
+        
         if (bitmap != null)
         {
             ImagePath = bitmap;
@@ -77,8 +78,7 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
 
     public async Task Copy()
     {
-        //TODO: Fix this
-        // await this.GetService<IClipboard>().SetTextAsync(ContentMessage);
+        await _window.Clipboard!.SetTextAsync(ContentMessage);
     }
 
     protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -13,7 +13,7 @@ public class MsBoxHyperlinkViewModel : AbstractMsBoxViewModel
     private readonly MsBoxHyperlinkWindow _window;
 
     public MsBoxHyperlinkViewModel(MessageBoxHyperlinkParams @params, MsBoxHyperlinkWindow msBoxHyperlinkWindow) :
-        base(@params, @params.Icon)
+        base(@params, msBoxHyperlinkWindow, @params.Icon)
     {
         _window = msBoxHyperlinkWindow;
         HyperlinkContentProvider = @params.HyperlinkContentProvider;

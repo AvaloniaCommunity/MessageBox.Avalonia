@@ -19,7 +19,8 @@ public class MsBoxInputViewModel : AbstractMsBoxViewModel
     private string _inputText;
     private char? _passChar;
 
-    public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params,
+    public MsBoxInputViewModel(MessageBoxInputParams @params, MsBoxInputWindow msBoxInputWindow) : base(@params, 
+        msBoxInputWindow,
         @params.Icon)
     {
         _window = msBoxInputWindow;
