@@ -5,6 +5,7 @@ using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Models;
 using System.Linq;
+using Avalonia;
 using MsBox.Avalonia;
 using MessageBoxAvaloniaEnums = MessageBox.Avalonia.Enums;
 
@@ -14,7 +15,7 @@ public class MainWindow : Window
 {
     public MainWindow()
     {
-       
+
     }
 
     /*public async void MsBoxStandard_Click(object sender, RoutedEventArgs e)
@@ -184,10 +185,15 @@ public class MainWindow : Window
     
     private async void Standard_Show_OnClick(object sender, RoutedEventArgs e)
     {
+#if DEBUG
+      
+        this.AttachDevTools();
+       
+#endif
         var box = MessageBoxManager
             .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?", MessageBoxAvaloniaEnums.ButtonEnum.YesNo);
 
-        var result = await box.ShowAsync();
+        var result = await box.ShowAsPopupAsync(this);
     }
     private async void Standard_Dialog_OnClick(object sender, RoutedEventArgs e)
     {
