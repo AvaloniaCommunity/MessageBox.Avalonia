@@ -3,8 +3,7 @@
 Messagebox for AvaloniaUI
 Now support all platforms as Xplat template
 
-![](Images/Untitled1.jpg)
-
+<img src="MsBox.Avalonia/icon.jpg" width="100" height="100">
 
 To start you should install MessageBox.Avalonia NuGet package 
 >   dotnet add package MessageBox.Avalonia 
