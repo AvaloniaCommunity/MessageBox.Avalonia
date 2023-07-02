@@ -1,0 +1,32 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:XTest.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="XTest.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+    <vm:MainViewModel />
+  </Design.DataContext>
+
+    <UserControl.Styles>
+        <Style Selector="Button.View">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="100" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel>
+        <Button Name="Standard_Show"  Classes="View" Click="Standard_Show_OnClick" Content="Standard Show"/>
+        <Button Name="Standard_Dialog"  Classes="View" Click="Standard_Dialog_OnClick" Content="Standard Dialog"/>
+        <Button Name="Standard_Popup"  Classes="View" Click="Standard_Popup_OnClick" Content="Custom PopUp"/>
+        <Button Name="Custom_Show"  Classes="View" Click="Custom_Dialog_OnClick" Content="Custom Show"/>
+        <Button Name="Custom_MarkDown"  Classes="View"  Click="Custom_MarkDown_OnClick" Content="Custom Markdown"/>
+        <Button Name="Custom_Dialog"  Classes="View"  Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
+        <Button Name="Custom_PopUp"  Classes="View" Click="Custom_PopUp_OnClick" Content="Custom popup"/>
+    </StackPanel>
+</UserControl>

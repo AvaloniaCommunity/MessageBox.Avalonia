@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Models\" />
+        <AvaloniaResource Include="Assets\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectCapability Include="Avalonia" />
+        <TrimmerRootAssembly Include="Avalonia.Themes.Fluent" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.0-rc2.2" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.0-rc2.2" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.0-rc2.2" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0-rc2.2" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.0.0-rc2.2" />
+    </ItemGroup>
+ 
+    <ItemGroup>
+        <None Update="icon-rider.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+ 
+    <ItemGroup>
+      <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
+    </ItemGroup>
+</Project>

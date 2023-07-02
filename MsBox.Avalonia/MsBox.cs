@@ -1,6 +1,9 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using DialogHostAvalonia;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Windows;
@@ -20,6 +23,21 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
 
     public Task<T> ShowAsync()
     {
+        if (Application.Current != null && Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            return ShowWindowAsync();
+        }
+
+        if (Application.Current != null && Application.Current.ApplicationLifetime is ISingleViewApplicationLifetime lifetime)
+        {
+            return ShowAsPopupAsync(lifetime.MainView as ContentControl);
+        }
+        
+        throw new NotSupportedException("ApplicationLifetime is not supported");
+    }
+
+    public Task<T> ShowWindowAsync()
+    {
         _viewModel.SetFullApi(_view);
         var window = new MsBoxWindow();
         window.Content = _view;
@@ -37,7 +55,7 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         return tcs.Task;
     }
 
-    public Task<T> ShowDialogAsync(Window owner)
+    public Task<T> ShowWindowDialogAsync(Window owner)
     {
         _viewModel.SetFullApi(_view);
         var window = new MsBoxWindow();
@@ -58,7 +76,14 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
 
     public Task<T> ShowAsPopupAsync(ContentControl owner)
     {
-        owner.Styles.Add(new DialogHostStyles());
+        DialogHostStyles style = null;
+        if (!owner.Styles.OfType<DialogHostStyles>().Any())
+        {
+             style = new DialogHostStyles();
+            owner.Styles.Add(style);
+        }
+
+     
         var parentContent = owner.Content;
         var dh = new DialogHost();
         dh.Identifier = "MsBoxIdentifier" + Guid.NewGuid();
@@ -75,6 +100,10 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
             owner.Content = null;
             dh.Content = null;
             owner.Content = parentContent;
+            if (style != null)
+            {
+                owner.Styles.Remove(style);
+            }
         });
         DialogHost.Show(_view, dh.Identifier);
         return tcs.Task;
