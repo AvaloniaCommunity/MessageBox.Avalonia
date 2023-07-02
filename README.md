@@ -1,7 +1,7 @@
 # MessageBox.Avalonia
 
 Messagebox for AvaloniaUI
-
+Now support all platforms as Xplat template
 
 ![](Images/Untitled1.jpg)
 
@@ -9,7 +9,7 @@ Messagebox for AvaloniaUI
 To start you should install MessageBox.Avalonia NuGet package 
 >   dotnet add package MessageBox.Avalonia 
 
-[![nuget](https://img.shields.io/badge/1.1-nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/)
+[![nuget](https://img.shields.io/badge/nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
 
 ![nuget](https://img.shields.io/nuget/dt/MessageBox.Avalonia?color=blue&label=downloads)
@@ -21,9 +21,11 @@ The easiest way to get started is this:
 ![](Images/standart-messagebox.png)
 
 ```cs 
-var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-  .GetMessageBoxStandardWindow("title", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed...");
-messageBoxStandardWindow.Show();
+  var box = MessageBoxManager
+            .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
+                ButtonEnum.YesNo);
+
+        var result = await box.ShowAsync();
 ```
 
 Other examples: ![wiki](https://github.com/AvaloniaCommunity/MessageBox.Avalonia/wiki/Examples)
