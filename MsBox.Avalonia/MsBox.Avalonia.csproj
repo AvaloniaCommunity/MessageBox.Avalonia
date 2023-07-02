@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageVersion>3.0.0-rc2</PackageVersion>
+        <PackageVersion>3.0.1-rc2</PackageVersion>
         <Title>MessageBox.Avalonia</Title>
         <Authors>Lary</Authors>
         <Description>Messagebox for AvaloniaUI</Description>
@@ -17,6 +17,7 @@
         <PublicSign>true</PublicSign>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
         <PackageId>MessageBox.Avalonia</PackageId>
+        <PackageIcon>icon.jpg</PackageIcon>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
@@ -31,6 +32,12 @@
         <PackageReference Include="Avalonia" Version="11.0.0-rc2.2" />
         <PackageReference Include="DialogHost.Avalonia" Version="0.7.5" />
         <PackageReference Include="Markdown.Avalonia.Tight" Version="11.0.0-d1" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="icon.jpg">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>
