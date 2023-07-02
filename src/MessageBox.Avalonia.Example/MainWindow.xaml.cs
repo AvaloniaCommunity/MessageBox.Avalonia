@@ -14,6 +14,7 @@ public class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        
     }
 
     public async void MsBoxStandard_Click(object sender, RoutedEventArgs e)

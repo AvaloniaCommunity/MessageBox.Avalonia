@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBox.Avalonia", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBox.Avalonia.Example", "src\MessageBox.Avalonia.Example\MessageBox.Avalonia.Example.csproj", "{7E6304F1-5CFD-49BD-9FB3-108CC542F00F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsBox.Avalonia", "MsBox.Avalonia\MsBox.Avalonia.csproj", "{CF50D8C1-A6E7-4844-970A-2820860BF65C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7E6304F1-5CFD-49BD-9FB3-108CC542F00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E6304F1-5CFD-49BD-9FB3-108CC542F00F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E6304F1-5CFD-49BD-9FB3-108CC542F00F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF50D8C1-A6E7-4844-970A-2820860BF65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF50D8C1-A6E7-4844-970A-2820860BF65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF50D8C1-A6E7-4844-970A-2820860BF65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF50D8C1-A6E7-4844-970A-2820860BF65C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

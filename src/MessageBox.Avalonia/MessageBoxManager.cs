@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using MessageBox.Avalonia.BaseWindows.Base;
 using MessageBox.Avalonia.DTO;
@@ -53,6 +54,7 @@ public static class MessageBoxManager
     /// </summary>
     /// <param name="params">Params for hyperlink window</param>
     /// <returns></returns>
+    [Obsolete("will be removed in next major version")]
     public static IMsBoxWindow<ButtonResult> GetMessageBoxHyperlinkWindow(MessageBoxHyperlinkParams @params)
     {
         var window = new HyperlinkWindow();
@@ -90,6 +92,7 @@ public static class MessageBoxManager
     /// </summary>
     /// <param name="params">Params for input window</param>
     /// <returns></returns>
+    [Obsolete("will be removed in next major version")]
     public static IMsBoxWindow<MessageWindowResultDTO> GetMessageBoxInputWindow(MessageBoxInputParams @params)
     {
         var window = new InputWindow();
