@@ -21,21 +21,34 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         _viewModel = viewModel;
     }
 
+    /// <summary>
+    /// Show messagebox depending on the type of application
+    /// If application is SingleViewApplicationLifetime (Mobile or Browses) then show messagebox as popup
+    /// If application is ClassicDesktopStyleApplicationLifetime (Desktop) then show messagebox as window
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="NotSupportedException"></exception>
     public Task<T> ShowAsync()
     {
-        if (Application.Current != null && Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        if (Application.Current != null &&
+            Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             return ShowWindowAsync();
         }
 
-        if (Application.Current != null && Application.Current.ApplicationLifetime is ISingleViewApplicationLifetime lifetime)
+        if (Application.Current != null &&
+            Application.Current.ApplicationLifetime is ISingleViewApplicationLifetime lifetime)
         {
             return ShowAsPopupAsync(lifetime.MainView as ContentControl);
         }
-        
+
         throw new NotSupportedException("ApplicationLifetime is not supported");
     }
 
+    /// <summary>
+    ///  Show messagebox as window
+    /// </summary>
+    /// <returns></returns>
     public Task<T> ShowWindowAsync()
     {
         _viewModel.SetFullApi(_view);
@@ -55,6 +68,11 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         return tcs.Task;
     }
 
+    /// <summary>
+    ///  Show messagebox as window with owner
+    /// </summary>
+    /// <param name="owner">Window owner </param>
+    /// <returns></returns>
     public Task<T> ShowWindowDialogAsync(Window owner)
     {
         _viewModel.SetFullApi(_view);
@@ -74,16 +92,21 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         return tcs.Task;
     }
 
+    /// <summary>
+    ///  Show messagebox as popup
+    /// </summary>
+    /// <param name="owner"></param>
+    /// <returns></returns>
     public Task<T> ShowAsPopupAsync(ContentControl owner)
     {
         DialogHostStyles style = null;
         if (!owner.Styles.OfType<DialogHostStyles>().Any())
         {
-             style = new DialogHostStyles();
+            style = new DialogHostStyles();
             owner.Styles.Add(style);
         }
 
-     
+
         var parentContent = owner.Content;
         var dh = new DialogHost();
         dh.Identifier = "MsBoxIdentifier" + Guid.NewGuid();
@@ -109,6 +132,11 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         return tcs.Task;
     }
 
+    /// <summary>
+    /// Show messagebox as popup with owner
+    /// </summary>
+    /// <param name="owner"></param>
+    /// <returns></returns>
     public Task<T> ShowAsPopupAsync(Window owner)
     {
         return ShowAsPopupAsync(owner as ContentControl);
