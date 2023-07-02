@@ -2,23 +2,36 @@ using Avalonia.Controls;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Enums;
 using MsBox.Avalonia.Base;
+using MsBox.Avalonia.Controls;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
+using MsBox.Avalonia.ViewModels;
 
 namespace MsBox.Avalonia;
 
 public class MessageBoxManager
 {
-    public static IMsBox<string> GetMessageBoxCustomWindow(MessageBoxCustomParams @params)
+    public static IMsBox<string> GetMessageBoxCustom(MessageBoxCustomParams @params)
     {
-        throw new System.NotImplementedException();
+        var msBoxCustomViewModel = new MsBoxCustomViewModel(@params);
+        var msBoxCustomView = new MsBoxCustomView
+        {
+            DataContext = msBoxCustomViewModel
+        };
+        return new MsBox<MsBoxCustomView, MsBoxCustomViewModel, string>(msBoxCustomView, msBoxCustomViewModel);
     }
 
-    public static IMsBox<ButtonResult> GetMessageBoxStandardWindow(MessageBoxStandardParams @params)
+    public static IMsBox<ButtonResult> GetMessageBoxStandard(MessageBoxStandardParams @params)
     {
-        throw new System.NotImplementedException();
+        var msBoxStandardViewModel = new MsBoxStandardViewModel(@params);
+        var msBoxStandardView = new MsBoxStandardView
+        {
+            DataContext = msBoxStandardViewModel
+        };
+        return new MsBox<MsBoxStandardView, MsBoxStandardViewModel, ButtonResult>(msBoxStandardView,
+            msBoxStandardViewModel);
     }
-    
+
     /// <summary>
     /// Create instance of standard messagebox window
     /// </summary>
@@ -32,10 +45,10 @@ public class MessageBoxManager
     /// <remarks>
     /// Recommended method for messadge box
     /// </remarks>
-    public static IMsBox<ButtonResult> GetMessageBoxStandardWindow(string title, string text,
+    public static IMsBox<ButtonResult> GetMessageBoxStandard(string title, string text,
         ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
         WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen) =>
-        GetMessageBoxStandardWindow(new MessageBoxStandardParams
+        GetMessageBoxStandard(new MessageBoxStandardParams
         {
             ContentTitle = title,
             ContentMessage = text,

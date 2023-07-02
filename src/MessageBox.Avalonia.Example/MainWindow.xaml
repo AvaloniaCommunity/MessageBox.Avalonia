@@ -16,12 +16,12 @@
     </Style>
   </Window.Styles>
   <StackPanel>
-    <Button Name="btnClick" Click="MsBoxStandard_Click" Content="Standard"/>
-    <Button Name="btnClick7" Click="MsBoxStandardConstrained_Click" Content="Constrain to screen"/>
-    <Button Name="btnClick2" Click="MsBoxCustom_Click" Content="Custom"/>
-    <Button Name="btnClick5" Click="MsBoxCustomImage_Click" Content="Custom With Image"/>
-    <Button Name="btnClick6" Click="MsBoxMarkdown_Click" Content="Markdown"/>
-    <Button Name="btnClick3" Click="MsBoxHyperlink_Click" Content="Hyperlink"/>
-    <Button Name="btnClick4" Click="MsBoxInput_Click" Content="Input"/>
+    <Button Name="Standard Show" Click="Standard_Show_OnClick" Content="Standard Show"/>
+    <Button Name="Standard Dialog" Click="Standard_Dialog_OnClick" Content="Standard Dialog"/>
+    <Button Name="Standard Popup" Click="Standard_Popup_OnClick" Content="Custom PopUp"/>
+    <Button Name="Custom Show" Click="Custom_Dialog_OnClick" Content="Custom Show"/>
+    <Button Name="Custom MarkDown" Click="Custom_MarkDown_OnClick" Content="Custom Markdown"/>
+    <Button Name="Custom Dialog" Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
+    <Button Name="Custom PopUp" Click="Custom_PopUp_OnClick" Content="Custom popup"/>
   </StackPanel>
 </Window>

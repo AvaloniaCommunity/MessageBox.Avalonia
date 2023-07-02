@@ -5,6 +5,7 @@ using Avalonia.Media.Imaging;
 using MessageBox.Avalonia.DTO;
 using MessageBox.Avalonia.Models;
 using System.Linq;
+using MsBox.Avalonia;
 using MessageBoxAvaloniaEnums = MessageBox.Avalonia.Enums;
 
 namespace MessageBox.Avalonia.Example;
@@ -13,14 +14,13 @@ public class MainWindow : Window
 {
     public MainWindow()
     {
-        InitializeComponent();
-        
+       
     }
 
-    public async void MsBoxStandard_Click(object sender, RoutedEventArgs e)
+    /*public async void MsBoxStandard_Click(object sender, RoutedEventArgs e)
     {
         /*var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-            .GetMessageBoxStandardWindow("title", " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.", MessageBoxAvaloniaEnums.ButtonEnum.Ok, MessageBoxAvaloniaEnums.Icon.Stopwatch)*/
+            .GetMessageBoxStandardWindow("title", " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.", MessageBoxAvaloniaEnums.ButtonEnum.Ok, MessageBoxAvaloniaEnums.Icon.Stopwatch)#1#
 
 
         int maxWidth = 500;
@@ -32,10 +32,10 @@ public class MainWindow : Window
         {
             maxWidth = (int) (screen.WorkingArea.Width / screen.PixelDensity - 100);
             maxHeight = (int) (screen.WorkingArea.Height / screen.PixelDensity - 50);
-        }*/
+        }#1#
 
 
-        var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
+        var messageBoxStandardWindow = MessageBoxManager
             .GetMessageBoxStandardWindow("Caption", "Are you sure you would like to delete appender_replace_page_1?", MessageBoxAvaloniaEnums.ButtonEnum.YesNo, MessageBoxAvaloniaEnums.Icon.None);
 
         await messageBoxStandardWindow.ShowDialog(this);
@@ -54,7 +54,7 @@ public class MainWindow : Window
             maxHeight = (int) (screen.WorkingArea.Height / screen.PixelDensity - 50);
         }
 
-        var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
+        var box = MessageBoxManager.GetMessageBoxStandard(
             new MessageBoxStandardParams
             {
                 ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok,
@@ -62,7 +62,7 @@ public class MainWindow : Window
                 //ContentHeader = header,
                 ContentMessage = "Informative note:\n\n" + 
                                  string.Concat(Enumerable.Repeat("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n", 50)),
-                Icon = MessageBoxAvaloniaEnums.Icon.Question,
+                Icon =  MsBox.Avalonia.Enums.Icon.Question,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 CanResize = false,
                 MaxWidth = maxWidth,
@@ -72,7 +72,7 @@ public class MainWindow : Window
                 Topmost = false
             });
 
-        await messageBoxStandardWindow.ShowDialog(this);
+        await box.ShowDialogAsync(this);
     }
 
     public async void MsBoxCustom_Click(object sender, RoutedEventArgs e)
@@ -180,10 +180,84 @@ public class MainWindow : Window
                 },
             });
         await messageBoxMarkdownWindow.ShowDialog(this);
+    }*/
+    
+    private async void Standard_Show_OnClick(object sender, RoutedEventArgs e)
+    {
+        var box = MessageBoxManager
+            .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?", MessageBoxAvaloniaEnums.ButtonEnum.YesNo);
+
+        var result = await box.ShowAsync();
+    }
+    private async void Standard_Dialog_OnClick(object sender, RoutedEventArgs e)
+    {
+        int maxWidth = 500;
+        int maxHeight = 800;
+        var box = MessageBoxManager.GetMessageBoxStandard(
+            new MessageBoxStandardParams
+            {
+                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok,
+                ContentTitle = "title",
+                //ContentHeader = header,
+                ContentMessage = "Informative note:\n\n" + 
+                                 string.Concat(Enumerable.Repeat("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n", 50)),
+                Icon =  MsBox.Avalonia.Enums.Icon.Question,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                CanResize = false,
+                MaxWidth = maxWidth,
+                MaxHeight = maxHeight,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ShowInCenter = true,
+                Topmost = false
+            });
+
+      var result = await box.ShowDialogAsync(this);
     }
 
-    private void InitializeComponent()
+  
+
+    private async void Standard_Popup_OnClick(object sender, RoutedEventArgs e)
     {
-        AvaloniaXamlLoader.Load(this);
+        int maxWidth = 500;
+        int maxHeight = 800;
+        var box = MessageBoxManager.GetMessageBoxStandard(
+            new MessageBoxStandardParams
+            {
+                ButtonDefinitions = MessageBoxAvaloniaEnums.ButtonEnum.Ok,
+                ContentTitle = "title",
+                //ContentHeader = header,
+                ContentMessage = "Informative note:\n\n" + 
+                                 string.Concat(Enumerable.Repeat("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n", 50)),
+                Icon =  MsBox.Avalonia.Enums.Icon.Question,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                CanResize = false,
+                MaxWidth = maxWidth,
+                MaxHeight = maxHeight,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ShowInCenter = true,
+                Topmost = false
+            });
+
+        var result = await box.ShowAsPopupAsync(this);
+    }
+
+    private void Custom_Dialog_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void Custom_Show_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void Custom_PopUp_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    private void Custom_MarkDown_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new System.NotImplementedException();
     }
 }

@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
+using MsBox.Avalonia.Base;
 
 namespace MsBox.Avalonia.Windows;
 
@@ -10,9 +11,6 @@ public partial class MsBoxWindow : Window
     public MsBoxWindow()
     {
         InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
         ShowInTaskbar = false;
         CanResize = false;
     }

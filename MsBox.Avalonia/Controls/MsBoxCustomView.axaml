@@ -5,32 +5,21 @@
              xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="MsBox.Avalonia.Controls.MsBoxStandardView" MinWidth="{Binding MinWidth}"
-             x:DataType="viewModels:MsBoxStandardViewModel"
+             x:Class="MsBox.Avalonia.Controls.MsBoxCustomView" MinWidth="{Binding MinWidth}"
+             x:DataType="viewModels:MsBoxCustomViewModel"
              MaxWidth="{Binding MaxWidth}"
              Width="{Binding Width}"
              MinHeight="{Binding MinHeight}"
              MaxHeight="{Binding MaxHeight}"
              Height="{Binding Height}"
-             FontFamily="{Binding FontFamily}"
-             Padding="15">
+             FontFamily="{Binding FontFamily}">
     <Design.DataContext>
-        <viewModels:MsBoxStandardViewModel />
+        <viewModels:MsBoxCustomViewModel />
     </Design.DataContext>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
-        <KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
-        <KeyBinding Gesture="Escape" Command="{Binding EscClickCommand}" />
     </UserControl.KeyBindings>
-
-
     <UserControl.Styles>
-        <Style Selector="Image">
-            <Setter Property="Margin" Value="0,0,15,0" />
-            <Setter Property="MaxHeight" Value="50" />
-            <Setter Property="MaxWidth" Value="50" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
         <Style Selector="TextBox">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
@@ -57,65 +46,71 @@
         </Style>
         <Style Selector="TextBox.header">
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Margin" Value="0,0,0,10" />
         </Style>
         <Style Selector="Button">
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="Margin" Value="15 0 0 0" />
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
-
     </UserControl.Styles>
-    <Grid Classes="MsBoxStandardContainer">
+    <Grid Classes="MsBoxCustomContainer">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="15" />
         </Grid.RowDefinitions>
         <!--Icon-->
-        <Image Grid.Row="0" Grid.Column="0"
+        <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
                IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="0" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*">
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="1" Classes="contentMessage" FontFamily="{Binding FontFamily}"
+            <TextBox Grid.Row="2" Classes="contentMessage" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
-            <avalonia:MarkdownScrollViewer Grid.Row="1"
+            <avalonia:MarkdownScrollViewer Grid.Row="2"
                                            Markdown="{Binding ContentMessage}"
                                            IsVisible="{Binding Markdown}" />
 
         </Grid>
         <!--Buttons-->
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
-                    HorizontalAlignment="Right">
-            <Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored"
-                    Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}"
-                    IsVisible="{Binding IsOkShowed}" />
-            <Button Classes="button yes" Name="YesButton" Content="Yes" Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}"
-                    IsVisible="{Binding IsYesShowed}" />
-            <Button Classes="button no" Content="No" Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}"
-                    IsVisible="{Binding IsNoShowed}" />
-            <Button Classes="button abort" Content="Abort" Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}"
-                    IsVisible="{Binding IsAbortShowed}" />
-            <Button Classes="button cancel" Content="Cancel" Command="{Binding ButtonClickCommand}"
-                    CommandParameter="{Binding $self.Content}"
-                    IsVisible="{Binding IsCancelShowed}" />
-        </StackPanel>
+        <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter"
+                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="3"
+                      Grid.Column="1" Grid.ColumnSpan="3"
+                      HorizontalAlignment="Right">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Name="Btn"
+                            HorizontalContentAlignment="Center"
+                            Classes.buttons="true"
+                            Classes.default="{Binding IsDefault}"
+                            Classes.cancel="{Binding IsCancel}"
+                            Command="{Binding ((viewModels:MsBoxCustomViewModel)DataContext).ButtonClickCommand, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
+                            CommandParameter="{Binding #Btn.Content}"
+                            Content="{Binding Name}"
+                            Margin="0 0 5 0"
+                            IsDefault="{Binding IsDefault}"
+                            IsCancel="{Binding IsCancel}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>

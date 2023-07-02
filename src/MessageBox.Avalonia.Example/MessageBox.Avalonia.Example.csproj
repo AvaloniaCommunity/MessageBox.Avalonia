@@ -18,7 +18,7 @@
     <PackageReference Include="Avalonia.Desktop" Version="11.0.0-rc2.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MessageBox.Avalonia\MessageBox.Avalonia.csproj" />
+    <ProjectReference Include="..\..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="icon-rider.png">

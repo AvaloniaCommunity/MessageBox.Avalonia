@@ -4,30 +4,30 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using MsBox.Avalonia.Base;
-using MsBox.Avalonia.Enums;
 
 namespace MsBox.Avalonia.Controls;
 
-public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, ISetCloseAction
+public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseAction
 {
-    private ButtonResult _buttonResult;
+    private string _buttonResult;
     private Action _closeAction;
-    public MsBoxStandardView()
+    public MsBoxCustomView()
     {
         InitializeComponent();
     }
 
+    
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
     }
 
-    public void SetButtonResult(ButtonResult bdName)
+    public void SetButtonResult(string bdName)
     {
         _buttonResult = bdName;
     }
 
-    public ButtonResult GetButtonResult()
+    public string GetButtonResult()
     {
         return _buttonResult;
     }
@@ -44,6 +44,6 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
 
     public void SetCloseAction(Action closeAction)
     {
-      _closeAction = closeAction;
+        _closeAction = closeAction;
     }
 }
