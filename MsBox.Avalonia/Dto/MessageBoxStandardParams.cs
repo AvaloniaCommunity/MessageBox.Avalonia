@@ -1,7 +1,6 @@
-using MessageBox.Avalonia.Enums;
 using MsBox.Avalonia.Enums;
 
-namespace MessageBox.Avalonia.DTO;
+namespace MsBox.Avalonia.Dto;
 
 public class MessageBoxStandardParams : AbstractMessageBoxParams
 {

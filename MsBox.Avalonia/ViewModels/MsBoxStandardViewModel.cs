@@ -1,8 +1,7 @@
 using System;
 using Avalonia.Threading;
-using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Enums;
 using MsBox.Avalonia.Base;
+using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.ViewModels.Commands;
 

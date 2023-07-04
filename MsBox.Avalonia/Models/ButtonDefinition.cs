@@ -1,4 +1,4 @@
-namespace MessageBox.Avalonia.Models;
+namespace MsBox.Avalonia.Models;
 
 public class ButtonDefinition
 {

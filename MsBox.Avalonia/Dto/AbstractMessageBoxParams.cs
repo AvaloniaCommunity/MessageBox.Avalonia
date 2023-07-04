@@ -1,7 +1,7 @@
 using Avalonia.Controls;
 using Avalonia.Media;
 
-namespace MessageBox.Avalonia.DTO;
+namespace MsBox.Avalonia.Dto;
 
 public abstract class AbstractMessageBoxParams
 {
