@@ -7,7 +7,7 @@ using MsBox.Avalonia.ViewModels;
 
 namespace MsBox.Avalonia;
 
-public class MessageBoxManager
+public static class MessageBoxManager
 {
     public static IMsBox<string> GetMessageBoxCustom(MessageBoxCustomParams @params)
     {

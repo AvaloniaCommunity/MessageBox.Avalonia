@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Avalonia;
+
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+
 using MsBox.Avalonia.Base;
 
 namespace MsBox.Avalonia.Controls;
@@ -14,12 +14,6 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     public MsBoxCustomView()
     {
         InitializeComponent();
-    }
-
-    
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
     }
 
     public void SetButtonResult(string bdName)
