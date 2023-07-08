@@ -1,8 +1,8 @@
 using System;
 using System.Threading.Tasks;
-using Avalonia;
+
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Enums;
 
@@ -15,11 +15,6 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
     public MsBoxStandardView()
     {
         InitializeComponent();
-    }
-
-    private void InitializeComponent()
-    {
-        AvaloniaXamlLoader.Load(this);
     }
 
     public void SetButtonResult(ButtonResult bdName)

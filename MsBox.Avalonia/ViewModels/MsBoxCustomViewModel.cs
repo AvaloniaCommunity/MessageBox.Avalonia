@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using MessageBox.Avalonia.Models;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Models;
 using MsBox.Avalonia.ViewModels.Commands;
 
 namespace MsBox.Avalonia.ViewModels;

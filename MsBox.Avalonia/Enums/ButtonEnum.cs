@@ -1,4 +1,4 @@
-namespace MessageBox.Avalonia.Enums;
+namespace MsBox.Avalonia.Enums;
 
 /// <summary>
 /// Buttons in message box window

@@ -103,7 +103,7 @@
                             Classes.buttons="true"
                             Classes.default="{Binding IsDefault}"
                             Classes.cancel="{Binding IsCancel}"
-                            Command="{Binding ((viewModels:MsBoxCustomViewModel)DataContext).ButtonClickCommand, RelativeSource={RelativeSource AncestorType=Window, AncestorLevel=1}}"
+                            Command="{Binding ((viewModels:MsBoxCustomViewModel)DataContext).ButtonClickCommand, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"
                             Content="{Binding Name}"
                             Margin="0 0 5 0"

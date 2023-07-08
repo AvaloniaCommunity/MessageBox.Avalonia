@@ -24,12 +24,9 @@
             <SubType>Designer</SubType>
         </AvaloniaResource>
         <AvaloniaResource Include="Assets\*" />
-        <AvaloniaResource Update="Views\MsBoxInputWindow.xaml">
-            <SubType>Designer</SubType>
-        </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.0-rc2.2" />
+        <PackageReference Include="Avalonia" Version="11.0.0" />
         <PackageReference Include="DialogHost.Avalonia" Version="0.7.5" />
         <PackageReference Include="Markdown.Avalonia.Tight" Version="11.0.0-d1" />
     </ItemGroup>

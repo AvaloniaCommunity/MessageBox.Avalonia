@@ -1,6 +1,4 @@
 using Avalonia.Controls;
-using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Enums;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Controls;
 using MsBox.Avalonia.Dto;
@@ -9,7 +7,7 @@ using MsBox.Avalonia.ViewModels;
 
 namespace MsBox.Avalonia;
 
-public class MessageBoxManager
+public static class MessageBoxManager
 {
     public static IMsBox<string> GetMessageBoxCustom(MessageBoxCustomParams @params)
     {
