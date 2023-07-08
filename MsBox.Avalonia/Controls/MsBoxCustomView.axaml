@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
+             xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="MsBox.Avalonia.Controls.MsBoxCustomView" MinWidth="{Binding MinWidth}"
              x:DataType="viewModels:MsBoxCustomViewModel"
@@ -52,6 +53,14 @@
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
+        <Style Selector="TextBlock.hyperlink">
+            <Setter Property="Foreground" Value="#3483eb" />
+        </Style>
+        <Style Selector="TextBlock.hyperlink:pointerover">
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="TextDecorations" Value="Underline" />
+            <Setter Property="Foreground" Value="#3496eb" />
+        </Style>
     </UserControl.Styles>
     <Grid Classes="MsBoxCustomContainer">
         <Grid.ColumnDefinitions>
@@ -72,7 +81,7 @@
         <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
                IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*">
+        <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*,Auto">
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
@@ -82,6 +91,12 @@
             <avalonia:MarkdownScrollViewer Grid.Row="2"
                                            Markdown="{Binding ContentMessage}"
                                            IsVisible="{Binding Markdown}" />
+
+            <!--HyperLink-->
+            <TextBlock Grid.Row="3" IsVisible="{Binding IsHyperLinkVisible }" Name="HyperLink" Classes="hyperlink"
+                       Text="{Binding HyperLinkText}"
+                       attachadProperty:HyperLinkCommand.Command="{Binding HyperLinkCommand}">
+            </TextBlock>
 
         </Grid>
         <!--Buttons-->

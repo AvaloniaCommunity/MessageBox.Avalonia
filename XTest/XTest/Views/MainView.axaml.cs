@@ -1,9 +1,9 @@
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using MessageBox.Avalonia.DTO;
-using MessageBox.Avalonia.Enums;
 using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Enums;
 
 namespace XTest.Views;
 
