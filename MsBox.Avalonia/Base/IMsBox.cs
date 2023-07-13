@@ -10,4 +10,5 @@ public interface IMsBox<T>
      Task<T> ShowWindowDialogAsync(Window owner);
      Task<T> ShowAsPopupAsync(ContentControl owner);
      Task<T> ShowAsPopupAsync(Window owner);
+     string InputValue { get; }
 }

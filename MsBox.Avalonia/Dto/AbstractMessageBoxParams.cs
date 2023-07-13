@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Media;
+using System;
 
 namespace MsBox.Avalonia.Dto;
 
@@ -97,4 +98,39 @@ public abstract class AbstractMessageBoxParams
     /// Window under all windows
     /// </summary>
     public bool Topmost { get; set; } = false;
+
+    /// <summary>
+    /// Hyperlink
+    /// </summary>
+    public HyperLinkParams HyperLinkParams { get; set; }
+
+    /// <summary>
+    /// Input
+    /// </summary>
+    public InputParams InputParams { get; set; }
+}
+
+public class HyperLinkParams
+{
+    /// <summary>
+    ///  Hyperlink text
+    /// </summary>
+    public string Text { get; set; }
+
+    /// <summary>
+    /// Hyperlink callback
+    /// </summary>
+    public Action Action { get; set; }
+}
+
+public class InputParams
+{
+    /// <summary>
+    /// Input label
+    /// </summary>
+    public string Label { get; set; }
+    /// <summary>
+    ///  Input default text
+    /// </summary>
+    public string DefaultValue { get; set; } = "";
 }

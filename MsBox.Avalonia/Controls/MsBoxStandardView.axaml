@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
+             xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             d:DataContext="{x:Static viewModels:DesignDataContexts.StandardInputViewModel}"
              x:Class="MsBox.Avalonia.Controls.MsBoxStandardView" MinWidth="{Binding MinWidth}"
              x:DataType="viewModels:MsBoxStandardViewModel"
              MaxWidth="{Binding MaxWidth}"
@@ -14,9 +16,6 @@
              Height="{Binding Height}"
              FontFamily="{Binding FontFamily}"
              Padding="15">
-    <Design.DataContext>
-        <viewModels:MsBoxStandardViewModel />
-    </Design.DataContext>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
         <KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
@@ -25,33 +24,33 @@
 
 
     <UserControl.Styles>
-        <Style Selector="Image">
-            <Setter Property="Margin" Value="0,0,15,0" />
-            <Setter Property="MaxHeight" Value="50" />
-            <Setter Property="MaxWidth" Value="50" />
-            <Setter Property="VerticalAlignment" Value="Top" />
+      <Style Selector="Image">
+          <Setter Property="Margin" Value="0,0,15,0" />
+          <Setter Property="MaxHeight" Value="50" />
+          <Setter Property="MaxWidth" Value="50" />
+          <Setter Property="VerticalAlignment" Value="Top" />
+      </Style>
+      <Style Selector="TextBox.styled">
+          <Setter Property="BorderThickness" Value="0" />
+          <Setter Property="Background" Value="Transparent" />
+          <Setter Property="TextWrapping" Value="Wrap" />
+          <Setter Property="AcceptsReturn" Value="True" />
+          <Setter Property="IsReadOnly" Value="True" />
+          <Setter Property="CaretBrush" Value="Transparent" />
+          <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+          <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+      </Style>
+      <Style Selector="TextBox.styled:pointerover /template/ Border#border">
+            <Setter Property="Background" Value="Transparent" />
         </Style>
-        <Style Selector="TextBox">
+        <Style Selector="TextBox.styled:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="TextBox.styled:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="TextWrapping" Value="Wrap" />
-            <Setter Property="AcceptsReturn" Value="True" />
-            <Setter Property="IsReadOnly" Value="True" />
-            <Setter Property="CaretBrush" Value="Transparent" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
-        <Style Selector="TextBox:pointerover /template/ Border#border">
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style Selector="TextBox:focus /template/ Border#border">
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Background" Value="Transparent" />
-        </Style>
-        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+        <Style Selector="TextBox.styled:focus /template/ Border#PART_BorderElement">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
         </Style>
@@ -67,7 +66,14 @@
             <Setter Property="MinHeight" Value="24" />
             <Setter Property="MinWidth" Value="75" />
         </Style>
-
+        <Style Selector="TextBlock.hyperlink">
+          <Setter Property="Foreground" Value="#3483eb" />
+        </Style>
+        <Style Selector="TextBlock.hyperlink:pointerover">
+          <Setter Property="Cursor" Value="Hand" />
+          <Setter Property="TextDecorations" Value="Underline" />
+          <Setter Property="Foreground" Value="#3496eb" />
+        </Style>
     </UserControl.Styles>
     <Grid Classes="MsBoxStandardContainer">
         <Grid.ColumnDefinitions>
@@ -78,6 +84,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--Icon-->
         <Image Grid.Row="0" Grid.Column="0"
@@ -87,20 +95,34 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+            <TextBox Grid.Row="0" Classes="header styled" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="1" Classes="contentMessage" FontFamily="{Binding FontFamily}"
+            <TextBox Grid.Row="1" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
             <avalonia:MarkdownScrollViewer Grid.Row="1"
                                            Markdown="{Binding ContentMessage}"
                                            IsVisible="{Binding Markdown}" />
-
+            <!--HyperLink-->
+            <TextBlock Grid.Row="3" IsVisible="{Binding IsHyperLinkVisible }" Name="HyperLink" Classes="hyperlink"
+                       Text="{Binding HyperLinkText}"
+                       attachadProperty:HyperLinkCommand.Command="{Binding HyperLinkCommand}" Margin="0,0,0,15">
+          </TextBlock>
         </Grid>
-        <!--Buttons-->
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+      <!--Input-->
+      <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
+        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" />
+      </Grid>
+      <!--Buttons-->
+      <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                     HorizontalAlignment="Right">
             <Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored"
                     Command="{Binding ButtonClickCommand}"

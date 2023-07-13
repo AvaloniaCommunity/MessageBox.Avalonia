@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Avalonia.Media.Imaging;
 using MsBox.Avalonia.Models;
 using MsBox.Avalonia.Enums;
@@ -25,22 +24,4 @@ public class MessageBoxCustomParams : AbstractMessageBoxParams
     /// Buttons
     /// </summary>
     public IEnumerable<ButtonDefinition> ButtonDefinitions { get; set; }
-    
-    /// <summary>
-    /// Hyperlink
-    /// </summary>
-    public HyperLinkParams HyperLinkParams { get; set; }
-}
-
-public class HyperLinkParams
-{
-    /// <summary>
-    ///  Hyperlink text
-    /// </summary>
-    public string Text { get; set; }
-    
-    /// <summary>
-    /// Hyperlink callback
-    /// </summary>
-    public Action Action { get; set; }
 }

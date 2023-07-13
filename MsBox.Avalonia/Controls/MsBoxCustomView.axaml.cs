@@ -4,7 +4,6 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using MsBox.Avalonia.AttachadProperty;
 using MsBox.Avalonia.Base;
-
 namespace MsBox.Avalonia.Controls;
 
 public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseAction
