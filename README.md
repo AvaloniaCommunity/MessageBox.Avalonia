@@ -29,6 +29,8 @@ The easiest way to get started is this:
 
 Other examples: ![wiki](https://github.com/AvaloniaCommunity/MessageBox.Avalonia/wiki/Examples)
 
+Support: ![telegram](https://t.me/Avalonia)
+
 
 ---
 
