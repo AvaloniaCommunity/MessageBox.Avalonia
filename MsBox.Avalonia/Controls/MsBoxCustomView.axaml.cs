@@ -2,8 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 using MsBox.Avalonia.AttachadProperty;
 using MsBox.Avalonia.Base;
+using MsBox.Avalonia.ViewModels;
 
 namespace MsBox.Avalonia.Controls;
 
@@ -18,6 +20,8 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     }
 
 
+    
+    
     public void SetButtonResult(string bdName)
     {
         _buttonResult = bdName;
@@ -30,12 +34,20 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
 
     public Task Copy()
     {
-        throw new System.NotImplementedException();
+        var clipboard = TopLevel.GetTopLevel(this).Clipboard;
+        var vm = this.DataContext as MsBoxCustomViewModel;
+        var text = vm.ContentMessage;
+        return clipboard?.SetTextAsync(text);
     }
 
     public void Close()
     {
         _closeAction?.Invoke();
+    }
+
+    public void CloseWindow(object sender, WindowClosingEventArgs e)
+    {
+        ((IClose)this).Close();
     }
 
     public void SetCloseAction(Action closeAction)
