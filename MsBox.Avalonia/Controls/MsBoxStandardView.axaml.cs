@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 
 using Avalonia.Controls;
-
+using Avalonia.Interactivity;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Enums;
 
@@ -10,7 +10,7 @@ namespace MsBox.Avalonia.Controls;
 
 public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, ISetCloseAction
 {
-    private ButtonResult _buttonResult;
+    private ButtonResult _buttonResult = ButtonResult.None;
     private Action _closeAction;
 
     public MsBoxStandardView()
@@ -36,6 +36,11 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
     public void Close()
     {
         _closeAction?.Invoke();
+    }
+
+    public void CloseWindow(object sender, WindowClosingEventArgs e)
+    {
+        ((IClose)this).Close();
     }
 
     public void SetCloseAction(Action closeAction)
