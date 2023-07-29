@@ -12,6 +12,7 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
 {
     private ButtonResult _buttonResult = ButtonResult.None;
     private Action _closeAction;
+
     public MsBoxStandardView()
     {
         InitializeComponent();

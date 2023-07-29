@@ -6,6 +6,7 @@
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
              xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             d:DataContext="{x:Static viewModels:DesignDataContexts.CustomHyperlinkInputViewModel}"
              x:Class="MsBox.Avalonia.Controls.MsBoxCustomView" MinWidth="{Binding MinWidth}"
              x:DataType="viewModels:MsBoxCustomViewModel"
              MaxWidth="{Binding MaxWidth}"
@@ -14,14 +15,11 @@
              MaxHeight="{Binding MaxHeight}"
              Height="{Binding Height}"
              FontFamily="{Binding FontFamily}">
-    <Design.DataContext>
-        <viewModels:MsBoxCustomViewModel />
-    </Design.DataContext>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </UserControl.KeyBindings>
     <UserControl.Styles>
-        <Style Selector="TextBox">
+        <Style Selector="TextBox.styled">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="TextWrapping" Value="Wrap" />
@@ -31,17 +29,17 @@
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
-        <Style Selector="TextBox:pointerover /template/ Border#border">
+        <Style Selector="TextBox.styled:pointerover /template/ Border#border">
             <Setter Property="Background" Value="Transparent" />
         </Style>
-        <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
+        <Style Selector="TextBox.styled:pointerover /template/ Border#PART_BorderElement">
             <Setter Property="Background" Value="Transparent" />
         </Style>
-        <Style Selector="TextBox:focus /template/ Border#border">
+        <Style Selector="TextBox.styled:focus /template/ Border#border">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
         </Style>
-        <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+        <Style Selector="TextBox.styled:focus /template/ Border#PART_BorderElement">
             <Setter Property="BorderThickness" Value="0" />
             <Setter Property="Background" Value="Transparent" />
         </Style>
@@ -75,6 +73,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="15" />
         </Grid.RowDefinitions>
         <!--Icon-->
@@ -83,10 +82,10 @@
                Source="{Binding ImagePath}" />
         <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*,Auto">
             <!--Bold text-->
-            <TextBox Grid.Row="0" Classes="header" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
+            <TextBox Grid.Row="0" Classes="header styled" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="2" Classes="contentMessage" FontFamily="{Binding FontFamily}"
+            <TextBox Grid.Row="2" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
             <avalonia:MarkdownScrollViewer Grid.Row="2"
                                            Markdown="{Binding ContentMessage}"
@@ -99,9 +98,18 @@
             </TextBlock>
 
         </Grid>
+        <!--Input-->
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
+          <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" />
+        </Grid>
         <!--Buttons-->
         <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter"
-                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="3"
+                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="4"
                       Grid.Column="1" Grid.ColumnSpan="3"
                       HorizontalAlignment="Right">
             <ItemsControl.ItemsPanel>

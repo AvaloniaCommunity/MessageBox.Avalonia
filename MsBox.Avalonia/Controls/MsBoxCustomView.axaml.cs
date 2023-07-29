@@ -17,10 +17,6 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     public MsBoxCustomView()
     {
         InitializeComponent();
-    }
-
-
-    
     
     public void SetButtonResult(string bdName)
     {
@@ -54,5 +50,4 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     {
         _closeAction = closeAction;
     }
-    
 }

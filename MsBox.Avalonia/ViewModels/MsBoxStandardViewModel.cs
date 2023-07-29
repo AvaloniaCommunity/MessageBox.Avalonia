@@ -36,6 +36,19 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
     public bool IsNoShowed { get; private set; }
     public bool IsAbortShowed { get; private set; }
     public bool IsCancelShowed { get; private set; }
+
+    #region Hyperlink properties
+    public override RelayCommand HyperLinkCommand { get; internal set; }
+    public override string HyperLinkText { get; internal set; }
+    public override bool IsHyperLinkVisible { get; internal set;  }
+    #endregion
+
+    #region Input properties
+    public override string InputLabel { get; internal set; }
+    public override string InputValue { get; set; }
+    public override bool IsInputVisible { get; internal set;  }
+    #endregion
+
     public RelayCommand ButtonClickCommand { get; }
     public RelayCommand EnterClickCommand { get; }
     public RelayCommand EscClickCommand { get; }

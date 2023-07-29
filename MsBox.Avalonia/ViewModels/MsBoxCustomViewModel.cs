@@ -15,14 +15,7 @@ public class MsBoxCustomViewModel : AbstractMsBoxViewModel, ISetFullApi<string>
     {
         ButtonDefinitions = @params.ButtonDefinitions;
         ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
-
-        if (@params.HyperLinkParams == null) return;
-        HyperLinkText = @params.HyperLinkParams.Text;
-        HyperLinkCommand = new RelayCommand(_ => @params.HyperLinkParams.Action());
-        IsHyperLinkVisible = true;
     }
-
-    public RelayCommand HyperLinkCommand { get; }
 
     public void SetFullApi(IFullApi<string> fullApi)
     {
@@ -31,10 +24,20 @@ public class MsBoxCustomViewModel : AbstractMsBoxViewModel, ISetFullApi<string>
     }
 
     public IEnumerable<ButtonDefinition> ButtonDefinitions { get; }
+
+    #region Hyperlink properties
+    public override RelayCommand HyperLinkCommand { get; internal set; }
+    public override string HyperLinkText { get; internal set; }
+    public override bool IsHyperLinkVisible { get; internal set; }
+    #endregion
+
+    #region Input properties
+    public override string InputLabel { get; internal set; }
+    public override string InputValue { get; set; }
+    public override bool IsInputVisible { get; internal set; }
+    #endregion
+
     public RelayCommand ButtonClickCommand { get; }
-    public string HyperLinkText { get; }
-    
-    public bool IsHyperLinkVisible { get; }
 
     public void ButtonClick(string parameter)
     {

@@ -9,10 +9,11 @@ using Avalonia.Platform;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
+using MsBox.Avalonia.ViewModels.Commands;
 
 namespace MsBox.Avalonia.ViewModels;
 
-public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
+public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
 {
     private  ICopy _copy;
     
@@ -51,6 +52,20 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
         LocationOfMyWindow = @params.WindowStartupLocation;
         SystemDecorations = @params.SystemDecorations;
         Topmost = @params.Topmost;
+
+        if (@params.HyperLinkParams != null)
+        {
+            HyperLinkText = @params.HyperLinkParams.Text;
+            HyperLinkCommand = new RelayCommand(_ => @params.HyperLinkParams.Action());
+            IsHyperLinkVisible = true;
+        }
+
+        if (@params.InputParams != null)
+        {
+            InputLabel = @params.InputParams.Label;
+            InputValue = @params.InputParams.DefaultValue;
+            IsInputVisible = true;
+        }
     }
 
     public bool CanResize { get; }
@@ -79,6 +94,22 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged
     public WindowStartupLocation LocationOfMyWindow { get; }
 
     public event PropertyChangedEventHandler PropertyChanged;
+
+    #region Hyperlink properties
+    public abstract RelayCommand HyperLinkCommand { get; internal set; }
+    public abstract string HyperLinkText { get; internal set; }
+
+    public abstract bool IsHyperLinkVisible { get; internal set; }
+
+    #endregion
+
+    #region Input properties
+
+    public abstract string InputLabel { get; internal set; }
+    public abstract string InputValue { get; set; }
+    public abstract bool IsInputVisible { get; internal set; }
+
+    #endregion
 
     public Task Copy()
     {

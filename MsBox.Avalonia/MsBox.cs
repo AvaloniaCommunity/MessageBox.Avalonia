@@ -10,10 +10,12 @@ using MsBox.Avalonia.Windows;
 
 namespace MsBox.Avalonia;
 
-public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISetCloseAction where VM : ISetFullApi<T>
+public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISetCloseAction where VM : ISetFullApi<T>, IInput
 {
     private readonly V _view;
     private readonly VM _viewModel;
+
+    public string InputValue { get { return _viewModel.InputValue; } }
 
     public MsBox(V view, VM viewModel)
     {
