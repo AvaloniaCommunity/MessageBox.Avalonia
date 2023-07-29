@@ -38,7 +38,7 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
         _closeAction?.Invoke();
     }
 
-    public void CloseWindow(object sender, WindowClosingEventArgs e)
+    public void CloseWindow(object sender, EventArgs eventArgs)
     {
         ((IClose)this).Close();
     }
