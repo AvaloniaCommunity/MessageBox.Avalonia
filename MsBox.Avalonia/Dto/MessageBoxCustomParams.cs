@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-
 using Avalonia.Media.Imaging;
-
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
 
