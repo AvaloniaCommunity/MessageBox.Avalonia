@@ -1,9 +1,8 @@
 using System;
 using System.Threading.Tasks;
+
 using Avalonia.Controls;
-using Avalonia.Input;
-using Avalonia.Interactivity;
-using MsBox.Avalonia.AttachadProperty;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.ViewModels;
 

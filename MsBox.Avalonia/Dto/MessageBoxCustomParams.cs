@@ -1,8 +1,9 @@
-using System;
 using System.Collections.Generic;
+
 using Avalonia.Media.Imaging;
-using MsBox.Avalonia.Models;
+
 using MsBox.Avalonia.Enums;
+using MsBox.Avalonia.Models;
 
 namespace MsBox.Avalonia.Dto;
 

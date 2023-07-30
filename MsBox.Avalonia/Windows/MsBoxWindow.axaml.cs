@@ -11,7 +11,7 @@ public partial class MsBoxWindow : Window
         ShowInTaskbar = false;
         CanResize = false;
     }
-    
+
     public async void CloseSafe()
     {
         await Dispatcher.UIThread.InvokeAsync(Close);
