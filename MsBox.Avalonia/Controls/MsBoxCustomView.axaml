@@ -5,6 +5,7 @@
              xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
              xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
+             xmlns:converters="clr-namespace:MsBox.Avalonia.Converters"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              d:DataContext="{x:Static viewModels:DesignDataContexts.CustomHyperlinkInputViewModel}"
              x:Class="MsBox.Avalonia.Controls.MsBoxCustomView" MinWidth="{Binding MinWidth}"
@@ -15,6 +16,9 @@
              MaxHeight="{Binding MaxHeight}"
              Height="{Binding Height}"
              FontFamily="{Binding FontFamily}">
+    <UserControl.Resources>
+        <converters:ConditionalGridLengthStarConverter x:Key="conditionalGridLengthStarConverter" />
+    </UserControl.Resources>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </UserControl.KeyBindings>
@@ -70,9 +74,9 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="15" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="{Binding Path=!IsInputMultiline, Converter={StaticResource conditionalGridLengthStarConverter}}" />
             <RowDefinition Height="15" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{Binding Path=IsInputMultiline, Converter={StaticResource conditionalGridLengthStarConverter}}" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="15" />
         </Grid.RowDefinitions>
@@ -105,7 +109,8 @@
             <ColumnDefinition Width="*" />
           </Grid.ColumnDefinitions>
           <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
-          <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" />
+          <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}"
+                   AcceptsReturn="{Binding IsInputMultiline}" />
         </Grid>
         <!--Buttons-->
         <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter"
