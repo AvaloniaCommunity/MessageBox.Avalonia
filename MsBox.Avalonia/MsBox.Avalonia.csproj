@@ -26,7 +26,7 @@
         <AvaloniaResource Include="Assets\*" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.2" />
+        <PackageReference Include="Avalonia" Version="11.0.3" />
         <PackageReference Include="DialogHost.Avalonia" Version="0.7.6" />
         <PackageReference Include="Markdown.Avalonia.Tight" Version="11.0.1" />
     </ItemGroup>
