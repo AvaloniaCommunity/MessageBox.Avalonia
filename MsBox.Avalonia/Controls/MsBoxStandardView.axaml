@@ -5,6 +5,7 @@
              xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
              xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
+             xmlns:converters="clr-namespace:MsBox.Avalonia.Converters"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              d:DataContext="{x:Static viewModels:DesignDataContexts.StandardInputViewModel}"
              x:Class="MsBox.Avalonia.Controls.MsBoxStandardView" MinWidth="{Binding MinWidth}"
@@ -16,13 +17,14 @@
              Height="{Binding Height}"
              FontFamily="{Binding FontFamily}"
              Padding="15">
+    <UserControl.Resources>
+        <converters:ConditionalGridLengthStarConverter x:Key="conditionalGridLengthStarConverter" />
+    </UserControl.Resources>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
         <KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
         <KeyBinding Gesture="Escape" Command="{Binding EscClickCommand}" />
     </UserControl.KeyBindings>
-
-
     <UserControl.Styles>
       <Style Selector="Image">
           <Setter Property="Margin" Value="0,0,15,0" />
@@ -81,10 +83,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="{Binding Path=!IsInputMultiline, Converter={StaticResource conditionalGridLengthStarConverter}}" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{Binding Path=IsInputMultiline, Converter={StaticResource conditionalGridLengthStarConverter}}" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--Icon-->
@@ -112,17 +114,18 @@
                        attachadProperty:HyperLinkCommand.Command="{Binding HyperLinkCommand}" Margin="0,0,0,15">
           </TextBlock>
         </Grid>
-      <!--Input-->
-      <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
-        <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" />
-      </Grid>
-      <!--Buttons-->
-      <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+        <!--Input-->
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
+          <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}"
+                   AcceptsReturn="{Binding IsInputMultiline}" />
+        </Grid>
+        <!--Buttons-->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                     HorizontalAlignment="Right">
             <Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored"
                     Command="{Binding ButtonClickCommand}"

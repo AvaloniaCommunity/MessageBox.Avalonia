@@ -34,6 +34,7 @@ public class MsBoxCustomViewModel : AbstractMsBoxViewModel, ISetFullApi<string>
     #region Input properties
     public override string InputLabel { get; internal set; }
     public override string InputValue { get; set; }
+    public override bool IsInputMultiline { get; internal set; }
     public override bool IsInputVisible { get; internal set; }
     #endregion
 

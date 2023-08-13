@@ -41,7 +41,7 @@ public static class MessageBoxManager
     /// <param name="style"></param>
     /// <returns></returns>
     /// <remarks>
-    /// Recommended method for messadge box
+    /// Recommended method for message box
     /// </remarks>
     public static IMsBox<ButtonResult> GetMessageBoxStandard(string title, string text,
         ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,

@@ -133,4 +133,8 @@ public class InputParams
     ///  Input default text
     /// </summary>
     public string DefaultValue { get; set; } = "";
+    /// <summary>
+    ///  Input multiline
+    /// </summary>
+    public bool Multiline { get; set; }
 }
