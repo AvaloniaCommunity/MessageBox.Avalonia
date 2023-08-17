@@ -2,9 +2,9 @@ using System;
 using System.Threading.Tasks;
 
 using Avalonia.Controls;
-using Avalonia.Interactivity;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Enums;
+using MsBox.Avalonia.ViewModels;
 
 namespace MsBox.Avalonia.Controls;
 
@@ -30,7 +30,13 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
 
     public Task Copy()
     {
-        throw new System.NotImplementedException();
+        var clipboard = TopLevel.GetTopLevel(this).Clipboard;
+        var text = ContentTextBox.SelectedText;
+        if (string.IsNullOrEmpty(text))
+        {
+            text = (DataContext as AbstractMsBoxViewModel)?.ContentMessage;
+        }
+        return clipboard?.SetTextAsync(text);
     }
 
     public void Close()
@@ -45,6 +51,6 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
 
     public void SetCloseAction(Action closeAction)
     {
-      _closeAction = closeAction;
+        _closeAction = closeAction;
     }
 }

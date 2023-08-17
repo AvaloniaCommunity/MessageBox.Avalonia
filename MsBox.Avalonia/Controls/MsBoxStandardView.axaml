@@ -103,7 +103,7 @@
             <TextBox Grid.Row="0" Classes="header styled" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
-            <TextBox Grid.Row="1" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
+            <TextBox Grid.Row="1" Name="ContentTextBox" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
             <avalonia:MarkdownScrollViewer Grid.Row="1"
                                            Markdown="{Binding ContentMessage}"
