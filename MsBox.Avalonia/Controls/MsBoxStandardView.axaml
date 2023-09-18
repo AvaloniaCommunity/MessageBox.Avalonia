@@ -22,8 +22,6 @@
     </UserControl.Resources>
     <UserControl.KeyBindings>
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
-        <KeyBinding Gesture="Enter" Command="{Binding EnterClickCommand}" />
-        <KeyBinding Gesture="Escape" Command="{Binding EscClickCommand}" />
     </UserControl.KeyBindings>
     <UserControl.Styles>
       <Style Selector="Image">
@@ -130,18 +128,23 @@
             <Button Classes="button ok" Name="OkButton" Content="OK" Tag="Colored"
                     Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
+                    IsDefault="True"
                     IsVisible="{Binding IsOkShowed}" />
             <Button Classes="button yes" Name="YesButton" Content="Yes"  Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
+                    IsDefault="True"
                     IsVisible="{Binding IsYesShowed}" />
             <Button Classes="button no" Content="No" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
+                    IsCancel="True"
                     IsVisible="{Binding IsNoShowed}" />
             <Button Classes="button abort" Content="Abort" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
+                    IsCancel="True"
                     IsVisible="{Binding IsAbortShowed}" />
             <Button Classes="button cancel" Content="Cancel" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
+                    IsCancel="True"
                     IsVisible="{Binding IsCancelShowed}" />
         </StackPanel>
     </Grid>
