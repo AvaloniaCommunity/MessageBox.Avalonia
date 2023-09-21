@@ -20,11 +20,11 @@ The easiest way to get started is this:
 ![](Images/standart-messagebox.png)
 
 ```cs 
-  var box = MessageBoxManager
-            .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
+var box = MessageBoxManager
+          .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
                 ButtonEnum.YesNo);
 
-        var result = await box.ShowAsync();
+var result = await box.ShowAsync();
 ```
 
 Other examples: ![wiki](https://github.com/AvaloniaCommunity/MessageBox.Avalonia/wiki/Examples)
