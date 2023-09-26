@@ -7,7 +7,6 @@
         x:Class="MsBox.Avalonia.Windows.MsBoxWindow"
         SizeToContent="WidthAndHeight"
         x:DataType="viewModels:AbstractMsBoxViewModel"
-        x:CompileBindings="True"
         SystemDecorations="{Binding SystemDecorations}"
         Topmost="{Binding Topmost}"
         Icon="{Binding WindowIconPath}"
