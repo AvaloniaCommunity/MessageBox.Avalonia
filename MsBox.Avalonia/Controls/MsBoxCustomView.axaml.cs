@@ -29,8 +29,11 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     public Task Copy()
     {
         var clipboard = TopLevel.GetTopLevel(this).Clipboard;
-        var vm = this.DataContext as MsBoxCustomViewModel;
-        var text = vm.ContentMessage;
+        var text = ContentTextBox.SelectedText;
+        if (string.IsNullOrEmpty(text))
+        {
+            text = (DataContext as AbstractMsBoxViewModel)?.ContentMessage;
+        }
         return clipboard?.SetTextAsync(text);
     }
 
