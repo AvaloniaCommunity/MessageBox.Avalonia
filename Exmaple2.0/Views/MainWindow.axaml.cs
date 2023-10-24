@@ -84,7 +84,7 @@ public partial class MainWindow : Window
                 ShowInCenter = true,
                 Topmost = false
             });
-
+        
         var result = await box.ShowAsPopupAsync(this);
     }
 
