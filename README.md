@@ -29,7 +29,9 @@ The easiest way to get started is this:
 You have a lot of options how to show your messagebox:
 
 `ShowAsync` -   Show messagebox depending on the type of application
+
       If application is SingleViewApplicationLifetime (Mobile or Browses) then show messagebox as popup
+      
       If application is ClassicDesktopStyleApplicationLifetime (Desktop) then show messagebox as window
 
 `ShowWindowAsync` - Show messagebox as window
