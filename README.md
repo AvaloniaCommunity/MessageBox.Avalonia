@@ -26,7 +26,8 @@ The easiest way to get started is this:
 
         var result = await box.ShowAsync();
 ```
-You have a lot of options how to show your messagebox
+You have a lot of options how to show your messagebox:
+
 `ShowAsync` -   Show messagebox depending on the type of application
       If application is SingleViewApplicationLifetime (Mobile or Browses) then show messagebox as popup
       If application is ClassicDesktopStyleApplicationLifetime (Desktop) then show messagebox as window
@@ -38,7 +39,8 @@ You have a lot of options how to show your messagebox
 `ShowAsPopupAsync` - Show messagebox as popup
 
 
-HyperLink with powerfull options
+HyperLink with powerfull options:
+
 ```cs
 MessageBoxManager.GetMessageBoxCustom(
             new MessageBoxCustomParams
