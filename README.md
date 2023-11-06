@@ -15,6 +15,10 @@ or download this repo.
 
 ---
 
+**Support creator:**  ![buy me a coffee](https://www.buymeacoffee.com/fishenkovl3)
+
+---
+
 The easiest way to get started is this:
 
 ![](Images/standart-messagebox.png)
