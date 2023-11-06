@@ -101,6 +101,9 @@ MessageBoxManager.GetMessageBoxCustom(
 
 Support: https://t.me/Avalonia
 
+---
+
+**Patrons:**
 
 ---
 
