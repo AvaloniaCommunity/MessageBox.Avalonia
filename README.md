@@ -11,11 +11,12 @@ To start you should install MessageBox.Avalonia NuGet package
 [![nuget](https://img.shields.io/badge/nuget-blue)](https://www.nuget.org/packages/MessageBox.Avalonia/)
 or download this repo.
 
-![nuget](https://img.shields.io/nuget/dt/MessageBox.Avalonia?color=blue&label=downloads)
+[![nuget](https://img.shields.io/nuget/dt/MessageBox.Avalonia?color=blue&label=downloads)](https://www.nuget.org/packages/MessageBox.Avalonia/)
 
 ---
 
-**Support creator:**  [buy me a coffee](https://www.buymeacoffee.com/fishenkovl3)
+***Support creator:***  
+<a href="https://www.buymeacoffee.com/fishenkovl3"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a pizza&emoji=🍕&slug=fishenkovl3&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
 
 ---
 
