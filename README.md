@@ -15,7 +15,7 @@ or download this repo.
 
 ---
 
-**Support creator:**  ![buy me a coffee](https://www.buymeacoffee.com/fishenkovl3)
+**Support creator:**  [buy me a coffee](https://www.buymeacoffee.com/fishenkovl3)
 
 ---
 
