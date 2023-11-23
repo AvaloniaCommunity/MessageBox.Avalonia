@@ -20,7 +20,7 @@
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Height" Value="100" />
+            <Setter Property="Height" Value="50" />
         </Style>
     </Window.Styles>
     <StackPanel>
@@ -31,6 +31,7 @@
         <Button Name="Custom_MarkDown"  Classes="View"  Click="Custom_MarkDown_OnClick" Content="Custom Markdown"/>
         <Button Name="Custom_Dialog"  Classes="View"  Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
         <Button Name="Custom_PopUp"  Classes="View" Click="Custom_PopUp_OnClick" Content="Custom popup"/>
+        <Button Name="Custom_Show_InputValue"  Classes="View" Click="Custom_Show_InputValue_OnClick" Content="Custom Show Input Value"/>
     </StackPanel>
 
 </Window>

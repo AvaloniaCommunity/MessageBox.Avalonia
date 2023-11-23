@@ -84,7 +84,7 @@ public partial class MainWindow : Window
                 ShowInCenter = true,
                 Topmost = false
             });
-        
+
         var result = await box.ShowAsPopupAsync(this);
     }
 
@@ -143,14 +143,64 @@ public partial class MainWindow : Window
         dialog.ShowWindowDialogAsync(this);
     }
 
-    private void Custom_Show_OnClick(object sender, RoutedEventArgs e)
+    private async void Custom_Show_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        ButtonDefinition[] buttons = new ButtonDefinition[2];
+        buttons[0] = new ButtonDefinition() { IsDefault = true, Name = "OK" };
+        buttons[1] = new ButtonDefinition() { IsCancel = true, Name = "Cancel" };
+        var CustomParam = new MessageBoxCustomParams
+        {
+            ContentTitle = "Custom Show",
+            ContentMessage = $"Custom Show",
+            Icon = MsBox.Avalonia.Enums.Icon.Info,
+            ButtonDefinitions = buttons,
+            ShowInCenter = true,
+            Topmost = true,
+            CanResize = true,
+        };
+
+        var box = MessageBoxManager.GetMessageBoxCustom(CustomParam);
+        var result = await box.ShowAsync();
+    }
+    private async void Custom_Show_InputValue_OnClick(object sender, RoutedEventArgs e)
+    {
+        var Param = new MessageBoxStandardParams
+        {
+            ContentTitle = "Input Value",
+            ContentMessage = $"Please enter a string",
+            InputParams = new InputParams() { Label = "Value:", DefaultValue = "AAA" },
+            Icon = MsBox.Avalonia.Enums.Icon.None,
+            ShowInCenter = true,
+        };
+
+        var box = MessageBoxManager.GetMessageBoxStandard(Param);
+        var result = await box.ShowAsPopupAsync(this);
+
+        if (result == ButtonResult.Ok)
+        {
+            var box2 = MessageBoxManager.GetMessageBoxStandard("Caption", $"Your input value is:{box.InputValue}", ButtonEnum.Ok);
+            await box2.ShowAsPopupAsync(this);
+        }
     }
 
-    private void Custom_PopUp_OnClick(object sender, RoutedEventArgs e)
+    private async void Custom_PopUp_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        ButtonDefinition[] buttons = new ButtonDefinition[2];
+        buttons[0] = new ButtonDefinition() { IsDefault = true, Name = "OK" };
+        buttons[1] = new ButtonDefinition() { IsCancel = true, Name = "Cancel" };
+        var CustomParam = new MessageBoxCustomParams
+        {
+            ContentTitle = "Custom PopUp",
+            ContentMessage = $"Custom PopUp",
+            Icon = MsBox.Avalonia.Enums.Icon.Info,
+            ButtonDefinitions = buttons,
+            ShowInCenter = true,
+            Topmost = true,
+            CanResize = true,
+        };
+
+        var box = MessageBoxManager.GetMessageBoxCustom(CustomParam);
+        var result = await box.ShowAsPopupAsync(this);
     }
 
     private void Custom_MarkDown_OnClick(object sender, RoutedEventArgs e)
