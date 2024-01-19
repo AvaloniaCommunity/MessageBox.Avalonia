@@ -12,20 +12,14 @@ public static class MessageBoxManager
     public static IMsBox<string> GetMessageBoxCustom(MessageBoxCustomParams @params)
     {
         var msBoxCustomViewModel = new MsBoxCustomViewModel(@params);
-        var msBoxCustomView = new MsBoxCustomView
-        {
-            DataContext = msBoxCustomViewModel
-        };
+        var msBoxCustomView = new MsBoxCustomView(msBoxCustomViewModel);
         return new MsBox<MsBoxCustomView, MsBoxCustomViewModel, string>(msBoxCustomView, msBoxCustomViewModel);
     }
 
     public static IMsBox<ButtonResult> GetMessageBoxStandard(MessageBoxStandardParams @params)
     {
         var msBoxStandardViewModel = new MsBoxStandardViewModel(@params);
-        var msBoxStandardView = new MsBoxStandardView
-        {
-            DataContext = msBoxStandardViewModel
-        };
+        var msBoxStandardView = new MsBoxStandardView(msBoxStandardViewModel);
         return new MsBox<MsBoxStandardView, MsBoxStandardViewModel, ButtonResult>(msBoxStandardView,
             msBoxStandardViewModel);
     }

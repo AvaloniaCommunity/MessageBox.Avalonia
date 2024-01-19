@@ -55,8 +55,8 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
     {
         _viewModel.SetFullApi(_view);
         var window = new MsBoxWindow();
-        window.Content = _view;
         window.DataContext = _viewModel;
+        window.Content = _view;
         window.Closed += _view.CloseWindow;
 
         var tcs = new TaskCompletionSource<T>();
@@ -80,8 +80,8 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
     {
         _viewModel.SetFullApi(_view);
         var window = new MsBoxWindow();
-        window.Content = _view;
         window.DataContext = _viewModel;
+        window.Content = _view;
         window.Closed += _view.CloseWindow;
         var tcs = new TaskCompletionSource<T>();
 

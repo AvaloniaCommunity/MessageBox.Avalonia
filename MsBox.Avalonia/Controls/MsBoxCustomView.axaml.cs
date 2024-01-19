@@ -11,8 +11,9 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     private string _buttonResult;
     private Action _closeAction;
 
-    public MsBoxCustomView()
+    public MsBoxCustomView(AbstractMsBoxViewModel viewModel)
     {
+        this.DataContext = viewModel;
         InitializeComponent();
     }
 
