@@ -52,6 +52,7 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
         LocationOfMyWindow = @params.WindowStartupLocation;
         SystemDecorations = @params.SystemDecorations;
         Topmost = @params.Topmost;
+        CloseOnClickAway = @params.CloseOnClickAway;
 
         if (@params.HyperLinkParams != null)
         {
@@ -95,6 +96,7 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
     public WindowStartupLocation LocationOfMyWindow { get; }
 
     public event PropertyChangedEventHandler PropertyChanged;
+    public bool CloseOnClickAway { get; private set; }
 
     #region Hyperlink properties
     public abstract RelayCommand HyperLinkCommand { get; internal set; }

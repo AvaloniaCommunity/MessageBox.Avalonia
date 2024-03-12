@@ -23,14 +23,17 @@
             <Setter Property="Height" Value="100" />
         </Style>
     </Window.Styles>
+  <ScrollViewer>
     <StackPanel>
-        <Button Name="Standard_Show"  Classes="View" Click="Standard_Show_OnClick" Content="Standard Show"/>
-        <Button Name="Standard_Dialog"  Classes="View" Click="Standard_Dialog_OnClick" Content="Standard Dialog"/>
-        <Button Name="Standard_Popup"  Classes="View" Click="Standard_Popup_OnClick" Content="Custom PopUp"/>
-        <Button Name="Custom_Show"  Classes="View" Click="Custom_Dialog_OnClick" Content="Custom Show"/>
-        <Button Name="Custom_MarkDown"  Classes="View"  Click="Custom_MarkDown_OnClick" Content="Custom Markdown"/>
-        <Button Name="Custom_Dialog"  Classes="View"  Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
-        <Button Name="Custom_PopUp"  Classes="View" Click="Custom_PopUp_OnClick" Content="Custom popup"/>
-    </StackPanel>
+      <Button Name="Standard_Show"  Classes="View" Click="Standard_Show_OnClick" Content="Standard Show"/>
+      <Button Name="Standard_Dialog"  Classes="View" Click="Standard_Dialog_OnClick" Content="Standard Dialog"/>
+      <Button Name="Standard_Popup"  Classes="View" Click="Standard_Popup_OnClick" Content="Custom PopUp"/>
+      <Button Name="Custom_Show"  Classes="View" Click="Custom_Dialog_OnClick" Content="Custom Show"/>
+      <Button Name="Custom_MarkDown"  Classes="View"  Click="Custom_MarkDown_OnClick" Content="Custom Markdown"/>
+      <Button Name="Custom_Dialog"  Classes="View"  Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
+      <Button Name="Custom_PopUp"  Classes="View" Click="Custom_PopUp_OnClick" Content="Custom popup"/>
 
+      <Button Name="Custom_CloseClickAway"  Classes="View" Click="Custom_CloseClickAway_OnClick" Content="Custom CloseClickAway"/>
+    </StackPanel>
+  </ScrollViewer>
 </Window>
