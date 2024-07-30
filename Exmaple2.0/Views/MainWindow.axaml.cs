@@ -58,6 +58,7 @@ public partial class MainWindow : Window
             });
 
         var result = await box.ShowWindowDialogAsync(this);
+        var i = 0;
     }
 
 
