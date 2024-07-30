@@ -108,6 +108,11 @@ public abstract class AbstractMessageBoxParams
     /// Input
     /// </summary>
     public InputParams InputParams { get; set; }
+
+    /// <summary>
+    /// param to set closeOnClickAway
+    /// </summary>
+    public bool CloseOnClickAway { get; set; } = false;
 }
 
 public class HyperLinkParams

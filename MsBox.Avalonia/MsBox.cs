@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using DialogHostAvalonia;
 using MsBox.Avalonia.Base;
+using MsBox.Avalonia.ViewModels;
 using MsBox.Avalonia.Windows;
 
 namespace MsBox.Avalonia;
@@ -95,6 +96,7 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         return tcs.Task;
     }
 
+    private readonly string ClickAwayParam = "MsBoxIdentifier_Cancel";
     /// <summary>
     ///  Show messagebox as popup
     /// </summary>
@@ -116,13 +118,26 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         _viewModel.SetFullApi(_view);
         owner.Content = null;
         dh.Content = parentContent;
+
         dh.CloseOnClickAway = false;
+        if (_viewModel is AbstractMsBoxViewModel abv) dh.CloseOnClickAway = abv.CloseOnClickAway;
+        dh.CloseOnClickAwayParameter = ClickAwayParam;
+        dh.DialogClosing += (ss, ee) => {
+            if (ee.Parameter?.ToString() == ClickAwayParam) {
+                _view.Close();
+            }
+        };
+
         owner.Content = dh;
         var tcs = new TaskCompletionSource<T>();
         _view.SetCloseAction(() =>
         {
-            tcs.TrySetResult(_view.GetButtonResult());
-            DialogHost.Close(dh.Identifier);
+            var r = _view.GetButtonResult();
+
+            if (dh.CurrentSession != null && dh.CurrentSession.IsEnded == false) {
+                DialogHost.Close(dh.Identifier);
+            }            
+            
             owner.Content = null;
             dh.Content = null;
             owner.Content = parentContent;
@@ -130,6 +145,7 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
             {
                 owner.Styles.Remove(style);
             }
+            tcs.TrySetResult(r);
         });
         DialogHost.Show(_view, dh.Identifier);
         return tcs.Task;
