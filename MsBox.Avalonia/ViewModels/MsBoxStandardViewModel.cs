@@ -1,5 +1,5 @@
-using System;
 using Avalonia.Threading;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -40,14 +40,14 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
     #region Hyperlink properties
     public override RelayCommand HyperLinkCommand { get; internal set; }
     public override string HyperLinkText { get; internal set; }
-    public override bool IsHyperLinkVisible { get; internal set;  }
+    public override bool IsHyperLinkVisible { get; internal set; }
     #endregion
 
     #region Input properties
     public override string InputLabel { get; internal set; }
     public override string InputValue { get; set; }
     public override bool IsInputMultiline { get; internal set; }
-    public override bool IsInputVisible { get; internal set;  }
+    public override bool IsInputVisible { get; internal set; }
     #endregion
 
     public RelayCommand ButtonClickCommand { get; }
@@ -112,25 +112,25 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
                 ButtonClick(ButtonResult.None);
                 return;
             case ClickEnum.Default:
-            {
-                if (IsCancelShowed)
                 {
-                    ButtonClick(ButtonResult.Cancel);
-                    return;
-                }
+                    if (IsCancelShowed)
+                    {
+                        ButtonClick(ButtonResult.Cancel);
+                        return;
+                    }
 
-                if (IsAbortShowed)
-                {
-                    ButtonClick(ButtonResult.Abort);
-                    return;
-                }
+                    if (IsAbortShowed)
+                    {
+                        ButtonClick(ButtonResult.Abort);
+                        return;
+                    }
 
-                if (IsNoShowed)
-                {
-                    ButtonClick(ButtonResult.No);
-                    return;
+                    if (IsNoShowed)
+                    {
+                        ButtonClick(ButtonResult.No);
+                        return;
+                    }
                 }
-            }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -162,19 +162,19 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
                 ButtonClick(ButtonResult.None);
                 return;
             case ClickEnum.Default:
-            {
-                if (IsOkShowed)
                 {
-                    ButtonClick(ButtonResult.Ok);
-                    return;
-                }
+                    if (IsOkShowed)
+                    {
+                        ButtonClick(ButtonResult.Ok);
+                        return;
+                    }
 
-                if (IsYesShowed)
-                {
-                    ButtonClick(ButtonResult.Yes);
-                    return;
+                    if (IsYesShowed)
+                    {
+                        ButtonClick(ButtonResult.Yes);
+                        return;
+                    }
                 }
-            }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

@@ -1,6 +1,6 @@
-using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -13,7 +13,7 @@ public partial class MainView : UserControl
     {
         InitializeComponent();
     }
-        private async void Standard_Show_OnClick(object sender, RoutedEventArgs e)
+    private async void Standard_Show_OnClick(object sender, RoutedEventArgs e)
     {
         var box = MessageBoxManager
             .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
@@ -96,5 +96,5 @@ public partial class MainView : UserControl
     {
         throw new System.NotImplementedException();
     }
-    
+
 }

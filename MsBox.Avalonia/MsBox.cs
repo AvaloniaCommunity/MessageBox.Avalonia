@@ -1,10 +1,9 @@
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+
 using DialogHostAvalonia;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.ViewModels;
 using MsBox.Avalonia.Windows;
@@ -55,9 +54,11 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
     public Task<T> ShowWindowAsync()
     {
         _viewModel.SetFullApi(_view);
-        var window = new MsBoxWindow();
-        window.Content = _view;
-        window.DataContext = _viewModel;
+        var window = new MsBoxWindow
+        {
+            Content = _view,
+            DataContext = _viewModel
+        };
         window.Closed += _view.CloseWindow;
 
         var tcs = new TaskCompletionSource<T>();
@@ -80,9 +81,11 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
     public Task<T> ShowWindowDialogAsync(Window owner)
     {
         _viewModel.SetFullApi(_view);
-        var window = new MsBoxWindow();
-        window.Content = _view;
-        window.DataContext = _viewModel;
+        var window = new MsBoxWindow
+        {
+            Content = _view,
+            DataContext = _viewModel
+        };
         window.Closed += _view.CloseWindow;
         var tcs = new TaskCompletionSource<T>();
 
@@ -107,14 +110,16 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         DialogHostStyles style = null;
         if (!owner.Styles.OfType<DialogHostStyles>().Any())
         {
-            style = new DialogHostStyles();
+            style = [];
             owner.Styles.Add(style);
         }
 
 
         var parentContent = owner.Content;
-        var dh = new DialogHost();
-        dh.Identifier = "MsBoxIdentifier" + Guid.NewGuid();
+        var dh = new DialogHost
+        {
+            Identifier = "MsBoxIdentifier" + Guid.NewGuid()
+        };
         _viewModel.SetFullApi(_view);
         owner.Content = null;
         dh.Content = parentContent;
@@ -122,8 +127,10 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         dh.CloseOnClickAway = false;
         if (_viewModel is AbstractMsBoxViewModel abv) dh.CloseOnClickAway = abv.CloseOnClickAway;
         dh.CloseOnClickAwayParameter = ClickAwayParam;
-        dh.DialogClosing += (ss, ee) => {
-            if (ee.Parameter?.ToString() == ClickAwayParam) {
+        dh.DialogClosing += (ss, ee) =>
+        {
+            if (ee.Parameter?.ToString() == ClickAwayParam)
+            {
                 _view.Close();
             }
         };
@@ -134,10 +141,11 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
         {
             var r = _view.GetButtonResult();
 
-            if (dh.CurrentSession != null && dh.CurrentSession.IsEnded == false) {
+            if (dh.CurrentSession != null && dh.CurrentSession.IsEnded == false)
+            {
                 DialogHost.Close(dh.Identifier);
-            }            
-            
+            }
+
             owner.Content = null;
             dh.Content = null;
             owner.Content = parentContent;

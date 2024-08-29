@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Models;
@@ -10,8 +9,7 @@ public class MsBoxCustomViewModel : AbstractMsBoxViewModel, ISetFullApi<string>
 {
     private IFullApi<string> _fullApi;
 
-    public MsBoxCustomViewModel(MessageBoxCustomParams @params) : base(@params,
-        @params.Icon, @params.ImageIcon)
+    public MsBoxCustomViewModel(MessageBoxCustomParams @params) : base(@params, @params.Icon, @params.ImageIcon)
     {
         ButtonDefinitions = @params.ButtonDefinitions;
         ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));

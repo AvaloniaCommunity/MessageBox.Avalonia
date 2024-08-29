@@ -1,11 +1,11 @@
-using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
+
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -15,15 +15,14 @@ namespace MsBox.Avalonia.ViewModels;
 
 public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
 {
-    private  ICopy _copy;
-    
+    private ICopy _copy;
+
     protected void SetCopy(ICopy copy)
     {
         _copy = copy;
     }
     protected AbstractMsBoxViewModel(AbstractMessageBoxParams @params, Icon icon = Icon.None, Bitmap bitmap = null)
     {
-
         if (bitmap != null)
         {
             ImagePath = bitmap;
