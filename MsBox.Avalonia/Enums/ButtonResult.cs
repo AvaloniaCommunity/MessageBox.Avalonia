@@ -10,5 +10,5 @@ public enum ButtonResult
     No,
     Abort,
     Cancel,
-    None
+    None,
 }

@@ -1,7 +1,5 @@
-using System;
-using System.Threading.Tasks;
-
 using Avalonia.Controls;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.ViewModels;

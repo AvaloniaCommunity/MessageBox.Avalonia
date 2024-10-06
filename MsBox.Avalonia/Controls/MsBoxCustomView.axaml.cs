@@ -1,6 +1,5 @@
-using System;
-using System.Threading.Tasks;
 using Avalonia.Controls;
+
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.ViewModels;
 
@@ -46,7 +45,7 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     {
         ((IClose)this).Close();
     }
-    
+
 
     public void SetCloseAction(Action closeAction)
     {

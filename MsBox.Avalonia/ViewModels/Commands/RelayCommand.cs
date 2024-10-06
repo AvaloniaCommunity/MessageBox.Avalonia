@@ -1,4 +1,3 @@
-using System;
 using System.Windows.Input;
 
 namespace MsBox.Avalonia.ViewModels.Commands;

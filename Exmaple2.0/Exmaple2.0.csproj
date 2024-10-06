@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
         <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -13,10 +14,10 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AvaloniaXaml Remove="Models\**" />
-      <Compile Remove="Models\**" />
-      <EmbeddedResource Remove="Models\**" />
-      <None Remove="Models\**" />
+        <AvaloniaXaml Remove="Models\**" />
+        <Compile Remove="Models\**" />
+        <EmbeddedResource Remove="Models\**" />
+        <None Remove="Models\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -25,20 +26,20 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.5" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="11.0.5" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.5" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.5" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.5" />
+        <PackageReference Include="Avalonia" Version="11.1.3" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.1.3" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.3" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.3" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0" />
     </ItemGroup>
- 
+
     <ItemGroup>
         <None Update="icon-rider.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
- 
+
     <ItemGroup>
-      <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
+        <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
     </ItemGroup>
 </Project>

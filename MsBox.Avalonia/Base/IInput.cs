@@ -1,7 +1,6 @@
-﻿namespace MsBox.Avalonia.Base
+﻿namespace MsBox.Avalonia.Base;
+
+public interface IInput
 {
-    public interface IInput
-    {
-        string InputValue { get; }
-    }
+    string InputValue { get; }
 }

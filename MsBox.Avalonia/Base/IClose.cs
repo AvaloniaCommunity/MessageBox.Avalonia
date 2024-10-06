@@ -1,5 +1,3 @@
-using System;
-
 namespace MsBox.Avalonia.Base;
 
 public interface IClose

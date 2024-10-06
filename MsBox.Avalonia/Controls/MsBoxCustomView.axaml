@@ -2,7 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:avalonia="clr-namespace:Markdown.Avalonia;assembly=Markdown.Avalonia"
+             xmlns:md="https://github.com/whistyun/Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
              xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
              xmlns:converters="clr-namespace:MsBox.Avalonia.Converters"
@@ -91,7 +91,7 @@
             <!--Content text-->
             <TextBox Grid.Row="2" Name="ContentTextBox" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
-            <avalonia:MarkdownScrollViewer Grid.Row="2"
+            <md:MarkdownScrollViewer Grid.Row="2"
                                            Markdown="{Binding ContentMessage}"
                                            IsVisible="{Binding Markdown}" />
 

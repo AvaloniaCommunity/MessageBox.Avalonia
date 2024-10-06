@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Avalonia.Media.Imaging;
+
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
 
@@ -12,7 +12,7 @@ public class MessageBoxCustomParams : AbstractMessageBoxParams
     /// Only if Icon is None
     /// </summary>
     public Bitmap ImageIcon { get; set; }
-    
+
     /// <summary>
     /// Icon of window
     /// Higher priority than ImageIcon

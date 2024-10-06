@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+
 using Exmaple2._0.ViewModels;
 using Exmaple2._0.Views;
 

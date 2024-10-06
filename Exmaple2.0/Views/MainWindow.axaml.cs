@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
+
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+
 using MsBox.Avalonia;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -85,7 +84,7 @@ public partial class MainWindow : Window
                 ShowInCenter = true,
                 Topmost = false
             });
-        
+
         var result = await box.ShowAsPopupAsync(this);
     }
 
@@ -146,22 +145,24 @@ public partial class MainWindow : Window
 
     private void Custom_Show_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     private void Custom_PopUp_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
     private void Custom_MarkDown_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    private async void Custom_CloseClickAway_OnClick(object sender, RoutedEventArgs e) {
-        var result =await MessageBoxManager.GetMessageBoxCustom(
-            new MessageBoxCustomParams {
+    private async void Custom_CloseClickAway_OnClick(object sender, RoutedEventArgs e)
+    {
+        var result = await MessageBoxManager.GetMessageBoxCustom(
+            new MessageBoxCustomParams
+            {
                 ButtonDefinitions = new List<ButtonDefinition>{
                     new ButtonDefinition { Name = "Yes", },
                     new ButtonDefinition { Name = "No", },
@@ -177,15 +178,16 @@ public partial class MainWindow : Window
                 MaxHeight = 800,
                 SizeToContent = SizeToContent.WidthAndHeight,
                 ShowInCenter = true,
-                Topmost = false,                
+                Topmost = false,
             }).ShowAsPopupAsync(this);
         await MessageBoxManager.GetMessageBoxCustom(
-            new MessageBoxCustomParams {
+            new MessageBoxCustomParams
+            {
                 ButtonDefinitions = new List<ButtonDefinition>{
                     new ButtonDefinition { Name = "OK", }
                 },
                 ContentTitle = "Result",
-                ContentMessage = "You Selected:"+ result,
+                ContentMessage = "You Selected:" + result,
                 Icon = MsBox.Avalonia.Enums.Icon.Question,
                 WindowStartupLocation = WindowStartupLocation.CenterOwner,
                 CanResize = false,
@@ -194,7 +196,7 @@ public partial class MainWindow : Window
                 SizeToContent = SizeToContent.WidthAndHeight,
                 ShowInCenter = true,
                 Topmost = false,
-                CloseOnClickAway=true
+                CloseOnClickAway = true
             }).ShowAsPopupAsync(this);
     }
 }

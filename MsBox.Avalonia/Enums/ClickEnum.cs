@@ -8,5 +8,5 @@ public enum ClickEnum
     Abort,
     Cancel,
     None,
-    Default
+    Default,
 }
