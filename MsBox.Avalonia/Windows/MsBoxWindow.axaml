@@ -13,7 +13,4 @@
         WindowStartupLocation="{Binding LocationOfMyWindow}"
         CanResize="{Binding CanResize}"
         Title="{Binding ContentTitle}">
-    <Window.Styles>
-        <StyleInclude Source="/Controls/MarkdownView.axaml" />
-    </Window.Styles>
 </Window>
