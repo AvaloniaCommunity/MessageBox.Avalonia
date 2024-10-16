@@ -40,6 +40,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\MsBox.Avalonia.Markdown\MsBox.Avalonia.Markdown.csproj" />
         <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
     </ItemGroup>
 </Project>
