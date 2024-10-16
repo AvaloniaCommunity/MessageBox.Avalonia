@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageVersion>3.1.6.13</PackageVersion>
+        <Title>MessageBox.Avalonia.Markdown</Title>
+        <Authors>Lary</Authors>
+        <Description>Mardkown support for Messagebox AvaloniaUI</Description>
+        <PackageProjectUrl>https://github.com/CreateLab/MessageBox.Avalonia</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>messagebox.avalonia</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageTags>Avalonia MessageBox Markdown</PackageTags>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>../MsBox.Avalonia/strong-key.snk</AssemblyOriginatorKeyFile>
+        <PublicSign>true</PublicSign>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <PackageId>MessageBox.Avalonia.Markdown</PackageId>
+        <PackageIcon>icon.jpg</PackageIcon>
+    </PropertyGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="**\*.xaml">
+            <SubType>Designer</SubType>
+        </AvaloniaResource>
+        <AvaloniaResource Include="Assets\*" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Markdown.Avalonia" Version="11.0.2" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="..\MsBox.Avalonia\icon.jpg">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Update="icon.jpg">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
+    </ItemGroup>
+
+</Project>
