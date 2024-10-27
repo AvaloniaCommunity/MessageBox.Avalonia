@@ -100,6 +100,21 @@ MessageBoxManager.GetMessageBoxCustom(
             });
 ```
 
+**Markdown support**
+
+Do enable markdown support users need to:
+
+- install MessageBox.Avalonia.Markdown package
+
+- add MarkdownView from :MsBox.Avalonia.Markdown to App.axaml
+```
+    <Application.Styles>
+        <StyleInclude Source="avares://MsBox.Avalonia.Markdown/Controls/MarkdownView.axaml" />
+    </Application.Styles>
+```
+
+---
+
 Support: https://t.me/Avalonia
 
 ---

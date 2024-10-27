@@ -1,0 +1,15 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:MsBox.Avalonia.Controls">
+    <Design.PreviewWith>
+        <controls:MarkdownView />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|MarkdownView">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <TextBlock Text="{TemplateBinding Markdown}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>

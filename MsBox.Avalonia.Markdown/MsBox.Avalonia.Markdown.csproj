@@ -2,23 +2,23 @@
 
     <PropertyGroup>
         <PackageVersion>3.1.6.13</PackageVersion>
-        <Title>MessageBox.Avalonia</Title>
+        <Title>MessageBox.Avalonia.Markdown</Title>
         <Authors>Lary</Authors>
-        <Description>Messagebox for AvaloniaUI</Description>
+        <Description>Mardkown support for Messagebox AvaloniaUI</Description>
         <PackageProjectUrl>https://github.com/CreateLab/MessageBox.Avalonia</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>messagebox.avalonia</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageTags>Avalonia MessageBox</PackageTags>
+        <PackageTags>Avalonia MessageBox Markdown</PackageTags>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>strong-key.snk</AssemblyOriginatorKeyFile>
+        <AssemblyOriginatorKeyFile>../MsBox.Avalonia/strong-key.snk</AssemblyOriginatorKeyFile>
         <PublicSign>true</PublicSign>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-        <PackageId>MessageBox.Avalonia</PackageId>
+        <PackageId>MessageBox.Avalonia.Markdown</PackageId>
         <PackageIcon>icon.jpg</PackageIcon>
     </PropertyGroup>
     <ItemGroup>
@@ -28,14 +28,20 @@
         <AvaloniaResource Include="Assets\*" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.1.3" />
-        <PackageReference Include="DialogHost.Avalonia" Version="0.8.1" />
+        <PackageReference Include="Markdown.Avalonia" Version="11.0.2" />
     </ItemGroup>
     <ItemGroup>
-        <None Update="icon.jpg">
+        <None Update="..\MsBox.Avalonia\icon.jpg">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
+        <None Update="icon.jpg">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
     </ItemGroup>
 
 </Project>

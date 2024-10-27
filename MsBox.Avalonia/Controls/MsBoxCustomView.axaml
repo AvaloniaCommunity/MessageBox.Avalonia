@@ -2,10 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:md="https://github.com/whistyun/Markdown.Avalonia"
              xmlns:viewModels="clr-namespace:MsBox.Avalonia.ViewModels"
              xmlns:attachadProperty="clr-namespace:MsBox.Avalonia.AttachadProperty"
              xmlns:converters="clr-namespace:MsBox.Avalonia.Converters"
+             xmlns:controls="clr-namespace:MsBox.Avalonia.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              d:DataContext="{x:Static viewModels:DesignDataContexts.CustomHyperlinkInputViewModel}"
              x:Class="MsBox.Avalonia.Controls.MsBoxCustomView" MinWidth="{Binding MinWidth}"
@@ -91,11 +91,11 @@
             <!--Content text-->
             <TextBox Grid.Row="2" Name="ContentTextBox" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
-            <md:MarkdownScrollViewer Grid.Row="2"
-                                           Markdown="{Binding ContentMessage}"
-                                           IsVisible="{Binding Markdown}" />
+            <controls:MarkdownView Grid.Row="2"
+                          Markdown="{Binding ContentMessage}"
+                          IsVisible="{Binding Markdown}" /> 
 
-            <!--HyperLink-->
+                          <!--HyperLink-->
             <TextBlock Grid.Row="3" IsVisible="{Binding IsHyperLinkVisible }" Name="HyperLink" Classes="hyperlink"
                        Text="{Binding HyperLinkText}"
                        attachadProperty:HyperLinkCommand.Command="{Binding HyperLinkCommand}">

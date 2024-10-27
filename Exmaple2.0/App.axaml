@@ -9,5 +9,6 @@
 
     <Application.Styles>
        <SimpleTheme></SimpleTheme>
+        <StyleInclude Source="avares://MsBox.Avalonia.Markdown/Controls/MarkdownView.axaml" />
     </Application.Styles>
 </Application>
