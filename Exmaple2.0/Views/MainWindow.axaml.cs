@@ -153,9 +153,97 @@ public partial class MainWindow : Window
         throw new NotImplementedException();
     }
 
-    private void Custom_MarkDown_OnClick(object sender, RoutedEventArgs e)
+    private async void Custom_MarkDown_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        const int maxWidth = 800;
+        const int maxHeight = 700;
+        var box = MessageBoxManager.GetMessageBoxCustom(
+            new MessageBoxCustomParams
+            {
+                ContentTitle = "title",
+                ContentMessage = """
+# h1 Heading
+## h2 Heading
+### h3 Heading
+#### h4 Heading
+##### h5 Heading
+###### h6 Heading
+
+## Emphasis
+**This is bold text**
+
+__This is underlined text__
+
+*This is italic text*
+
+~~Strikethrough~~
+
+## Blockquotes
+> Blockquotes can also be nested...
+>> ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+## Lists
+Unordered
++ Create a list by starting a line with `+`, `-`, or `*`
++ Sub-lists are made by indenting 2 spaces:
+  - Marker character change forces new list start:
+    * Ac tristique libero volutpat at
+    - Nulla volutpat aliquam velit
+
+Ordered
+1. Lorem ipsum dolor sit amet
+2. Consectetur adipiscing elit
+
+## Code
+
+Inline `code`
+
+Indented code
+
+    // Some comments
+    line 1 of code
+
+
+Block code "fences"
+
+```
+Sample text here...
+```
+
+Syntax highlighting
+```js
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Links
+[link text](https://example.com)
+
+## Images
+![Message](https://github.com/AvaloniaCommunity/MessageBox.Avalonia/raw/master/MsBox.Avalonia/icon.jpg)
+
+## Emojies
+:wink: :cry: :laughing: :yum:
+""",
+                Icon = MsBox.Avalonia.Enums.Icon.Info,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                CanResize = false,
+                MaxWidth = maxWidth,
+                MaxHeight = maxHeight,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ShowInCenter = true,
+                Topmost = false,
+                Markdown = true,
+                ButtonDefinitions = [
+					new() {Name = "OK", IsDefault = true},
+				],
+            });
+
+        var result = await box.ShowAsync();
     }
 
     private async void Custom_CloseClickAway_OnClick(object sender, RoutedEventArgs e)
