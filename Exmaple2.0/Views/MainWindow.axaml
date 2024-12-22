@@ -28,6 +28,8 @@
       <Button Name="Standard_Show"  Classes="View" Click="Standard_Show_OnClick" Content="Standard Show"/>
       <Button Name="Standard_Dialog"  Classes="View" Click="Standard_Dialog_OnClick" Content="Standard Dialog"/>
       <Button Name="Standard_Popup"  Classes="View" Click="Standard_Popup_OnClick" Content="Custom PopUp"/>
+      <Button Name="StandardInput_PopUp" Classes="View" Click="StandardInput_PopUp_OnClick" Content="Standard input popup"/>
+      <Button Name="StandardInputPassword_PopUp" Classes="View" Click="StandardInputPassword_PopUp_OnClick" Content="Standard input password popup"/>
       <Button Name="Custom_Show"  Classes="View" Click="Custom_Dialog_OnClick" Content="Custom Show"/>
       <Button Name="Custom_MarkDown"  Classes="View"  Click="Custom_MarkDown_OnClick" Content="Custom Markdown"/>
       <Button Name="Custom_Dialog"  Classes="View"  Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
