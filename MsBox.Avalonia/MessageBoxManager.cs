@@ -38,6 +38,7 @@ public static class MessageBoxManager
     /// <param name="text"> Text of messagebox body </param>
     /// <param name="enum"> Buttons of messagebox (default OK) </param>
     /// <param name="icon"> Icon of messagebox (default no icon) </param>
+    /// <param name="context"> Embedded view model in messagebox (default null) </param>
     /// <param name="windowStartupLocation"> Startup location of messagebox (default center screen) </param>
     /// <param name="style"></param>
     /// <returns></returns>
@@ -45,7 +46,7 @@ public static class MessageBoxManager
     /// Recommended method for message box
     /// </remarks>
     public static IMsBox<ButtonResult> GetMessageBoxStandard(string title, string text,
-        ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None,
+        ButtonEnum @enum = ButtonEnum.Ok, Icon icon = Icon.None, object? context = null,
         WindowStartupLocation windowStartupLocation = WindowStartupLocation.CenterScreen) =>
         GetMessageBoxStandard(new MessageBoxStandardParams
         {
@@ -53,6 +54,7 @@ public static class MessageBoxManager
             ContentMessage = text,
             ButtonDefinitions = @enum,
             Icon = icon,
+            Context = context,
             WindowStartupLocation = windowStartupLocation
         });
 }

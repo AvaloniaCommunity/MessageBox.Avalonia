@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -5,10 +6,16 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
+using Exmaple2._0.ViewModels;
+
 using MsBox.Avalonia;
+using MsBox.Avalonia.Controls;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
 using MsBox.Avalonia.Models;
+using MsBox.Avalonia.ViewModels;
+
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Exmaple2._0.Views;
 
@@ -28,6 +35,18 @@ public partial class MainWindow : Window
         var box = MessageBoxManager
             .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
                 ButtonEnum.YesNo);
+
+        var result = await box.ShowAsPopupAsync(this);
+    }
+
+    private async void Standard_Context_Show_OnClick(object sender, RoutedEventArgs e)
+    {
+        var box = MessageBoxManager
+            .GetMessageBoxStandard(
+                "Caption",
+                "Are you sure you would like to delete appender_replace_page_1?",
+                ButtonEnum.YesNo,
+                context: new EmbeddedViewModel());
 
         var result = await box.ShowAsPopupAsync(this);
     }
