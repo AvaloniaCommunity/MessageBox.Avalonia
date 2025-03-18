@@ -15,7 +15,8 @@
              MinHeight="{Binding MinHeight}"
              MaxHeight="{Binding MaxHeight}"
              Height="{Binding Height}"
-             FontFamily="{Binding FontFamily}">
+             FontFamily="{Binding FontFamily}"
+             Padding="15">
     <UserControl.Resources>
         <converters:ConditionalGridLengthStarConverter x:Key="conditionalGridLengthStarConverter" />
     </UserControl.Resources>
@@ -66,32 +67,28 @@
     </UserControl.Styles>
     <Grid Classes="MsBoxCustomContainer">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
             <RowDefinition Height="{Binding Path=!IsInputMultiline, Converter={StaticResource conditionalGridLengthStarConverter}}" />
             <RowDefinition Height="15" />
             <RowDefinition Height="{Binding Path=IsInputMultiline, Converter={StaticResource conditionalGridLengthStarConverter}}" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="15" />
         </Grid.RowDefinitions>
         <!--Icon-->
-        <Image Grid.Row="1" Grid.Column="1" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+        <Image Grid.Row="0" Grid.Column="0" MaxHeight="50" MaxWidth="50" VerticalAlignment="Top"
+               Margin="0 0 15 0"
                IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="1" Grid.Column="3" RowDefinitions="Auto,15,*,Auto">
+        <Grid Grid.Row="0" Grid.Column="1" RowDefinitions="Auto,*,Auto">
             <!--Bold text-->
             <TextBox Grid.Row="0" Classes="header styled" FontFamily="{Binding FontFamily}" Text="{Binding ContentHeader}"
-                     IsVisible="{Binding HasHeader}" />
+                     IsVisible="{Binding HasHeader}" Margin="0 0 15 0"/>
             <!--Content text-->
-            <TextBox Grid.Row="2" Name="ContentTextBox" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
+            <TextBox Grid.Row="1" Name="ContentTextBox" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
-            <controls:MarkdownView Grid.Row="2"
+            <controls:MarkdownView Grid.Row="1"
                           Markdown="{Binding ContentMessage}"
                           IsVisible="{Binding Markdown}" /> 
 
@@ -103,7 +100,7 @@
 
         </Grid>
         <!--Input-->
-        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -114,12 +111,12 @@
         </Grid>
         <!--Buttons-->
         <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter"
-                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="4"
-                      Grid.Column="1" Grid.ColumnSpan="3"
+                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="2"
+                      Grid.Column="0" Grid.ColumnSpan="2"
                       HorizontalAlignment="Right">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"
+                    <StackPanel Spacing="5" Orientation="Horizontal"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center" />
                 </ItemsPanelTemplate>
@@ -134,7 +131,7 @@
                             Command="{Binding ((viewModels:MsBoxCustomViewModel)DataContext).ButtonClickCommand, RelativeSource={RelativeSource AncestorType=UserControl, AncestorLevel=1}}"
                             CommandParameter="{Binding #Btn.Content}"
                             Content="{Binding Name}"
-                            Margin="0 0 5 0"
+                            Margin="0"
                             IsDefault="{Binding IsDefault}"
                             IsCancel="{Binding IsCancel}" />
                 </DataTemplate>
