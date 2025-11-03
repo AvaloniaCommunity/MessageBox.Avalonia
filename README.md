@@ -24,12 +24,15 @@ The easiest way to get started is this:
 
 ![](Images/standart-messagebox.png)
 
-```cs 
-  var box = MessageBoxManager
-            .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
-                ButtonEnum.YesNo);
+```cs
+using MsBox.Avalonia;
+using MsBox.Avalonia.Enums;
 
-        var result = await box.ShowAsync();
+var box = MessageBoxManager
+    .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
+        ButtonEnum.YesNo);
+
+var result = await box.ShowAsync();
 ```
 You have a lot of options how to show your messagebox:
 
@@ -49,56 +52,106 @@ You have a lot of options how to show your messagebox:
 HyperLink with powerfull options:
 
 ```cs
+using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Avalonia.Controls;
+using MsBox.Avalonia;
+using MsBox.Avalonia.Dto;
+using MsBox.Avalonia.Models;
+
 MessageBoxManager.GetMessageBoxCustom(
-            new MessageBoxCustomParams
+    new MessageBoxCustomParams
+    {
+        ButtonDefinitions = new List<ButtonDefinition>
+        {
+            new ButtonDefinition { Name = "Yes", },
+            new ButtonDefinition { Name = "No", },
+            new ButtonDefinition { Name = "Cancel", }
+        },
+        ContentTitle = "title",
+        ContentMessage = "Informative note:" +
+                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n",
+        Icon = MsBox.Avalonia.Enums.Icon.Question,
+        WindowStartupLocation = WindowStartupLocation.CenterOwner,
+        CanResize = false,
+        MaxWidth = 500,
+        MaxHeight = 800,
+        SizeToContent = SizeToContent.WidthAndHeight,
+        ShowInCenter = true,
+        Topmost = false,
+        HyperLinkParams = new HyperLinkParams
+        {
+            Text = "https://docs.avaloniaui.net/",
+            Action = new Action(() =>
             {
-                ButtonDefinitions = new List<ButtonDefinition>
+                var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var url = "https://docs.avaloniaui.net/";
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    new ButtonDefinition { Name = "Yes", },
-                    new ButtonDefinition { Name = "No", },
-                    new ButtonDefinition { Name = "Cancel", }
-                },
-                ContentTitle = "title",
-                ContentMessage = "Informative note:" +
-                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n",
-                Icon = MsBox.Avalonia.Enums.Icon.Question,
-                WindowStartupLocation = WindowStartupLocation.CenterOwner,
-                CanResize = false,
-                MaxWidth = 500,
-                MaxHeight = 800,
-                SizeToContent = SizeToContent.WidthAndHeight,
-                ShowInCenter = true,
-                Topmost = false,
-                HyperLinkParams = new HyperLinkParams
-                {
-                    Text = "https://docs.avaloniaui.net/",
-                    Action = new Action(() =>
-                    {
-                        var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                        var url = "https://docs.avaloniaui.net/";
-                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                        {
-                            //https://stackoverflow.com/a/2796367/241446
-                            using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
-                            proc.Start();
+                    //https://stackoverflow.com/a/2796367/241446
+                    using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
+                    proc.Start();
 
-                            return;
-                        }
-
-                        if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                        {
-                            Process.Start("x-www-browser", url);
-                            return;
-                        }
-
-                        if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                            throw new Exception("invalid url: " + url);
-                        Process.Start("open", url);
-                        return;
-                    })
+                    return;
                 }
-            });
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    Process.Start("x-www-browser", url);
+                    return;
+                }
+
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                    throw new Exception("invalid url: " + url);
+                Process.Start("open", url);
+                return;
+            })
+        }
+    });
 ```
+
+---
+
+**Important: Async/Await Usage**
+
+Always use `await` when calling MessageBox methods. **Never** use `.Result` or `.Wait()` on the Task, as this will cause a deadlock and freeze your UI.
+
+**❌ Wrong (will freeze your application):**
+```cs
+private void ShowMessage()
+{
+    var box = MessageBoxManager.GetMessageBoxStandard("Title", "Message", ButtonEnum.Ok);
+    var result = box.ShowAsync().Result; // DON'T DO THIS!
+}
+```
+
+**✅ Correct:**
+```cs
+private async void ShowMessage()
+{
+    var box = MessageBoxManager.GetMessageBoxStandard("Title", "Message", ButtonEnum.Ok);
+    var result = await box.ShowAsync(); // Use await
+}
+```
+
+If you need to return the result to the caller, make sure the entire call chain is async:
+```cs
+private async Task<ButtonResult> ShowConfirmation()
+{
+    var box = MessageBoxManager.GetMessageBoxStandard("Confirm", "Are you sure?", ButtonEnum.YesNo);
+    return await box.ShowAsync();
+}
+
+// Usage:
+var result = await ShowConfirmation();
+if (result == ButtonResult.Yes)
+{
+    // Handle confirmation
+}
+```
+
+---
 
 **Markdown support**
 

@@ -1,4 +1,6 @@
 using Avalonia.Controls;
+using Avalonia.LogicalTree;
+using Avalonia.Threading;
 
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.ViewModels;
@@ -13,6 +15,21 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     public MsBoxCustomView()
     {
         InitializeComponent();
+
+        this.AttachedToVisualTree += (s, e) =>
+        {
+            Dispatcher.UIThread.Post(() =>
+            {
+                var defaultButton = this.GetLogicalDescendants()
+                    .OfType<Button>()
+                    .FirstOrDefault(b => b.IsDefault && b.IsVisible);
+
+                if (defaultButton != null)
+                {
+                    defaultButton.Focus();
+                }
+            }, DispatcherPriority.Loaded);
+        };
     }
 
     public void SetButtonResult(string bdName)
