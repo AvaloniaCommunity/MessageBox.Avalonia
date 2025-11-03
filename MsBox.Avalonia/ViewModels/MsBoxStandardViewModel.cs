@@ -19,6 +19,12 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
         _enterDefaultButton = @params.EnterDefaultButton;
         _escDefaultButton = @params.EscDefaultButton;
 
+        Context = @params.Context;
+        if (Context is not null)
+        {
+            IsContextVisible = true;
+        }
+
         SetButtons(@params.ButtonDefinitions);
         ButtonClickCommand = new RelayCommand(o => ButtonClick(o.ToString()));
         EnterClickCommand = new RelayCommand(_ => EnterClick());
@@ -48,6 +54,9 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
     public override string InputValue { get; set; }
     public override bool IsInputMultiline { get; internal set; }
     public override bool IsInputVisible { get; internal set; }
+    public virtual object? Context { get; internal set; } = null;
+    public virtual bool IsContextVisible { get; internal set; } = false;
+
     #endregion
 
     public RelayCommand ButtonClickCommand { get; }

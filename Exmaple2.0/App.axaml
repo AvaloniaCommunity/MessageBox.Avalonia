@@ -11,4 +11,11 @@
        <SimpleTheme></SimpleTheme>
         <StyleInclude Source="avares://MsBox.Avalonia.Markdown/Controls/MarkdownView.axaml" />
     </Application.Styles>
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--This is only necessary if you want to override the default ViewLocator above-->
+            <local:EmbeddedViewLocator x:Key="EmbeddedMessageBoxViewLocator" />
+        </ResourceDictionary>
+    </Application.Resources>   
 </Application>

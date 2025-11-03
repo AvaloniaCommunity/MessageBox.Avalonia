@@ -10,6 +10,11 @@ public class MessageBoxStandardParams : AbstractMessageBoxParams
     public Icon Icon { get; set; } = Icon.None;
 
     /// <summary>
+    /// View model for embedded context.
+    /// </summary>
+    public object? Context { get; set; } = null;
+
+    /// <summary>
     /// Default buttons
     /// </summary>
     public ButtonEnum ButtonDefinitions { get; set; } = ButtonEnum.Ok;

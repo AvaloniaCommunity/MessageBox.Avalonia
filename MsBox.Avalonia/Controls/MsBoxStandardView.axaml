@@ -10,6 +10,7 @@
              d:DataContext="{x:Static viewModels:DesignDataContexts.StandardInputViewModel}"
              x:Class="MsBox.Avalonia.Controls.MsBoxStandardView" MinWidth="{Binding MinWidth}"
              x:DataType="viewModels:MsBoxStandardViewModel"
+             xmlns:local="clr-namespace:MsBox.Avalonia"
              MaxWidth="{Binding MaxWidth}"
              Width="{Binding Width}"
              MinHeight="{Binding MinHeight}"
@@ -24,23 +25,23 @@
         <KeyBinding Gesture="Ctrl+C" Command="{Binding Copy}" />
     </UserControl.KeyBindings>
     <UserControl.Styles>
-      <Style Selector="Image">
-          <Setter Property="Margin" Value="0,0,15,0" />
-          <Setter Property="MaxHeight" Value="50" />
-          <Setter Property="MaxWidth" Value="50" />
-          <Setter Property="VerticalAlignment" Value="Top" />
-      </Style>
-      <Style Selector="TextBox.styled">
-          <Setter Property="BorderThickness" Value="0" />
-          <Setter Property="Background" Value="Transparent" />
-          <Setter Property="TextWrapping" Value="Wrap" />
-          <Setter Property="AcceptsReturn" Value="True" />
-          <Setter Property="IsReadOnly" Value="True" />
-          <Setter Property="CaretBrush" Value="Transparent" />
-          <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-          <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-      </Style>
-      <Style Selector="TextBox.styled:pointerover /template/ Border#border">
+        <Style Selector="Image">
+            <Setter Property="Margin" Value="0,0,15,0" />
+            <Setter Property="MaxHeight" Value="50" />
+            <Setter Property="MaxWidth" Value="50" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+        </Style>
+        <Style Selector="TextBox.styled">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+            <Setter Property="AcceptsReturn" Value="True" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="CaretBrush" Value="Transparent" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+        </Style>
+        <Style Selector="TextBox.styled:pointerover /template/ Border#border">
             <Setter Property="Background" Value="Transparent" />
         </Style>
         <Style Selector="TextBox.styled:pointerover /template/ Border#PART_BorderElement">
@@ -67,12 +68,12 @@
             <Setter Property="MinWidth" Value="75" />
         </Style>
         <Style Selector="TextBlock.hyperlink">
-          <Setter Property="Foreground" Value="#3483eb" />
+            <Setter Property="Foreground" Value="#3483eb" />
         </Style>
         <Style Selector="TextBlock.hyperlink:pointerover">
-          <Setter Property="Cursor" Value="Hand" />
-          <Setter Property="TextDecorations" Value="Underline" />
-          <Setter Property="Foreground" Value="#3496eb" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="TextDecorations" Value="Underline" />
+            <Setter Property="Foreground" Value="#3496eb" />
         </Style>
     </UserControl.Styles>
     <Grid Classes="MsBoxStandardContainer">
@@ -95,6 +96,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <!--Bold text-->
@@ -105,22 +107,29 @@
                      Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
             <controls:MarkdownView Grid.Row="1"
                                    Markdown="{Binding ContentMessage}"
-                                   IsVisible="{Binding Markdown}" /> 
+                                   IsVisible="{Binding Markdown}" />
+
+            <!--Embedded View-->
+            <ContentControl Grid.Row="2"
+                            Name="embeddedView"
+                            Content="{Binding Path=Context, Mode=OneWay}"
+                            IsVisible="{Binding IsContextVisible}"/>
+
             <!--HyperLink-->
             <TextBlock Grid.Row="3" IsVisible="{Binding IsHyperLinkVisible }" Name="HyperLink" Classes="hyperlink"
                        Text="{Binding HyperLinkText}"
                        attachadProperty:HyperLinkCommand.Command="{Binding HyperLinkCommand}" Margin="0,0,0,15">
-          </TextBlock>
+            </TextBlock>
         </Grid>
         <!--Input-->
         <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-          </Grid.ColumnDefinitions>
-          <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
-          <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}"
-                   AcceptsReturn="{Binding IsInputMultiline}" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}" Text="{Binding InputLabel}" VerticalAlignment="Center" Margin="0,0,15,0" />
+            <TextBox Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding InputValue, Mode=TwoWay}" FontFamily="{Binding FontFamily}" IsVisible="{Binding IsInputVisible}"
+                     AcceptsReturn="{Binding IsInputMultiline}" />
         </Grid>
         <!--Buttons-->
         <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch"  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"

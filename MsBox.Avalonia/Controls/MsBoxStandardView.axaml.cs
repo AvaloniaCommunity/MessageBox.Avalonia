@@ -1,4 +1,6 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Templates;
 
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Enums;
@@ -14,6 +16,15 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
     public MsBoxStandardView()
     {
         InitializeComponent();
+
+        if (Application.Current.TryGetResource("EmbeddedMessageBoxViewLocator", out object? embeddedViewLocator))
+        {
+            var viewLocator = embeddedViewLocator as IDataTemplate;
+            if (viewLocator is not null)
+            {
+                embeddedView.DataTemplates.Add(viewLocator);
+            }
+        }
     }
 
     public void SetButtonResult(ButtonResult bdName)
