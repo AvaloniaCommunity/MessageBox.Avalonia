@@ -1,6 +1,8 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
+using Avalonia.LogicalTree;
+using Avalonia.Threading;
 
 using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Enums;
@@ -25,6 +27,21 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
                 embeddedView.DataTemplates.Add(viewLocator);
             }
         }
+
+        this.AttachedToVisualTree += (s, e) =>
+        {
+            Dispatcher.UIThread.Post(() =>
+            {
+                var defaultButton = this.GetLogicalDescendants()
+                    .OfType<Button>()
+                    .FirstOrDefault(b => b.IsDefault && b.IsVisible);
+
+                if (defaultButton != null)
+                {
+                    defaultButton.Focus();
+                }
+            }, DispatcherPriority.Loaded);
+        };
     }
 
     public void SetButtonResult(ButtonResult bdName)
