@@ -1,29 +1,35 @@
+name: .NET Build
 
-name: .NET Core
-
-on: 
+on:
   push:
-    branches-ignore: 
+    branches-ignore:
       - 'master'
   pull_request:
-    branches: 
-      - '**:**'
-
+    branches:
+      - '**'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET 8.0
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
+
+    - name: Setup .NET 9.0
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 9.0.x
+
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore MessageBox.Avalonia.sln
+
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build MessageBox.Avalonia.sln --no-restore --configuration Release
+
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test MessageBox.Avalonia.sln --no-build --configuration Release --verbosity normal
