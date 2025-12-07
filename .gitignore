@@ -357,3 +357,10 @@ MigrationBackup/
 .idea/
 #Ignore special
 .directory
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
