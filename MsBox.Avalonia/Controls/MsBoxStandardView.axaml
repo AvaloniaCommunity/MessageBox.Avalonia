@@ -92,7 +92,7 @@
         <Image Grid.Row="0" Grid.Column="0"
                IsVisible="{Binding HasIcon}"
                Source="{Binding ImagePath}" />
-        <Grid Grid.Row="0" Grid.Column="1">
+        <Grid Grid.Row="0" Grid.Column="1" MaxWidth="{Binding MaxWidth}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -104,7 +104,8 @@
                      IsVisible="{Binding HasHeader}" />
             <!--Content text-->
             <TextBox Grid.Row="1" Name="ContentTextBox" Classes="contentMessage styled" FontFamily="{Binding FontFamily}"
-                     Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" />
+                     Text="{Binding ContentMessage}" IsVisible="{Binding !Markdown}" 
+                     MaxWidth="{Binding MaxWidth}" />
             <controls:MarkdownView Grid.Row="1"
                                    Markdown="{Binding ContentMessage}"
                                    IsVisible="{Binding Markdown}" />

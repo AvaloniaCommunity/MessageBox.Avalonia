@@ -51,9 +51,9 @@ public abstract class AbstractMessageBoxParams
     public double MinWidth { get; set; } = 200;
 
     /// <summary>
-    /// Max width of window
+    /// Max width of window (default 600px to ensure text wrapping works correctly)
     /// </summary>
-    public double MaxWidth { get; set; } = double.PositiveInfinity;
+    public double MaxWidth { get; set; } = 600;
 
     /// <summary>
     /// Actual width of window
