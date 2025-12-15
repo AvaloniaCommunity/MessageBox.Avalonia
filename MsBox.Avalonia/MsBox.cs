@@ -78,7 +78,7 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
     /// </summary>
     /// <param name="owner">Window owner </param>
     /// <returns></returns>
-    public Task<T> ShowWindowDialogAsync(Window owner)
+    public async Task<T> ShowWindowDialogAsync(Window owner)
     {
         _viewModel.SetFullApi(_view);
         var window = new MsBoxWindow
@@ -95,8 +95,8 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
             window.Close();
         });
 
-        window.ShowDialog(owner);
-        return tcs.Task;
+        await window.ShowDialog(owner);
+        return await tcs.Task;
     }
 
     private readonly string ClickAwayParam = "MsBoxIdentifier_Cancel";
