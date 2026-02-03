@@ -141,4 +141,8 @@ public class InputParams
     ///  Input multiline
     /// </summary>
     public bool Multiline { get; set; }
+    /// <summary>
+    /// Input is password
+    /// </summary>
+    public bool IsPassword { get; set; }
 }

@@ -348,4 +348,49 @@ console.log(foo(5));
                 CloseOnClickAway = true
             }).ShowAsPopupAsync(this);
     }
+
+    private async void StandardInput_PopUp_OnClick(object? sender, RoutedEventArgs e)
+    {
+        var msBox = MessageBoxManager.GetMessageBoxStandard(
+            new MessageBoxStandardParams
+            {
+                ContentTitle = "Input",
+                Icon = MsBox.Avalonia.Enums.Icon.Question,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                CanResize = false,
+                MaxWidth = 500,
+                MaxHeight = 800,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ShowInCenter = true,
+                Topmost = false,
+                CloseOnClickAway = true,
+                InputParams = new InputParams { Label = "Your Name" }
+            });
+        await msBox.ShowAsPopupAsync(this);
+
+        Console.WriteLine("Your name is: " + msBox.InputValue);
+    }
+
+    private async void StandardInputPassword_PopUp_OnClick(object? sender, RoutedEventArgs e)
+    {
+        var msBox = MessageBoxManager.GetMessageBoxStandard(
+            new MessageBoxStandardParams
+            {
+                ContentTitle = "Password Input",
+                Icon = MsBox.Avalonia.Enums.Icon.Question,
+                WindowStartupLocation = WindowStartupLocation.CenterOwner,
+                CanResize = false,
+                MaxWidth = 500,
+                MaxHeight = 800,
+                SizeToContent = SizeToContent.WidthAndHeight,
+                ShowInCenter = true,
+                Topmost = false,
+                CloseOnClickAway = true,
+                InputParams = new InputParams { Label = "Your Password", IsPassword = true, }
+            });
+
+        await msBox.ShowAsPopupAsync(this);
+
+        Console.WriteLine("Your password is: " + msBox.InputValue);
+    }
 }
