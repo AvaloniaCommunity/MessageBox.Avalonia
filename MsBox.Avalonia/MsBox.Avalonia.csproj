@@ -29,7 +29,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Avalonia" Version="11.1.5" />
-        <PackageReference Include="DialogHost.Avalonia" Version="0.9.2" />
+        <PackageReference Include="DialogHost.Avalonia" Version="0.8.1" />
     </ItemGroup>
     <ItemGroup>
         <None Update="icon.jpg">
