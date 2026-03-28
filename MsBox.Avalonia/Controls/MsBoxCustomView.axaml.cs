@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.LogicalTree;
 using Avalonia.Threading;
 
@@ -46,12 +47,12 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
     public Task Copy()
     {
         var clipboard = TopLevel.GetTopLevel(this).Clipboard;
-        DataTransfer copier = new();
-        if (string.IsNullOrEmpty(ContentTextBox.SelectedText))
+        var text = ContentTextBox.SelectedText;
+        if (string.IsNullOrEmpty(text))
         {
-            copier.Add(DataTransferItem.CreateText(ContentTextBox.SelectedText));
+            text = (DataContext as AbstractMsBoxViewModel)?.ContentMessage;
         }
-        return clipboard?.SetDataAsync(copier);
+        return ClipboardExtensions.SetTextAsync(clipboard, text);
     }
 
     public void Close()
