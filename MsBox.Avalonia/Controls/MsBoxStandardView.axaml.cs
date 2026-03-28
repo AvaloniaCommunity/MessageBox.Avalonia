@@ -1,7 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using Avalonia.Input;
 using Avalonia.Input.Platform;
 using Avalonia.LogicalTree;
 using Avalonia.Threading;
