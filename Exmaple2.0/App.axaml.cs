@@ -12,6 +12,10 @@ public partial class App : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
+//Uncomment these lines to use the new Dev Tools (part of Avalonia Plus or higher).
+//#if DEBUG
+     //   this.AttachDeveloperTools();
+//#endif
     }
 
     public override void OnFrameworkInitializationCompleted()

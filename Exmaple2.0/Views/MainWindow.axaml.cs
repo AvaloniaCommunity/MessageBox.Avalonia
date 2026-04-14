@@ -24,10 +24,6 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-#if DEBUG
-        this.AttachDevTools();
-
-#endif
     }
 
     private async void Standard_Show_OnClick(object sender, RoutedEventArgs e)
