@@ -28,7 +28,7 @@
         <AvaloniaResource Include="Assets\*" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Markdown.Avalonia" Version="11.0.2" />
+        <PackageReference Include="Markdown.Avalonia" Version="12.0.0-a3" />
     </ItemGroup>
     <ItemGroup>
         <None Update="..\MsBox.Avalonia\icon.jpg">
