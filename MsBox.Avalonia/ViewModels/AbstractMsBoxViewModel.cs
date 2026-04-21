@@ -49,7 +49,7 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
         WindowIconPath = @params.WindowIcon;
         SizeToContent = @params.SizeToContent;
         LocationOfMyWindow = @params.WindowStartupLocation;
-        SystemDecorations = @params.SystemDecorations;
+        WindowDecorations = @params.WindowDecorations;
         Topmost = @params.Topmost;
         CloseOnClickAway = @params.CloseOnClickAway;
 
@@ -87,7 +87,7 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
     public double MaxHeight { get; set; }
     public double Height { get; set; }
 
-    public SystemDecorations SystemDecorations { get; set; }
+    public WindowDecorations WindowDecorations { get; set; }
     public bool Topmost { get; set; }
 
     public SizeToContent SizeToContent { get; set; } = SizeToContent.Height;

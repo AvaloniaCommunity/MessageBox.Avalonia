@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Input.Platform;
 using Avalonia.LogicalTree;
 using Avalonia.Threading;
 
@@ -50,7 +51,7 @@ public partial class MsBoxCustomView : UserControl, IFullApi<string>, ISetCloseA
         {
             text = (DataContext as AbstractMsBoxViewModel)?.ContentMessage;
         }
-        return clipboard?.SetTextAsync(text);
+        return ClipboardExtensions.SetTextAsync(clipboard, text);
     }
 
     public void Close()

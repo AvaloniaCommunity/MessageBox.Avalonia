@@ -8,7 +8,7 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-       <SimpleTheme></SimpleTheme>
+       <SimpleTheme />
         <StyleInclude Source="avares://MsBox.Avalonia.Markdown/Controls/MarkdownView.axaml" />
     </Application.Styles>
 
