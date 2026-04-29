@@ -153,6 +153,38 @@ public class MsBox<V, VM, T> : IMsBox<T> where V : UserControl, IFullApi<T>, ISe
             {
                 owner.Styles.Remove(style);
             }
+
+            tcs.TrySetResult(r);
+        });
+        DialogHost.Show(_view, dh.Identifier);
+        return tcs.Task;
+    }
+
+    public Task<T> ShowAsPopupAsync(DialogHost dh)
+    {
+        _viewModel.SetFullApi(_view);
+
+        dh.CloseOnClickAway = false;
+        if (_viewModel is AbstractMsBoxViewModel abv) dh.CloseOnClickAway = abv.CloseOnClickAway;
+        dh.CloseOnClickAwayParameter = ClickAwayParam;
+        dh.DialogClosing += (ss, ee) =>
+        {
+            if (ee.Parameter?.ToString() == ClickAwayParam)
+            {
+                _view.Close();
+            }
+        };
+
+        var tcs = new TaskCompletionSource<T>();
+        _view.SetCloseAction(() =>
+        {
+            var r = _view.GetButtonResult();
+
+            if (dh.CurrentSession != null && dh.CurrentSession.IsEnded == false)
+            {
+                DialogHost.Close(dh.Identifier);
+            }
+
             tcs.TrySetResult(r);
         });
         DialogHost.Show(_view, dh.Identifier);
