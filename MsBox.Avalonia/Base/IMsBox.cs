@@ -1,5 +1,7 @@
 using Avalonia.Controls;
 
+using DialogHostAvalonia;
+
 namespace MsBox.Avalonia.Base;
 
 public interface IMsBox<T>
@@ -32,6 +34,13 @@ public interface IMsBox<T>
     /// <param name="owner"></param>
     /// <returns></returns>
     Task<T> ShowAsPopupAsync(ContentControl owner);
+    
+    /// <summary>
+    ///  Show messagebox as popup
+    /// </summary>
+    /// <param name="owner"></param>
+    /// <returns></returns>
+    Task<T> ShowAsPopupAsync(DialogHost owner);
 
     /// <summary>
     /// Show messagebox as popup with owner
