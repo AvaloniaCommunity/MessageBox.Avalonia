@@ -12,10 +12,7 @@ public partial class App : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
-//Uncomment these lines to use the new Dev Tools (part of Avalonia Plus or higher).
-//#if DEBUG
-     //   this.AttachDeveloperTools();
-//#endif
+        this.AttachDeveloperTools();
     }
 
     public override void OnFrameworkInitializationCompleted()
@@ -27,7 +24,7 @@ public partial class App : Application
                 DataContext = new MainWindowViewModel(),
             };
         }
-
+        
         base.OnFrameworkInitializationCompleted();
     }
 }

@@ -31,14 +31,7 @@
         <PackageReference Include="Markdown.Avalonia" Version="12.0.0-a3" />
     </ItemGroup>
     <ItemGroup>
-        <None Update="..\MsBox.Avalonia\icon.jpg">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
-        <None Update="icon.jpg">
-          <Pack>True</Pack>
-          <PackagePath></PackagePath>
-        </None>
+        <None Include="icon.jpg" Pack="true" PackagePath="\" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\MsBox.Avalonia\MsBox.Avalonia.csproj" />
