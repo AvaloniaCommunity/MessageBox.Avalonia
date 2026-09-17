@@ -146,7 +146,7 @@
                     IsVisible="{Binding IsYesShowed}" />
             <Button Classes="button no" Content="No" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
-                    IsCancel="True"
+                    IsCancel="{Binding IsNoCancel}"
                     IsVisible="{Binding IsNoShowed}" />
             <Button Classes="button abort" Content="Abort" Command="{Binding ButtonClickCommand}"
                     CommandParameter="{Binding $self.Content}"
