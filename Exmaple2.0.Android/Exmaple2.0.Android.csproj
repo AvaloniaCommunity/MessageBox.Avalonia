@@ -3,6 +3,7 @@
         <TargetFramework>net10.0-android36.0</TargetFramework>
         <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
         <Nullable>enable</Nullable>
+        <RootNamespace>Exmaple2._0.Android</RootNamespace>
         <ApplicationId>com.avaloniacommunity.msbox.example</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
