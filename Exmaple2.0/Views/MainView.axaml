@@ -1,28 +1,22 @@
-<Window xmlns="https://github.com/avaloniaui"
+<UserControl xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:Exmaple2._0.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Exmaple2._0.Views.MainWindow"
+        x:Class="Exmaple2._0.Views.MainView"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="Exmaple2._0">
+        Padding="8">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
-
-    <Window.Styles>
+    <UserControl.Styles>
         <Style Selector="Button.View">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Height" Value="100" />
+            <Setter Property="Height" Value="64" />
+            <Setter Property="Margin" Value="0,0,0,6" />
         </Style>
-    </Window.Styles>
+    </UserControl.Styles>
   <ScrollViewer>
     <StackPanel>
       <Button Name="Standard_Show"  Classes="View" Click="Standard_Show_OnClick" Content="Standard Show"/>
@@ -36,7 +30,10 @@
       <Button Name="Custom_Dialog"  Classes="View"  Click="Custom_Dialog_OnClick" Content="Custom dialog with image"/>
       <Button Name="Custom_PopUp"  Classes="View" Click="Custom_PopUp_OnClick" Content="Custom popup"/>
 
+      <Button Name="Popup_Twice"  Classes="View" Click="Popup_Twice_OnClick" Content="Popup twice in a row"/>
+      <Button Name="Popup_Background"  Classes="View" Click="Popup_Background_OnClick" Content="Popup with custom background"/>
+      <Button Name="Close_FromCode"  Classes="View" Click="Close_FromCode_OnClick" Content="Close from code after 2 seconds"/>
       <Button Name="Custom_CloseClickAway"  Classes="View" Click="Custom_CloseClickAway_OnClick" Content="Custom CloseClickAway"/>
     </StackPanel>
   </ScrollViewer>
-</Window>
+</UserControl>

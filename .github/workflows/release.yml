@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+            11.0.x
+          dotnet-quality: preview
+
+      - name: Build
+        run: |
+          dotnet build MsBox.Avalonia/MsBox.Avalonia.csproj -c Release
+          dotnet build MsBox.Avalonia.Markdown/MsBox.Avalonia.Markdown.csproj -c Release
+
+      - name: Pack
+        run: |
+          dotnet pack MsBox.Avalonia/MsBox.Avalonia.csproj -c Release --no-build -o artifacts
+          dotnet pack MsBox.Avalonia.Markdown/MsBox.Avalonia.Markdown.csproj -c Release --no-build -o artifacts
+
+      - name: Push to NuGet
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*.nupkg
+          generate_release_notes: true
