@@ -10,7 +10,8 @@
         <RepositoryUrl>messagebox.avalonia</RepositoryUrl>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageTags>Avalonia MessageBox</PackageTags>
-        <TargetFrameworks>net11.0;net10.0;net8.0</TargetFrameworks>
+        <TargetFrameworks>net10.0;net8.0</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::VersionGreaterThanOrEquals($(NETCoreSdkVersion), 11.0))">net11.0;net10.0;net8.0</TargetFrameworks>
         <LangVersion>latest</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>

@@ -4,6 +4,7 @@
         <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
         <Nullable>enable</Nullable>
         <RootNamespace>Exmaple2._0.Android</RootNamespace>
+        <AssemblyName>MsBoxExample</AssemblyName>
         <ApplicationId>com.avaloniacommunity.msbox.example</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
