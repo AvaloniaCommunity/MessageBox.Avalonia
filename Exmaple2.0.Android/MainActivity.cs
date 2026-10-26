@@ -1,8 +1,9 @@
+using System;
+
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 
-using Avalonia;
 using Avalonia.Android;
 
 namespace Exmaple2._0.Android;
@@ -13,11 +14,6 @@ public class AndroidApp : AvaloniaAndroidApplication<App>
     protected AndroidApp(IntPtr javaReference, JniHandleOwnership transfer)
         : base(javaReference, transfer)
     {
-    }
-
-    protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
-    {
-        return base.CustomizeAppBuilder(builder);
     }
 }
 
