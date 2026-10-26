@@ -1,3 +1,4 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 
@@ -112,6 +113,21 @@ public abstract class AbstractMessageBoxParams
     /// param to set closeOnClickAway
     /// </summary>
     public bool CloseOnClickAway { get; set; } = false;
+
+    /// <summary>
+    /// Background of messagebox
+    /// </summary>
+    public IBrush? Background { get; set; }
+
+    /// <summary>
+    /// Window position on screen, switches startup location to manual
+    /// </summary>
+    public PixelPoint? Position { get; set; }
+
+    /// <summary>
+    /// Style classes added to messagebox view
+    /// </summary>
+    public IEnumerable<string>? Classes { get; set; }
 }
 
 public class HyperLinkParams

@@ -1,14 +1,17 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 
 using Exmaple2._0.ViewModels;
 
 using MsBox.Avalonia;
+using MsBox.Avalonia.Base;
 using MsBox.Avalonia.Controls;
 using MsBox.Avalonia.Dto;
 using MsBox.Avalonia.Enums;
@@ -19,14 +22,49 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Exmaple2._0.Views;
 
-public partial class MainWindow : Window
+public partial class MainView : UserControl
 {
-    public MainWindow()
+    public MainView()
     {
         InitializeComponent();
     }
 
-    private async void Standard_Show_OnClick(object sender, RoutedEventArgs e)
+    private Task<T> ShowDialog<T>(IMsBox<T> box)
+    {
+        return TopLevel.GetTopLevel(this) is Window window
+            ? box.ShowWindowDialogAsync(window)
+            : box.ShowAsync();
+    }
+
+    private async void Popup_Twice_OnClick(object? sender, RoutedEventArgs e)
+    {
+        await MessageBoxManager.GetMessageBoxStandard("First", "First popup", ButtonEnum.Ok).ShowAsPopupAsync(this);
+        await MessageBoxManager.GetMessageBoxStandard("Second", "Second popup", ButtonEnum.YesNo).ShowAsPopupAsync(this);
+    }
+
+    private async void Popup_Background_OnClick(object? sender, RoutedEventArgs e)
+    {
+        var box = MessageBoxManager.GetMessageBoxStandard(new MessageBoxStandardParams
+        {
+            ContentTitle = "Background",
+            ContentMessage = "Popup with custom background",
+            ButtonDefinitions = ButtonEnum.Ok,
+            Background = Brushes.LightSteelBlue,
+            Classes = ["accent"]
+        });
+        await box.ShowAsPopupAsync(this);
+    }
+
+    private async void Close_FromCode_OnClick(object? sender, RoutedEventArgs e)
+    {
+        var box = MessageBoxManager.GetMessageBoxStandard("Caption", "Closes itself in 2 seconds", ButtonEnum.Ok);
+        var shown = box.ShowAsync();
+        await Task.Delay(2000);
+        box.Close();
+        await shown;
+    }
+
+    private async void Standard_Show_OnClick(object? sender, RoutedEventArgs e)
     {
         var box = MessageBoxManager
             .GetMessageBoxStandard("Caption", "Are you sure you would like to delete appender_replace_page_1?",
@@ -35,7 +73,7 @@ public partial class MainWindow : Window
         var result = await box.ShowAsPopupAsync(this);
     }
 
-    private async void Standard_Context_Show_OnClick(object sender, RoutedEventArgs e)
+    private async void Standard_Context_Show_OnClick(object? sender, RoutedEventArgs e)
     {
         var box = MessageBoxManager
             .GetMessageBoxStandard(
@@ -47,7 +85,7 @@ public partial class MainWindow : Window
         var result = await box.ShowAsPopupAsync(this);
     }
 
-    private async void Standard_Dialog_OnClick(object sender, RoutedEventArgs e)
+    private async void Standard_Dialog_OnClick(object? sender, RoutedEventArgs e)
     {
         int maxWidth = 500;
         int maxHeight = 800;
@@ -56,7 +94,6 @@ public partial class MainWindow : Window
             {
                 ButtonDefinitions = ButtonEnum.Ok,
                 ContentTitle = "title",
-                //ContentHeader = header,
                 ContentMessage = "Informative note:\n\n" +
                                  string.Concat(Enumerable.Repeat(
                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n",
@@ -71,12 +108,12 @@ public partial class MainWindow : Window
                 Topmost = false
             });
 
-        var result = await box.ShowWindowDialogAsync(this);
+        var result = await ShowDialog(box);
         var i = 0;
     }
 
 
-    private async void Standard_Popup_OnClick(object sender, RoutedEventArgs e)
+    private async void Standard_Popup_OnClick(object? sender, RoutedEventArgs e)
     {
         int maxWidth = 500;
         int maxHeight = 800;
@@ -85,7 +122,6 @@ public partial class MainWindow : Window
             {
                 ButtonDefinitions = ButtonEnum.Ok,
                 ContentTitle = "title",
-                //ContentHeader = header,
                 ContentMessage = "Informative note:\n\n" +
                                  string.Concat(Enumerable.Repeat(
                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut pulvinar est, eget porttitor magna. Maecenas nunc elit, pretium nec mauris vel, cursus faucibus leo. Mauris consequat magna vel mi malesuada semper. Donec nunc justo, rhoncus vel viverra a, ultrices vel nibh. Praesent ut libero a nunc placerat vulputate. Morbi ullamcorper pharetra lectus, ut lobortis ex consequat sit amet. Vestibulum pellentesque quam at justo hendrerit, et tincidunt nisl mattis. Curabitur eu nibh enim.\n",
@@ -103,7 +139,7 @@ public partial class MainWindow : Window
         var result = await box.ShowAsPopupAsync(this);
     }
 
-    private void Custom_Dialog_OnClick(object sender, RoutedEventArgs e)
+    private void Custom_Dialog_OnClick(object? sender, RoutedEventArgs e)
     {
         var dialog = MessageBoxManager.GetMessageBoxCustom(
             new MessageBoxCustomParams
@@ -134,7 +170,6 @@ public partial class MainWindow : Window
                         var url = "https://docs.avaloniaui.net/";
                         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                         {
-                            //https://stackoverflow.com/a/2796367/241446
                             using var proc = new Process { StartInfo = { UseShellExecute = true, FileName = url } };
                             proc.Start();
 
@@ -155,10 +190,10 @@ public partial class MainWindow : Window
                 }
             });
 
-        dialog.ShowWindowDialogAsync(this);
+        ShowDialog(dialog);
     }
 
-    private async void Custom_PopUp_OnClick(object sender, RoutedEventArgs e)
+    private async void Custom_PopUp_OnClick(object? sender, RoutedEventArgs e)
     {
         var box = MessageBoxManager.GetMessageBoxCustom(
             new MessageBoxCustomParams
@@ -210,7 +245,7 @@ public partial class MainWindow : Window
         var result = await box.ShowAsPopupAsync(this);
     }
 
-    private async void Custom_MarkDown_OnClick(object sender, RoutedEventArgs e)
+    private async void Custom_MarkDown_OnClick(object? sender, RoutedEventArgs e)
     {
         const int maxWidth = 800;
         const int maxHeight = 700;
@@ -258,7 +293,6 @@ Inline `code`
 
 Indented code
 
-    // Some comments
     line 1 of code
 
 
@@ -303,7 +337,7 @@ console.log(foo(5));
         var result = await box.ShowAsync();
     }
 
-    private async void Custom_CloseClickAway_OnClick(object sender, RoutedEventArgs e)
+    private async void Custom_CloseClickAway_OnClick(object? sender, RoutedEventArgs e)
     {
         var result = await MessageBoxManager.GetMessageBoxCustom(
             new MessageBoxCustomParams

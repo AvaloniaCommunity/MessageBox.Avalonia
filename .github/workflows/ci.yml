@@ -1,0 +1,85 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  libraries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+            11.0.x
+          dotnet-quality: preview
+
+      - name: Build libraries
+        run: |
+          dotnet build MsBox.Avalonia/MsBox.Avalonia.csproj -c Release
+          dotnet build MsBox.Avalonia.Markdown/MsBox.Avalonia.Markdown.csproj -c Release
+
+      - name: Pack
+        run: |
+          dotnet pack MsBox.Avalonia/MsBox.Avalonia.csproj -c Release --no-build -o artifacts
+          dotnet pack MsBox.Avalonia.Markdown/MsBox.Avalonia.Markdown.csproj -c Release --no-build -o artifacts
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: packages
+          path: artifacts/*.nupkg
+
+  desktop-example:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+            11.0.x
+          dotnet-quality: preview
+
+      - name: Build desktop example
+        run: dotnet build Exmaple2.0.Desktop/Exmaple2.0.Desktop.csproj -c Release
+
+  mobile-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+            11.0.x
+          dotnet-quality: preview
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: microsoft
+          java-version: 21
+
+      - name: Install workloads
+        run: dotnet workload restore Exmaple2.0.Android/Exmaple2.0.Android.csproj Exmaple2.0.Browser/Exmaple2.0.Browser.csproj
+
+      - name: Build Android example
+        run: dotnet build Exmaple2.0.Android/Exmaple2.0.Android.csproj -c Release
+
+      - name: Build Browser example
+        run: dotnet build Exmaple2.0.Browser/Exmaple2.0.Browser.csproj -c Release

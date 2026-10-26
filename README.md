@@ -42,11 +42,17 @@ You have a lot of options how to show your messagebox:
       
       If application is ClassicDesktopStyleApplicationLifetime (Desktop) then show messagebox as window
 
-`ShowWindowAsync` - Show messagebox as window
+`ShowWindowAsync` - Show messagebox as window, optionally with owner (non-modal)
 
 `ShowWindowDialogAsync` - Show messagebox as window with owner
 
-`ShowAsPopupAsync` - Show messagebox as popup
+`ShowAsPopupAsync` - Show messagebox as popup over the owner. Works on desktop, Android and Browser
+
+`Close` - Close messagebox from code
+
+`MessageBoxStandardParams` and `MessageBoxCustomParams` also accept `Background`, `Position` and `Classes`.
+
+Samples for Desktop, Android and Browser are in `Exmaple2.0.Desktop`, `Exmaple2.0.Android` and `Exmaple2.0.Browser`.
 
 
 HyperLink with powerfull options:

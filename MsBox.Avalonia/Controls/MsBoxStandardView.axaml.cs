@@ -74,6 +74,7 @@ public partial class MsBoxStandardView : UserControl, IFullApi<ButtonResult>, IS
     public void Close()
     {
         _closeAction?.Invoke();
+        embeddedView.Content = null;
     }
 
     public void CloseWindow(object sender, EventArgs eventArgs)
