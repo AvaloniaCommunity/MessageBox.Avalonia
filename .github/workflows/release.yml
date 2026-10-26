@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   publish:
@@ -31,10 +32,14 @@ jobs:
           dotnet pack MsBox.Avalonia/MsBox.Avalonia.csproj -c Release --no-build -o artifacts
           dotnet pack MsBox.Avalonia.Markdown/MsBox.Avalonia.Markdown.csproj -c Release --no-build -o artifacts
 
+      - name: NuGet login
+        id: login
+        uses: NuGet/login@v1
+        with:
+          user: Larymar
+
       - name: Push to NuGet
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: dotnet nuget push "artifacts/*.nupkg" --api-key "$NUGET_API_KEY" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - uses: softprops/action-gh-release@v2
         with:
