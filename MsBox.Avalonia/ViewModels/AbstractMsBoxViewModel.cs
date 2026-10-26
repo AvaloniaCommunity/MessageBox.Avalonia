@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
@@ -52,6 +53,9 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
         WindowDecorations = @params.WindowDecorations;
         Topmost = @params.Topmost;
         CloseOnClickAway = @params.CloseOnClickAway;
+        Background = @params.Background;
+        Position = @params.Position;
+        Classes = @params.Classes?.ToArray() ?? [];
 
         if (@params.HyperLinkParams != null)
         {
@@ -97,6 +101,9 @@ public abstract class AbstractMsBoxViewModel : INotifyPropertyChanged, IInput
 
     public event PropertyChangedEventHandler PropertyChanged;
     public bool CloseOnClickAway { get; private set; }
+    public IBrush? Background { get; }
+    public PixelPoint? Position { get; }
+    public IReadOnlyList<string> Classes { get; }
 
     #region Hyperlink properties
     public abstract RelayCommand HyperLinkCommand { get; set; }

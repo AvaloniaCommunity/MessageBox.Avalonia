@@ -10,6 +10,7 @@ public partial class MsBoxWindow : Window
         InitializeComponent();
         ShowInTaskbar = false;
         CanResize = false;
+        CanMinimize = false;
     }
 
     public async void CloseSafe()

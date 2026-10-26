@@ -101,7 +101,7 @@
 
         </Grid>
         <!--Input-->
-        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsInputVisible}" Margin="0,0,0,15">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
@@ -115,7 +115,7 @@
         </Grid>
         <!--Buttons-->
         <ItemsControl Name="ButtonItemsPresenter" Classes="buttons-item-presenter"
-                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="2"
+                      ItemsSource="{Binding ButtonDefinitions}" Grid.Row="3"
                       Grid.Column="0" Grid.ColumnSpan="2"
                       HorizontalAlignment="Right">
             <ItemsControl.ItemsPanel>

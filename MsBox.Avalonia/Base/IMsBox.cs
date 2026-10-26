@@ -22,6 +22,13 @@ public interface IMsBox<T>
     Task<T> ShowWindowAsync();
 
     /// <summary>
+    ///  Show messagebox as non-modal window with owner
+    /// </summary>
+    /// <param name="owner">Window owner </param>
+    /// <returns></returns>
+    Task<T> ShowWindowAsync(Window owner);
+
+    /// <summary>
     ///  Show messagebox as window with owner
     /// </summary>
     /// <param name="owner">Window owner </param>
@@ -48,6 +55,11 @@ public interface IMsBox<T>
     /// <param name="owner"></param>
     /// <returns></returns>
     Task<T> ShowAsPopupAsync(Window owner);
+
+    /// <summary>
+    /// Close messagebox from code
+    /// </summary>
+    void Close();
 
     string InputValue { get; }
 }
