@@ -42,6 +42,7 @@ public class MsBoxStandardViewModel : AbstractMsBoxViewModel, ISetFullApi<Button
     public bool IsNoShowed { get; private set; }
     public bool IsAbortShowed { get; private set; }
     public bool IsCancelShowed { get; private set; }
+    public bool IsNoCancel => !IsCancelShowed && !IsAbortShowed;
 
     #region Hyperlink properties
     public override RelayCommand HyperLinkCommand { get; set; }
